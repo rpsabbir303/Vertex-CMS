@@ -1,0 +1,575 @@
+@tailwind base;
+
+@tailwind components;
+
+@tailwind utilities;
+
+
+
+/* Base layout — outside @layer so width rules always apply */
+
+html {
+
+  width: 100%;
+
+  scroll-behavior: smooth;
+
+}
+
+
+
+body {
+
+  width: 100%;
+
+  min-height: 100%;
+
+  margin: 0;
+
+  color: #0b1220;
+
+  background: #ffffff;
+
+  -webkit-font-smoothing: antialiased;
+
+  text-rendering: optimizeLegibility;
+
+}
+
+
+
+main {
+
+  width: 100%;
+
+}
+
+
+
+svg {
+
+  flex-shrink: 0;
+
+  max-width: none;
+
+}
+
+
+
+@keyframes hero-image-zoom {
+
+  from {
+
+    transform: scale(1);
+
+  }
+
+  to {
+
+    transform: scale(1.06);
+
+  }
+
+}
+
+
+
+@media (prefers-reduced-motion: reduce) {
+
+  html {
+
+    scroll-behavior: auto;
+
+  }
+
+
+
+  *,
+
+  *::before,
+
+  *::after {
+
+    animation-duration: 0.01ms !important;
+
+    animation-iteration-count: 1 !important;
+
+    transition-duration: 0.01ms !important;
+
+  }
+
+
+
+  .hero-image-zoom {
+
+    animation: none !important;
+
+    transform: none !important;
+
+  }
+
+}
+
+
+
+@layer components {
+
+  .site-shell {
+
+    @apply mx-auto w-full max-w-[1280px] px-5 sm:px-6 lg:px-10 xl:px-12;
+
+  }
+
+
+
+  .prose-width {
+
+    @apply max-w-[36rem];
+
+  }
+
+
+
+  .btn-primary {
+
+    @apply inline-flex items-center justify-center gap-2.5 rounded-sm bg-brand-orange px-6 py-3.5 text-[13px] font-semibold uppercase tracking-wide text-white transition-all duration-300 hover:bg-[#e85f00] hover:gap-3;
+
+  }
+
+
+
+  .btn-secondary {
+
+    @apply inline-flex items-center justify-center gap-2 rounded-sm border border-slate-200 bg-white px-6 py-3.5 text-[13px] font-semibold text-brand-navy transition hover:border-brand-navy/30 hover:bg-brand-soft;
+
+  }
+
+
+
+  .btn-ghost {
+
+    @apply inline-flex items-center gap-2 text-[13px] font-semibold uppercase tracking-wide text-brand-orange transition-all duration-300 hover:gap-3;
+
+  }
+
+
+
+  .btn-ghost-light {
+
+    @apply inline-flex items-center gap-2 text-[13px] font-semibold uppercase tracking-wide text-white transition-all duration-300 hover:gap-3 hover:text-brand-orange;
+
+  }
+
+
+
+  .eyebrow {
+
+    @apply text-[11px] font-semibold uppercase tracking-[0.22em] text-brand-orange;
+
+  }
+
+
+
+  .display-title {
+
+    @apply font-display font-bold tracking-tight text-brand-navy;
+
+  }
+
+
+
+  .display-title-light {
+
+    @apply font-display font-bold tracking-tight text-white;
+
+  }
+
+
+
+  .body-copy {
+
+    @apply text-base leading-[1.75] text-brand-muted sm:text-lg;
+
+  }
+
+
+
+  .section-spacing {
+
+    @apply py-16 sm:py-24 lg:py-28 xl:py-32;
+
+  }
+
+
+
+  .section-spacing-lg {
+
+    @apply py-20 sm:py-28 lg:py-36 xl:py-40;
+
+  }
+
+
+
+  .hero-height {
+
+    @apply min-h-[580px] sm:min-h-[640px] lg:min-h-[720px] xl:min-h-[780px];
+
+  }
+
+
+
+  .hero-image-zoom {
+
+    animation: hero-image-zoom 22s ease-out forwards;
+
+  }
+
+
+
+  .image-hover-zoom {
+
+    @apply transition-transform duration-700 ease-out group-hover:scale-[1.03];
+
+  }
+
+
+
+  .editorial-line {
+
+    @apply absolute left-0 top-1 h-20 w-px bg-brand-orange;
+
+  }
+
+
+
+  .mock-frame {
+
+    @apply overflow-hidden rounded-2xl border border-slate-200/90 bg-white shadow-[0_24px_60px_-28px_rgba(8,35,63,0.35)];
+
+  }
+
+
+
+  .container-wide {
+
+    @apply mx-auto w-full max-w-[1280px] px-5 sm:px-6 lg:px-10;
+
+  }
+
+
+
+  .ui-kpi {
+
+    @apply rounded-lg border border-slate-200 bg-white px-3 py-2.5;
+
+  }
+
+
+
+  .ui-card {
+
+    @apply rounded-xl border border-slate-200 bg-white;
+
+  }
+
+
+
+  .ui-label {
+
+    @apply text-[10px] font-semibold uppercase tracking-wide text-brand-muted;
+
+  }
+
+
+
+  .ui-muted {
+
+    @apply text-[10px] text-brand-muted;
+
+  }
+
+
+
+  .phone-shell {
+
+    @apply overflow-hidden rounded-[2rem] border-[6px] border-slate-800 bg-white shadow-product;
+
+  }
+
+
+
+  .eyebrow-light {
+
+    @apply text-[11px] font-semibold uppercase tracking-[0.22em] text-brand-orange;
+
+  }
+
+}
+
+
+
+.reveal {
+
+  opacity: 0;
+
+  transform: translateY(22px);
+
+  transition: opacity 0.75s ease, transform 0.75s ease;
+
+}
+
+
+
+.reveal.visible {
+
+  opacity: 1;
+
+  transform: translateY(0);
+
+}
+
+
+
+.showcase-tile-glow {
+
+  background: radial-gradient(circle at 50% 40%, rgba(20, 110, 245, 0.16), transparent 65%);
+
+}
+
+
+
+@media (prefers-reduced-motion: reduce) {
+
+  .showcase-tile:hover > div {
+
+    transform: none !important;
+
+  }
+
+}
+
+
+
+@keyframes mega-menu-enter {
+
+  from {
+
+    opacity: 0;
+
+    transform: translateY(-8px);
+
+  }
+
+  to {
+
+    opacity: 1;
+
+    transform: translateY(0);
+
+  }
+
+}
+
+
+
+.mega-menu-enter {
+
+  animation: mega-menu-enter 180ms ease-out;
+
+}
+
+
+
+@media (prefers-reduced-motion: reduce) {
+
+  .mega-menu-enter {
+
+    animation: none;
+
+  }
+
+}
+
+
+
+.mega-content-fade {
+
+  transition: opacity 150ms ease-out;
+
+}
+
+
+
+@media (prefers-reduced-motion: reduce) {
+
+  .mega-content-fade {
+
+    transition: none;
+
+  }
+
+}
+
+
+
+/* —— Vertex CMS homepage OS language —— */
+
+.home-os {
+
+  --home-ink: #040b14;
+
+  --home-panel: #0a1628;
+
+  --home-elevated: #0f1f35;
+
+  --home-line: rgba(148, 163, 184, 0.14);
+
+  color: #e8eef7;
+
+  background: var(--home-ink);
+
+}
+
+
+
+.home-os .site-shell {
+
+  max-width: 1320px;
+
+}
+
+
+
+.home-grid {
+
+  background-image:
+
+    linear-gradient(rgba(148, 163, 184, 0.05) 1px, transparent 1px),
+
+    linear-gradient(90deg, rgba(148, 163, 184, 0.05) 1px, transparent 1px);
+
+  background-size: 48px 48px;
+
+}
+
+
+
+.home-display {
+
+  @apply font-display font-bold tracking-[-0.03em] text-white;
+
+}
+
+
+
+.home-body {
+
+  @apply text-base leading-[1.7] text-slate-400 sm:text-lg;
+
+}
+
+
+
+.home-label {
+
+  @apply text-[11px] font-semibold uppercase tracking-[0.2em] text-brand-blue;
+
+}
+
+
+
+.btn-home-primary {
+
+  @apply inline-flex items-center justify-center gap-2 rounded-md bg-brand-orange px-6 py-3.5 text-[13px] font-semibold text-white transition hover:bg-[#e85f00];
+
+}
+
+
+
+.btn-home-secondary {
+
+  @apply inline-flex items-center justify-center gap-2 rounded-md border border-white/15 bg-white/5 px-6 py-3.5 text-[13px] font-semibold text-white transition hover:border-white/30 hover:bg-white/10;
+
+}
+
+
+
+.home-panel {
+
+  border: 1px solid var(--home-line);
+
+  background: linear-gradient(180deg, rgba(15, 31, 53, 0.95), rgba(10, 22, 40, 0.98));
+
+  border-radius: 1rem;
+
+}
+
+
+
+.home-node {
+
+  @apply rounded-full border border-white/15 bg-brand-panel/90 px-3 py-1.5 text-[10px] font-semibold uppercase tracking-[0.12em] text-slate-200 shadow-[0_8px_24px_-12px_rgba(0,0,0,0.6)];
+
+}
+
+
+
+@keyframes home-pulse-line {
+
+  0%, 100% { opacity: 0.25; }
+
+  50% { opacity: 0.7; }
+
+}
+
+
+
+.home-pulse-line {
+
+  animation: home-pulse-line 3.2s ease-in-out infinite;
+
+}
+
+
+
+@keyframes home-sync {
+
+  0% { transform: scaleX(0); opacity: 0.4; }
+
+  50% { transform: scaleX(1); opacity: 1; }
+
+  100% { transform: scaleX(0); opacity: 0.4; transform-origin: right; }
+
+}
+
+
+
+.home-sync-bar {
+
+  transform-origin: left;
+
+  animation: home-sync 2.8s ease-in-out infinite;
+
+}
+
+
+
+@media (prefers-reduced-motion: reduce) {
+
+  .home-pulse-line,
+
+  .home-sync-bar,
+
+  .animate-float,
+
+  .animate-float-slow,
+
+  .animate-float-delay {
+
+    animation: none !important;
+
+  }
+
+}
+
+
