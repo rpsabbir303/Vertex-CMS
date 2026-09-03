@@ -5,8 +5,24 @@ import { useEffect, useRef } from "react";
 import { ArrowRight } from "@/components/Icons";
 import { CTAS } from "@/lib/marketing/navigation";
 
-const NODES = [
-  { id: "projects", label: "Projects", x: 8, y: 18, depth: "orange" },
+type HeroTone = "orange" | "blue" | "teal" | "cyan" | "violet" | "emerald";
+
+type HeroNode = {
+  id: string;
+  label: string;
+  x: number;
+  y: number;
+  tone: HeroTone;
+};
+
+type HeroFloat = {
+  title: string;
+  value: string;
+  tone: HeroTone;
+};
+
+const NODES: readonly HeroNode[] = [
+  { id: "projects", label: "Projects", x: 8, y: 18, tone: "orange" },
   { id: "financial", label: "Financial", x: 88, y: 14, tone: "blue" },
   { id: "field", label: "Field", x: 4, y: 52, tone: "teal" },
   { id: "documents", label: "Documents", x: 92, y: 48, tone: "cyan" },
@@ -14,18 +30,18 @@ const NODES = [
   { id: "ai", label: "AI", x: 86, y: 78, tone: "violet" },
   { id: "people", label: "People", x: 28, y: 6, tone: "cyan" },
   { id: "schedule", label: "Schedule", x: 72, y: 90, tone: "teal" },
-] as const;
+];
 
-const FLOATS = [
+const FLOATS: readonly HeroFloat[] = [
   { title: "Schedule Health", value: "ON TRACK", tone: "emerald" },
   { title: "AI Insight", value: "Material cost increasing", tone: "orange" },
   { title: "Change Orders", value: "3 Open", tone: "blue" },
   { title: "Field Status", value: "126 Daily Logs", tone: "cyan" },
   { title: "Safety", value: "Incident Free", tone: "emerald" },
   { title: "Cash Flow", value: "$4.3M", tone: "orange" },
-] as const;
+];
 
-function toneClass(tone: string) {
+function toneClass(tone: HeroTone) {
   switch (tone) {
     case "orange":
       return "border-brand-orange/30 text-brand-orange";
@@ -42,7 +58,7 @@ function toneClass(tone: string) {
   }
 }
 
-function valueTone(tone: string) {
+function valueTone(tone: HeroTone) {
   switch (tone) {
     case "orange":
       return "text-brand-orange";
