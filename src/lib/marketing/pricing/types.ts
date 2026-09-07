@@ -12,8 +12,8 @@ export type EntitlementValue = "included" | "excluded" | "addon";
 
 export type PlanCta = {
   label: string;
-  /** "trial" → signup with plan query; "demo" → demo route; "contact" → contact */
-  action: "trial" | "demo" | "contact";
+  /** "trial" → signup with plan query; "demo" → book demo; "quote" → request quote; "contact" → contact */
+  action: "trial" | "demo" | "quote" | "contact";
 };
 
 export type Plan = {
@@ -26,6 +26,11 @@ export type Plan = {
   currency: string;
   active: boolean;
   sort: number;
+  /**
+   * Trial length in days from plan configuration.
+   * null until synchronized from the plan/billing API — do not invent a duration in UI.
+   */
+  trialDays: number | null;
   /** Only set when product config marks a recommended plan */
   popular?: boolean;
   highlights: string[];

@@ -21,6 +21,12 @@ export const MARKETING_PAGES: Record<string, MarketingPageConfig> = {
       "Compare Vertex CMS plans for construction teams. Start a free trial or book a demo to find the right package.",
     breadcrumbs: [{ label: "Home", href: ROUTES.home }, { label: "Pricing" }],
   },
+  features: {
+    title: `Features | ${base}`,
+    description:
+      "Explore Vertex CMS by module, AI capability, and role — the connected construction management platform for projects, financials, field, compliance, and intelligence.",
+    breadcrumbs: [{ label: "Home", href: ROUTES.home }, { label: "Features" }],
+  },
   productTour: {
     title: `${base} Product Tour`,
     description: "Explore the Vertex CMS platform with screenshots and walkthroughs.",
@@ -88,7 +94,8 @@ export const MARKETING_PAGES: Record<string, MarketingPageConfig> = {
   },
   security: {
     title: `Security & Trust | ${base}`,
-    description: "Security, compliance, and data protection at Vertex CMS.",
+    description:
+      "Security, data protection, controlled access, compliance readiness, and operational reliability for Vertex CMS.",
     breadcrumbs: [{ label: "Home", href: ROUTES.home }, { label: "Security & Trust" }],
   },
   company: {
@@ -96,20 +103,59 @@ export const MARKETING_PAGES: Record<string, MarketingPageConfig> = {
     description: "About Vertex CMS and our team.",
     breadcrumbs: [{ label: "Home", href: ROUTES.home }, { label: "Company" }],
   },
+  team: {
+    title: `Team | ${base}`,
+    description: "Leadership, key roles, and careers at Vertex CMS.",
+    breadcrumbs: [
+      { label: "Home", href: ROUTES.home },
+      { label: "Company", href: ROUTES.company },
+      { label: "Team" },
+    ],
+  },
   careers: {
     title: `Careers | ${base}`,
-    description: "Careers at Vertex Software.",
-    breadcrumbs: [{ label: "Home", href: ROUTES.home }, { label: "Company", href: ROUTES.company }, { label: "Careers" }],
+    description: "Careers at Vertex CMS — join the team building construction management software.",
+    breadcrumbs: [
+      { label: "Home", href: ROUTES.home },
+      { label: "Company", href: ROUTES.company },
+      { label: "Careers" },
+    ],
   },
   legalDpa: {
-    title: `Data Processing Agreement | ${base}`,
-    description: "Vertex CMS data processing agreement.",
-    breadcrumbs: [{ label: "Home", href: ROUTES.home }, { label: "DPA" }],
+    title: `Data Processing Addendum | ${base}`,
+    description: "Data Processing Addendum for Vertex CMS customer data processing arrangements.",
+    breadcrumbs: [
+      { label: "Home", href: ROUTES.home },
+      { label: "Legal", href: ROUTES.legalTerms },
+      { label: "DPA" },
+    ],
   },
   legalCookies: {
     title: `Cookie Policy | ${base}`,
-    description: "Vertex CMS cookie policy.",
-    breadcrumbs: [{ label: "Home", href: ROUTES.home }, { label: "Cookie Policy" }],
+    description: "Cookie Policy for the Vertex CMS website, including cookie consent requirements.",
+    breadcrumbs: [
+      { label: "Home", href: ROUTES.home },
+      { label: "Legal", href: ROUTES.legalTerms },
+      { label: "Cookie Policy" },
+    ],
+  },
+  legalTerms: {
+    title: `Terms of Service | ${base}`,
+    description: "Vertex CMS terms of service for use of the platform.",
+    breadcrumbs: [
+      { label: "Home", href: ROUTES.home },
+      { label: "Legal", href: ROUTES.legalTerms },
+      { label: "Terms of Service" },
+    ],
+  },
+  legalPrivacy: {
+    title: `Privacy Policy | ${base}`,
+    description: "Vertex CMS privacy policy describing how personal information is handled.",
+    breadcrumbs: [
+      { label: "Home", href: ROUTES.home },
+      { label: "Legal", href: ROUTES.legalTerms },
+      { label: "Privacy Policy" },
+    ],
   },
   signup: {
     title: `Sign Up | ${base}`,
@@ -118,12 +164,12 @@ export const MARKETING_PAGES: Record<string, MarketingPageConfig> = {
   },
   demo: {
     title: `Book a Demo | ${base}`,
-    description: "Schedule a Vertex CMS product demonstration.",
+    description: "See how Vertex CMS fits your business. Request a product demonstration for your team.",
     breadcrumbs: [{ label: "Home", href: ROUTES.home }, { label: "Book a Demo" }],
   },
   requestQuote: {
     title: `Request a Quote | ${base}`,
-    description: "Request pricing for Vertex CMS.",
+    description: "Request an enterprise quote for Vertex CMS based on your organization requirements.",
     breadcrumbs: [{ label: "Home", href: ROUTES.home }, { label: "Request Quote" }],
   },
 };

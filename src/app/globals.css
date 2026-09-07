@@ -573,3 +573,45 @@ svg {
 }
 
 
+
+/* Legal documents — clean print output */
+
+@media print {
+
+  .legal-document-page {
+
+    background: #ffffff !important;
+
+  }
+
+
+
+  .legal-document-article {
+
+    border: none !important;
+
+    box-shadow: none !important;
+
+    padding: 0 !important;
+
+  }
+
+
+
+  .legal-prose {
+
+    max-width: none !important;
+
+  }
+
+
+
+  .legal-document-page a[href^="#"]::after {
+
+    content: none;
+
+  }
+
+}
+
+

@@ -1,10 +1,22 @@
-import { PlaceholderPage } from "@/components/website/PlaceholderPage";
+import type { Metadata } from "next";
+import { LegalLayout } from "@/components/marketing/legal/LegalLayout";
+import { LEGAL_DOCS } from "@/lib/marketing/legal/content";
+
+const doc = LEGAL_DOCS.privacy;
+
+export const metadata: Metadata = {
+  title: doc.metaTitle,
+  description: doc.metaDescription,
+  alternates: { canonical: doc.slug },
+  openGraph: {
+    title: doc.metaTitle,
+    description: doc.metaDescription,
+    url: doc.slug,
+    type: "website",
+  },
+  robots: { index: true, follow: true },
+};
 
 export default function PrivacyPage() {
-  return (
-    <PlaceholderPage
-      title="Privacy Policy"
-      description="Vertex CMS privacy policy. Full legal content will be published here."
-    />
-  );
+  return <LegalLayout docId="privacy" />;
 }

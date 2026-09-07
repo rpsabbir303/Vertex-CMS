@@ -9,6 +9,7 @@ import {
   getCatalogYearlySavingsPercent,
   getPlanPrice,
   getPricingCatalog,
+  planQuoteHref,
   planSignupHref,
   type Plan,
   type PricingPeriod,
@@ -87,6 +88,7 @@ function PlanPrice({ plan, period }: { plan: Plan; period: PricingPeriod }) {
 
 function planCtaHref(plan: Plan): string {
   if (plan.cta.action === "demo") return CTAS.demo.href;
+  if (plan.cta.action === "quote") return planQuoteHref(plan.id);
   if (plan.cta.action === "contact") return ROUTES.contact;
   return planSignupHref(plan.id);
 }
@@ -474,6 +476,12 @@ export function PricingPageContent() {
               <PricingPlanCard key={plan.id} plan={plan} period={period} />
             ))}
           </div>
+          <p className="mt-10 text-center text-[14px] text-brand-muted">
+            Not sure which plan?{" "}
+            <Link href={CTAS.demo.href} className="font-semibold text-brand-orange hover:underline">
+              Book a Demo
+            </Link>
+          </p>
         </div>
       </section>
 

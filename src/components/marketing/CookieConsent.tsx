@@ -1,6 +1,8 @@
 "use client";
 
+import Link from "next/link";
 import { useEffect, useState } from "react";
+import { ROUTES } from "@/lib/marketing/navigation";
 import { useMarketing } from "./MarketingProviders";
 
 type ConsentState = "initial" | "accepted" | "preferences";
@@ -34,14 +36,27 @@ export function CookieConsent() {
 
   return (
     <div
-      className="fixed bottom-0 left-0 right-0 z-[60] border-t border-brand-line bg-white p-4 shadow-[0_-8px_30px_rgba(8,35,63,0.12)] sm:p-6"
+      className="fixed bottom-0 left-0 right-0 z-[60] border-t border-brand-line bg-white/95 p-4 shadow-[0_-6px_24px_rgba(6,21,37,0.08)] backdrop-blur-sm print:hidden sm:p-5"
       role="dialog"
       aria-label="Cookie consent"
     >
-      <div className="site-shell flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between sm:gap-6">
-        <p className="min-w-0 text-sm leading-relaxed text-brand-muted">
-          {state === "preferences" ? t.cookie.manage : t.cookie.message}
-        </p>
+      <div className="site-shell flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between sm:gap-8">
+        <div className="min-w-0">
+          <p className="text-sm leading-relaxed text-brand-muted">
+            {state === "preferences" ? t.cookie.manage : t.cookie.message}
+          </p>
+          <p className="mt-2 text-[12px] text-brand-muted">
+            <Link href={ROUTES.legalPrivacy} className="font-medium text-brand-navy underline-offset-2 hover:text-brand-orange hover:underline">
+              Privacy Policy
+            </Link>
+            <span className="mx-2 text-brand-line" aria-hidden="true">
+              ·
+            </span>
+            <Link href={ROUTES.legalCookies} className="font-medium text-brand-navy underline-offset-2 hover:text-brand-orange hover:underline">
+              Cookie Policy
+            </Link>
+          </p>
+        </div>
         <div className="flex w-full shrink-0 flex-wrap gap-2 sm:w-auto sm:justify-end">
           {state === "initial" && (
             <button

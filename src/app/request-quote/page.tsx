@@ -1,15 +1,20 @@
-import { MarketingPageShell, pageHeadingFromMeta } from "@/components/marketing/MarketingPageShell";
-import { MARKETING_PAGES, marketingMetadata } from "@/lib/marketing/pages";
+import type { Metadata } from "next";
+import { Suspense } from "react";
+import { RequestQuoteForm } from "@/components/conversion/RequestQuoteForm";
 
-export const metadata = marketingMetadata("requestQuote");
+export const metadata: Metadata = {
+  title: "Request a Quote | Vertex CMS",
+  description: "Request an enterprise quote for Vertex CMS based on your organization requirements.",
+};
 
 export default function RequestQuotePage() {
-  const config = MARKETING_PAGES.requestQuote;
   return (
-    <MarketingPageShell
-      title={pageHeadingFromMeta(config.title)}
-      description={config.description}
-      breadcrumbs={config.breadcrumbs}
-    />
+    <Suspense
+      fallback={
+        <div className="flex min-h-screen items-center justify-center text-sm text-brand-muted">Loading…</div>
+      }
+    >
+      <RequestQuoteForm />
+    </Suspense>
   );
 }

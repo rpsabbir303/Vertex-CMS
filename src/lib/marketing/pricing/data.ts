@@ -48,6 +48,7 @@ export const PLACEHOLDER_PLANS: Plan[] = [
     currency: "USD",
     active: true,
     sort: 1,
+    trialDays: null,
     highlights: [
       "Projects & scheduling",
       "Documents, RFIs & submittals",
@@ -66,6 +67,7 @@ export const PLACEHOLDER_PLANS: Plan[] = [
     active: true,
     sort: 2,
     popular: true,
+    trialDays: null,
     highlights: [
       "Everything in Starter",
       "Budget, job cost & billing",
@@ -83,6 +85,7 @@ export const PLACEHOLDER_PLANS: Plan[] = [
     currency: "USD",
     active: true,
     sort: 3,
+    trialDays: null,
     highlights: [
       "Everything in Professional",
       "Native accounting & WIP",
@@ -100,13 +103,14 @@ export const PLACEHOLDER_PLANS: Plan[] = [
     currency: "USD",
     active: true,
     sort: 4,
+    trialDays: null,
     highlights: [
       "Everything in Business",
       "Custom entitlements",
       "Advanced admin & security",
       "Dedicated onboarding support",
     ],
-    cta: { label: "Book a Demo", action: "demo" },
+    cta: { label: "Request a Quote", action: "quote" },
   },
 ];
 

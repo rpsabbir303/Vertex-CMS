@@ -85,8 +85,11 @@ export function MarketingFooter() {
             <Link href="/terms" className="hover:text-brand-orange">
               Terms
             </Link>
-            <Link href="/privacy" className="hover:text-brand-orange">
-              Security
+            <Link href="/dpa" className="hover:text-brand-orange">
+              DPA
+            </Link>
+            <Link href="/cookie-policy" className="hover:text-brand-orange">
+              Cookies
             </Link>
           </div>
         </div>

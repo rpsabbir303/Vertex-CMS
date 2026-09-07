@@ -6,11 +6,13 @@ import { Breadcrumbs } from "./Breadcrumbs";
 import { Reveal } from "@/components/Reveal";
 
 type Props = {
-  title: string;
-  description: string;
+  title?: string;
+  description?: string;
   breadcrumbs?: { label: string; href?: string }[];
   children?: React.ReactNode;
   showPlaceholder?: boolean;
+  /** Skip marketing hero — used by legal document pages with their own header. */
+  documentMode?: boolean;
 };
 
 export function MarketingPageShell({
@@ -19,24 +21,35 @@ export function MarketingPageShell({
   breadcrumbs,
   children,
   showPlaceholder = true,
+  documentMode = false,
 }: Props) {
+  const showHero = !documentMode && !!title && !!description;
+
   return (
     <MarketingProviders>
       <div className="flex min-h-screen flex-col overflow-x-hidden bg-white text-brand-navy">
-        <MarketingHeader />
+        <div className="print:hidden">
+          <MarketingHeader />
+        </div>
         <main className="w-full min-w-0 flex-1">
-          {breadcrumbs && breadcrumbs.length > 0 && <Breadcrumbs items={breadcrumbs} />}
-          <section className="section-spacing border-b border-brand-line/60 bg-[#FAFAF8]">
-            <div className="site-shell">
-              <Reveal className="max-w-3xl">
-                <h1 className="display-title text-3xl sm:text-4xl lg:text-5xl">{title}</h1>
-                <p className="body-copy mt-5">{description}</p>
-              </Reveal>
+          {breadcrumbs && breadcrumbs.length > 0 && (
+            <div className="print:hidden">
+              <Breadcrumbs items={breadcrumbs} />
             </div>
-          </section>
+          )}
+          {showHero && (
+            <section className="section-spacing border-b border-brand-line/60 bg-[#FAFAF8] print:border-0 print:bg-white">
+              <div className="site-shell">
+                <Reveal className="max-w-3xl">
+                  <h1 className="display-title text-3xl sm:text-4xl lg:text-5xl">{title}</h1>
+                  <p className="body-copy mt-5">{description}</p>
+                </Reveal>
+              </div>
+            </section>
+          )}
           {children}
           {showPlaceholder && !children && (
-            <section className="section-spacing">
+            <section className="section-spacing print:hidden">
               <div className="site-shell">
                 <Reveal>
                   <div className="rounded-lg border border-dashed border-brand-line bg-[#FAFAF8] px-6 py-12 text-center sm:px-10">
@@ -49,8 +62,10 @@ export function MarketingPageShell({
             </section>
           )}
         </main>
-        <MarketingFooter />
-        <CookieConsent />
+        <div className="print:hidden">
+          <MarketingFooter />
+          <CookieConsent />
+        </div>
       </div>
     </MarketingProviders>
   );
