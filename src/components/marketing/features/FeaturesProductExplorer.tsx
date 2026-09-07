@@ -42,20 +42,20 @@ export function FeaturesProductExplorer() {
   const [areaId, setAreaId] = useState(HUB_MODULES[0].areas[0]?.id ?? "");
   const [transitionKey, setTransitionKey] = useState(0);
 
-  const module = useMemo(
+  const featureModule = useMemo(
     () => HUB_MODULES.find((m) => m.id === moduleId) ?? HUB_MODULES[0],
     [moduleId]
   );
   const area = useMemo(
-    () => module.areas.find((a) => a.id === areaId) ?? module.areas[0],
-    [module, areaId]
+    () => featureModule.areas.find((a) => a.id === areaId) ?? featureModule.areas[0],
+    [featureModule, areaId]
   );
   const detail = area ? getFeatureAreaByAreaId(area.id) : undefined;
-  const preview: PreviewKey = detail?.preview ?? module.preview;
-  const previewDark = detail?.dark ?? module.dark;
+  const preview: PreviewKey = detail?.preview ?? featureModule.preview;
+  const previewDark = detail?.dark ?? featureModule.dark;
   const capabilities = (detail?.capabilities ?? area?.tags ?? []).slice(0, 5);
   const tagline = detail?.heroTagline ?? area?.description ?? "";
-  const moduleIndex = HUB_MODULES.findIndex((m) => m.id === module.id);
+  const moduleIndex = HUB_MODULES.findIndex((m) => m.id === featureModule.id);
 
   const applySelection = useCallback((nextModule: HubModuleSection, nextArea: HubFeatureArea, hashTarget?: string) => {
     setModuleId(nextModule.id);
@@ -84,7 +84,7 @@ export function FeaturesProductExplorer() {
   };
 
   const selectArea = (next: HubFeatureArea) => {
-    applySelection(module, next, next.id);
+    applySelection(featureModule, next, next.id);
   };
 
   const goModule = (delta: number) => {
@@ -93,13 +93,13 @@ export function FeaturesProductExplorer() {
   };
 
   const stageTone =
-    module.id === "ai"
+    featureModule.id === "ai"
       ? "from-[#061525] via-[#0A1F35] to-[#08233F]"
-      : module.id === "financial-management"
+      : featureModule.id === "financial-management"
         ? "from-[#E8EEF5] via-[#F0F4F9] to-[#E4EBF4]"
-        : module.id === "field-operations"
+        : featureModule.id === "field-operations"
           ? "from-[#EAF0F6] via-[#F3F6FA] to-[#E7EDF4]"
-          : module.id === "growth"
+          : featureModule.id === "growth"
             ? "from-[#F3F1EE] via-[#F7F5F2] to-[#EEEBE7]"
             : "from-[#EEF2F7] via-[#F5F7FA] to-[#E8EEF5]";
 
@@ -135,7 +135,7 @@ export function FeaturesProductExplorer() {
           <nav aria-label="Feature categories" className="-mx-1 overflow-x-auto py-3 [scrollbar-width:thin]">
             <ul className="flex min-w-max gap-1.5">
               {HUB_MODULES.map((mod) => {
-                const active = mod.id === module.id;
+                const active = mod.id === featureModule.id;
                 return (
                   <li key={mod.id}>
                     <button
@@ -172,18 +172,18 @@ export function FeaturesProductExplorer() {
         <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
           <div className="max-w-2xl">
             <p className="font-mono text-[11px] font-semibold tracking-[0.16em] text-brand-orange">
-              {module.number} · CORE CAPABILITIES
+              {featureModule.number} · CORE CAPABILITIES
             </p>
             <h2 className="mt-3 font-display text-3xl font-bold tracking-tight text-brand-navy sm:text-4xl lg:text-[2.75rem]">
-              {module.title}
+              {featureModule.title}
             </h2>
             <p className="mt-4 max-w-xl text-[15px] leading-relaxed text-brand-muted sm:text-base">
-              {module.description}
+              {featureModule.description}
             </p>
           </div>
           <div className="flex items-center gap-3">
             <p className="font-mono text-[12px] font-semibold text-brand-muted">
-              {module.number} / {String(HUB_MODULES.length).padStart(2, "0")}
+              {featureModule.number} / {String(HUB_MODULES.length).padStart(2, "0")}
             </p>
             <div className="flex gap-2">
               <button
@@ -217,8 +217,8 @@ export function FeaturesProductExplorer() {
             <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.14em] text-brand-muted">
               Feature areas
             </p>
-            <ul className="space-y-2" role="listbox" aria-label={`${module.title} features`}>
-              {module.areas.map((item) => {
+            <ul className="space-y-2" role="listbox" aria-label={`${featureModule.title} features`}>
+              {featureModule.areas.map((item) => {
                 const selected = item.id === area?.id;
                 return (
                   <li key={item.id} role="option" aria-selected={selected}>
@@ -319,7 +319,7 @@ export function FeaturesProductExplorer() {
               <div
                 className={
                   "pointer-events-none absolute -bottom-20 -left-10 h-48 w-48 rounded-full blur-3xl " +
-                  (module.id === "ai" ? "bg-brand-orange/20" : "bg-brand-navy/10")
+                  (featureModule.id === "ai" ? "bg-brand-orange/20" : "bg-brand-navy/10")
                 }
                 aria-hidden="true"
               />
@@ -328,7 +328,7 @@ export function FeaturesProductExplorer() {
                   <p
                     className={
                       "text-[11px] font-semibold uppercase tracking-[0.14em] " +
-                      (module.id === "ai" ? "text-slate-400" : "text-brand-muted")
+                      (featureModule.id === "ai" ? "text-slate-400" : "text-brand-muted")
                     }
                   >
                     Vertex CMS · {area?.label}
@@ -336,7 +336,7 @@ export function FeaturesProductExplorer() {
                   <span
                     className={
                       "rounded-full border px-2.5 py-1 text-[10px] font-semibold " +
-                      (module.id === "ai"
+                      (featureModule.id === "ai"
                         ? "border-white/15 text-slate-300"
                         : "border-brand-line/80 bg-white/70 text-brand-muted")
                     }
