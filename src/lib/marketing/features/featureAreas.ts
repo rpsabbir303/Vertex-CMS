@@ -61,6 +61,13 @@ type AreaSeed = {
   howItWorks: string[];
   outcomes: string[];
   relatedSlugs: string[];
+  /** When the area is not part of HUB_MODULES (category-page-only capabilities) */
+  categoryMeta?: {
+    sectionId: string;
+    sectionTitle: string;
+    label: string;
+    description: string;
+  };
 };
 
 const AREA_SEEDS: AreaSeed[] = [
@@ -83,21 +90,96 @@ const AREA_SEEDS: AreaSeed[] = [
     ],
     relatedSlugs: ["scheduling", "documents", "rfis", "submittals", "change-orders"],
   },
+  // Preconstruction (category-page capabilities — register EST / BID / TAKEOFF)
+  {
+    slug: "estimating",
+    areaId: "pc-estimating",
+    heroTagline: "Build versioned estimates with cost structure, markup, and estimate-to-budget conversion.",
+    preview: "estimating",
+    moduleCodes: ["EST"],
+    howItWorks: [
+      "Create versioned estimates with line items and cost codes.",
+      "Calculate subtotal, overhead, profit, contingency, tax, and total.",
+      "Convert approved estimate values into project budget and SOV workflows.",
+    ],
+    outcomes: [
+      "Estimate history stays intact across versions.",
+      "Pricing structure stays connected to CSI cost codes.",
+      "Approved estimates can feed project budget and Schedule of Values.",
+    ],
+    relatedSlugs: ["bid-management", "quantity-takeoff", "crm", "budget-job-cost"],
+    categoryMeta: {
+      sectionId: "preconstruction",
+      sectionTitle: "Preconstruction",
+      label: "Estimating",
+      description:
+        "Digital estimates with CSI cost structure, markup, and estimate→budget conversion.",
+    },
+  },
+  {
+    slug: "bid-management",
+    areaId: "pc-bid-management",
+    heroTagline: "Create bid packages, compare subcontractor bids, and award with clear visibility.",
+    preview: "bid",
+    moduleCodes: ["BID"],
+    howItWorks: [
+      "Create bid packages and invite subcontractors from approved lists.",
+      "Track bid responses and submission status against due dates.",
+      "Compare submitted bids side by side before awarding.",
+    ],
+    outcomes: [
+      "Bid packages stay organized by trade.",
+      "Submission status is visible without chasing email threads.",
+      "Award decisions are grounded in a consistent comparison view.",
+    ],
+    relatedSlugs: ["estimating", "quantity-takeoff", "crm", "subcontractors"],
+    categoryMeta: {
+      sectionId: "preconstruction",
+      sectionTitle: "Preconstruction",
+      label: "Bid Management",
+      description:
+        "Bid packages, invitations, subcontractor bids, leveling, and award.",
+    },
+  },
+  {
+    slug: "quantity-takeoff",
+    areaId: "pc-quantity-takeoff",
+    heroTagline: "Measure project quantities from digital plans to support estimating decisions.",
+    preview: "takeoff",
+    moduleCodes: ["TAKEOFF"],
+    howItWorks: [
+      "Measure quantities from digital plan takeoff workflows.",
+      "Keep takeoff totals connected to estimating context.",
+      "Support informed pricing decisions with measurable quantities.",
+    ],
+    outcomes: [
+      "Quantities are easier to review against plan context.",
+      "Takeoff stays linked to estimating workflows.",
+      "Estimators work from measured project quantities.",
+    ],
+    relatedSlugs: ["estimating", "bid-management", "documents", "drawings"],
+    categoryMeta: {
+      sectionId: "preconstruction",
+      sectionTitle: "Preconstruction",
+      label: "Quantity Takeoff",
+      description: "Quantity takeoff connected to estimating workflows.",
+    },
+  },
   {
     slug: "scheduling",
     areaId: "pm-scheduling",
     heroTagline: "Keep CPM schedules and look-ahead plans tied to project delivery.",
-    preview: "schedule",
+    preview: "scheduleGantt",
     moduleCodes: ["SCHED"],
     howItWorks: [
-      "Build schedules with tasks and dependencies.",
-      "Use look-ahead planning against the live project.",
-      "Surface critical-path visibility for delivery risk.",
+      "Build CPM schedules with tasks, dates, and dependencies.",
+      "Track current progress against the approved baseline.",
+      "Generate 3-week look-ahead and surface schedule risk signals.",
     ],
     outcomes: [
       "Schedules stay connected to the project workspace.",
-      "Look-ahead work is grounded in the same plan.",
-      "Critical path stays visible as work progresses.",
+      "Look-ahead work is grounded in the same CPM plan.",
+      "Critical path and variance stay visible as work progresses.",
     ],
     relatedSlugs: ["projects", "daily-logs", "punch", "documents"],
   },
@@ -105,7 +187,7 @@ const AREA_SEEDS: AreaSeed[] = [
     slug: "documents",
     areaId: "pm-documents",
     heroTagline: "Keep teams working from the current document set.",
-    preview: "docs",
+    preview: "documentCenter",
     moduleCodes: ["DOC"],
     howItWorks: [
       "Organize project files in document folders.",
@@ -123,7 +205,7 @@ const AREA_SEEDS: AreaSeed[] = [
     slug: "rfis",
     areaId: "pm-rfis",
     heroTagline: "Keep every request, response, and decision connected.",
-    preview: "docs",
+    preview: "rfi",
     moduleCodes: ["RFI"],
     howItWorks: [
       "Create and track RFIs on the project.",
@@ -141,7 +223,7 @@ const AREA_SEEDS: AreaSeed[] = [
     slug: "submittals",
     areaId: "pm-submittals",
     heroTagline: "Connect submittal review to the project record.",
-    preview: "docs",
+    preview: "submittal",
     moduleCodes: ["SUBM"],
     howItWorks: [
       "Create submittals against the project.",
@@ -159,7 +241,7 @@ const AREA_SEEDS: AreaSeed[] = [
     slug: "change-orders",
     areaId: "pm-change-orders",
     heroTagline: "Tie change requests and orders to contracts and cost impact.",
-    preview: "finance",
+    preview: "changeOrder",
     dark: true,
     moduleCodes: ["CO"],
     howItWorks: [
@@ -256,7 +338,7 @@ const AREA_SEEDS: AreaSeed[] = [
     slug: "wip",
     areaId: "fm-wip",
     heroTagline: "Track work-in-progress reporting connected to budget and the ledger.",
-    preview: "accounting",
+    preview: "wipDashboard",
     dark: true,
     moduleCodes: ["WIP"],
     howItWorks: [
@@ -275,7 +357,7 @@ const AREA_SEEDS: AreaSeed[] = [
     slug: "cash-flow",
     areaId: "fm-cash",
     heroTagline: "Forecast cash flow from invoices and payables already in the platform.",
-    preview: "finance",
+    preview: "cashDashboard",
     dark: true,
     moduleCodes: ["CASH"],
     howItWorks: [
@@ -622,7 +704,7 @@ const AREA_SEEDS: AreaSeed[] = [
     slug: "crm",
     areaId: "bg-crm",
     heroTagline: "Manage opportunities and pipeline from lead through bidding and win/loss.",
-    preview: "connected",
+    preview: "crm",
     moduleCodes: ["CRM"],
     howItWorks: [
       "Track opportunities through pipeline stages.",
@@ -634,7 +716,7 @@ const AREA_SEEDS: AreaSeed[] = [
       "Win/loss history is easier to review.",
       "Growth activity connects to project setup downstream.",
     ],
-    relatedSlugs: ["leads", "website-builder", "customer-portals", "projects"],
+    relatedSlugs: ["estimating", "bid-management", "leads", "projects"],
   },
   {
     slug: "leads",
@@ -710,16 +792,16 @@ function findHubArea(areaId: string): { section: HubModuleSection; area: HubFeat
 
 export const FEATURE_AREA_DETAILS: FeatureAreaDetail[] = AREA_SEEDS.map((seed) => {
   const hub = findHubArea(seed.areaId);
-  if (!hub) {
+  if (!hub && !seed.categoryMeta) {
     throw new Error(`Hub area missing for feature detail seed: ${seed.areaId}`);
   }
   return {
     slug: seed.slug,
     areaId: seed.areaId,
-    label: hub.area.label,
-    moduleSectionId: hub.section.id,
-    moduleTitle: hub.section.title,
-    description: hub.area.description,
+    label: hub?.area.label ?? seed.categoryMeta!.label,
+    moduleSectionId: hub?.section.id ?? seed.categoryMeta!.sectionId,
+    moduleTitle: hub?.section.title ?? seed.categoryMeta!.sectionTitle,
+    description: hub?.area.description ?? seed.categoryMeta!.description,
     heroTagline: seed.heroTagline,
     preview: seed.preview,
     dark: seed.dark,
@@ -751,6 +833,9 @@ const PRIMARY_MODULE_CODE_TO_SLUG: Record<string, string> = {
   RFI: "rfis",
   SUBM: "submittals",
   CO: "change-orders",
+  EST: "estimating",
+  BID: "bid-management",
+  TAKEOFF: "quantity-takeoff",
   BUDGET: "budget-job-cost",
   GL: "native-accounting",
   AP: "native-accounting",
@@ -807,20 +892,17 @@ export function getFeatureAreaForLibraryFeature(input: {
   );
 }
 
-/** Legacy explore-module detail URLs → Features hub section anchors */
+/** Legacy explore-module detail URLs → Features hub section anchors / category pages */
 export const LEGACY_FEATURE_SLUG_REDIRECTS: Record<string, string> = {
-  "project-management": `${ROUTES.features}#project-management`,
-  preconstruction: `${ROUTES.features}#growth`,
   "contracts-financials": `${ROUTES.features}#financial-management`,
   "construction-accounting": `${ROUTES.features}#financial-management`,
   "field-operations": `${ROUTES.features}#field-operations`,
-  "scheduling-project-controls": `${ROUTES.features}#project-management`,
+  "scheduling-project-controls": `${ROUTES.features}/project-management`,
   "safety-compliance": `${ROUTES.features}#compliance`,
   "procurement-resources": `${ROUTES.features}#compliance`,
-  "documents-project-information": `${ROUTES.features}#project-management`,
   "workforce-equipment": `${ROUTES.features}#compliance`,
   "ai-intelligence": `${ROUTES.features}#ai`,
   "reports-analytics": `${ROUTES.features}#features-library`,
-  "collaboration-closeout": `${ROUTES.features}#project-management`,
+  "collaboration-closeout": `${ROUTES.features}/project-management`,
   "connected-experience": `${ROUTES.features}#growth`,
 };

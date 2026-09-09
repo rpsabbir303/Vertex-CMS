@@ -7,6 +7,7 @@ import {
   getFeatureAreaBySlug,
   type FeatureAreaDetail,
 } from "@/lib/marketing/features/featureAreas";
+import { categoryNavHref } from "@/lib/marketing/features/categories";
 import { CTAS, ROUTES } from "@/lib/marketing/navigation";
 import { FeatureProductPreview } from "./FeatureProductPreview";
 
@@ -61,7 +62,7 @@ export function FeatureDetailContent({ feature }: { feature: FeatureAreaDetail }
         items={[
           { label: "Home", href: ROUTES.home },
           { label: "Features", href: ROUTES.features },
-          { label: feature.moduleTitle, href: `${ROUTES.features}#${feature.moduleSectionId}` },
+          { label: feature.moduleTitle, href: categoryNavHref(feature.moduleSectionId) },
           { label: feature.label },
         ]}
       />

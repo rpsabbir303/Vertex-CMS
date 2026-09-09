@@ -63,7 +63,7 @@ export const FEATURES_MEGA_MENU: MegaMenuCategory[] = [
   {
     id: "project-management",
     title: "Project Management",
-    href: `${ROUTES.features}#project-management`,
+    href: `${ROUTES.features}/project-management`,
     links: [
       { label: "Projects", href: `${ROUTES.features}/projects` },
       { label: "Scheduling", href: `${ROUTES.features}/scheduling` },

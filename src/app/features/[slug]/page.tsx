@@ -14,7 +14,23 @@ import {
 type PageProps = { params: { slug: string } };
 
 export function generateStaticParams() {
-  return FEATURE_AREA_DETAILS.map((feature) => ({ slug: feature.slug }));
+  return FEATURE_AREA_DETAILS.filter(
+    (feature) =>
+      feature.slug !== "projects" &&
+      feature.slug !== "scheduling" &&
+      feature.slug !== "rfis" &&
+      feature.slug !== "submittals" &&
+      feature.slug !== "change-orders" &&
+      feature.slug !== "budget-job-cost" &&
+      feature.slug !== "native-accounting" &&
+      feature.slug !== "billing" &&
+      feature.slug !== "aia-pay-applications" &&
+      feature.slug !== "wip" &&
+      feature.slug !== "cash-flow" &&
+      feature.slug !== "documents"
+  ).map((feature) => ({
+    slug: feature.slug,
+  }));
 }
 
 export function generateMetadata({ params }: PageProps): Metadata {

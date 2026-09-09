@@ -30,13 +30,104 @@ export type PreviewKey =
   | "ai"
   | "connected"
   | "estimate"
+  | "estimating"
+  | "bid"
+  | "takeoff"
+  | "crm"
+  | "precon"
   | "safety"
   | "docs"
   | "schedule"
   | "accounting"
   | "procurement"
   | "collaboration"
-  | "reports";
+  | "reports"
+  | "rfi"
+  | "submittal"
+  | "changeOrder"
+  | "projectCreate"
+  | "projectDashboard"
+  | "projectFinancial"
+  | "projectPhases"
+  | "projectSwitcher"
+  | "scheduleGantt"
+  | "scheduleDeps"
+  | "scheduleLookahead"
+  | "scheduleRisk"
+  | "scheduleExport"
+  | "documentCenter"
+  | "documentDetail"
+  | "documentUpload"
+  | "drawingsWorkflow"
+  | "documentSearch"
+  | "documentVersions"
+  | "documentConsolidate"
+  | "drawingViewer"
+  | "drawingRegister"
+  | "drawingMarkup"
+  | "sheetsAsBuilt"
+  | "transmittal"
+  | "fieldDrawing"
+  | "rfiRegister"
+  | "rfiCreate"
+  | "rfiDetail"
+  | "rfiResponse"
+  | "rfiFlow"
+  | "rfiStatus"
+  | "rfiContext"
+  | "rfiField"
+  | "submittalRegister"
+  | "submittalCreate"
+  | "submittalDetail"
+  | "submittalReview"
+  | "submittalFlow"
+  | "submittalStatus"
+  | "submittalWorkflow"
+  | "submittalDocs"
+  | "submittalField"
+  | "changeOrderRegister"
+  | "changeOrderCreate"
+  | "changeOrderDetail"
+  | "changeOrderFlow"
+  | "changeOrderStatus"
+  | "changeOrderContext"
+  | "budgetDashboard"
+  | "budgetCostCodes"
+  | "budgetVsActual"
+  | "budgetFlow"
+  | "budgetIntelligence"
+  | "accountingDashboard"
+  | "accountingAp"
+  | "accountingAr"
+  | "accountingProject"
+  | "accountingReport"
+  | "accountingFlow"
+  | "billingWorkspace"
+  | "billingSov"
+  | "billingProgress"
+  | "billingPayApp"
+  | "billingAr"
+  | "billingFlow"
+  | "payAppDashboard"
+  | "payAppG702"
+  | "payAppG703"
+  | "payAppRetainage"
+  | "payAppHistory"
+  | "payAppReview"
+  | "payAppFlow"
+  | "wipDashboard"
+  | "wipProject"
+  | "wipTable"
+  | "wipPortfolio"
+  | "wipSnapshot"
+  | "wipFlow"
+  | "cashDashboard"
+  | "cashChart"
+  | "cashInflows"
+  | "cashOutflows"
+  | "cashArAp"
+  | "cashProject"
+  | "cashFlow";
 
 export type TenantModule = {
   code: string;
@@ -356,7 +447,7 @@ export const TENANT_MODULES: TenantModule[] = [
     plans: Pr,
     depends: ["INV", "AP"],
     features: ["Cash flow forecasts", "Forecast visibility"],
-    preview: "finance",
+    preview: "cashDashboard",
     dark: true,
   },
 
@@ -405,7 +496,7 @@ export const TENANT_MODULES: TenantModule[] = [
     plans: P,
     depends: ["GL", "BUDGET"],
     features: ["WIP snapshots", "WIP reporting"],
-    preview: "accounting",
+    preview: "wipDashboard",
     dark: true,
   },
   {

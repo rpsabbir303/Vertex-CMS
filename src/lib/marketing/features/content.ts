@@ -27,7 +27,7 @@ export {
 export const featuresPageMeta = {
   title: "Features | Vertex CMS",
   description:
-    "Explore the complete Vertex CMS feature library—project management, financials, field operations, compliance, AI, and business growth in one connected platform.",
+    "Explore Vertex CMS features—project management, financials, field operations, compliance, AI, mobile, and plan-based capability discovery for construction teams.",
   canonical: "/features",
 };
 

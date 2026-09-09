@@ -31,7 +31,8 @@ export const HUB_MODULES: HubModuleSection[] = [
     id: "project-management",
     number: "01",
     title: "Project Management",
-    description: "Plan, coordinate, and control every project workflow from one connected workspace.",
+    description:
+      "Bring project information, schedules, documents, RFIs, submittals, and change orders into one connected construction management workflow.",
     preview: "project",
     layout: "list-left",
     areas: [
@@ -39,43 +40,49 @@ export const HUB_MODULES: HubModuleSection[] = [
         id: "pm-projects",
         slug: "projects",
         label: "Projects",
-        description: "Project setup, portfolio visibility, phases, and members in one workspace.",
-        tags: ["Portfolio", "Phases", "Members"],
+        description:
+          "Create and manage construction projects from a centralized workspace, with project information, phases, members, status, and financial visibility connected in one place.",
+        tags: ["Workspace", "Phases", "Members"],
       },
       {
         id: "pm-scheduling",
         slug: "scheduling",
         label: "Scheduling",
-        description: "CPM schedules, look-ahead plans, and critical-path visibility.",
-        tags: ["CPM", "Look-ahead", "Critical path"],
+        description:
+          "Plan and coordinate project work with schedules, activities, dependencies, milestones, critical path visibility, look-ahead planning, and schedule variance.",
+        tags: ["Gantt", "Critical path", "Look-ahead"],
       },
       {
         id: "pm-documents",
         slug: "documents",
         label: "Documents",
-        description: "Version-controlled documents so teams work from the current set.",
-        tags: ["Folders", "Versions", "Current set"],
+        description:
+          "Centralize project documents and keep project information organized, accessible, and connected to the workflows that depend on it.",
+        tags: ["Document Center", "Versions", "Access"],
       },
       {
         id: "pm-rfis",
         slug: "rfis",
         label: "RFIs",
-        description: "Request for Information workflows with status and response tracking.",
-        tags: ["Status", "Responses", "Open RFIs"],
+        description:
+          "Create, track, review, and manage requests for information while keeping questions, responses, attachments, and project context connected.",
+        tags: ["Status", "Responses", "Attachments"],
       },
       {
         id: "pm-submittals",
         slug: "submittals",
         label: "Submittals",
-        description: "Submittal workflows connected to the project record.",
-        tags: ["Review", "Status", "Project record"],
+        description:
+          "Manage submittals through review and approval while keeping requirements, status, deadlines, and project teams aligned.",
+        tags: ["Review", "Deadlines", "Status"],
       },
       {
         id: "pm-change-orders",
         slug: "change-orders",
         label: "Change Orders",
-        description: "Change order requests and orders tied to contracts and cost impact.",
-        tags: ["Requests", "Approvals", "Cost impact"],
+        description:
+          "Track change order requests and approvals with visibility into contract impact, cost changes, and project decisions.",
+        tags: ["Approvals", "Cost impact", "Contracts"],
       },
     ],
   },
