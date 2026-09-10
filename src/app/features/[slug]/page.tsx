@@ -27,7 +27,13 @@ export function generateStaticParams() {
       feature.slug !== "aia-pay-applications" &&
       feature.slug !== "wip" &&
       feature.slug !== "cash-flow" &&
-      feature.slug !== "documents"
+      feature.slug !== "documents" &&
+      feature.slug !== "daily-logs" &&
+      feature.slug !== "drawings" &&
+      feature.slug !== "punch" &&
+      feature.slug !== "t-and-m" &&
+      feature.slug !== "safety" &&
+      feature.slug !== "mobile"
   ).map((feature) => ({
     slug: feature.slug,
   }));

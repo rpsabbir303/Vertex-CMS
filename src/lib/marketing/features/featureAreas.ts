@@ -378,7 +378,7 @@ const AREA_SEEDS: AreaSeed[] = [
     slug: "daily-logs",
     areaId: "fo-daily-logs",
     heroTagline: "Capture daily field activity where work happens and sync it to the project.",
-    preview: "field",
+    preview: "dailyLogDashboard",
     moduleCodes: ["LOG"],
     howItWorks: [
       "Create daily logs from the field.",
@@ -396,7 +396,7 @@ const AREA_SEEDS: AreaSeed[] = [
     slug: "drawings",
     areaId: "fo-drawings",
     heroTagline: "Give the field the current drawing set with markup support.",
-    preview: "docs",
+    preview: "drawingWorkspace",
     moduleCodes: ["DWG"],
     howItWorks: [
       "Publish drawings to the project.",
@@ -414,7 +414,7 @@ const AREA_SEEDS: AreaSeed[] = [
     slug: "punch",
     areaId: "fo-punch",
     heroTagline: "Drive quality completion with punch lists and item status.",
-    preview: "field",
+    preview: "punchDashboard",
     moduleCodes: ["PUNCH"],
     howItWorks: [
       "Create punch lists on the project.",
@@ -432,7 +432,7 @@ const AREA_SEEDS: AreaSeed[] = [
     slug: "t-and-m",
     areaId: "fo-tm",
     heroTagline: "Capture time & material field tickets with line-level detail.",
-    preview: "field",
+    preview: "tmTicket",
     moduleCodes: ["TM"],
     howItWorks: [
       "Create T&M field tickets on the project.",
@@ -450,7 +450,7 @@ const AREA_SEEDS: AreaSeed[] = [
     slug: "safety",
     areaId: "fo-safety",
     heroTagline: "Document incidents, inspections, toolbox talks, and JHA/JSA on the project.",
-    preview: "safety",
+    preview: "safetyOverview",
     moduleCodes: ["SAFETY"],
     howItWorks: [
       "Log safety incidents against the project.",
@@ -468,7 +468,7 @@ const AREA_SEEDS: AreaSeed[] = [
     slug: "mobile",
     areaId: "fo-mobile",
     heroTagline: "Keep field workflows connected to the project record from mobile devices.",
-    preview: "field",
+    preview: "mobileHome",
     moduleCodes: ["LOG", "DWG", "SAFETY", "TM", "PUNCH"],
     capabilities: [
       "Mobile daily logs",

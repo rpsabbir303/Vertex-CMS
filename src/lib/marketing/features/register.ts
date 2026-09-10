@@ -127,7 +127,47 @@ export type PreviewKey =
   | "cashOutflows"
   | "cashArAp"
   | "cashProject"
-  | "cashFlow";
+  | "cashFlow"
+  | "dailyLogDashboard"
+  | "dailyLogCapture"
+  | "dailyLogHistory"
+  | "dailyLogWorkforce"
+  | "dailyLogPhotos"
+  | "dailyLogDetail"
+  | "drawingWorkspace"
+  | "drawingRevision"
+  | "punchDashboard"
+  | "punchStatus"
+  | "punchAssign"
+  | "punchCloseout"
+  | "tmTicket"
+  | "tmTicketDetail"
+  | "tmLabor"
+  | "tmMaterials"
+  | "tmEquipment"
+  | "tmFlow"
+  | "tmChange"
+  | "tmAttachments"
+  | "tmReview"
+  | "tmDashboard"
+  | "safetyOverview"
+  | "safetyObservation"
+  | "safetyInspection"
+  | "safetyIncident"
+  | "safetyActions"
+  | "safetyFlow"
+  | "mobileHome"
+  | "mobileDashboard"
+  | "mobileDailyLog"
+  | "mobileDrawing"
+  | "mobilePhotos"
+  | "mobilePunch"
+  | "mobileTm"
+  | "mobileSafety"
+  | "mobileWorkspace"
+  | "mobileFlow"
+  | "mobileCapture"
+  | "mobileChain";
 
 export type TenantModule = {
   code: string;
@@ -257,7 +297,7 @@ export const TENANT_MODULES: TenantModule[] = [
     description: "Daily field logs captured where work happens and synced to the project.",
     plans: S,
     features: ["Daily logs", "Weather & manpower entries", "Log attachments"],
-    preview: "field",
+    preview: "dailyLogDashboard",
   },
   {
     code: "RFI",
@@ -277,7 +317,7 @@ export const TENANT_MODULES: TenantModule[] = [
     description: "Punch lists and punch list items for closeout and quality completion.",
     plans: S,
     features: ["Punch lists", "Punch list items", "Status tracking"],
-    preview: "field",
+    preview: "punchDashboard",
   },
   {
     code: "COMM",
@@ -308,7 +348,7 @@ export const TENANT_MODULES: TenantModule[] = [
     plans: S,
     basicOnStarter: true,
     features: ["Safety incidents", "Inspections", "Toolbox talks", "JHA / JSA"],
-    preview: "safety",
+    preview: "safetyOverview",
   },
   {
     code: "AI",
@@ -666,7 +706,7 @@ export const TENANT_MODULES: TenantModule[] = [
     plans: P,
     depends: ["PROJ"],
     features: ["T&M tickets", "T&M ticket lines"],
-    preview: "field",
+    preview: "tmTicket",
   },
   {
     code: "OBS",
@@ -688,7 +728,7 @@ export const TENANT_MODULES: TenantModule[] = [
     plans: P,
     depends: ["DOC"],
     features: ["Drawings", "Drawing markups", "Current revision for field"],
-    preview: "docs",
+    preview: "drawingWorkspace",
   },
   {
     code: "BIM",
