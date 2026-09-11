@@ -3,15 +3,16 @@ import { ArrowRight } from "@/components/Icons";
 import { Reveal } from "@/components/Reveal";
 import { ROUTES } from "@/lib/marketing/navigation";
 
-const TRADE = [
-  { label: "General Contractors", href: `${ROUTES.solutions}#general-contractors` },
-  { label: "Subcontractors", href: `${ROUTES.solutions}#subcontractors` },
+const BUSINESS = [
+  { label: "General Contractors", href: ROUTES.solutionsGeneralContractors },
+  { label: "Specialty Contractors", href: ROUTES.solutionsSpecialtyContractors },
+  { label: "Owners & Clients", href: ROUTES.solutionsOwners },
 ] as const;
 
 const TYPE = [
-  { label: "Commercial", href: `${ROUTES.solutions}#commercial` },
-  { label: "Residential", href: `${ROUTES.solutions}#residential` },
-  { label: "Civil", href: `${ROUTES.solutions}#civil` },
+  { label: "Commercial", href: ROUTES.solutionsCommercial },
+  { label: "Residential", href: ROUTES.solutionsResidential },
+  { label: "Civil / Infrastructure", href: ROUTES.solutionsCivil },
 ] as const;
 
 export function HomeSolutions() {
@@ -28,9 +29,9 @@ export function HomeSolutions() {
 
         <Reveal delay={80} className="mt-10 grid gap-5 lg:grid-cols-2">
           <div className="home-panel p-5 sm:p-6">
-            <p className="text-[11px] font-bold uppercase tracking-[0.16em] text-brand-blue">By Trade</p>
+            <p className="text-[11px] font-bold uppercase tracking-[0.16em] text-brand-blue">By Business</p>
             <ul className="mt-4 space-y-2">
-              {TRADE.map((item) => (
+              {BUSINESS.map((item) => (
                 <li key={item.label}>
                   <Link
                     href={item.href}

@@ -33,7 +33,21 @@ export function generateStaticParams() {
       feature.slug !== "punch" &&
       feature.slug !== "t-and-m" &&
       feature.slug !== "safety" &&
-      feature.slug !== "mobile"
+      feature.slug !== "mobile" &&
+      feature.slug !== "subcontractors" &&
+      feature.slug !== "compliance" &&
+      feature.slug !== "workforce" &&
+      feature.slug !== "time" &&
+      feature.slug !== "payroll-readiness" &&
+      feature.slug !== "ai-assistant" &&
+      feature.slug !== "project-intelligence" &&
+      feature.slug !== "predictive-insights" &&
+      feature.slug !== "document-intelligence" &&
+      feature.slug !== "automation" &&
+      feature.slug !== "crm" &&
+      feature.slug !== "leads" &&
+      feature.slug !== "website-builder" &&
+      feature.slug !== "customer-portals"
   ).map((feature) => ({
     slug: feature.slug,
   }));

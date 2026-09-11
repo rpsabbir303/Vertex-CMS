@@ -167,7 +167,145 @@ export type PreviewKey =
   | "mobileWorkspace"
   | "mobileFlow"
   | "mobileCapture"
-  | "mobileChain";
+  | "mobileChain"
+  | "subDirectory"
+  | "subProfile"
+  | "subReadiness"
+  | "subInsurance"
+  | "subLien"
+  | "subAlerts"
+  | "subApprovalFlow"
+  | "compOverview"
+  | "compHealth"
+  | "compRequirements"
+  | "compSubReadiness"
+  | "compInsurance"
+  | "compLien"
+  | "compAlerts"
+  | "compDocs"
+  | "compApprovalFlow"
+  | "wfOverview"
+  | "wfDirectory"
+  | "wfProfile"
+  | "wfCrew"
+  | "wfProjectAssign"
+  | "wfLaborHours"
+  | "wfTimesheet"
+  | "wfTimesheetApproval"
+  | "wfCertifications"
+  | "wfPayrollSummary"
+  | "wfCostFlow"
+  | "timeOverview"
+  | "timeWeekly"
+  | "timeEntry"
+  | "timeLaborBreakdown"
+  | "timeProjectLabor"
+  | "timeCostCode"
+  | "timeWorkflow"
+  | "timeApprovalQueue"
+  | "timeCostConnection"
+  | "timePayrollSummary"
+  | "timeMobileEntry"
+  | "timeSummary"
+  | "prOverview"
+  | "prWorkflow"
+  | "prPeriod"
+  | "prWorkerPay"
+  | "prLaborBreakdown"
+  | "prClassification"
+  | "prFringe"
+  | "prSummary"
+  | "prReview"
+  | "prProjectLabor"
+  | "prDataQuality"
+  | "aiHero"
+  | "aiWorkspace"
+  | "aiGrounded"
+  | "aiConfirm"
+  | "aiHowItWorks"
+  | "aiGroundedSources"
+  | "aiMultiModule"
+  | "aiDrawing"
+  | "aiFinancial"
+  | "aiField"
+  | "aiDraftConfirm"
+  | "aiHistory"
+  | "piHero"
+  | "piWorkspace"
+  | "piHowItWorks"
+  | "piConnected"
+  | "piGrounded"
+  | "piStatus"
+  | "piConfirm"
+  | "predHero"
+  | "predShowcase"
+  | "predRisk"
+  | "predDetail"
+  | "predPriority"
+  | "predHealth"
+  | "predControl"
+  | "predForecast"
+  | "predEarlyWarning"
+  | "predSignalAction"
+  | "predTrend"
+  | "autoHero"
+  | "autoHowItWorks"
+  | "autoShowcase"
+  | "autoApproval"
+  | "autoActivityLog"
+  | "autoGovernance"
+  | "crmHero"
+  | "crmWorkflow"
+  | "crmWorkspace"
+  | "crmCustomer"
+  | "crmOpportunity"
+  | "leadsHero"
+  | "leadsWorkflow"
+  | "leadsWorkspace"
+  | "leadsDetail"
+  | "leadsDarkStory"
+  | "leadsActivity"
+  | "leadsQualify"
+  | "leadsFollowUp"
+  | "leadsNotes"
+  | "leadsPriority"
+  | "leadsHandoff"
+  | "leadsPipelineDash"
+  | "leadsSources"
+  | "wbHero"
+  | "wbTemplatePreview"
+  | "wbEditor"
+  | "wbSectionEditor"
+  | "wbCmsImport"
+  | "wbPortfolio"
+  | "wbBranding"
+  | "wbSeo"
+  | "wbPublish"
+  | "wbDomain"
+  | "wbDns"
+  | "wbSsl"
+  | "wbContactLead"
+  | "cpHero"
+  | "cpShowcase"
+  | "cpPortalScreen"
+  | "cpOwnerPortal"
+  | "cpSubPortal"
+  | "cpVendorPortal"
+  | "cpArchitectPortal"
+  | "cpEsign"
+  | "cpPermissions"
+  | "cpActivity"
+  | "cpApprovals"
+  | "cpDocuments"
+  | "cpFullPortal"
+  | "diHero"
+  | "diQa"
+  | "diSummary"
+  | "diExtract"
+  | "diCompare"
+  | "diSearch"
+  | "diContext"
+  | "diHowItWorks";
 
 export type TenantModule = {
   code: string;
@@ -359,7 +497,7 @@ export const TENANT_MODULES: TenantModule[] = [
     plans: S,
     basicOnStarter: true,
     features: ["AI conversations", "AI messages", "Tool calls", "Confirmed writes", "Permission-scoped answers"],
-    preview: "ai",
+    preview: "aiHero",
     dark: true,
   },
 
@@ -594,7 +732,7 @@ export const TENANT_MODULES: TenantModule[] = [
     description: "Subcontractor records and insurance tracking.",
     plans: P,
     features: ["Subcontractors", "Sub insurance records"],
-    preview: "workforce",
+    preview: "subDirectory",
   },
   {
     code: "LIEN",
@@ -649,7 +787,7 @@ export const TENANT_MODULES: TenantModule[] = [
     plans: Pr,
     depends: ["LIEN", "INS"],
     features: ["Compliance radar", "Compliance calendar", "DBE participation"],
-    preview: "safety",
+    preview: "compOverview",
   },
 
   // Scheduling / Field / Quality
@@ -762,7 +900,7 @@ export const TENANT_MODULES: TenantModule[] = [
     plans: P,
     depends: ["PROJ", "CSI"],
     features: ["Workers", "Timesheets", "Timesheet entries"],
-    preview: "workforce",
+    preview: "wfOverview",
   },
   {
     code: "PAYROLL",
@@ -773,7 +911,7 @@ export const TENANT_MODULES: TenantModule[] = [
     plans: ["addon", "enterprise"],
     depends: ["TIME"],
     features: ["Payroll runs", "Payroll entries", "Certified payroll reports"],
-    preview: "workforce",
+    preview: "prOverview",
   },
   {
     code: "PERMIT",

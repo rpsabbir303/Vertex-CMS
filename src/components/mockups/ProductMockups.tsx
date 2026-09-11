@@ -3702,6 +3702,4309 @@ export function WorkforceUI() {
   );
 }
 
+/** Subcontractors (SUB) + linked COI / lien / compliance readiness mockups */
+
+export function SubDirectoryUI() {
+  const rows = [
+    {
+      name: "Northstar Mechanical",
+      trade: "MEP",
+      projects: "3 Projects",
+      prequal: "Approved",
+      insurance: "Current",
+      compliance: "Ready",
+      status: "Active",
+    },
+    {
+      name: "Summit Electrical",
+      trade: "Electrical",
+      projects: "2 Projects",
+      prequal: "Approved",
+      insurance: "Expires in 18 days",
+      compliance: "Review",
+      status: "Active",
+    },
+    {
+      name: "Apex Concrete",
+      trade: "Concrete",
+      projects: "1 Project",
+      prequal: "Pending",
+      insurance: "Current",
+      compliance: "Pending Review",
+      status: "Pending",
+    },
+  ];
+  return (
+    <BrowserFrame url="app.vertexcms.com / subcontractors">
+      <div className="border-b border-slate-100 px-4 py-2.5">
+        <div className="flex flex-wrap items-center justify-between gap-2">
+          <div>
+            <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-brand-muted">
+              Subcontractor Directory
+            </p>
+            <p className="mt-0.5 text-[14px] font-semibold text-brand-navy">Portfolio · Active Relationships</p>
+          </div>
+          <span className="rounded-md border border-brand-line bg-brand-soft px-2.5 py-1 text-[10px] font-semibold text-brand-navy">
+            24 Subcontractors
+          </span>
+        </div>
+        <div className="mt-2.5 flex flex-wrap gap-2">
+          <div className="min-w-[140px] flex-1 rounded-lg border border-slate-200 px-2.5 py-1.5 text-[11px] text-brand-muted">
+            Search subcontractors, trades, projects…
+          </div>
+          <span className="rounded-md border border-brand-line bg-white px-2.5 py-1.5 text-[10px] font-semibold text-brand-navy">
+            Status · All
+          </span>
+          <span className="rounded-md border border-brand-line bg-white px-2.5 py-1.5 text-[10px] font-semibold text-brand-navy">
+            Compliance · All
+          </span>
+        </div>
+      </div>
+      <div className="p-3 sm:p-4">
+        <div className="overflow-x-auto rounded-xl border border-slate-200">
+          <table className="min-w-[680px] w-full text-left text-[10px]">
+            <thead>
+              <tr className="border-b border-slate-100 bg-brand-soft/70 text-[9px] uppercase tracking-wide text-brand-muted">
+                {["Subcontractor", "Trade", "Projects", "Prequalification", "Insurance", "Compliance", "Status"].map(
+                  (h) => (
+                    <th key={h} className="whitespace-nowrap px-2.5 py-2 font-semibold">
+                      {h}
+                    </th>
+                  )
+                )}
+              </tr>
+            </thead>
+            <tbody>
+              {rows.map((r, i) => (
+                <tr
+                  key={r.name}
+                  className={
+                    "border-b border-slate-100 last:border-0 " +
+                    (i === 0 ? "bg-brand-orange/[0.04]" : "bg-white")
+                  }
+                >
+                  <td className="whitespace-nowrap px-2.5 py-2.5 font-semibold text-brand-navy">{r.name}</td>
+                  <td className="whitespace-nowrap px-2.5 py-2.5 text-brand-muted">{r.trade}</td>
+                  <td className="whitespace-nowrap px-2.5 py-2.5 text-brand-muted">{r.projects}</td>
+                  <td
+                    className={
+                      "whitespace-nowrap px-2.5 py-2.5 font-semibold " +
+                      (r.prequal === "Approved" ? "text-emerald-700" : "text-amber-700")
+                    }
+                  >
+                    {r.prequal}
+                  </td>
+                  <td
+                    className={
+                      "whitespace-nowrap px-2.5 py-2.5 font-semibold " +
+                      (r.insurance.includes("Expires") ? "text-brand-orange" : "text-emerald-700")
+                    }
+                  >
+                    {r.insurance}
+                  </td>
+                  <td
+                    className={
+                      "whitespace-nowrap px-2.5 py-2.5 font-semibold " +
+                      (r.compliance === "Ready"
+                        ? "text-emerald-700"
+                        : r.compliance === "Review"
+                          ? "text-brand-orange"
+                          : "text-amber-700")
+                    }
+                  >
+                    {r.compliance}
+                  </td>
+                  <td className="whitespace-nowrap px-2.5 py-2.5 font-semibold text-brand-navy">{r.status}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </BrowserFrame>
+  );
+}
+
+export function SubProfileUI() {
+  return (
+    <BrowserFrame url="app.vertexcms.com / subcontractors / northstar-mechanical">
+      <div className="border-b border-slate-100 px-4 py-3">
+        <div className="flex flex-wrap items-start justify-between gap-3">
+          <div>
+            <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-brand-muted">
+              Subcontractor Detail
+            </p>
+            <p className="mt-0.5 text-[15px] font-semibold text-brand-navy">Northstar Mechanical</p>
+            <p className="mt-0.5 text-[11px] text-brand-muted">MEP · Trade partner</p>
+          </div>
+          <span className="rounded-md border border-emerald-200 bg-emerald-50 px-2.5 py-1 text-[10px] font-semibold text-emerald-700">
+            Approved
+          </span>
+        </div>
+        <div className="mt-3 flex flex-wrap gap-1.5">
+          {["Overview", "Projects", "Contracts", "Compliance", "Performance"].map((t, i) => (
+            <span
+              key={t}
+              className={
+                "rounded-md px-2.5 py-1 text-[10px] font-semibold " +
+                (i === 0
+                  ? "bg-brand-navy text-white"
+                  : "border border-brand-line bg-white text-brand-muted")
+              }
+            >
+              {t}
+            </span>
+          ))}
+        </div>
+      </div>
+      <div className="grid gap-3 p-3 sm:grid-cols-[1.1fr_0.9fr] sm:p-4">
+        <div className="space-y-3">
+          <div className="grid grid-cols-2 gap-2 sm:grid-cols-4">
+            {[
+              ["Active Projects", "3"],
+              ["Open Contracts", "4"],
+              ["Compliance", "98%"],
+              ["Performance", "92%"],
+            ].map(([l, v]) => (
+              <div key={l} className="rounded-xl border border-slate-200 bg-brand-soft/50 px-2.5 py-2.5">
+                <p className="text-[9px] text-brand-muted">{l}</p>
+                <p className="mt-1 text-[15px] font-bold text-brand-navy">{v}</p>
+              </div>
+            ))}
+          </div>
+          <div className="rounded-xl border border-slate-200 bg-white p-3">
+            <p className="text-[10px] font-semibold uppercase tracking-wide text-brand-muted">Projects</p>
+            <ul className="mt-2 space-y-1.5">
+              {["Riverside Medical Center", "Harbor Office Complex", "North Campus Expansion"].map((p) => (
+                <li
+                  key={p}
+                  className="flex items-center justify-between rounded-lg border border-slate-100 bg-[#FAFBFD] px-2.5 py-2"
+                >
+                  <span className="text-[11px] font-semibold text-brand-navy">{p}</span>
+                  <span className="text-[9px] font-semibold text-emerald-700">Active</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className="rounded-xl border border-slate-200 bg-white p-3">
+            <p className="text-[10px] font-semibold uppercase tracking-wide text-brand-muted">
+              Contract Information
+            </p>
+            <div className="mt-2 grid grid-cols-2 gap-2">
+              {[
+                ["Contract value", "$2.4M"],
+                ["Committed cost", "$1.8M"],
+                ["Start date", "Mar 01, 2026"],
+                ["End date", "Nov 30, 2026"],
+              ].map(([l, v]) => (
+                <div key={l} className="rounded-lg bg-brand-soft/60 px-2.5 py-2">
+                  <p className="text-[9px] text-brand-muted">{l}</p>
+                  <p className="mt-0.5 text-[11px] font-semibold text-brand-navy">{v}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+        <div className="space-y-3">
+          <div className="rounded-xl border border-slate-200 bg-white p-3">
+            <p className="text-[10px] font-semibold uppercase tracking-wide text-brand-muted">
+              Compliance Summary
+            </p>
+            <ul className="mt-2 space-y-1.5">
+              {[
+                ["COI", "Current", "text-emerald-700"],
+                ["Prequalification", "Approved", "text-emerald-700"],
+                ["Required Documents", "Complete", "text-emerald-700"],
+              ].map(([l, v, c]) => (
+                <li key={l} className="flex items-center justify-between rounded-lg border border-slate-100 px-2.5 py-2">
+                  <span className="text-[11px] text-brand-muted">{l}</span>
+                  <span className={`text-[11px] font-semibold ${c}`}>{v}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className="rounded-xl border border-slate-200 bg-white p-3">
+            <p className="text-[10px] font-semibold uppercase tracking-wide text-brand-muted">Performance</p>
+            <ul className="mt-2 space-y-1.5">
+              {[
+                ["Schedule", "92%"],
+                ["Quality", "95%"],
+                ["Safety", "90%"],
+              ].map(([l, v]) => (
+                <li key={l} className="flex items-center justify-between rounded-lg border border-slate-100 px-2.5 py-2">
+                  <span className="text-[11px] text-brand-muted">{l}</span>
+                  <span className="text-[11px] font-semibold text-brand-navy">{v}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className="rounded-xl border border-brand-orange/25 bg-brand-orange/[0.06] px-3 py-2.5">
+            <p className="text-[10px] font-semibold text-brand-orange">Alerts</p>
+            <p className="mt-1 text-[11px] text-brand-navy">No open compliance issues</p>
+          </div>
+        </div>
+      </div>
+    </BrowserFrame>
+  );
+}
+
+export function SubReadinessUI() {
+  return (
+    <BrowserFrame url="app.vertexcms.com / subcontractors / readiness">
+      <div className="p-4 sm:p-5">
+        <div className="mb-4 flex flex-wrap items-center justify-between gap-2">
+          <div>
+            <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-brand-muted">
+              Compliance Readiness
+            </p>
+            <p className="mt-0.5 text-[14px] font-semibold text-brand-navy">Northstar Mechanical</p>
+          </div>
+          <span className="rounded-md border border-emerald-200 bg-emerald-50 px-2.5 py-1 text-[10px] font-bold uppercase tracking-wide text-emerald-700">
+            Ready
+          </span>
+        </div>
+        <ul className="space-y-2">
+          {[
+            ["Prequalification", "Approved", true],
+            ["Insurance", "Current", true],
+            ["Required Documents", "Complete", true],
+            ["Project Assignment", "Eligible", true],
+          ].map(([l, v, ok]) => (
+            <li
+              key={String(l)}
+              className="flex items-center justify-between rounded-xl border border-slate-200 bg-white px-3.5 py-3"
+            >
+              <span className="text-[12px] font-semibold text-brand-navy">{l}</span>
+              <span
+                className={
+                  "text-[11px] font-semibold " + (ok ? "text-emerald-700" : "text-brand-orange")
+                }
+              >
+                {v}
+              </span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </BrowserFrame>
+  );
+}
+
+export function SubInsuranceUI() {
+  return (
+    <BrowserFrame url="app.vertexcms.com / subcontractors / insurance" dark>
+      <div className="p-4 sm:p-5">
+        <div className="mb-4 flex flex-wrap items-start justify-between gap-3">
+          <div>
+            <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-slate-400">
+              Insurance &amp; COI
+            </p>
+            <p className="mt-0.5 text-[14px] font-semibold text-white">Northstar Mechanical</p>
+          </div>
+          <span className="rounded-md border border-emerald-400/30 bg-emerald-400/10 px-2.5 py-1 text-[10px] font-bold uppercase tracking-wide text-emerald-300">
+            Current
+          </span>
+        </div>
+        <div className="grid gap-3 lg:grid-cols-[1.15fr_0.85fr]">
+          <div className="rounded-xl border border-white/10 bg-white/[0.04] p-3.5">
+            <p className="text-[11px] font-semibold text-white">General Liability</p>
+            <div className="mt-3 grid grid-cols-2 gap-2">
+              {[
+                ["Policy Number", "GL-48291"],
+                ["Coverage", "$2,000,000"],
+                ["Effective", "Jan 01, 2026"],
+                ["Expires", "Dec 31, 2026"],
+              ].map(([l, v]) => (
+                <div key={l} className="rounded-lg border border-white/10 bg-white/[0.03] px-2.5 py-2">
+                  <p className="text-[9px] text-slate-400">{l}</p>
+                  <p className="mt-0.5 text-[11px] font-semibold text-slate-100">{v}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+          <div className="flex flex-col items-center justify-center rounded-xl border border-white/10 bg-white/[0.04] p-4">
+            <p className="mb-3 text-[10px] font-semibold uppercase tracking-wide text-slate-400">
+              Expiration Radar
+            </p>
+            <div className="relative flex h-28 w-28 items-center justify-center">
+              <div className="absolute inset-0 rounded-full border border-brand-blue/25" />
+              <div className="absolute inset-3 rounded-full border border-brand-blue/35" />
+              <div className="absolute inset-6 rounded-full border border-brand-orange/40" />
+              <div className="rounded-full bg-brand-blue px-3 py-2 text-center text-[10px] font-bold text-white">
+                COI
+              </div>
+            </div>
+          </div>
+        </div>
+        <ul className="mt-3 space-y-2">
+          {[
+            ["Workers Compensation", "Expires in 24 days", "REVIEW SOON", "text-brand-orange"],
+            ["Auto Liability", "Current", "CURRENT", "text-emerald-300"],
+          ].map(([l, d, s, c]) => (
+            <li
+              key={l}
+              className="flex flex-wrap items-center justify-between gap-2 rounded-xl border border-white/10 bg-white/[0.03] px-3 py-2.5"
+            >
+              <div>
+                <p className="text-[12px] font-semibold text-white">{l}</p>
+                <p className="text-[10px] text-slate-400">{d}</p>
+              </div>
+              <span className={`text-[10px] font-bold uppercase tracking-wide ${c}`}>{s}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </BrowserFrame>
+  );
+}
+
+export function SubLienUI() {
+  const rows = [
+    { sub: "Northstar Mechanical", period: "Aug 2026", type: "Conditional", status: "Received" },
+    { sub: "Summit Electrical", period: "Aug 2026", type: "Unconditional", status: "Pending" },
+    { sub: "Apex Concrete", period: "Aug 2026", type: "Conditional", status: "Received" },
+  ];
+  return (
+    <BrowserFrame url="app.vertexcms.com / projects / riverside / lien-waivers">
+      <div className="border-b border-slate-100 px-4 py-2.5">
+        <div className="flex flex-wrap items-center justify-between gap-2">
+          <div>
+            <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-brand-muted">
+              Lien Waiver Register
+            </p>
+            <p className="mt-0.5 text-[14px] font-semibold text-brand-navy">Riverside Medical Center</p>
+          </div>
+          <span className="rounded-md border border-brand-line bg-brand-soft px-2.5 py-1 text-[10px] font-semibold text-brand-navy">
+            Project location · CA
+          </span>
+        </div>
+        <div className="mt-2.5 flex flex-wrap gap-1.5">
+          {["All", "Pending", "Received", "Missing"].map((f, i) => (
+            <span
+              key={f}
+              className={
+                "rounded-md px-2.5 py-1 text-[10px] font-semibold " +
+                (i === 0
+                  ? "bg-brand-navy text-white"
+                  : "border border-brand-line bg-white text-brand-muted")
+              }
+            >
+              {f}
+            </span>
+          ))}
+        </div>
+      </div>
+      <div className="p-3 sm:p-4">
+        <div className="overflow-x-auto rounded-xl border border-slate-200">
+          <table className="min-w-[520px] w-full text-left text-[10px]">
+            <thead>
+              <tr className="border-b border-slate-100 bg-brand-soft/70 text-[9px] uppercase tracking-wide text-brand-muted">
+                {["Subcontractor", "Period", "Type", "Status"].map((h) => (
+                  <th key={h} className="whitespace-nowrap px-2.5 py-2 font-semibold">
+                    {h}
+                  </th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {rows.map((r) => (
+                <tr key={r.sub} className="border-b border-slate-100 last:border-0 bg-white">
+                  <td className="whitespace-nowrap px-2.5 py-2.5 font-semibold text-brand-navy">{r.sub}</td>
+                  <td className="whitespace-nowrap px-2.5 py-2.5 text-brand-muted">{r.period}</td>
+                  <td className="whitespace-nowrap px-2.5 py-2.5 text-brand-muted">{r.type}</td>
+                  <td
+                    className={
+                      "whitespace-nowrap px-2.5 py-2.5 font-semibold " +
+                      (r.status === "Received" ? "text-emerald-700" : "text-brand-orange")
+                    }
+                  >
+                    {r.status}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        <p className="mt-3 text-[10px] leading-relaxed text-brand-muted">
+          Lien waivers and notices follow project location requirements.
+        </p>
+      </div>
+    </BrowserFrame>
+  );
+}
+
+export function SubAlertsUI() {
+  const alerts = [
+    {
+      level: "HIGH",
+      title: "Insurance certificate expired",
+      sub: "Apex Concrete",
+      detail: "Expired 2 days ago",
+      tone: "text-brand-orange border-brand-orange/30 bg-brand-orange/[0.06]",
+    },
+    {
+      level: "MEDIUM",
+      title: "COI expires in 14 days",
+      sub: "Summit Electrical",
+      detail: "Renewal required",
+      tone: "text-amber-700 border-amber-200 bg-amber-50/80",
+    },
+    {
+      level: "MEDIUM",
+      title: "Prequalification review required",
+      sub: "Harbor Steel",
+      detail: "Approval pending",
+      tone: "text-amber-700 border-amber-200 bg-amber-50/80",
+    },
+  ];
+  return (
+    <BrowserFrame url="app.vertexcms.com / compliance / alerts">
+      <div className="border-b border-slate-100 px-4 py-2.5">
+        <div className="flex flex-wrap items-center justify-between gap-2">
+          <div>
+            <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-brand-muted">
+              Compliance Alerts
+            </p>
+            <p className="mt-0.5 text-[14px] font-semibold text-brand-navy">3 items need attention</p>
+          </div>
+        </div>
+      </div>
+      <div className="space-y-2.5 p-3 sm:p-4">
+        {alerts.map((a) => (
+          <div key={a.title} className={`rounded-xl border px-3.5 py-3 ${a.tone}`}>
+            <div className="flex flex-wrap items-start justify-between gap-2">
+              <div>
+                <p className="text-[9px] font-bold uppercase tracking-wide">{a.level}</p>
+                <p className="mt-1 text-[13px] font-semibold text-brand-navy">{a.title}</p>
+                <p className="mt-0.5 text-[11px] text-brand-muted">
+                  {a.sub} · {a.detail}
+                </p>
+              </div>
+              <div className="flex flex-wrap gap-1.5">
+                {["View requirement", "Review", "Resolve"].map((b) => (
+                  <span
+                    key={b}
+                    className="rounded-md border border-brand-line bg-white px-2 py-1 text-[9px] font-semibold text-brand-navy"
+                  >
+                    {b}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </BrowserFrame>
+  );
+}
+
+export function SubApprovalFlowUI() {
+  const steps = [
+    "Subcontractor",
+    "Prequalification",
+    "Compliance Review",
+    "Insurance Verification",
+    "Project Approval",
+    "Ready for Work",
+  ];
+  return (
+    <div className="rounded-2xl border border-white/10 bg-white/[0.04] p-5 shadow-card sm:p-6" aria-hidden="true">
+      <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-slate-400">
+        Approval &amp; Risk Control
+      </p>
+      <ol className="mt-5 space-y-2.5">
+        {steps.map((s, i) => (
+          <li key={s} className="flex items-center gap-3">
+            <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-brand-orange/40 bg-brand-orange/10 font-mono text-[10px] font-bold text-brand-orange">
+              {String(i + 1).padStart(2, "0")}
+            </span>
+            <div className="flex-1 rounded-xl border border-white/12 bg-white/[0.04] px-3.5 py-2.5">
+              <p className="text-[13px] font-semibold text-white">{s}</p>
+            </div>
+            {i < steps.length - 1 ? (
+              <span className="hidden text-slate-500 sm:inline" aria-hidden="true">
+                ↓
+              </span>
+            ) : null}
+          </li>
+        ))}
+      </ol>
+      <div className="mt-5 grid gap-3 sm:grid-cols-2">
+        <div className="rounded-xl border border-brand-orange/35 bg-brand-orange/10 px-3.5 py-3">
+          <p className="text-[10px] font-bold uppercase tracking-wide text-brand-orange">Not Eligible</p>
+          <p className="mt-1.5 text-[12px] leading-relaxed text-slate-200">
+            Prequalification approval required before assignment.
+          </p>
+        </div>
+        <div className="rounded-xl border border-amber-400/30 bg-amber-400/10 px-3.5 py-3">
+          <p className="text-[10px] font-bold uppercase tracking-wide text-amber-300">Payment Hold</p>
+          <p className="mt-1.5 text-[12px] leading-relaxed text-slate-200">
+            Required COI is expired.
+          </p>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+/** Compliance suite (COMPLY / INS / LIEN) marketing mockups */
+
+export function CompOverviewUI() {
+  const rows = [
+    {
+      req: "COI",
+      sub: "Northstar Mechanical",
+      project: "Riverside Medical Center",
+      status: "Current",
+      exp: "Dec 31, 2026",
+      tone: "text-emerald-700",
+    },
+    {
+      req: "Prequalification",
+      sub: "Summit Electrical",
+      project: "Harbor Office Complex",
+      status: "Approved",
+      exp: "—",
+      tone: "text-emerald-700",
+    },
+    {
+      req: "Lien Waiver",
+      sub: "Apex Concrete",
+      project: "Riverside Medical Center",
+      status: "Pending",
+      exp: "Sep 18, 2026",
+      tone: "text-brand-orange",
+    },
+  ];
+  return (
+    <BrowserFrame url="app.vertexcms.com / compliance">
+      <div className="border-b border-slate-100 px-4 py-2.5">
+        <div className="flex flex-wrap items-center justify-between gap-2">
+          <div>
+            <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-brand-muted">
+              Compliance Overview
+            </p>
+            <p className="mt-0.5 text-[14px] font-semibold text-brand-navy">Portfolio compliance status</p>
+          </div>
+          <span className="rounded-md border border-brand-line bg-brand-soft px-2.5 py-1 text-[10px] font-semibold text-brand-navy">
+            Live view
+          </span>
+        </div>
+      </div>
+      <div className="p-3 sm:p-4">
+        <div className="mb-3 grid grid-cols-2 gap-2 sm:grid-cols-4">
+          {[
+            ["Compliance Status", "94%", "text-emerald-700"],
+            ["Requirements", "48", "text-brand-navy"],
+            ["Need Attention", "5", "text-brand-orange"],
+            ["Expiring Soon", "3", "text-amber-700"],
+          ].map(([l, v, c]) => (
+            <div key={l} className="rounded-xl border border-slate-200 bg-brand-soft/40 px-2.5 py-2.5">
+              <p className="text-[9px] text-brand-muted">{l}</p>
+              <p className={`mt-1 text-[16px] font-bold ${c}`}>{v}</p>
+            </div>
+          ))}
+        </div>
+        <div className="overflow-x-auto rounded-xl border border-slate-200">
+          <table className="min-w-[640px] w-full text-left text-[10px]">
+            <thead>
+              <tr className="border-b border-slate-100 bg-brand-soft/70 text-[9px] uppercase tracking-wide text-brand-muted">
+                {["Requirement", "Subcontractor", "Project", "Status", "Expiration"].map((h) => (
+                  <th key={h} className="whitespace-nowrap px-2.5 py-2 font-semibold">
+                    {h}
+                  </th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {rows.map((r, i) => (
+                <tr
+                  key={r.req + r.sub}
+                  className={
+                    "border-b border-slate-100 last:border-0 " +
+                    (i === 2 ? "bg-brand-orange/[0.04]" : "bg-white")
+                  }
+                >
+                  <td className="whitespace-nowrap px-2.5 py-2.5 font-semibold text-brand-navy">{r.req}</td>
+                  <td className="whitespace-nowrap px-2.5 py-2.5 text-brand-muted">{r.sub}</td>
+                  <td className="whitespace-nowrap px-2.5 py-2.5 text-brand-muted">{r.project}</td>
+                  <td className={`whitespace-nowrap px-2.5 py-2.5 font-semibold ${r.tone}`}>{r.status}</td>
+                  <td className="whitespace-nowrap px-2.5 py-2.5 text-brand-muted">{r.exp}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </BrowserFrame>
+  );
+}
+
+export function CompHealthUI() {
+  return (
+    <BrowserFrame url="app.vertexcms.com / compliance / health">
+      <div className="p-4 sm:p-5">
+        <div className="mb-4 flex flex-wrap items-center justify-between gap-2">
+          <div>
+            <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-brand-muted">
+              Compliance Health
+            </p>
+            <p className="mt-0.5 text-[14px] font-semibold text-brand-navy">Overall · 94% Ready</p>
+          </div>
+          <span className="rounded-md border border-brand-navy/15 bg-brand-navy px-2.5 py-1.5 text-[10px] font-semibold text-white">
+            View Compliance Details
+          </span>
+        </div>
+        <div className="mb-4 grid grid-cols-2 gap-2 sm:grid-cols-4">
+          {[
+            ["Approved", "32", "text-emerald-700"],
+            ["Pending", "8", "text-brand-navy"],
+            ["Expiring Soon", "5", "text-brand-orange"],
+            ["Missing", "3", "text-amber-700"],
+          ].map(([l, v, c]) => (
+            <div key={l} className="rounded-xl border border-slate-200 bg-white px-3 py-3">
+              <p className="text-[9px] text-brand-muted">{l}</p>
+              <p className={`mt-1 text-[18px] font-bold ${c}`}>{v}</p>
+            </div>
+          ))}
+        </div>
+        <div className="rounded-xl border border-slate-200 bg-white p-3.5">
+          <p className="text-[10px] font-semibold uppercase tracking-wide text-brand-muted">
+            Project Compliance
+          </p>
+          <ul className="mt-2.5 space-y-2">
+            {[
+              ["Riverside Medical Center", "92% Ready"],
+              ["Harbor Office Complex", "97% Ready"],
+              ["North Campus Expansion", "88% Ready"],
+            ].map(([p, s]) => (
+              <li
+                key={p}
+                className="flex items-center justify-between rounded-lg border border-slate-100 bg-[#FAFBFD] px-3 py-2.5"
+              >
+                <span className="text-[12px] font-semibold text-brand-navy">{p}</span>
+                <span className="text-[11px] font-semibold text-emerald-700">{s}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </BrowserFrame>
+  );
+}
+
+export function CompRequirementsUI() {
+  const items = [
+    ["Subcontractor Prequalification", "APPROVED", "text-emerald-700"],
+    ["Certificate of Insurance", "CURRENT", "text-emerald-700"],
+    ["Required Documents", "COMPLETE", "text-emerald-700"],
+    ["Lien Waiver", "PENDING", "text-brand-orange"],
+    ["Compliance Review", "IN REVIEW", "text-brand-navy"],
+  ];
+  const legend = [
+    ["Complete", "Ready for project activity."],
+    ["Pending", "Action is still required."],
+    ["Expiring", "Review before the expiration date."],
+    ["Missing", "Required information has not been provided."],
+  ];
+  return (
+    <BrowserFrame url="app.vertexcms.com / projects / riverside / requirements">
+      <div className="border-b border-slate-100 px-4 py-2.5">
+        <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-brand-muted">
+          Project Requirements
+        </p>
+        <p className="mt-0.5 text-[14px] font-semibold text-brand-navy">Riverside Medical Center</p>
+      </div>
+      <div className="grid gap-3 p-3 sm:grid-cols-[1.15fr_0.85fr] sm:p-4">
+        <ul className="space-y-2">
+          {items.map(([l, s, c]) => (
+            <li
+              key={l}
+              className="flex items-center justify-between rounded-xl border border-slate-200 bg-white px-3 py-2.5"
+            >
+              <span className="text-[12px] font-semibold text-brand-navy">{l}</span>
+              <span className={`text-[10px] font-bold uppercase tracking-wide ${c}`}>{s}</span>
+            </li>
+          ))}
+        </ul>
+        <div className="rounded-xl border border-slate-200 bg-[#FAFBFD] p-3.5">
+          <p className="text-[10px] font-semibold uppercase tracking-wide text-brand-muted">
+            Requirement status
+          </p>
+          <ul className="mt-3 space-y-2.5">
+            {legend.map(([t, d]) => (
+              <li key={t}>
+                <p className="text-[12px] font-semibold text-brand-navy">{t}</p>
+                <p className="mt-0.5 text-[11px] leading-relaxed text-brand-muted">{d}</p>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </BrowserFrame>
+  );
+}
+
+export function CompSubReadinessUI() {
+  return (
+    <BrowserFrame url="app.vertexcms.com / compliance / subcontractors / northstar">
+      <div className="p-4 sm:p-5">
+        <div className="mb-4 flex flex-wrap items-start justify-between gap-2">
+          <div>
+            <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-brand-muted">
+              Subcontractor Compliance
+            </p>
+            <p className="mt-0.5 text-[15px] font-semibold text-brand-navy">Northstar Mechanical</p>
+          </div>
+          <span className="rounded-md border border-emerald-200 bg-emerald-50 px-2.5 py-1 text-[10px] font-bold uppercase tracking-wide text-emerald-700">
+            Ready
+          </span>
+        </div>
+        <ul className="space-y-2">
+          {[
+            ["Prequalification", "Approved"],
+            ["Insurance", "Current"],
+            ["Required Documents", "Complete"],
+            ["Lien Waivers", "2 / 2 Received"],
+            ["Active Projects", "3"],
+            ["Performance", "92%"],
+          ].map(([l, v]) => (
+            <li
+              key={l}
+              className="flex items-center justify-between rounded-xl border border-slate-200 bg-white px-3.5 py-2.5"
+            >
+              <span className="text-[12px] text-brand-muted">{l}</span>
+              <span className="text-[12px] font-semibold text-brand-navy">{v}</span>
+            </li>
+          ))}
+        </ul>
+        <div className="mt-4 inline-flex rounded-md border border-brand-navy/15 bg-brand-navy px-3 py-2 text-[10px] font-semibold text-white">
+          View Subcontractor
+        </div>
+      </div>
+    </BrowserFrame>
+  );
+}
+
+export function CompInsuranceUI() {
+  return (
+    <BrowserFrame url="app.vertexcms.com / compliance / insurance" dark>
+      <div className="p-4 sm:p-5">
+        <div className="mb-4 flex flex-wrap items-start justify-between gap-2">
+          <div>
+            <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-slate-400">
+              Insurance Certificates
+            </p>
+            <p className="mt-0.5 text-[14px] font-semibold text-white">Northstar Mechanical</p>
+          </div>
+          <span className="rounded-md border border-white/15 bg-white/10 px-2.5 py-1.5 text-[10px] font-semibold text-white">
+            Review Insurance
+          </span>
+        </div>
+        <ul className="space-y-2">
+          {[
+            ["General Liability", "$2,000,000", "Expires Dec 31, 2026", "CURRENT", "text-emerald-300"],
+            ["Workers Compensation", "$1,000,000", "Expires Oct 04, 2026", "REVIEW SOON", "text-brand-orange"],
+            ["Auto Liability", "$1,000,000", "Expires Dec 31, 2026", "CURRENT", "text-emerald-300"],
+          ].map(([t, cov, exp, s, c]) => (
+            <li
+              key={t}
+              className="rounded-xl border border-white/10 bg-white/[0.04] px-3.5 py-3"
+            >
+              <div className="flex flex-wrap items-start justify-between gap-2">
+                <div>
+                  <p className="text-[12px] font-semibold text-white">{t}</p>
+                  <p className="mt-0.5 text-[11px] text-slate-400">
+                    {cov} · {exp}
+                  </p>
+                </div>
+                <span className={`text-[10px] font-bold uppercase tracking-wide ${c}`}>{s}</span>
+              </div>
+            </li>
+          ))}
+        </ul>
+        <div className="mt-4 flex flex-wrap items-center gap-2 rounded-xl border border-white/10 bg-white/[0.03] px-3 py-2.5">
+          {["CURRENT", "REVIEW SOON", "EXPIRED"].map((s, i) => (
+            <span key={s} className="flex items-center gap-2 text-[10px] font-semibold text-slate-300">
+              {i > 0 ? <span className="text-slate-500">→</span> : null}
+              {s}
+            </span>
+          ))}
+        </div>
+        <p className="mt-3 rounded-lg border border-brand-orange/30 bg-brand-orange/10 px-3 py-2 text-[11px] font-medium text-brand-orange">
+          3 certificates require review
+        </p>
+      </div>
+    </BrowserFrame>
+  );
+}
+
+export function CompLienUI() {
+  const rows = [
+    { sub: "Northstar Mechanical", period: "Aug 2026", type: "Conditional", status: "Received" },
+    { sub: "Summit Electrical", period: "Aug 2026", type: "Unconditional", status: "Pending" },
+    { sub: "Apex Concrete", period: "Aug 2026", type: "Conditional", status: "Received" },
+  ];
+  return (
+    <BrowserFrame url="app.vertexcms.com / projects / riverside / lien-waivers">
+      <div className="border-b border-slate-100 px-4 py-2.5">
+        <div className="flex flex-wrap items-center justify-between gap-2">
+          <div>
+            <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-brand-muted">
+              Lien Waiver Register
+            </p>
+            <p className="mt-0.5 text-[14px] font-semibold text-brand-navy">Riverside Medical Center</p>
+          </div>
+          <span className="rounded-md border border-brand-line bg-brand-soft px-2.5 py-1 text-[10px] font-semibold text-brand-navy">
+            Project Location · Texas
+          </span>
+        </div>
+        <div className="mt-2.5 flex flex-wrap gap-1.5">
+          {["All", "Pending", "Received", "Missing"].map((f, i) => (
+            <span
+              key={f}
+              className={
+                "rounded-md px-2.5 py-1 text-[10px] font-semibold " +
+                (i === 0
+                  ? "bg-brand-navy text-white"
+                  : "border border-brand-line bg-white text-brand-muted")
+              }
+            >
+              {f}
+            </span>
+          ))}
+        </div>
+      </div>
+      <div className="p-3 sm:p-4">
+        <div className="overflow-x-auto rounded-xl border border-slate-200">
+          <table className="min-w-[520px] w-full text-left text-[10px]">
+            <thead>
+              <tr className="border-b border-slate-100 bg-brand-soft/70 text-[9px] uppercase tracking-wide text-brand-muted">
+                {["Subcontractor", "Period", "Type", "Status"].map((h) => (
+                  <th key={h} className="whitespace-nowrap px-2.5 py-2 font-semibold">
+                    {h}
+                  </th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {rows.map((r) => (
+                <tr key={r.sub} className="border-b border-slate-100 last:border-0 bg-white">
+                  <td className="whitespace-nowrap px-2.5 py-2.5 font-semibold text-brand-navy">{r.sub}</td>
+                  <td className="whitespace-nowrap px-2.5 py-2.5 text-brand-muted">{r.period}</td>
+                  <td className="whitespace-nowrap px-2.5 py-2.5 text-brand-muted">{r.type}</td>
+                  <td
+                    className={
+                      "whitespace-nowrap px-2.5 py-2.5 font-semibold " +
+                      (r.status === "Received" ? "text-emerald-700" : "text-brand-orange")
+                    }
+                  >
+                    {r.status}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        <p className="mt-3 text-[10px] leading-relaxed text-brand-muted">
+          Requirements may vary by project location.
+        </p>
+      </div>
+    </BrowserFrame>
+  );
+}
+
+export function CompAlertsUI() {
+  const alerts = [
+    {
+      level: "HIGH",
+      title: "Expired Certificate of Insurance",
+      meta: "Apex Concrete · Riverside Medical Center",
+      action: "Review Insurance",
+      tone: "border-brand-orange/30 bg-brand-orange/[0.06]",
+    },
+    {
+      level: "MEDIUM",
+      title: "COI expires in 14 days",
+      meta: "Summit Electrical · Harbor Office Complex",
+      action: "Review",
+      tone: "border-amber-200 bg-amber-50/80",
+    },
+    {
+      level: "MEDIUM",
+      title: "Prequalification review required",
+      meta: "Harbor Steel · North Campus Expansion",
+      action: "Review",
+      tone: "border-amber-200 bg-amber-50/80",
+    },
+    {
+      level: "LOW",
+      title: "Lien waiver pending",
+      meta: "Northstar Mechanical · Riverside Medical Center",
+      action: "Review",
+      tone: "border-slate-200 bg-white",
+    },
+  ];
+  return (
+    <BrowserFrame url="app.vertexcms.com / compliance / alerts">
+      <div className="border-b border-slate-100 px-4 py-2.5">
+        <div className="flex flex-wrap items-center justify-between gap-2">
+          <div>
+            <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-brand-muted">
+              Compliance Alerts
+            </p>
+            <p className="mt-0.5 text-[14px] font-semibold text-brand-navy">5 items need attention</p>
+          </div>
+          <span className="rounded-md border border-brand-line bg-white px-2.5 py-1.5 text-[10px] font-semibold text-brand-navy">
+            View All Alerts
+          </span>
+        </div>
+      </div>
+      <div className="space-y-2 p-3 sm:p-4">
+        {alerts.map((a) => (
+          <div key={a.title} className={`rounded-xl border px-3.5 py-3 ${a.tone}`}>
+            <div className="flex flex-wrap items-start justify-between gap-2">
+              <div>
+                <p className="text-[9px] font-bold uppercase tracking-wide text-brand-muted">{a.level}</p>
+                <p className="mt-1 text-[13px] font-semibold text-brand-navy">{a.title}</p>
+                <p className="mt-0.5 text-[11px] text-brand-muted">{a.meta}</p>
+              </div>
+              <span className="text-[10px] font-semibold text-brand-orange">{a.action} →</span>
+            </div>
+          </div>
+        ))}
+      </div>
+    </BrowserFrame>
+  );
+}
+
+export function CompDocsUI() {
+  const docs = [
+    ["Certificate of Insurance", "Current", "Reviewed"],
+    ["Prequalification", "Approved", "Uploaded"],
+    ["W-9", "Received", "Uploaded"],
+    ["Lien Waiver", "Pending", "—"],
+    ["Compliance Review", "Completed", "Reviewed"],
+  ];
+  return (
+    <BrowserFrame url="app.vertexcms.com / compliance / documents">
+      <div className="border-b border-slate-100 px-4 py-2.5">
+        <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-brand-muted">
+          Compliance Documents
+        </p>
+        <p className="mt-0.5 text-[14px] font-semibold text-brand-navy">Summit Electrical</p>
+      </div>
+      <div className="p-3 sm:p-4">
+        <div className="mb-3 flex flex-wrap gap-1.5">
+          {["Uploaded", "Reviewed", "Current", "Expired"].map((s, i) => (
+            <span
+              key={s}
+              className={
+                "rounded-md px-2.5 py-1 text-[10px] font-semibold " +
+                (i === 0
+                  ? "bg-brand-navy text-white"
+                  : "border border-brand-line bg-white text-brand-muted")
+              }
+            >
+              {s}
+            </span>
+          ))}
+        </div>
+        <ul className="space-y-2">
+          {docs.map(([name, status, meta]) => (
+            <li
+              key={name}
+              className="flex flex-wrap items-center justify-between gap-2 rounded-xl border border-slate-200 bg-white px-3 py-2.5"
+            >
+              <div>
+                <p className="text-[12px] font-semibold text-brand-navy">{name}</p>
+                <p className="mt-0.5 text-[10px] text-brand-muted">{meta}</p>
+              </div>
+              <span
+                className={
+                  "text-[10px] font-bold uppercase tracking-wide " +
+                  (status === "Pending" ? "text-brand-orange" : "text-emerald-700")
+                }
+              >
+                {status}
+              </span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </BrowserFrame>
+  );
+}
+
+export function CompApprovalFlowUI() {
+  const steps = [
+    "Subcontractor",
+    "Prequalification",
+    "Compliance Review",
+    "Insurance Check",
+    "Project Approval",
+    "Ready for Work",
+  ];
+  return (
+    <div className="rounded-2xl border border-white/10 bg-white/[0.04] p-5 shadow-card sm:p-6" aria-hidden="true">
+      <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-slate-400">
+        Approval &amp; Readiness
+      </p>
+      <ol className="mt-5 space-y-2.5">
+        {steps.map((s, i) => (
+          <li key={s} className="flex items-center gap-3">
+            <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-brand-orange/40 bg-brand-orange/10 font-mono text-[10px] font-bold text-brand-orange">
+              {String(i + 1).padStart(2, "0")}
+            </span>
+            <div className="flex-1 rounded-xl border border-white/12 bg-white/[0.04] px-3.5 py-2.5">
+              <p className="text-[13px] font-semibold text-white">{s}</p>
+            </div>
+            {i < steps.length - 1 ? (
+              <span className="hidden text-slate-500 sm:inline" aria-hidden="true">
+                ↓
+              </span>
+            ) : null}
+          </li>
+        ))}
+      </ol>
+      <div className="mt-5 grid gap-3 sm:grid-cols-2">
+        <div className="rounded-xl border border-brand-orange/35 bg-brand-orange/10 px-3.5 py-3">
+          <p className="text-[10px] font-bold uppercase tracking-wide text-brand-orange">Not Ready</p>
+          <p className="mt-1.5 text-[12px] leading-relaxed text-slate-200">
+            Required compliance item is incomplete. Action required before assignment.
+          </p>
+        </div>
+        <div className="rounded-xl border border-amber-400/30 bg-amber-400/10 px-3.5 py-3">
+          <p className="text-[10px] font-bold uppercase tracking-wide text-amber-300">Payment Review</p>
+          <p className="mt-1.5 text-[12px] leading-relaxed text-slate-200">
+            Required insurance documentation is expired.
+          </p>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+/** Workforce & Timesheets (TIME) marketing mockups */
+
+export function WfOverviewUI() {
+  const rows = [
+    { worker: "Michael Carter", crew: "Electrical Crew A", project: "Riverside Medical Center", hrs: "42h", status: "Active", ot: false },
+    { worker: "James Wilson", crew: "Concrete Crew B", project: "Harbor Office Complex", hrs: "46h", status: "Overtime", ot: true },
+    { worker: "Daniel Brooks", crew: "MEP Crew C", project: "North Campus Expansion", hrs: "38h", status: "Active", ot: false },
+  ];
+  return (
+    <BrowserFrame url="app.vertexcms.com / workforce">
+      <div className="border-b border-slate-100 px-4 py-2.5">
+        <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-brand-muted">Workforce Overview</p>
+      </div>
+      <div className="p-3 sm:p-4">
+        <div className="mb-3 grid grid-cols-2 gap-2 sm:grid-cols-3 lg:grid-cols-6">
+          {[
+            ["Active Workers", "248"],
+            ["Active Crews", "32"],
+            ["Hours This Week", "7,842"],
+            ["Overtime Hours", "684"],
+            ["Certifications Expiring", "12"],
+            ["Projects", "18"],
+          ].map(([l, v], i) => (
+            <div key={l} className="rounded-xl border border-slate-200 bg-brand-soft/40 px-2.5 py-2.5">
+              <p className="text-[9px] text-brand-muted">{l}</p>
+              <p className={`mt-1 text-[14px] font-bold ${i === 3 || i === 4 ? "text-brand-orange" : "text-brand-navy"}`}>{v}</p>
+            </div>
+          ))}
+        </div>
+        <div className="mb-3 rounded-xl border border-brand-orange/25 bg-brand-orange/[0.06] px-3 py-2.5">
+          <div className="flex flex-wrap items-center justify-between gap-2">
+            <p className="text-[11px] font-semibold text-brand-navy">12 certifications expiring soon</p>
+            <span className="text-[10px] font-semibold text-brand-orange">View Certifications →</span>
+          </div>
+        </div>
+        <p className="mb-2 text-[10px] font-semibold uppercase tracking-wide text-brand-muted">Workforce Activity</p>
+        <div className="overflow-x-auto rounded-xl border border-slate-200">
+          <table className="min-w-[560px] w-full text-left text-[10px]">
+            <thead>
+              <tr className="border-b border-slate-100 bg-brand-soft/70 text-[9px] uppercase tracking-wide text-brand-muted">
+                {["Worker", "Crew", "Project", "Hours", "Status"].map((h) => (
+                  <th key={h} className="whitespace-nowrap px-2.5 py-2 font-semibold">{h}</th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {rows.map((r, i) => (
+                <tr key={r.worker} className={"border-b border-slate-100 last:border-0 " + (i === 0 ? "bg-brand-orange/[0.04]" : "bg-white")}>
+                  <td className="whitespace-nowrap px-2.5 py-2.5 font-semibold text-brand-navy">{r.worker}</td>
+                  <td className="whitespace-nowrap px-2.5 py-2.5 text-brand-muted">{r.crew}</td>
+                  <td className="whitespace-nowrap px-2.5 py-2.5 text-brand-muted">{r.project}</td>
+                  <td className="whitespace-nowrap px-2.5 py-2.5 text-brand-navy">{r.hrs}</td>
+                  <td className={"whitespace-nowrap px-2.5 py-2.5 font-semibold " + (r.ot ? "text-brand-orange" : "text-emerald-700")}>{r.status}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </BrowserFrame>
+  );
+}
+
+export function WfDirectoryUI() {
+  const rows = [
+    { w: "Michael Carter", trade: "Electrician", cls: "Electrical", project: "Riverside Medical Center", status: "Active" },
+    { w: "James Wilson", trade: "Carpenter", cls: "Concrete", project: "Harbor Office Complex", status: "Active" },
+    { w: "Daniel Brooks", trade: "Pipefitter", cls: "MEP", project: "North Campus Expansion", status: "Active" },
+  ];
+  return (
+    <BrowserFrame url="app.vertexcms.com / workforce / directory">
+      <div className="border-b border-slate-100 px-4 py-2.5">
+        <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-brand-muted">Worker Directory</p>
+        <div className="mt-2 flex flex-wrap gap-2">
+          <div className="min-w-[120px] flex-1 rounded-lg border border-slate-200 px-2.5 py-1.5 text-[11px] text-brand-muted">Search workers…</div>
+          {["All", "Active", "Inactive", "Certification Expiring"].map((f, i) => (
+            <span key={f} className={"rounded-md px-2.5 py-1 text-[10px] font-semibold " + (i === 0 ? "bg-brand-navy text-white" : "border border-brand-line bg-white text-brand-muted")}>{f}</span>
+          ))}
+        </div>
+      </div>
+      <div className="p-3 sm:p-4">
+        <div className="overflow-x-auto rounded-xl border border-slate-200">
+          <table className="min-w-[580px] w-full text-left text-[10px]">
+            <thead>
+              <tr className="border-b border-slate-100 bg-brand-soft/70 text-[9px] uppercase tracking-wide text-brand-muted">
+                {["Worker", "Trade", "Classification", "Project", "Status"].map((h) => (
+                  <th key={h} className="whitespace-nowrap px-2.5 py-2 font-semibold">{h}</th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {rows.map((r) => (
+                <tr key={r.w} className="border-b border-slate-100 last:border-0 bg-white">
+                  <td className="whitespace-nowrap px-2.5 py-2.5 font-semibold text-brand-navy">{r.w}</td>
+                  <td className="whitespace-nowrap px-2.5 py-2.5 text-brand-muted">{r.trade}</td>
+                  <td className="whitespace-nowrap px-2.5 py-2.5 text-brand-muted">{r.cls}</td>
+                  <td className="whitespace-nowrap px-2.5 py-2.5 text-brand-muted">{r.project}</td>
+                  <td className="whitespace-nowrap px-2.5 py-2.5 font-semibold text-emerald-700">{r.status}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </BrowserFrame>
+  );
+}
+
+export function WfProfileUI() {
+  return (
+    <BrowserFrame url="app.vertexcms.com / workforce / workers / emp-1042">
+      <div className="border-b border-slate-100 px-4 py-3">
+        <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-brand-muted">Worker Profile</p>
+        <p className="mt-0.5 text-[15px] font-semibold text-brand-navy">Michael Carter</p>
+        <p className="text-[11px] text-brand-muted">Employee # EMP-1042</p>
+      </div>
+      <div className="grid gap-3 p-3 sm:grid-cols-2 sm:p-4">
+        <div className="space-y-2">
+          {[
+            ["Trade", "Electrician"],
+            ["Classification", "Journeyman"],
+            ["Pay Type", "Hourly"],
+            ["Assigned Project", "Riverside Medical Center"],
+            ["Crew", "Electrical Crew A"],
+          ].map(([l, v]) => (
+            <div key={l} className="flex justify-between rounded-lg border border-slate-100 bg-[#FAFBFD] px-3 py-2">
+              <span className="text-[11px] text-brand-muted">{l}</span>
+              <span className="text-[11px] font-semibold text-brand-navy">{v}</span>
+            </div>
+          ))}
+        </div>
+        <div className="space-y-3">
+          <div className="rounded-xl border border-slate-200 bg-white p-3">
+            <p className="text-[10px] font-semibold uppercase tracking-wide text-brand-muted">Compliance</p>
+            <ul className="mt-2 space-y-1.5">
+              {[["I-9", "Verified"], ["E-Verify", "Completed"], ["OSHA 10", "Current"], ["OSHA 30", "Current"]].map(([l, v]) => (
+                <li key={l} className="flex justify-between text-[11px]">
+                  <span className="text-brand-muted">{l}</span>
+                  <span className="font-semibold text-emerald-700">{v}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className="rounded-xl border border-slate-200 bg-white p-3">
+            <p className="text-[10px] font-semibold uppercase tracking-wide text-brand-muted">Certifications</p>
+            <ul className="mt-2 space-y-1.5">
+              {[["Electrical License", "Expires Nov 18, 2026"], ["Safety Certification", "Expires Jan 04, 2027"]].map(([l, v]) => (
+                <li key={l} className="rounded-lg bg-brand-soft/60 px-2.5 py-2">
+                  <p className="text-[11px] font-semibold text-brand-navy">{l}</p>
+                  <p className="text-[10px] text-brand-muted">{v}</p>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </BrowserFrame>
+  );
+}
+
+export function WfCrewUI() {
+  const members = [
+    ["Michael Carter", "Foreman"],
+    ["Robert Hayes", "Electrician"],
+    ["Thomas Reed", "Electrician"],
+    ["Daniel Brooks", "Apprentice"],
+  ];
+  return (
+    <BrowserFrame url="app.vertexcms.com / workforce / crews / electrical-a" dark>
+      <div className="p-4 sm:p-5">
+        <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-slate-400">Crew</p>
+        <p className="mt-0.5 text-[15px] font-semibold text-white">Electrical Crew A</p>
+        <p className="mt-0.5 text-[11px] text-slate-400">Project · Riverside Medical Center</p>
+        <div className="mt-4 grid grid-cols-2 gap-2 sm:grid-cols-4">
+          {[["Foreman", "Michael Carter"], ["Members", "12 Workers"], ["This Week", "482 Hours"], ["Overtime", "42 Hours"]].map(([l, v]) => (
+            <div key={l} className="rounded-xl border border-white/10 bg-white/[0.04] px-2.5 py-2.5">
+              <p className="text-[9px] text-slate-400">{l}</p>
+              <p className="mt-1 text-[12px] font-semibold text-white">{v}</p>
+            </div>
+          ))}
+        </div>
+        <p className="mt-3 text-[10px] text-slate-400">Certifications · 11 Current · 1 Expiring</p>
+        <div className="mt-4 rounded-xl border border-white/10 bg-white/[0.03] p-3">
+          <p className="text-[10px] font-semibold uppercase tracking-wide text-slate-400">Crew Members</p>
+          <ul className="mt-2 space-y-1.5">
+            {members.map(([n, r]) => (
+              <li key={n} className="flex items-center justify-between rounded-lg border border-white/10 px-2.5 py-2">
+                <span className="text-[11px] font-semibold text-white">{n}</span>
+                <span className="text-[10px] text-slate-400">{r}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </BrowserFrame>
+  );
+}
+
+export function WfProjectAssignUI() {
+  const crews = [
+    { name: "Electrical", workers: 12, hrs: "482h", status: "Active", certs: "Current" },
+    { name: "Concrete", workers: 18, hrs: "624h", status: "Active", certs: "1 Expiring" },
+    { name: "MEP", workers: 9, hrs: "318h", status: "Active", certs: "Current" },
+    { name: "Sitework", workers: 15, hrs: "540h", status: "Active", certs: "Current" },
+  ];
+  return (
+    <BrowserFrame url="app.vertexcms.com / projects / riverside / workforce">
+      <div className="border-b border-slate-100 px-4 py-2.5">
+        <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-brand-muted">Project</p>
+        <p className="mt-0.5 text-[14px] font-semibold text-brand-navy">Riverside Medical Center</p>
+      </div>
+      <div className="p-3 sm:p-4">
+        <p className="mb-2 text-[10px] font-semibold uppercase tracking-wide text-brand-muted">Crews</p>
+        <ul className="grid gap-2 sm:grid-cols-2">
+          {crews.map((c) => (
+            <li key={c.name} className="rounded-xl border border-slate-200 bg-white p-3">
+              <div className="flex items-start justify-between gap-2">
+                <p className="text-[13px] font-semibold text-brand-navy">{c.name}</p>
+                <span className="text-[10px] font-semibold text-brand-orange">View Crew →</span>
+              </div>
+              <p className="mt-2 text-[11px] text-brand-muted">{c.workers} workers · {c.hrs}</p>
+              <div className="mt-2 flex flex-wrap gap-2">
+                <span className="rounded-md bg-emerald-50 px-2 py-0.5 text-[9px] font-semibold text-emerald-700">{c.status}</span>
+                <span className="rounded-md bg-brand-soft px-2 py-0.5 text-[9px] font-semibold text-brand-muted">{c.certs}</span>
+              </div>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </BrowserFrame>
+  );
+}
+
+export function WfLaborHoursUI() {
+  const projects = [
+    ["Riverside Medical Center", "2,184 hrs"],
+    ["Harbor Office Complex", "1,842 hrs"],
+    ["North Campus Expansion", "1,426 hrs"],
+    ["Other Projects", "2,502 hrs"],
+  ];
+  const bars = [88, 74, 58, 100];
+  return (
+    <BrowserFrame url="app.vertexcms.com / workforce / labor">
+      <div className="p-4 sm:p-5">
+        <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-brand-muted">Labor Summary · This Week</p>
+        <div className="mt-3 grid grid-cols-2 gap-2 sm:grid-cols-4">
+          {[["Regular Hours", "7,158"], ["Overtime", "684"], ["Double Time", "112"], ["Total", "7,954"]].map(([l, v], i) => (
+            <div key={l} className="rounded-xl border border-slate-200 bg-brand-soft/40 px-3 py-3">
+              <p className="text-[9px] text-brand-muted">{l}</p>
+              <p className={`mt-1 text-[16px] font-bold ${i === 1 ? "text-brand-orange" : "text-brand-navy"}`}>{v}</p>
+            </div>
+          ))}
+        </div>
+        <div className="mt-4 flex h-24 items-end gap-2 rounded-xl border border-slate-200 bg-white px-3 pb-3 pt-4">
+          {bars.map((h, i) => (
+            <div key={i} className="flex flex-1 flex-col items-center gap-1">
+              <div className="w-full rounded-t-md bg-brand-blue/70" style={{ height: `${h}%` }} />
+              <span className="text-[8px] text-brand-muted">{["Reg", "OT", "DT", "Tot"][i]}</span>
+            </div>
+          ))}
+        </div>
+        <div className="mt-4 rounded-xl border border-slate-200 bg-white p-3">
+          <p className="text-[10px] font-semibold uppercase tracking-wide text-brand-muted">Project Labor</p>
+          <ul className="mt-2 space-y-1.5">
+            {projects.map(([p, h]) => (
+              <li key={p} className="flex justify-between rounded-lg bg-[#FAFBFD] px-2.5 py-2 text-[11px]">
+                <span className="font-semibold text-brand-navy">{p}</span>
+                <span className="text-brand-muted">{h}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </BrowserFrame>
+  );
+}
+
+export function WfTimesheetUI() {
+  const days = [
+    ["Monday", "8 Regular", "0 OT"],
+    ["Tuesday", "8 Regular", "0 OT"],
+    ["Wednesday", "8 Regular", "2 OT"],
+    ["Thursday", "8 Regular", "1 OT"],
+    ["Friday", "8 Regular", "0 OT"],
+  ];
+  return (
+    <BrowserFrame url="app.vertexcms.com / workforce / timesheets">
+      <div className="border-b border-slate-100 px-4 py-2.5">
+        <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-brand-muted">Week Ending September 13, 2026</p>
+        <p className="mt-0.5 text-[13px] font-semibold text-brand-navy">Michael Carter · Riverside Medical Center</p>
+        <p className="text-[10px] text-brand-muted">Cost Code · 03-100 Concrete</p>
+      </div>
+      <div className="p-3 sm:p-4">
+        <ul className="space-y-1.5">
+          {days.map(([d, reg, ot]) => (
+            <li key={d} className="flex flex-wrap items-center justify-between gap-2 rounded-lg border border-slate-100 bg-[#FAFBFD] px-3 py-2">
+              <span className="text-[11px] font-semibold text-brand-navy">{d}</span>
+              <span className="text-[10px] text-brand-muted">{reg} · {ot}</span>
+            </li>
+          ))}
+        </ul>
+        <div className="mt-3 flex flex-wrap items-center justify-between gap-2 rounded-xl border border-slate-200 bg-white px-3 py-2.5">
+          <div>
+            <p className="text-[11px] font-semibold text-brand-navy">Total · 40 Regular · 3 Overtime</p>
+            <p className="text-[10px] font-semibold text-brand-orange">Status · SUBMITTED</p>
+          </div>
+          <div className="flex gap-1.5">
+            <span className="rounded-md border border-brand-line px-2 py-1 text-[9px] font-semibold text-brand-muted">Save Draft</span>
+            <span className="rounded-md bg-brand-navy px-2 py-1 text-[9px] font-semibold text-white">Submit</span>
+          </div>
+        </div>
+      </div>
+    </BrowserFrame>
+  );
+}
+
+export function WfTimesheetApprovalUI() {
+  const steps = ["Draft", "Submitted", "Approved", "Processed"];
+  return (
+    <BrowserFrame url="app.vertexcms.com / workforce / timesheets / review" dark>
+      <div className="p-4 sm:p-5">
+        <div className="mb-4 flex flex-wrap gap-2">
+          {steps.map((s, i) => (
+            <span key={s} className="flex items-center gap-2">
+              <span className={"rounded-md px-2.5 py-1 text-[10px] font-semibold " + (i === 1 ? "bg-brand-orange text-white" : "border border-white/15 text-slate-300")}>{s}</span>
+              {i < steps.length - 1 ? <span className="text-slate-500">↓</span> : null}
+            </span>
+          ))}
+        </div>
+        <div className="rounded-xl border border-white/10 bg-white/[0.04] p-3.5">
+          <p className="text-[10px] font-semibold uppercase tracking-wide text-slate-400">Timesheet Review</p>
+          <p className="mt-1 text-[14px] font-semibold text-white">Michael Carter</p>
+          <p className="text-[11px] text-slate-400">Week Ending Sep 13</p>
+          <div className="mt-3 grid grid-cols-3 gap-2">
+            {[["Regular", "40h"], ["Overtime", "3h"], ["Double Time", "0h"]].map(([l, v]) => (
+              <div key={l} className="rounded-lg border border-white/10 bg-white/[0.03] px-2 py-2 text-center">
+                <p className="text-[9px] text-slate-400">{l}</p>
+                <p className="text-[12px] font-bold text-white">{v}</p>
+              </div>
+            ))}
+          </div>
+          <p className="mt-3 text-[11px] text-slate-300">Project · Riverside Medical Center</p>
+          <p className="text-[10px] font-semibold text-brand-orange">Status · Submitted</p>
+          <div className="mt-3 flex gap-2">
+            <span className="rounded-md bg-brand-orange px-3 py-1.5 text-[10px] font-semibold text-white">Approve</span>
+            <span className="rounded-md border border-white/20 px-3 py-1.5 text-[10px] font-semibold text-white">Return for Review</span>
+          </div>
+        </div>
+      </div>
+    </BrowserFrame>
+  );
+}
+
+export function WfCertificationsUI() {
+  const rows = [
+    { w: "Michael Carter", cert: "Electrical License", exp: "Nov 18, 2026", status: "Current", tone: "text-emerald-700" },
+    { w: "James Wilson", cert: "OSHA 30", exp: "Sep 22, 2026", status: "Expiring Soon", tone: "text-brand-orange" },
+    { w: "Daniel Brooks", cert: "Safety Certification", exp: "Sep 08, 2026", status: "Expired", tone: "text-amber-700" },
+  ];
+  return (
+    <BrowserFrame url="app.vertexcms.com / workforce / certifications">
+      <div className="border-b border-slate-100 px-4 py-2.5">
+        <div className="flex flex-wrap items-center justify-between gap-2">
+          <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-brand-muted">Certification Status</p>
+          <span className="text-[10px] font-semibold text-brand-orange">Review Certifications →</span>
+        </div>
+        <div className="mt-2 grid grid-cols-3 gap-2">
+          {[["Current", "186"], ["Expiring Soon", "12"], ["Expired", "4"]].map(([l, v], i) => (
+            <div key={l} className="rounded-lg border border-slate-200 bg-brand-soft/50 px-2 py-2 text-center">
+              <p className="text-[9px] text-brand-muted">{l}</p>
+              <p className={`text-[14px] font-bold ${i === 1 ? "text-brand-orange" : i === 2 ? "text-amber-700" : "text-emerald-700"}`}>{v}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+      <div className="p-3 sm:p-4">
+        <div className="overflow-x-auto rounded-xl border border-slate-200">
+          <table className="min-w-[520px] w-full text-left text-[10px]">
+            <thead>
+              <tr className="border-b border-slate-100 bg-brand-soft/70 text-[9px] uppercase tracking-wide text-brand-muted">
+                {["Worker", "Certification", "Expires", "Status"].map((h) => (
+                  <th key={h} className="whitespace-nowrap px-2.5 py-2 font-semibold">{h}</th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {rows.map((r) => (
+                <tr key={r.w + r.cert} className="border-b border-slate-100 last:border-0 bg-white">
+                  <td className="whitespace-nowrap px-2.5 py-2.5 font-semibold text-brand-navy">{r.w}</td>
+                  <td className="whitespace-nowrap px-2.5 py-2.5 text-brand-muted">{r.cert}</td>
+                  <td className="whitespace-nowrap px-2.5 py-2.5 text-brand-muted">{r.exp}</td>
+                  <td className={`whitespace-nowrap px-2.5 py-2.5 font-semibold ${r.tone}`}>{r.status}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </BrowserFrame>
+  );
+}
+
+export function WfPayrollSummaryUI() {
+  const rows = [
+    { w: "Michael Carter", reg: "40", ot: "3", dt: "0", cls: "Electrician" },
+    { w: "James Wilson", reg: "40", ot: "6", dt: "0", cls: "Carpenter" },
+  ];
+  return (
+    <BrowserFrame url="app.vertexcms.com / workforce / payroll-summary" dark>
+      <div className="p-4 sm:p-5">
+        <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-slate-400">Payroll Summary</p>
+        <p className="mt-0.5 text-[12px] text-slate-300">Period · Sep 07 – Sep 13, 2026</p>
+        <div className="mt-3 grid grid-cols-2 gap-2 sm:grid-cols-3">
+          {[["Workers", "124"], ["Regular Hours", "7,158"], ["Overtime", "684"], ["Double Time", "112"], ["Fringe", "$18,420"], ["Status", "READY FOR REVIEW"]].map(([l, v]) => (
+            <div key={l} className="rounded-xl border border-white/10 bg-white/[0.04] px-2.5 py-2">
+              <p className="text-[9px] text-slate-400">{l}</p>
+              <p className="mt-0.5 text-[11px] font-semibold text-white">{v}</p>
+            </div>
+          ))}
+        </div>
+        <div className="mt-4 overflow-x-auto rounded-xl border border-white/10">
+          <table className="min-w-[480px] w-full text-left text-[10px]">
+            <thead>
+              <tr className="border-b border-white/10 text-[9px] uppercase tracking-wide text-slate-400">
+                {["Worker", "Regular", "OT", "DT", "Classification"].map((h) => (
+                  <th key={h} className="whitespace-nowrap px-2.5 py-2 font-semibold">{h}</th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {rows.map((r) => (
+                <tr key={r.w} className="border-b border-white/10 last:border-0">
+                  <td className="whitespace-nowrap px-2.5 py-2 font-semibold text-white">{r.w}</td>
+                  <td className="px-2.5 py-2 text-slate-300">{r.reg}</td>
+                  <td className="px-2.5 py-2 text-slate-300">{r.ot}</td>
+                  <td className="px-2.5 py-2 text-slate-300">{r.dt}</td>
+                  <td className="whitespace-nowrap px-2.5 py-2 text-slate-300">{r.cls}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        <span className="mt-3 inline-block text-[10px] font-semibold text-brand-orange">Review Payroll Summary →</span>
+      </div>
+    </BrowserFrame>
+  );
+}
+
+export function WfCostFlowUI() {
+  const costs = [
+    ["Electrical", "$84,240"],
+    ["Concrete", "$62,480"],
+    ["MEP", "$51,920"],
+  ];
+  const steps = ["Worker", "Timesheet", "Approval", "Actual Labor Cost", "Project Cost"];
+  return (
+    <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-card sm:p-6" aria-hidden="true">
+      <ol className="mb-5 flex flex-wrap items-center gap-2">
+        {steps.map((s, i) => (
+          <li key={s} className="flex items-center gap-2">
+            <span className="rounded-lg border border-brand-line bg-[#FAFBFD] px-2.5 py-1.5 text-[11px] font-semibold text-brand-navy">{s}</span>
+            {i < steps.length - 1 ? <span className="text-brand-muted">↓</span> : null}
+          </li>
+        ))}
+      </ol>
+      <div className="rounded-xl border border-slate-200 bg-[#FAFBFD] p-3.5">
+        <p className="text-[10px] font-semibold uppercase tracking-wide text-brand-muted">Riverside Medical Center · Labor Cost</p>
+        <ul className="mt-2 space-y-1.5">
+          {costs.map(([t, v]) => (
+            <li key={t} className="flex justify-between rounded-lg bg-white px-3 py-2 text-[11px]">
+              <span className="font-semibold text-brand-navy">{t}</span>
+              <span className="text-brand-muted">{v}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  );
+}
+
+/** Time / Labor (TIME module) — timesheets, cost codes, approval */
+
+export function TimeOverviewUI() {
+  const rows = [
+    { w: "Michael Carter", proj: "Riverside Medical Center", cc: "03-100", reg: "40h", ot: "3h", status: "Submitted", tone: "text-brand-orange" },
+    { w: "James Wilson", proj: "Harbor Office Complex", cc: "06-200", reg: "40h", ot: "6h", status: "Approved", tone: "text-emerald-700" },
+    { w: "Daniel Brooks", proj: "North Campus Expansion", cc: "22-100", reg: "38h", ot: "0h", status: "Draft", tone: "text-brand-muted" },
+  ];
+  const bars = [72, 85, 68, 90, 78, 82, 88];
+  return (
+    <BrowserFrame url="app.vertexcms.com / time">
+      <div className="border-b border-slate-100 px-4 py-2.5">
+        <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-brand-muted">Time &amp; Labor</p>
+      </div>
+      <div className="p-3 sm:p-4">
+        <div className="mb-3 grid grid-cols-2 gap-2 sm:grid-cols-4">
+          {[["Regular Hours", "7,158"], ["Overtime", "684"], ["Double Time", "112"], ["Pending Approval", "28"]].map(([l, v], i) => (
+            <div key={l} className="rounded-xl border border-slate-200 bg-brand-soft/40 px-2.5 py-2.5">
+              <p className="text-[9px] text-brand-muted">{l}</p>
+              <p className={`mt-1 text-[14px] font-bold ${i === 1 || i === 3 ? "text-brand-orange" : "text-brand-navy"}`}>{v}</p>
+            </div>
+          ))}
+        </div>
+        <div className="mb-3 flex h-16 items-end gap-1 rounded-xl border border-slate-200 bg-white px-3 pb-2 pt-3">
+          {bars.map((h, i) => (
+            <div key={i} className="flex-1 rounded-t bg-brand-blue/60" style={{ height: `${h}%` }} />
+          ))}
+        </div>
+        <p className="mb-2 text-[10px] font-semibold uppercase tracking-wide text-brand-muted">Time Entries</p>
+        <div className="overflow-x-auto rounded-xl border border-slate-200">
+          <table className="min-w-[620px] w-full text-left text-[10px]">
+            <thead>
+              <tr className="border-b border-slate-100 bg-brand-soft/70 text-[9px] uppercase tracking-wide text-brand-muted">
+                {["Worker", "Project", "Cost Code", "Regular", "OT", "Status"].map((h) => (
+                  <th key={h} className="whitespace-nowrap px-2.5 py-2 font-semibold">{h}</th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {rows.map((r, i) => (
+                <tr key={r.w} className={"border-b border-slate-100 last:border-0 " + (i === 0 ? "bg-brand-orange/[0.04]" : "bg-white")}>
+                  <td className="whitespace-nowrap px-2.5 py-2.5 font-semibold text-brand-navy">{r.w}</td>
+                  <td className="whitespace-nowrap px-2.5 py-2.5 text-brand-muted">{r.proj}</td>
+                  <td className="whitespace-nowrap px-2.5 py-2.5 text-brand-muted">{r.cc}</td>
+                  <td className="px-2.5 py-2.5 text-brand-navy">{r.reg}</td>
+                  <td className="px-2.5 py-2.5 text-brand-navy">{r.ot}</td>
+                  <td className={`whitespace-nowrap px-2.5 py-2.5 font-semibold ${r.tone}`}>{r.status}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </BrowserFrame>
+  );
+}
+
+export function TimeWeeklyUI() {
+  const days = [
+    ["Mon", "8", "0", "0"],
+    ["Tue", "8", "0", "0"],
+    ["Wed", "8", "2", "0"],
+    ["Thu", "8", "1", "0"],
+    ["Fri", "8", "0", "0"],
+  ];
+  return (
+    <BrowserFrame url="app.vertexcms.com / time / timesheets / weekly">
+      <div className="border-b border-slate-100 px-4 py-2.5">
+        <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-brand-muted">Weekly Timesheet</p>
+        <p className="mt-0.5 text-[13px] font-semibold text-brand-navy">Week Ending September 13, 2026</p>
+        <p className="text-[10px] text-brand-muted">Michael Carter · Riverside Medical Center · Cost Code 03-100</p>
+      </div>
+      <div className="p-3 sm:p-4">
+        <div className="overflow-x-auto rounded-xl border border-slate-200">
+          <table className="min-w-[320px] w-full text-left text-[10px]">
+            <thead>
+              <tr className="border-b border-slate-100 bg-brand-soft/70 text-[9px] uppercase tracking-wide text-brand-muted">
+                {["Day", "Reg", "OT", "DT"].map((h) => (
+                  <th key={h} className="px-3 py-2 font-semibold">{h}</th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {days.map(([d, r, o, dt]) => (
+                <tr key={d} className="border-b border-slate-100 bg-white">
+                  <td className="px-3 py-2 font-semibold text-brand-navy">{d}</td>
+                  <td className="px-3 py-2 text-brand-muted">{r}</td>
+                  <td className="px-3 py-2 text-brand-muted">{o}</td>
+                  <td className="px-3 py-2 text-brand-muted">{dt}</td>
+                </tr>
+              ))}
+              <tr className="bg-brand-soft/50 font-semibold">
+                <td className="px-3 py-2 text-brand-navy">Total</td>
+                <td className="px-3 py-2 text-brand-navy">40</td>
+                <td className="px-3 py-2 text-brand-orange">3</td>
+                <td className="px-3 py-2 text-brand-navy">0</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div className="mt-3 flex flex-wrap items-center justify-between gap-2">
+          <p className="text-[10px] font-bold uppercase tracking-wide text-brand-orange">Status · Submitted</p>
+          <div className="flex gap-1.5">
+            <span className="rounded-md border border-brand-line px-2 py-1 text-[9px] font-semibold text-brand-muted">Save Draft</span>
+            <span className="rounded-md bg-brand-navy px-2 py-1 text-[9px] font-semibold text-white">Submit</span>
+          </div>
+        </div>
+      </div>
+    </BrowserFrame>
+  );
+}
+
+export function TimeEntryUI() {
+  return (
+    <BrowserFrame url="app.vertexcms.com / time / entries">
+      <div className="grid gap-3 p-3 sm:grid-cols-[1.1fr_0.9fr] sm:p-4">
+        <div className="rounded-xl border border-slate-200 bg-white p-3.5">
+          <p className="text-[10px] font-semibold uppercase tracking-wide text-brand-muted">Time Entry</p>
+          <ul className="mt-3 space-y-2">
+            {[["Worker", "Michael Carter"], ["Work Date", "Sep 09, 2026"], ["Project", "Riverside Medical Center"], ["Cost Code", "03-100 Concrete"], ["Work Classification", "Journeyman"], ["Regular", "8.0 hrs"], ["Overtime", "2.0 hrs"], ["Double Time", "0.0 hrs"], ["Fringe Rate", "$8.50"], ["Status", "Draft"]].map(([l, v]) => (
+              <li key={l} className="flex justify-between border-b border-slate-100 pb-2 last:border-0">
+                <span className="text-[11px] text-brand-muted">{l}</span>
+                <span className={"text-[11px] font-semibold " + (l === "Status" ? "text-brand-orange" : "text-brand-navy")}>{v}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div className="rounded-xl border border-slate-200 bg-[#FAFBFD] p-3.5">
+          <p className="text-[10px] font-semibold uppercase tracking-wide text-brand-muted">Project Context</p>
+          <ul className="mt-3 space-y-2">
+            {[["Project", "Riverside Medical Center"], ["Cost Code", "03-100"], ["Classification", "Journeyman"]].map(([l, v]) => (
+              <li key={l} className="rounded-lg bg-white px-2.5 py-2">
+                <p className="text-[9px] text-brand-muted">{l}</p>
+                <p className="text-[11px] font-semibold text-brand-navy">{v}</p>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </BrowserFrame>
+  );
+}
+
+export function TimeLaborBreakdownUI() {
+  const bars = [88, 22, 8];
+  return (
+    <BrowserFrame url="app.vertexcms.com / time / labor-breakdown" dark>
+      <div className="p-4 sm:p-5">
+        <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-slate-400">Labor Hours</p>
+        <div className="mt-4 grid grid-cols-2 gap-2 sm:grid-cols-4">
+          {[["Regular", "7,158 hrs"], ["Overtime", "684 hrs"], ["Double Time", "112 hrs"], ["Total", "7,954 hrs"]].map(([l, v], i) => (
+            <div key={l} className="rounded-xl border border-white/10 bg-white/[0.04] px-3 py-3">
+              <p className="text-[9px] text-slate-400">{l}</p>
+              <p className={`mt-1 text-[14px] font-bold ${i === 1 ? "text-brand-orange" : "text-white"}`}>{v}</p>
+            </div>
+          ))}
+        </div>
+        <div className="mt-4 flex h-24 items-end gap-3 rounded-xl border border-white/10 bg-white/[0.03] px-4 pb-3 pt-4">
+          {bars.map((h, i) => (
+            <div key={i} className="flex flex-1 flex-col items-center gap-1">
+              <div className="w-full rounded-t-md bg-brand-blue/70" style={{ height: `${h}%` }} />
+              <span className="text-[8px] text-slate-400">{["Reg", "OT", "DT"][i]}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </BrowserFrame>
+  );
+}
+
+export function TimeProjectLaborUI() {
+  const projects = [
+    { name: "Riverside Medical Center", reg: "1,962", ot: "184", dt: "38", total: "2,184" },
+    { name: "Harbor Office Complex", reg: "1,698", ot: "112", dt: "32", total: "1,842" },
+    { name: "North Campus Expansion", reg: "1,318", ot: "88", dt: "20", total: "1,426" },
+    { name: "Eastside Renovation", reg: "912", ot: "52", dt: "20", total: "984" },
+  ];
+  return (
+    <BrowserFrame url="app.vertexcms.com / time / project-labor">
+      <div className="border-b border-slate-100 px-4 py-2.5">
+        <div className="flex items-center justify-between gap-2">
+          <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-brand-muted">Project Labor</p>
+          <span className="text-[10px] font-semibold text-brand-orange">View Project Labor →</span>
+        </div>
+      </div>
+      <div className="space-y-2 p-3 sm:p-4">
+        {projects.map((p, i) => (
+          <div key={p.name} className={"rounded-xl border border-slate-200 p-3 " + (i === 0 ? "bg-brand-orange/[0.04]" : "bg-white")}>
+            <p className="text-[12px] font-semibold text-brand-navy">{p.name}</p>
+            <div className="mt-2 grid grid-cols-4 gap-2 text-[10px]">
+              {[["Regular", p.reg], ["OT", p.ot], ["DT", p.dt], ["Total", p.total]].map(([l, v]) => (
+                <div key={l}>
+                  <p className="text-brand-muted">{l}</p>
+                  <p className="font-semibold text-brand-navy">{v} hrs</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+    </BrowserFrame>
+  );
+}
+
+export function TimeCostCodeUI() {
+  const rows = [
+    { cc: "03-100", desc: "Concrete", reg: "840", ot: "62", total: "902" },
+    { cc: "06-200", desc: "Carpentry", reg: "612", ot: "48", total: "660" },
+    { cc: "09-900", desc: "Finishes", reg: "480", ot: "36", total: "516" },
+    { cc: "22-100", desc: "Plumbing", reg: "520", ot: "38", total: "558" },
+  ];
+  return (
+    <BrowserFrame url="app.vertexcms.com / time / cost-codes">
+      <div className="border-b border-slate-100 px-4 py-2.5">
+        <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-brand-muted">Cost Code Labor</p>
+        <p className="mt-0.5 text-[13px] font-semibold text-brand-navy">Riverside Medical Center</p>
+        <div className="mt-2 flex flex-wrap gap-1.5">
+          {["All Cost Codes", "Labor"].map((f, i) => (
+            <span key={f} className={"rounded-md px-2.5 py-1 text-[10px] font-semibold " + (i === 0 ? "bg-brand-navy text-white" : "border border-brand-line text-brand-muted")}>{f}</span>
+          ))}
+        </div>
+      </div>
+      <div className="p-3 sm:p-4">
+        <div className="overflow-x-auto rounded-xl border border-slate-200">
+          <table className="min-w-[480px] w-full text-left text-[10px]">
+            <thead>
+              <tr className="border-b border-slate-100 bg-brand-soft/70 text-[9px] uppercase tracking-wide text-brand-muted">
+                {["Cost Code", "Description", "Regular", "OT", "Total"].map((h) => (
+                  <th key={h} className="whitespace-nowrap px-2.5 py-2 font-semibold">{h}</th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {rows.map((r) => (
+                <tr key={r.cc} className="border-b border-slate-100 last:border-0 bg-white">
+                  <td className="whitespace-nowrap px-2.5 py-2.5 font-semibold text-brand-navy">{r.cc}</td>
+                  <td className="whitespace-nowrap px-2.5 py-2.5 text-brand-muted">{r.desc}</td>
+                  <td className="px-2.5 py-2.5 text-brand-muted">{r.reg}</td>
+                  <td className="px-2.5 py-2.5 text-brand-muted">{r.ot}</td>
+                  <td className="px-2.5 py-2.5 font-semibold text-brand-navy">{r.total}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </BrowserFrame>
+  );
+}
+
+export function TimeWorkflowUI() {
+  const stages = [
+    ["Draft", "Time is being prepared."],
+    ["Submitted", "Ready for review."],
+    ["Approved", "Reviewed by the appropriate project team."],
+    ["Processed", "Ready for the next payroll-related workflow."],
+  ];
+  return (
+    <BrowserFrame url="app.vertexcms.com / time / review" dark>
+      <div className="p-4 sm:p-5">
+        <div className="mb-4 flex flex-wrap gap-2">
+          {stages.map(([s], i) => (
+            <span key={s} className="flex items-center gap-2">
+              <span className={"rounded-md px-2.5 py-1 text-[10px] font-semibold " + (i === 1 ? "bg-brand-orange text-white" : "border border-white/15 text-slate-300")}>{s}</span>
+              {i < stages.length - 1 ? <span className="text-slate-500">↓</span> : null}
+            </span>
+          ))}
+        </div>
+        <div className="grid gap-3 lg:grid-cols-2">
+          <ul className="space-y-2">
+            {stages.map(([t, d]) => (
+              <li key={t} className="rounded-lg border border-white/10 bg-white/[0.03] px-3 py-2">
+                <p className="text-[11px] font-semibold text-white">{t}</p>
+                <p className="text-[10px] text-slate-400">{d}</p>
+              </li>
+            ))}
+          </ul>
+          <div className="rounded-xl border border-white/10 bg-white/[0.04] p-3.5">
+            <p className="text-[10px] font-semibold uppercase tracking-wide text-slate-400">Timesheet Review</p>
+            <p className="mt-1 text-[13px] font-semibold text-white">Michael Carter</p>
+            <p className="text-[10px] text-slate-400">Week Ending Sep 13, 2026</p>
+            <p className="mt-2 text-[11px] text-slate-300">Regular 40h · OT 3h · DT 0h</p>
+            <p className="text-[10px] text-slate-400">Riverside Medical Center</p>
+            <p className="mt-1 text-[10px] font-semibold text-brand-orange">Submitted</p>
+            <div className="mt-3 flex gap-2">
+              <span className="rounded-md bg-brand-orange px-3 py-1.5 text-[10px] font-semibold text-white">Approve</span>
+              <span className="rounded-md border border-white/20 px-3 py-1.5 text-[10px] font-semibold text-white">Return for Review</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </BrowserFrame>
+  );
+}
+
+export function TimeApprovalQueueUI() {
+  const rows = [
+    { w: "Michael Carter", p: "Riverside Medical Center", hrs: "43h" },
+    { w: "James Wilson", p: "Harbor Office Complex", hrs: "46h" },
+    { w: "Daniel Brooks", p: "North Campus Expansion", hrs: "38h" },
+    { w: "Sarah Mitchell", p: "Eastside Renovation", hrs: "41h" },
+  ];
+  return (
+    <BrowserFrame url="app.vertexcms.com / time / approvals">
+      <div className="border-b border-slate-100 px-4 py-2.5">
+        <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-brand-muted">Timesheets Pending Review</p>
+        <div className="mt-2 flex flex-wrap gap-1.5">
+          {["All", "My Projects", "Pending", "Approved", "Returned"].map((f, i) => (
+            <span key={f} className={"rounded-md px-2 py-1 text-[9px] font-semibold " + (i === 2 ? "bg-brand-navy text-white" : "border border-brand-line text-brand-muted")}>{f}</span>
+          ))}
+        </div>
+      </div>
+      <div className="space-y-2 p-3 sm:p-4">
+        {rows.map((r, i) => (
+          <div key={r.w} className={"flex flex-wrap items-center justify-between gap-2 rounded-xl border border-slate-200 px-3 py-2.5 " + (i === 0 ? "bg-brand-orange/[0.04]" : "bg-white")}>
+            <div>
+              <p className="text-[12px] font-semibold text-brand-navy">{r.w}</p>
+              <p className="text-[10px] text-brand-muted">{r.p} · {r.hrs}</p>
+            </div>
+            <div className="flex items-center gap-2">
+              <span className="text-[10px] font-semibold text-brand-orange">Submitted</span>
+              <span className="rounded-md border border-brand-line px-2 py-1 text-[9px] font-semibold text-brand-navy">Review</span>
+              <span className="rounded-md bg-brand-navy px-2 py-1 text-[9px] font-semibold text-white">Approve</span>
+            </div>
+          </div>
+        ))}
+      </div>
+    </BrowserFrame>
+  );
+}
+
+export function TimeCostConnectionUI() {
+  const steps = ["Time Entry", "Timesheet", "Approval", "Approved Labor", "Actual Project Cost"];
+  const costs = [
+    ["Electrical", "$84,240"],
+    ["Concrete", "$62,480"],
+    ["MEP", "$51,920"],
+  ];
+  return (
+    <div className="rounded-2xl border border-white/10 bg-white/[0.04] p-5 shadow-card sm:p-6" aria-hidden="true">
+      <ol className="mb-4 flex flex-wrap items-center gap-2">
+        {steps.map((s, i) => (
+          <li key={s} className="flex items-center gap-2">
+            <span className="rounded-lg border border-white/15 bg-white/[0.05] px-2.5 py-1.5 text-[10px] font-semibold text-white">{s}</span>
+            {i < steps.length - 1 ? <span className="text-slate-500">↓</span> : null}
+          </li>
+        ))}
+      </ol>
+      <div className="rounded-xl border border-white/10 bg-white/[0.03] p-3.5">
+        <p className="text-[10px] font-semibold uppercase tracking-wide text-slate-400">Project Cost · Riverside Medical Center</p>
+        <ul className="mt-2 space-y-1.5">
+          {costs.map(([t, v]) => (
+            <li key={t} className="flex justify-between text-[11px]">
+              <span className="text-slate-300">{t}</span>
+              <span className="font-semibold text-white">{v}</span>
+            </li>
+          ))}
+          <li className="flex justify-between border-t border-white/10 pt-2 text-[11px] font-semibold">
+            <span className="text-white">Total Labor</span>
+            <span className="text-brand-orange">$198,640</span>
+          </li>
+        </ul>
+        <p className="mt-2 text-[9px] text-slate-500">Based on approved labor activity.</p>
+      </div>
+    </div>
+  );
+}
+
+export function TimePayrollSummaryUI() {
+  return (
+    <BrowserFrame url="app.vertexcms.com / time / payroll-summary">
+      <div className="p-4 sm:p-5">
+        <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-brand-muted">Payroll Time Summary</p>
+        <p className="mt-0.5 text-[12px] text-brand-muted">Period · Sep 07 – Sep 13, 2026</p>
+        <div className="mt-3 grid grid-cols-2 gap-2 sm:grid-cols-3">
+          {[["Workers", "124"], ["Regular Hours", "7,158"], ["Overtime", "684"], ["Double Time", "112"], ["Work Classifications", "18"], ["Status", "READY FOR REVIEW"]].map(([l, v]) => (
+            <div key={l} className="rounded-xl border border-slate-200 bg-brand-soft/40 px-2.5 py-2">
+              <p className="text-[9px] text-brand-muted">{l}</p>
+              <p className="mt-0.5 text-[11px] font-semibold text-brand-navy">{v}</p>
+            </div>
+          ))}
+        </div>
+        <span className="mt-4 inline-block text-[10px] font-semibold text-brand-orange">View Payroll Summary →</span>
+      </div>
+    </BrowserFrame>
+  );
+}
+
+function TimeMobileFrame({ children }: { children: React.ReactNode }) {
+  return (
+    <div className="phone-shell mx-auto w-[220px] sm:w-[236px]" aria-hidden="true">
+      <div className="mx-auto mt-2.5 h-1.5 w-16 rounded-full bg-slate-300" />
+      <div className="min-h-[380px] px-3.5 pb-2 pt-2.5">{children}</div>
+      <div className="flex justify-between border-t border-slate-100 px-3 py-2.5 text-[8px] text-brand-muted">
+        {["Time", "Projects", "Submit", "More"].map((t, i) => (
+          <span key={t} className={i === 0 ? "font-semibold text-brand-navy" : ""}>{t}</span>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+export function TimeMobileEntryUI() {
+  return (
+    <div className="flex justify-center py-2">
+      <TimeMobileFrame>
+        <p className="text-[10px] font-semibold uppercase tracking-wide text-brand-muted">Time Entry</p>
+        <p className="mt-1 text-[12px] font-semibold text-brand-navy">Today · Sep 09</p>
+        <div className="mt-3 space-y-2">
+          {[["Project", "Riverside Medical Center"], ["Cost Code", "03-100"], ["Regular", "8.0"], ["Overtime", "2.0"], ["Double Time", "0"], ["Notes", "Concrete placement"]].map(([l, v]) => (
+            <div key={l} className="rounded-lg border border-slate-200 bg-brand-soft/50 px-2.5 py-2">
+              <p className="text-[8px] text-brand-muted">{l}</p>
+              <p className="text-[11px] font-semibold text-brand-navy">{v}</p>
+            </div>
+          ))}
+        </div>
+        <div className="mt-4 flex gap-1.5">
+          <span className="flex-1 rounded-md border border-brand-line py-2 text-center text-[9px] font-semibold text-brand-muted">Save Draft</span>
+          <span className="flex-1 rounded-md bg-brand-navy py-2 text-center text-[9px] font-semibold text-white">Submit</span>
+        </div>
+      </TimeMobileFrame>
+    </div>
+  );
+}
+
+export function TimeSummaryUI() {
+  const projects = [
+    ["Riverside Medical Center", 88],
+    ["Harbor Office Complex", 72],
+    ["North Campus Expansion", 58],
+    ["Eastside Renovation", 42],
+  ];
+  return (
+    <BrowserFrame url="app.vertexcms.com / time / summary">
+      <div className="p-4 sm:p-5">
+        <div className="grid grid-cols-2 gap-2 sm:grid-cols-3 lg:grid-cols-6">
+          {[["Total Hours", "7,954"], ["Regular", "7,158"], ["Overtime", "684"], ["Double Time", "112"], ["Pending Approval", "28"], ["Approved", "7,426"]].map(([l, v], i) => (
+            <div key={l} className="rounded-xl border border-slate-200 bg-white px-2.5 py-2.5">
+              <p className="text-[9px] text-brand-muted">{l}</p>
+              <p className={`mt-1 text-[13px] font-bold ${i === 2 || i === 4 ? "text-brand-orange" : "text-brand-navy"}`}>{v}</p>
+            </div>
+          ))}
+        </div>
+        <p className="mb-2 mt-4 text-[10px] font-semibold uppercase tracking-wide text-brand-muted">Labor by Project</p>
+        <div className="space-y-2">
+          {projects.map(([p, w]) => (
+            <div key={p} className="flex items-center gap-3">
+              <span className="w-[140px] shrink-0 truncate text-[10px] font-semibold text-brand-navy">{p}</span>
+              <div className="h-2 flex-1 overflow-hidden rounded-full bg-brand-soft">
+                <div className="h-full rounded-full bg-brand-blue/70" style={{ width: `${w}%` }} />
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </BrowserFrame>
+  );
+}
+
+/** Payroll Readiness (PAYROLL + TIME) marketing mockups */
+
+export function PrOverviewUI() {
+  const rows = [
+    { w: "Michael Carter", cls: "Electrician", reg: "40h", ot: "3h", dt: "0h", status: "Approved", tone: "text-emerald-700" },
+    { w: "James Wilson", cls: "Carpenter", reg: "40h", ot: "6h", dt: "0h", status: "Approved", tone: "text-emerald-700" },
+    { w: "Daniel Brooks", cls: "Pipefitter", reg: "38h", ot: "0h", dt: "0h", status: "Approved", tone: "text-emerald-700" },
+    { w: "Sarah Mitchell", cls: "Laborer", reg: "40h", ot: "2h", dt: "1h", status: "Pending Review", tone: "text-brand-orange" },
+  ];
+  return (
+    <BrowserFrame url="app.vertexcms.com / payroll-readiness">
+      <div className="border-b border-slate-100 px-4 py-2.5">
+        <div className="flex flex-wrap items-center justify-between gap-2">
+          <div>
+            <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-brand-muted">Payroll Readiness</p>
+            <p className="mt-0.5 text-[12px] font-semibold text-brand-navy">Payroll Period · Sep 07 – Sep 13, 2026</p>
+          </div>
+          <div className="text-right">
+            <p className="text-[9px] font-semibold uppercase tracking-wide text-brand-muted">Payroll Readiness</p>
+            <p className="text-[14px] font-bold text-emerald-700">92%</p>
+            <p className="text-[9px] font-bold uppercase tracking-wide text-brand-orange">Ready for Review</p>
+          </div>
+        </div>
+      </div>
+      <div className="p-3 sm:p-4">
+        <div className="mb-3 grid grid-cols-2 gap-2 sm:grid-cols-3 lg:grid-cols-6">
+          {[["Workers", "124"], ["Approved Hours", "7,954"], ["Regular", "7,158"], ["Overtime", "684"], ["Double Time", "112"], ["Pending Review", "18"]].map(([l, v], i) => (
+            <div key={l} className="rounded-xl border border-slate-200 bg-brand-soft/40 px-2 py-2">
+              <p className="text-[9px] text-brand-muted">{l}</p>
+              <p className={`mt-0.5 text-[13px] font-bold ${i >= 3 && i <= 5 ? "text-brand-orange" : "text-brand-navy"}`}>{v}</p>
+            </div>
+          ))}
+        </div>
+        <p className="mb-2 text-[10px] font-semibold uppercase tracking-wide text-brand-muted">Workforce Payroll Summary</p>
+        <div className="overflow-x-auto rounded-xl border border-slate-200">
+          <table className="min-w-[580px] w-full text-left text-[10px]">
+            <thead>
+              <tr className="border-b border-slate-100 bg-brand-soft/70 text-[9px] uppercase tracking-wide text-brand-muted">
+                {["Worker", "Classification", "Regular", "OT", "DT", "Status"].map((h) => (
+                  <th key={h} className="whitespace-nowrap px-2.5 py-2 font-semibold">{h}</th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {rows.map((r, i) => (
+                <tr key={r.w} className={"border-b border-slate-100 last:border-0 " + (i === 3 ? "bg-brand-orange/[0.04]" : "bg-white")}>
+                  <td className="whitespace-nowrap px-2.5 py-2.5 font-semibold text-brand-navy">{r.w}</td>
+                  <td className="whitespace-nowrap px-2.5 py-2.5 text-brand-muted">{r.cls}</td>
+                  <td className="px-2.5 py-2.5">{r.reg}</td>
+                  <td className="px-2.5 py-2.5">{r.ot}</td>
+                  <td className="px-2.5 py-2.5">{r.dt}</td>
+                  <td className={`whitespace-nowrap px-2.5 py-2.5 font-semibold ${r.tone}`}>{r.status}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </BrowserFrame>
+  );
+}
+
+export function PrWorkflowUI() {
+  const steps = [
+    ["Time Entry", "Record project labor."],
+    ["Timesheet", "Organize hours by worker and project."],
+    ["Submitted", "Send the timesheet for review."],
+    ["Approved", "Confirm the hours are ready to move forward."],
+    ["Payroll Summary", "Organize approved workforce information by payroll period."],
+    ["Ready for Review", "Give the next workflow a clear, organized starting point."],
+  ];
+  return (
+    <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-card sm:p-6" aria-hidden="true">
+      <ol className="space-y-2.5">
+        {steps.map(([t, d], i) => (
+          <li key={t} className="flex items-start gap-3">
+            <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-brand-orange/40 bg-brand-orange/10 font-mono text-[10px] font-bold text-brand-orange">
+              {String(i + 1).padStart(2, "0")}
+            </span>
+            <div className="flex-1 rounded-xl border border-brand-line bg-[#FAFBFD] px-3.5 py-2.5">
+              <p className="text-[13px] font-semibold text-brand-navy">{t}</p>
+              <p className="mt-0.5 text-[11px] text-brand-muted">{d}</p>
+            </div>
+            {i < steps.length - 1 ? <span className="hidden text-brand-muted sm:inline">↓</span> : null}
+          </li>
+        ))}
+      </ol>
+    </div>
+  );
+}
+
+export function PrPeriodUI() {
+  return (
+    <BrowserFrame url="app.vertexcms.com / payroll-readiness / period">
+      <div className="p-4 sm:p-5">
+        <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-brand-muted">Payroll Period</p>
+        <p className="mt-0.5 text-[14px] font-semibold text-brand-navy">Sep 07 – Sep 13, 2026</p>
+        <p className="mt-1 text-[10px] font-bold uppercase tracking-wide text-brand-orange">Status · Ready for Review</p>
+        <div className="mt-4 grid grid-cols-2 gap-2 sm:grid-cols-3">
+          {[["Workers", "124"], ["Regular Hours", "7,158"], ["Overtime", "684"], ["Double Time", "112"], ["Total Hours", "7,954"]].map(([l, v]) => (
+            <div key={l} className="rounded-xl border border-slate-200 bg-brand-soft/40 px-2.5 py-2">
+              <p className="text-[9px] text-brand-muted">{l}</p>
+              <p className="mt-0.5 text-[12px] font-bold text-brand-navy">{v}</p>
+            </div>
+          ))}
+        </div>
+        <div className="mt-4 rounded-xl border border-slate-200 bg-white p-3">
+          <p className="text-[10px] font-semibold uppercase tracking-wide text-brand-muted">Approval Status</p>
+          <ul className="mt-2 space-y-1.5">
+            {[["Approved", "7,426 hrs", "text-emerald-700"], ["Pending", "528 hrs", "text-brand-orange"], ["Returned", "96 hrs", "text-amber-700"]].map(([l, v, c]) => (
+              <li key={l} className="flex justify-between text-[11px]">
+                <span className="text-brand-muted">{l}</span>
+                <span className={`font-semibold ${c}`}>{v}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <span className="mt-3 inline-block text-[10px] font-semibold text-brand-orange">Review Pending Time →</span>
+      </div>
+    </BrowserFrame>
+  );
+}
+
+export function PrWorkerPayUI() {
+  return (
+    <BrowserFrame url="app.vertexcms.com / payroll-readiness / workers / emp-1042">
+      <div className="p-4 sm:p-5">
+        <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-brand-muted">Worker Pay Profile</p>
+        <p className="mt-0.5 text-[15px] font-semibold text-brand-navy">Michael Carter</p>
+        <p className="text-[11px] text-brand-muted">Employee # EMP-1042</p>
+        <ul className="mt-4 space-y-2">
+          {[["Trade", "Electrician"], ["Classification", "Journeyman"], ["Pay Type", "Hourly"], ["Pay Rate", "$42.00/hr"], ["Union", "Local 118"], ["Status", "Active"]].map(([l, v]) => (
+            <li key={l} className="flex justify-between rounded-lg border border-slate-100 bg-[#FAFBFD] px-3 py-2">
+              <span className="text-[11px] text-brand-muted">{l}</span>
+              <span className="text-[11px] font-semibold text-brand-navy">{v}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </BrowserFrame>
+  );
+}
+
+export function PrLaborBreakdownUI() {
+  const bars = [88, 22, 8, 95];
+  return (
+    <BrowserFrame url="app.vertexcms.com / payroll-readiness / labor" dark>
+      <div className="p-4 sm:p-5">
+        <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-slate-400">Labor Hours</p>
+        <div className="mt-3 grid grid-cols-2 gap-2 sm:grid-cols-4">
+          {[["Regular", "7,158 hrs"], ["Overtime", "684 hrs"], ["Double Time", "112 hrs"], ["Total", "7,954 hrs"]].map(([l, v], i) => (
+            <div key={l} className="rounded-xl border border-white/10 bg-white/[0.04] px-2.5 py-2.5">
+              <p className="text-[9px] text-slate-400">{l}</p>
+              <p className={`mt-1 text-[13px] font-bold ${i === 1 ? "text-brand-orange" : "text-white"}`}>{v}</p>
+            </div>
+          ))}
+        </div>
+        <p className="mb-2 mt-4 text-[10px] font-semibold uppercase tracking-wide text-slate-400">Weekly Labor Trend</p>
+        <div className="flex h-20 items-end gap-2 rounded-xl border border-white/10 bg-white/[0.03] px-3 pb-2 pt-3">
+          {bars.map((h, i) => (
+            <div key={i} className="flex-1 rounded-t bg-brand-blue/60" style={{ height: `${h}%` }} />
+          ))}
+        </div>
+      </div>
+    </BrowserFrame>
+  );
+}
+
+export function PrClassificationUI() {
+  const summary = [
+    ["Journeyman Electrician", "42 workers", "2,184 hrs"],
+    ["Apprentice Electrician", "18 workers", "846 hrs"],
+    ["Foreman", "12 workers", "612 hrs"],
+    ["Laborer", "31 workers", "1,842 hrs"],
+  ];
+  return (
+    <BrowserFrame url="app.vertexcms.com / payroll-readiness / classification">
+      <div className="grid gap-3 p-3 sm:grid-cols-[1fr_1fr] sm:p-4">
+        <div className="rounded-xl border border-slate-200 bg-white p-3">
+          <p className="text-[10px] font-semibold uppercase tracking-wide text-brand-muted">Work Classification</p>
+          <p className="mt-2 text-[12px] font-semibold text-brand-navy">Michael Carter</p>
+          <ul className="mt-2 space-y-1 text-[10px] text-brand-muted">
+            <li>Project · Riverside Medical Center</li>
+            <li>Classification · Journeyman Electrician</li>
+            <li>Regular 40h · OT 3h · DT 0h</li>
+            <li className="font-semibold text-emerald-700">Approved</li>
+          </ul>
+        </div>
+        <div className="rounded-xl border border-slate-200 bg-[#FAFBFD] p-3">
+          <p className="text-[10px] font-semibold uppercase tracking-wide text-brand-muted">Classification Summary</p>
+          <ul className="mt-2 space-y-1.5">
+            {summary.map(([c, w, h]) => (
+              <li key={c} className="rounded-lg bg-white px-2.5 py-2">
+                <p className="text-[11px] font-semibold text-brand-navy">{c}</p>
+                <p className="text-[10px] text-brand-muted">{w} · {h}</p>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </BrowserFrame>
+  );
+}
+
+export function PrFringeUI() {
+  return (
+    <BrowserFrame url="app.vertexcms.com / payroll-readiness / labor-detail">
+      <div className="p-4 sm:p-5">
+        <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-brand-muted">Labor Detail</p>
+        <ul className="mt-3 space-y-2">
+          {[["Worker", "Michael Carter"], ["Classification", "Journeyman Electrician"], ["Regular Hours", "40"], ["Overtime", "3"], ["Fringe Rate", "$8.50"], ["Project", "Riverside Medical Center"], ["Status", "Approved"]].map(([l, v]) => (
+            <li key={l} className="flex justify-between rounded-lg border border-slate-100 bg-[#FAFBFD] px-3 py-2">
+              <span className="text-[11px] text-brand-muted">{l}</span>
+              <span className={"text-[11px] font-semibold " + (l === "Status" ? "text-emerald-700" : "text-brand-navy")}>{v}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </BrowserFrame>
+  );
+}
+
+export function PrSummaryUI() {
+  const rows = [
+    { w: "Michael Carter", cls: "Electrician", reg: "40", ot: "3", dt: "0", status: "Approved" },
+    { w: "James Wilson", cls: "Carpenter", reg: "40", ot: "6", dt: "0", status: "Approved" },
+    { w: "Daniel Brooks", cls: "Pipefitter", reg: "38", ot: "0", dt: "0", status: "Approved" },
+  ];
+  return (
+    <BrowserFrame url="app.vertexcms.com / payroll-readiness / summary">
+      <div className="border-b border-slate-100 px-4 py-2.5">
+        <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-brand-muted">Payroll Summary</p>
+        <p className="mt-0.5 text-[12px] text-brand-muted">Period · Sep 07 – Sep 13, 2026</p>
+        <div className="mt-2 grid grid-cols-2 gap-2 sm:grid-cols-4">
+          {[["Workers", "124"], ["Regular Hours", "7,158"], ["Overtime", "684"], ["Total Hours", "7,954"]].map(([l, v]) => (
+            <div key={l} className="rounded-lg bg-brand-soft/50 px-2 py-1.5">
+              <p className="text-[8px] text-brand-muted">{l}</p>
+              <p className="text-[11px] font-bold text-brand-navy">{v}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+      <div className="p-3 sm:p-4">
+        <p className="mb-2 text-[10px] font-semibold uppercase tracking-wide text-brand-muted">Worker Summary</p>
+        <div className="overflow-x-auto rounded-xl border border-slate-200">
+          <table className="min-w-[480px] w-full text-left text-[10px]">
+            <thead>
+              <tr className="border-b border-slate-100 bg-brand-soft/70 text-[9px] uppercase tracking-wide text-brand-muted">
+                {["Worker", "Classification", "Regular", "OT", "DT", "Status"].map((h) => (
+                  <th key={h} className="whitespace-nowrap px-2.5 py-2 font-semibold">{h}</th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {rows.map((r) => (
+                <tr key={r.w} className="border-b border-slate-100 last:border-0 bg-white">
+                  <td className="whitespace-nowrap px-2.5 py-2.5 font-semibold text-brand-navy">{r.w}</td>
+                  <td className="whitespace-nowrap px-2.5 py-2.5 text-brand-muted">{r.cls}</td>
+                  <td className="px-2.5 py-2.5">{r.reg}</td>
+                  <td className="px-2.5 py-2.5">{r.ot}</td>
+                  <td className="px-2.5 py-2.5">{r.dt}</td>
+                  <td className="whitespace-nowrap px-2.5 py-2.5 font-semibold text-emerald-700">{r.status}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        <div className="mt-3 flex gap-2">
+          <span className="rounded-md bg-brand-navy px-3 py-1.5 text-[10px] font-semibold text-white">Review Summary</span>
+          <span className="rounded-md border border-brand-line px-3 py-1.5 text-[10px] font-semibold text-brand-navy">View Details</span>
+        </div>
+      </div>
+    </BrowserFrame>
+  );
+}
+
+export function PrReviewUI() {
+  const issues = [
+    "18 Timesheets Pending Approval",
+    "6 Worker Records Need Review",
+    "4 Classification Records Need Review",
+    "3 Missing Labor Details",
+  ];
+  return (
+    <BrowserFrame url="app.vertexcms.com / payroll-readiness / review" dark>
+      <div className="p-4 sm:p-5">
+        <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-slate-400">Payroll Review</p>
+        <div className="mt-3 grid grid-cols-2 gap-3">
+          <div className="rounded-xl border border-emerald-400/30 bg-emerald-400/10 px-3 py-3 text-center">
+            <p className="text-[9px] text-slate-400">Ready</p>
+            <p className="text-[22px] font-bold text-emerald-300">92%</p>
+          </div>
+          <div className="rounded-xl border border-brand-orange/30 bg-brand-orange/10 px-3 py-3 text-center">
+            <p className="text-[9px] text-slate-400">Needs Attention</p>
+            <p className="text-[22px] font-bold text-brand-orange">8%</p>
+          </div>
+        </div>
+        <div className="mt-4 rounded-xl border border-white/10 bg-white/[0.04] p-3">
+          <p className="text-[10px] font-semibold uppercase tracking-wide text-brand-orange">Needs Attention</p>
+          <ul className="mt-2 space-y-1.5">
+            {issues.map((i) => (
+              <li key={i} className="text-[11px] text-slate-300">{i}</li>
+            ))}
+          </ul>
+        </div>
+        <div className="mt-3 flex gap-2">
+          <span className="rounded-md bg-brand-orange px-3 py-1.5 text-[10px] font-semibold text-white">Review Issues</span>
+          <span className="rounded-md border border-white/20 px-3 py-1.5 text-[10px] font-semibold text-white">View Payroll Summary</span>
+        </div>
+      </div>
+    </BrowserFrame>
+  );
+}
+
+export function PrProjectLaborUI() {
+  const steps = ["Worker", "Time", "Project", "Cost Code", "Approval", "Payroll Readiness"];
+  const labor = [["Electrical", "2,184 hrs"], ["Concrete", "1,842 hrs"], ["MEP", "1,426 hrs"]];
+  return (
+    <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-card sm:p-6" aria-hidden="true">
+      <ol className="mb-4 flex flex-wrap items-center gap-2">
+        {steps.map((s, i) => (
+          <li key={s} className="flex items-center gap-2">
+            <span className="rounded-lg border border-brand-line bg-[#FAFBFD] px-2 py-1 text-[10px] font-semibold text-brand-navy">{s}</span>
+            {i < steps.length - 1 ? <span className="text-brand-muted">↓</span> : null}
+          </li>
+        ))}
+      </ol>
+      <div className="rounded-xl border border-slate-200 bg-[#FAFBFD] p-3.5">
+        <div className="flex items-center justify-between gap-2">
+          <p className="text-[11px] font-semibold text-brand-navy">Riverside Medical Center · Approved Labor</p>
+          <span className="text-[10px] font-semibold text-brand-orange">View Project Labor →</span>
+        </div>
+        <ul className="mt-2 space-y-1.5">
+          {labor.map(([t, h]) => (
+            <li key={t} className="flex justify-between rounded-lg bg-white px-3 py-2 text-[11px]">
+              <span className="font-semibold text-brand-navy">{t}</span>
+              <span className="text-brand-muted">{h}</span>
+            </li>
+          ))}
+          <li className="flex justify-between border-t border-brand-line pt-2 text-[11px] font-semibold">
+            <span className="text-brand-navy">Total</span>
+            <span className="text-brand-navy">5,452 hrs</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  );
+}
+
+export function PrDataQualityUI() {
+  const ok = [
+    "Worker information complete",
+    "Classification assigned",
+    "Timesheet approved",
+    "Regular hours recorded",
+    "Overtime hours reviewed",
+  ];
+  const warn = [
+    ["Missing classification", "James Wilson"],
+    ["Timesheet pending approval", "Sarah Mitchell"],
+    ["Worker record requires review", "Daniel Brooks"],
+  ];
+  return (
+    <BrowserFrame url="app.vertexcms.com / payroll-readiness / check">
+      <div className="p-4 sm:p-5">
+        <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-brand-muted">Payroll Readiness Check</p>
+        <ul className="mt-3 space-y-1.5">
+          {ok.map((item) => (
+            <li key={item} className="flex items-center gap-2 text-[11px] text-emerald-700">
+              <span aria-hidden="true">✓</span>
+              {item}
+            </li>
+          ))}
+        </ul>
+        <p className="mb-2 mt-4 text-[10px] font-semibold uppercase tracking-wide text-brand-orange">Needs attention</p>
+        <ul className="space-y-2">
+          {warn.map(([issue, who]) => (
+            <li key={issue} className="rounded-lg border border-brand-orange/25 bg-brand-orange/[0.06] px-3 py-2">
+              <p className="text-[11px] font-semibold text-brand-navy">! {issue}</p>
+              <p className="text-[10px] text-brand-muted">{who}</p>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </BrowserFrame>
+  );
+}
+
+/** AI Assistant (AI module) marketing mockups */
+
+function AiSourceChips({ sources, dark = false }: { sources: string[]; dark?: boolean }) {
+  return (
+    <div className="mt-3 flex flex-wrap gap-1.5">
+      {sources.map((s) => (
+        <span
+          key={s}
+          className={
+            "rounded-md px-2 py-0.5 text-[9px] font-semibold " +
+            (dark
+              ? "border border-white/15 bg-white/10 text-slate-300"
+              : "border border-brand-line bg-white text-brand-muted")
+          }
+        >
+          {s}
+        </span>
+      ))}
+    </div>
+  );
+}
+
+export function AiHeroUI() {
+  return (
+    <BrowserFrame url="app.vertexcms.com / ai-assistant" dark>
+      <div className="border-b border-white/10 px-4 py-2.5">
+        <div className="flex flex-wrap items-center justify-between gap-2">
+          <div className="rounded-lg border border-white/15 bg-white/10 px-2.5 py-1 text-[10px] font-medium text-slate-200">
+            Riverside Medical Center ▾
+          </div>
+          <span className="text-[10px] font-semibold text-brand-orange">AI Assistant</span>
+        </div>
+      </div>
+      <div className="p-3 sm:p-4">
+        <div className="max-w-[92%] rounded-2xl rounded-tl-md bg-white/10 px-3 py-2.5 text-[12px] text-slate-200">
+          What&apos;s putting the project at risk this week?
+        </div>
+        <div className="ml-auto mt-3 max-w-[95%] rounded-2xl rounded-tr-md border border-brand-orange/25 bg-brand-dark/50 px-3.5 py-3">
+          <p className="text-[11px] font-semibold text-brand-orange">Three areas need attention:</p>
+          <ul className="mt-2 space-y-1 text-[11px] leading-relaxed text-slate-100">
+            <li>Schedule is currently 3 days behind.</li>
+            <li>Cost variance is 2.4% above the current baseline.</li>
+            <li>28 punch items remain open.</li>
+          </ul>
+          <p className="mb-1 mt-3 text-[9px] font-semibold uppercase text-slate-400">Sources</p>
+          <AiSourceChips sources={["Projects", "Budget & Job Cost", "Punch", "Daily Logs"]} dark />
+          <span className="mt-2 inline-block text-[10px] font-semibold text-brand-orange">View Sources →</span>
+        </div>
+      </div>
+    </BrowserFrame>
+  );
+}
+
+export function AiWorkspaceUI() {
+  const recent = ["Project Status Review", "Cost Review", "RFI Summary", "Weekly Field Review"];
+  return (
+    <BrowserFrame url="app.vertexcms.com / ai-assistant / workspace" dark>
+      <div className="grid lg:grid-cols-[130px_1fr]">
+        <aside className="border-b border-white/10 p-3 lg:border-b-0 lg:border-r">
+          <p className="text-[10px] font-semibold uppercase tracking-wide text-brand-orange">AI Assistant</p>
+          <p className="mt-2 rounded-md border border-brand-orange/30 bg-brand-orange/10 px-2 py-1 text-[9px] font-semibold text-brand-orange">
+            + New Conversation
+          </p>
+          <p className="mb-1 mt-3 text-[9px] font-semibold uppercase tracking-wide text-slate-500">Recent</p>
+          <ul className="space-y-1">
+            {recent.map((c, i) => (
+              <li
+                key={c}
+                className={
+                  "rounded-md px-2 py-1.5 text-[10px] " +
+                  (i === 0 ? "bg-brand-orange/15 font-semibold text-white" : "text-slate-400")
+                }
+              >
+                {c}
+              </li>
+            ))}
+          </ul>
+        </aside>
+        <div className="p-3">
+          <div className="mb-3 flex items-center justify-between gap-2">
+            <p className="text-[12px] font-semibold text-white">AI Assistant</p>
+            <span className="text-[10px] text-slate-400">Riverside Medical Center</span>
+          </div>
+          <div className="max-w-[90%] rounded-2xl rounded-tl-md bg-white/10 px-3 py-2 text-[11px] text-slate-200">
+            Give me a quick summary of this week&apos;s project status.
+          </div>
+          <div className="ml-auto mt-3 max-w-[95%] rounded-2xl rounded-tr-md border border-brand-orange/25 bg-brand-dark/50 px-3 py-3">
+            <p className="text-[11px] leading-relaxed text-slate-100">
+              Riverside Medical Center is progressing, but three areas require attention.
+            </p>
+            <div className="mt-3 grid grid-cols-3 gap-1.5">
+              {[["Schedule", "3 days behind"], ["Financial", "2.4% cost variance"], ["Field", "28 open punch"]].map(
+                ([l, v]) => (
+                  <div key={l} className="rounded-lg border border-white/10 bg-white/[0.04] px-2 py-1.5">
+                    <p className="text-[8px] font-bold uppercase text-brand-orange">{l}</p>
+                    <p className="text-[9px] text-slate-300">{v}</p>
+                  </div>
+                )
+              )}
+            </div>
+            <p className="mt-3 text-[11px] leading-relaxed text-slate-200">
+              Schedule pressure is primarily associated with open coordination items. Cost movement is currently
+              above the project baseline. Field teams also have outstanding punch items that should continue to be
+              reviewed.
+            </p>
+            <p className="mb-1 mt-3 text-[9px] font-semibold uppercase text-slate-400">Sources</p>
+            <AiSourceChips sources={["Projects", "Daily Logs", "Budget & Job Cost", "Punch"]} dark />
+            <div className="mt-3 flex flex-wrap gap-2">
+              <span className="text-[10px] font-semibold text-brand-orange">View Project →</span>
+              <span className="text-[10px] text-slate-400">View Sources →</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </BrowserFrame>
+  );
+}
+
+export function AiHowItWorksUI() {
+  return (
+    <BrowserFrame url="app.vertexcms.com / ai-assistant">
+      <div className="p-4 sm:p-5">
+        <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-brand-muted">AI Assistant</p>
+        <div className="mt-3 max-w-[88%] rounded-2xl rounded-tl-md bg-brand-soft px-3 py-2.5 text-[11px] text-brand-navy">
+          Which RFIs are still affecting progress?
+        </div>
+        <div className="ml-auto mt-2 max-w-[92%] rounded-2xl rounded-tr-md border border-brand-orange/20 bg-white px-3 py-2.5 shadow-soft">
+          <p className="text-[11px] leading-relaxed text-brand-navy">
+            7 RFIs remain open on Riverside Medical Center. Three are affecting East Wing coordination.
+          </p>
+          <AiSourceChips sources={["RFIs", "Schedule", "Documents"]} />
+        </div>
+      </div>
+    </BrowserFrame>
+  );
+}
+
+export function AiGroundedUI() {
+  return (
+    <div className="rounded-2xl border border-white/10 bg-white/[0.04] p-5 shadow-card sm:p-6" aria-hidden="true">
+      <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-slate-400">Question</p>
+      <p className="mt-1 text-[13px] font-semibold text-white">Why is the project currently behind schedule?</p>
+      <div className="mt-4 rounded-xl border border-brand-orange/25 bg-brand-dark/40 px-4 py-3">
+        <p className="text-[10px] font-semibold uppercase tracking-wide text-brand-orange">Answer</p>
+        <p className="mt-2 text-[12px] leading-relaxed text-slate-200">
+          The project is currently tracking 3 days behind schedule. Recent daily logs indicate delayed material
+          delivery, while open RFIs are affecting coordination in the East Wing.
+        </p>
+        <p className="mb-2 mt-3 text-[10px] font-semibold uppercase tracking-wide text-slate-400">
+          Supporting records
+        </p>
+        <AiSourceChips sources={["Daily Logs", "RFIs", "Project Schedule"]} dark />
+        <span className="mt-3 inline-block text-[10px] font-semibold text-brand-orange">View Records →</span>
+      </div>
+    </div>
+  );
+}
+
+export function AiGroundedSourcesUI() {
+  const sources = [
+    { type: "Project", title: "Current Schedule", sub: "3 days behind" },
+    { type: "RFI", title: "RFI-018", sub: "Mechanical coordination" },
+    { type: "RFI", title: "RFI-024", sub: "Door hardware clarification" },
+    { type: "Daily Log", title: "Sep 09, 2026", sub: "East Wing coordination" },
+    { type: "Drawing", title: "A-204", sub: "Current revision" },
+  ];
+  return (
+    <BrowserFrame url="app.vertexcms.com / ai-assistant / sources" dark>
+      <div className="grid sm:grid-cols-2">
+        <div className="border-b border-white/10 p-4 sm:border-b-0 sm:border-r">
+          <p className="text-[10px] font-semibold uppercase text-slate-400">AI conversation</p>
+          <div className="mt-3 max-w-[95%] rounded-2xl rounded-tl-md bg-white/10 px-3 py-2 text-[11px] text-slate-200">
+            Why is the project behind schedule?
+          </div>
+          <div className="mt-2 rounded-xl border border-brand-orange/25 bg-brand-dark/50 px-3 py-2.5">
+            <p className="text-[11px] leading-relaxed text-slate-100">
+              The project is currently tracking 3 days behind schedule. Recent project activity shows several
+              open coordination items that may be contributing to schedule pressure.
+            </p>
+          </div>
+        </div>
+        <div className="p-4">
+          <p className="text-[10px] font-semibold uppercase text-slate-400">Sources</p>
+          <ul className="mt-3 space-y-2">
+            {sources.map((s) => (
+              <li key={s.title} className="rounded-lg border border-white/10 bg-white/[0.04] px-3 py-2">
+                <p className="text-[9px] font-bold uppercase text-brand-orange">{s.type}</p>
+                <p className="text-[11px] font-semibold text-white">{s.title}</p>
+                <p className="text-[10px] text-slate-400">{s.sub}</p>
+                <span className="mt-1 inline-block text-[9px] font-semibold text-brand-orange">View record →</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </BrowserFrame>
+  );
+}
+
+export function AiMultiModuleUI() {
+  const modules = ["Projects", "Budget & Job Cost", "Change Orders", "Daily Logs", "Documents", "RFIs"];
+  return (
+    <BrowserFrame url="app.vertexcms.com / ai-assistant / cross-module">
+      <div className="p-4 sm:p-5">
+        <div className="rounded-lg border border-brand-line bg-[#FAFBFD] px-3 py-2.5">
+          <p className="text-[9px] font-bold uppercase text-brand-orange">Question</p>
+          <p className="text-[11px] font-medium text-brand-navy">
+            Are we at risk of exceeding the current budget because of schedule delays?
+          </p>
+        </div>
+        <div className="my-3 flex justify-center text-brand-muted" aria-hidden="true">
+          ↓
+        </div>
+        <div className="rounded-lg border border-brand-orange/25 bg-brand-orange/[0.04] px-3 py-2.5">
+          <p className="text-[9px] font-bold uppercase text-brand-orange">AI Analysis</p>
+          <div className="mt-2 flex flex-wrap gap-1">
+            {modules.map((m) => (
+              <span key={m} className="rounded border border-brand-line bg-white px-2 py-0.5 text-[9px] text-brand-navy">
+                {m}
+              </span>
+            ))}
+          </div>
+        </div>
+        <div className="my-3 flex justify-center text-brand-muted" aria-hidden="true">
+          ↓
+        </div>
+        <div className="rounded-lg border border-brand-line bg-white px-3 py-2.5">
+          <p className="text-[9px] font-bold uppercase text-brand-orange">Answer</p>
+          <p className="mt-1 text-[11px] leading-relaxed text-brand-navy">
+            Current cost variance is 2.4%. Several active change orders and schedule-related activities should be
+            reviewed before drawing conclusions about additional cost exposure.
+          </p>
+        </div>
+      </div>
+    </BrowserFrame>
+  );
+}
+
+export function AiDrawingUI() {
+  return (
+    <BrowserFrame url="app.vertexcms.com / ai-assistant / drawing">
+      <div className="p-4 sm:p-5">
+        <div className="max-w-[92%] rounded-2xl rounded-tl-md bg-brand-soft px-3 py-2 text-[11px] text-brand-navy">
+          What changed between Drawing A-204 Rev 05 and Rev 06?
+        </div>
+        <div className="ml-auto mt-3 max-w-[95%] rounded-xl border border-brand-orange/20 bg-white px-3 py-3 shadow-soft">
+          <p className="text-[11px] leading-relaxed text-brand-navy">
+            Revision 06 includes updated door hardware coordination and revised mechanical references.
+          </p>
+          <p className="mb-1 mt-3 text-[9px] font-semibold uppercase text-brand-muted">Source Documents</p>
+          <AiSourceChips sources={["A-204 Rev 05", "A-204 Rev 06"]} />
+          <p className="mb-1 mt-2 text-[9px] font-semibold uppercase text-brand-muted">Changes</p>
+          <ul className="space-y-0.5 text-[10px] text-brand-muted">
+            <li>+ Door hardware note</li>
+            <li>+ Mechanical reference</li>
+            <li>+ Coordination detail</li>
+          </ul>
+          <span className="mt-2 inline-block text-[10px] font-semibold text-brand-orange">View Drawing →</span>
+        </div>
+      </div>
+    </BrowserFrame>
+  );
+}
+
+export function AiFinancialUI() {
+  const rows = [
+    ["Concrete", "$1.20M", "$1.25M", "+4.2%"],
+    ["Electrical", "$820K", "$846K", "+3.1%"],
+    ["Mechanical", "$640K", "$651K", "+1.7%"],
+  ];
+  return (
+    <BrowserFrame url="app.vertexcms.com / ai-assistant / financial">
+      <div className="p-4 sm:p-5">
+        <div className="max-w-[92%] rounded-2xl rounded-tl-md bg-brand-soft px-3 py-2 text-[11px] text-brand-navy">
+          Where are we seeing the largest cost variance?
+        </div>
+        <div className="ml-auto mt-3 max-w-[95%] rounded-xl border border-brand-orange/20 bg-white px-3 py-3">
+          <p className="text-[11px] leading-relaxed text-brand-navy">
+            Concrete and electrical cost categories are currently showing the largest movement against the project
+            baseline.
+          </p>
+          <table className="mt-3 w-full text-[10px]">
+            <thead>
+              <tr className="border-b border-brand-line text-left text-brand-muted">
+                <th className="pb-1 pr-2">Category</th>
+                <th className="pb-1 pr-2">Budget</th>
+                <th className="pb-1 pr-2">Actual</th>
+                <th className="pb-1">Variance</th>
+              </tr>
+            </thead>
+            <tbody>
+              {rows.map(([cat, bud, act, var_]) => (
+                <tr key={cat} className="border-b border-brand-line/60">
+                  <td className="py-1.5 font-medium text-brand-navy">{cat}</td>
+                  <td className="py-1.5 text-brand-muted">{bud}</td>
+                  <td className="py-1.5 text-brand-muted">{act}</td>
+                  <td className="py-1.5 font-semibold text-brand-orange">{var_}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+          <span className="mt-2 inline-block text-[10px] font-semibold text-brand-orange">
+            Review Budget & Job Cost →
+          </span>
+        </div>
+      </div>
+    </BrowserFrame>
+  );
+}
+
+export function AiFieldUI() {
+  const records = [
+    ["Daily Logs", "12 entries"],
+    ["Punch", "28 open"],
+    ["Photos", "12 recent"],
+    ["T&M", "3 draft entries"],
+  ];
+  return (
+    <BrowserFrame url="app.vertexcms.com / ai-assistant / field" dark>
+      <div className="p-4 sm:p-5">
+        <div className="max-w-[92%] rounded-2xl rounded-tl-md bg-white/10 px-3 py-2 text-[11px] text-slate-200">
+          What happened in the field yesterday?
+        </div>
+        <div className="ml-auto mt-3 max-w-[95%] rounded-xl border border-brand-orange/25 bg-brand-dark/50 px-3 py-3">
+          <p className="text-[11px] leading-relaxed text-slate-100">
+            12 daily log entries were recorded. The East Wing had 22 workers on site. Material delivery was
+            confirmed and three punch items were updated.
+          </p>
+          <p className="mb-1 mt-3 text-[9px] font-semibold uppercase text-slate-400">Connected records</p>
+          <div className="grid grid-cols-2 gap-1.5">
+            {records.map(([l, v]) => (
+              <div key={l} className="rounded-md border border-white/10 bg-white/[0.04] px-2 py-1.5">
+                <p className="text-[9px] text-slate-400">{l}</p>
+                <p className="text-[10px] font-semibold text-white">{v}</p>
+              </div>
+            ))}
+          </div>
+          <span className="mt-2 inline-block text-[10px] font-semibold text-brand-orange">View Field Activity →</span>
+        </div>
+      </div>
+    </BrowserFrame>
+  );
+}
+
+export function AiDraftConfirmUI() {
+  return (
+    <div className="rounded-2xl border border-white/10 bg-white/[0.04] p-5 shadow-card sm:p-6" aria-hidden="true">
+      <p className="text-[10px] font-bold uppercase tracking-wide text-brand-orange">AI Action</p>
+      <p className="mt-1 text-[14px] font-semibold text-white">Create RFI Draft</p>
+      <p className="mb-2 mt-3 text-[10px] font-semibold uppercase text-slate-400">Based on</p>
+      <AiSourceChips sources={["RFI context", "Drawing A-204", "Daily Log Sep 09"]} dark />
+      <div className="mt-4 rounded-xl border border-brand-orange/25 bg-brand-dark/40 px-4 py-3">
+        <p className="text-[10px] font-semibold uppercase text-brand-orange">Draft</p>
+        <p className="mt-2 text-[11px] text-slate-300">
+          <span className="font-semibold text-white">Subject: </span>Door hardware coordination
+        </p>
+        <p className="mt-2 text-[11px] leading-relaxed text-slate-300">
+          &ldquo;Please confirm the revised door hardware requirements shown in the latest drawing revision.&rdquo;
+        </p>
+      </div>
+      <div className="mt-4 flex flex-wrap gap-2">
+        <span className="rounded-md border border-white/20 px-3 py-2 text-[10px] font-semibold text-slate-300">
+          Review Draft
+        </span>
+        <span className="rounded-md bg-brand-navy px-3 py-2 text-[10px] font-semibold text-white">
+          Confirm & Create
+        </span>
+        <span className="rounded-md border border-white/20 px-3 py-2 text-[10px] font-semibold text-slate-400">
+          Cancel
+        </span>
+      </div>
+    </div>
+  );
+}
+
+export function AiHistoryUI() {
+  const convos = [
+    { title: "Project Status Review", when: "Today" },
+    { title: "Budget Variance", when: "Yesterday" },
+    { title: "RFI Summary", when: "Sep 09" },
+    { title: "Drawing Revision Review", when: "Sep 08" },
+    { title: "Weekly Field Summary", when: "Sep 07" },
+  ];
+  return (
+    <BrowserFrame url="app.vertexcms.com / ai-assistant / history">
+      <div className="grid sm:grid-cols-[160px_1fr]">
+        <aside className="border-b border-brand-line p-3 sm:border-b-0 sm:border-r">
+          <p className="text-[10px] font-semibold uppercase text-brand-orange">AI Assistant</p>
+          <div className="mt-2 rounded-md border border-brand-line bg-[#FAFBFD] px-2 py-1.5 text-[10px] text-brand-muted">
+            Search conversations…
+          </div>
+          <p className="mt-2 rounded-md bg-brand-navy px-2 py-1 text-center text-[9px] font-semibold text-white">
+            + New conversation
+          </p>
+          <p className="mb-1 mt-3 text-[9px] font-semibold uppercase text-brand-muted">Riverside Medical Center ▾</p>
+          <ul className="space-y-1">
+            {convos.map((c, i) => (
+              <li
+                key={c.title}
+                className={
+                  "rounded-md px-2 py-1.5 " +
+                  (i === 0 ? "border border-brand-orange/30 bg-brand-orange/[0.06]" : "")
+                }
+              >
+                <p className="text-[10px] font-semibold text-brand-navy">{c.title}</p>
+                <p className="text-[9px] text-brand-muted">{c.when}</p>
+              </li>
+            ))}
+          </ul>
+        </aside>
+        <div className="flex items-center justify-center p-6 text-[11px] text-brand-muted">
+          Select a conversation to continue
+        </div>
+      </div>
+    </BrowserFrame>
+  );
+}
+
+export function AiConfirmUI() {
+  return (
+    <BrowserFrame url="app.vertexcms.com / ai-assistant / confirm">
+      <div className="p-4 sm:p-5">
+        <div className="rounded-xl border border-brand-orange/30 bg-brand-orange/[0.06] p-4">
+          <p className="text-[10px] font-bold uppercase tracking-wide text-brand-orange">AI Action</p>
+          <p className="mt-1 text-[14px] font-semibold text-brand-navy">Update project status</p>
+          <p className="mt-3 text-[12px] text-brand-muted">AI wants to change project status from</p>
+          <div className="mt-2 flex flex-wrap items-center gap-2 text-[12px]">
+            <span className="rounded-md border border-brand-line bg-white px-2.5 py-1 font-semibold text-brand-navy">
+              At Risk
+            </span>
+            <span className="text-brand-muted">to</span>
+            <span className="rounded-md border border-brand-orange/30 bg-white px-2.5 py-1 font-semibold text-brand-orange">
+              Needs Attention
+            </span>
+          </div>
+          <div className="mt-4 flex gap-2">
+            <span className="rounded-md border border-brand-line bg-white px-4 py-2 text-[11px] font-semibold text-brand-muted">
+              Cancel
+            </span>
+            <span className="rounded-md bg-brand-navy px-4 py-2 text-[11px] font-semibold text-white">
+              Confirm Change
+            </span>
+          </div>
+        </div>
+      </div>
+    </BrowserFrame>
+  );
+}
+
+/** Project Intelligence (AI_INTEL module) marketing mockups */
+
+export function PiHeroUI() {
+  const suggestions = [
+    "What is putting this project at risk?",
+    "Where are costs trending above budget?",
+    "Which RFIs are affecting progress?",
+    "What is causing the schedule variance?",
+  ];
+  return (
+    <BrowserFrame url="app.vertexcms.com / project-intelligence" dark>
+      <div className="border-b border-white/10 px-4 py-2">
+        <div className="flex flex-wrap items-center justify-between gap-2">
+          <span className="text-[9px] font-bold tracking-[0.12em] text-slate-400">VERTEX CMS</span>
+          <span className="text-[10px] text-slate-400">Riverside Medical Center</span>
+        </div>
+        <p className="mt-1 text-[13px] font-semibold text-white">Project Intelligence</p>
+      </div>
+      <div className="p-3 sm:p-4">
+        <div className="rounded-lg border border-white/15 bg-white/[0.06] px-3 py-2 text-[11px] text-slate-400">
+          Ask anything about this project…
+        </div>
+        <div className="mt-2 flex flex-wrap gap-1.5">
+          {suggestions.map((s) => (
+            <span
+              key={s}
+              className="rounded-md border border-white/10 bg-white/[0.04] px-2 py-1 text-[9px] text-slate-300"
+            >
+              {s}
+            </span>
+          ))}
+        </div>
+        <div className="mt-4 space-y-3">
+          <div className="max-w-[90%] rounded-2xl rounded-tl-md bg-white/10 px-3 py-2 text-[11px] text-slate-200">
+            What is the current project status?
+          </div>
+          <div className="rounded-xl border border-brand-orange/25 bg-brand-dark/50 px-3.5 py-3">
+            <p className="text-[11px] leading-relaxed text-slate-100">
+              Riverside Medical Center is currently tracking 3 days behind schedule. Seven RFIs remain open,
+              while current cost variance is 2.4%. Recent field activity indicates several coordination items
+              require attention.
+            </p>
+            <AiSourceChips
+              sources={["Project", "Budget & Job Cost", "RFIs", "Daily Logs", "Schedule"]}
+              dark
+            />
+            <span className="mt-2 inline-block text-[10px] font-semibold text-brand-orange">
+              View supporting records →
+            </span>
+          </div>
+        </div>
+      </div>
+    </BrowserFrame>
+  );
+}
+
+export function PiWorkspaceUI() {
+  const recent = [
+    "Project status",
+    "Cost variance",
+    "Open RFIs",
+    "Schedule delay",
+    "Field activity",
+    "Project risks",
+  ];
+  const support = [
+    { label: "Schedule", value: "3 days behind" },
+    { label: "RFIs", value: "7 open" },
+    { label: "Daily Logs", value: "Recent coordination issues" },
+    { label: "Documents", value: "Current project references" },
+  ];
+  return (
+    <BrowserFrame url="app.vertexcms.com / project-intelligence / workspace" dark>
+      <div className="grid lg:grid-cols-[130px_1fr_145px]">
+        <aside className="border-b border-white/10 p-3 lg:border-b-0 lg:border-r">
+          <p className="text-[10px] font-semibold uppercase tracking-wide text-brand-orange">
+            Project Intelligence
+          </p>
+          <p className="mb-2 mt-2 text-[9px] font-semibold uppercase tracking-wide text-slate-500">
+            Recent questions
+          </p>
+          <ul className="space-y-1">
+            {recent.map((q, i) => (
+              <li
+                key={q}
+                className={
+                  "rounded-md px-2 py-1.5 text-[10px] " +
+                  (i === 3 ? "bg-brand-orange/15 font-semibold text-white" : "text-slate-400")
+                }
+              >
+                {q}
+              </li>
+            ))}
+          </ul>
+        </aside>
+        <div className="border-b border-white/10 p-3 lg:border-b-0 lg:border-r">
+          <p className="mb-3 text-[11px] font-semibold text-white">Ask your project</p>
+          <div className="max-w-[92%] rounded-2xl rounded-tl-md bg-white/10 px-3 py-2 text-[11px] text-slate-200">
+            Why are we currently behind schedule?
+          </div>
+          <div className="mt-3 rounded-xl border border-brand-orange/25 bg-brand-dark/50 px-3 py-3">
+            <p className="text-[11px] leading-relaxed text-slate-100">
+              The project is currently tracking 3 days behind schedule. Recent project information indicates
+              open RFIs and delayed coordination items are contributing to the variance.
+            </p>
+            <p className="mb-2 mt-3 text-[9px] font-semibold uppercase tracking-wide text-slate-400">
+              Supporting information
+            </p>
+            <ul className="space-y-1.5">
+              {support.map(({ label, value }) => (
+                <li
+                  key={label}
+                  className="flex items-start justify-between gap-2 rounded-md border border-white/10 bg-white/[0.04] px-2 py-1.5"
+                >
+                  <span className="text-[10px] font-semibold text-slate-300">{label}</span>
+                  <span className="text-right text-[10px] text-slate-400">{value}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+        <aside className="p-3">
+          <p className="text-[9px] font-semibold uppercase tracking-wide text-slate-400">Project Context</p>
+          <p className="mt-1 text-[11px] font-semibold text-white">Riverside Medical Center</p>
+          <div className="mt-2 rounded-md border border-brand-orange/30 bg-brand-orange/10 px-2 py-1 text-[10px] font-semibold text-brand-orange">
+            Needs Attention
+          </div>
+          <ul className="mt-3 space-y-1.5 text-[10px]">
+            {[["Schedule", "-3 days"], ["Cost Variance", "2.4%"], ["Open RFIs", "7"], ["Safety", "92"], ["Punch", "28"]].map(
+              ([l, v]) => (
+                <li key={l} className="flex justify-between text-slate-400">
+                  <span>{l}</span>
+                  <span className="font-semibold text-slate-200">{v}</span>
+                </li>
+              )
+            )}
+          </ul>
+        </aside>
+      </div>
+    </BrowserFrame>
+  );
+}
+
+export function PiHowItWorksUI() {
+  return (
+    <BrowserFrame url="app.vertexcms.com / project-intelligence">
+      <div className="p-4 sm:p-5">
+        <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-brand-muted">
+          Project Intelligence
+        </p>
+        <div className="mt-3 max-w-[88%] rounded-2xl rounded-tl-md bg-brand-soft px-3 py-2.5 text-[11px] text-brand-navy">
+          Where are costs trending above budget?
+        </div>
+        <div className="ml-auto mt-2 max-w-[92%] rounded-2xl rounded-tr-md border border-brand-orange/20 bg-white px-3 py-2.5 shadow-soft">
+          <p className="text-[11px] leading-relaxed text-brand-navy">
+            Current cost variance is 2.4%, with the largest variance in concrete and electrical work.
+          </p>
+          <AiSourceChips sources={["Budget & Job Cost", "Concrete", "Electrical"]} />
+        </div>
+      </div>
+    </BrowserFrame>
+  );
+}
+
+export function PiConnectedUI() {
+  const modules = [
+    "Projects",
+    "Budget & Job Cost",
+    "RFIs",
+    "Daily Logs",
+    "Drawings",
+    "Documents",
+    "Punch",
+    "Safety",
+    "Schedule",
+  ];
+  return (
+    <div
+      className="rounded-2xl border border-brand-line bg-white p-5 sm:p-6"
+      aria-hidden="true"
+    >
+      <div className="grid grid-cols-3 gap-2 sm:grid-cols-3">
+        {modules.slice(0, 3).map((m) => (
+          <div
+            key={m}
+            className="rounded-lg border border-brand-line bg-[#FAFBFD] px-2 py-2 text-center text-[10px] font-medium text-brand-navy"
+          >
+            {m}
+          </div>
+        ))}
+      </div>
+      <div className="my-2 flex items-center justify-center gap-2">
+        <div className="h-px flex-1 bg-brand-line" aria-hidden="true" />
+        <div className="rounded-lg border-2 border-brand-orange/40 bg-brand-orange/[0.08] px-4 py-2 text-center">
+          <p className="text-[9px] font-bold uppercase tracking-wide text-brand-orange">Project Intelligence</p>
+        </div>
+        <div className="h-px flex-1 bg-brand-line" aria-hidden="true" />
+      </div>
+      <div className="grid grid-cols-3 gap-2">
+        {modules.slice(3, 6).map((m) => (
+          <div
+            key={m}
+            className="rounded-lg border border-brand-line bg-[#FAFBFD] px-2 py-2 text-center text-[10px] font-medium text-brand-navy"
+          >
+            {m}
+          </div>
+        ))}
+      </div>
+      <div className="mt-2 grid grid-cols-3 gap-2">
+        {modules.slice(6).map((m) => (
+          <div
+            key={m}
+            className="rounded-lg border border-brand-line bg-[#FAFBFD] px-2 py-2 text-center text-[10px] font-medium text-brand-navy"
+          >
+            {m}
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+export function PiGroundedUI() {
+  return (
+    <div className="rounded-2xl border border-white/10 bg-white/[0.04] p-5 shadow-card sm:p-6" aria-hidden="true">
+      <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-slate-400">Question</p>
+      <p className="mt-1 text-[13px] font-semibold text-white">What is driving the current cost variance?</p>
+      <div className="mt-4 rounded-xl border border-brand-orange/25 bg-brand-dark/40 px-4 py-3">
+        <p className="text-[10px] font-semibold uppercase tracking-wide text-brand-orange">AI Response</p>
+        <p className="mt-2 text-[12px] leading-relaxed text-slate-200">
+          Current cost variance is 2.4%. The largest variance is associated with concrete and electrical work
+          based on current job-cost information.
+        </p>
+        <p className="mb-2 mt-3 text-[10px] font-semibold uppercase tracking-wide text-slate-400">
+          Supporting records
+        </p>
+        <AiSourceChips sources={["Budget & Job Cost", "Concrete", "Electrical"]} dark />
+        <div className="mt-4 grid grid-cols-3 gap-2 border-t border-white/10 pt-3">
+          {[["Current Budget", "$4.50M"], ["Projected Cost", "$4.82M"], ["Variance", "+2.4%"]].map(([l, v]) => (
+            <div key={l}>
+              <p className="text-[9px] text-slate-400">{l}</p>
+              <p className="text-[11px] font-semibold text-white">{v}</p>
+            </div>
+          ))}
+        </div>
+        <span className="mt-3 inline-block text-[10px] font-semibold text-brand-orange">View Cost Details →</span>
+      </div>
+    </div>
+  );
+}
+
+export function PiStatusUI() {
+  const metrics = [
+    { label: "Schedule", value: "3 days behind", warn: true },
+    { label: "Cost", value: "2.4% variance", warn: true },
+    { label: "RFIs", value: "7 open", warn: false },
+    { label: "Safety", value: "92", warn: false },
+    { label: "Punch", value: "28 open", warn: false },
+    { label: "Daily Logs", value: "Current", warn: false },
+  ];
+  return (
+    <BrowserFrame url="app.vertexcms.com / project-intelligence / status">
+      <div className="p-4 sm:p-5">
+        <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-brand-muted">Project Status</p>
+        <p className="mt-1 text-[14px] font-semibold text-brand-navy">Riverside Medical Center</p>
+        <div className="mt-4 grid grid-cols-2 gap-2 sm:grid-cols-3">
+          {metrics.map(({ label, value, warn }) => (
+            <div
+              key={label}
+              className={
+                "rounded-lg border px-3 py-2 " +
+                (warn ? "border-brand-orange/25 bg-brand-orange/[0.04]" : "border-brand-line bg-[#FAFBFD]")
+              }
+            >
+              <p className="text-[9px] font-semibold uppercase tracking-wide text-brand-muted">{label}</p>
+              <p className={"mt-0.5 text-[12px] font-semibold " + (warn ? "text-brand-orange" : "text-brand-navy")}>
+                {value}
+              </p>
+            </div>
+          ))}
+        </div>
+        <div className="mt-4 rounded-lg border border-brand-line bg-white px-3 py-3">
+          <p className="text-[9px] font-semibold uppercase tracking-wide text-brand-orange">AI Summary</p>
+          <p className="mt-1.5 text-[11px] leading-relaxed text-brand-muted">
+            Several coordination items are contributing to schedule pressure. Review open RFIs and recent field
+            updates for the latest context.
+          </p>
+        </div>
+        <span className="mt-3 inline-block text-[11px] font-semibold text-brand-orange">Review Project →</span>
+      </div>
+    </BrowserFrame>
+  );
+}
+
+export function PiConfirmUI() {
+  return (
+    <BrowserFrame url="app.vertexcms.com / project-intelligence / confirm">
+      <div className="p-4 sm:p-5">
+        <div className="rounded-xl border border-brand-orange/30 bg-brand-orange/[0.06] p-4">
+          <p className="text-[10px] font-bold uppercase tracking-wide text-brand-orange">AI Action</p>
+          <p className="mt-1 text-[14px] font-semibold text-brand-navy">Update Project Status</p>
+          <p className="mt-3 text-[12px] text-brand-muted">AI suggests changing status from</p>
+          <div className="mt-2 flex flex-wrap items-center gap-2 text-[12px]">
+            <span className="rounded-md border border-brand-line bg-white px-2.5 py-1 font-semibold text-brand-navy">
+              On Track
+            </span>
+            <span className="text-brand-muted">to</span>
+            <span className="rounded-md border border-brand-orange/30 bg-white px-2.5 py-1 font-semibold text-brand-orange">
+              Needs Attention
+            </span>
+          </div>
+          <p className="mt-3 text-[11px] leading-relaxed text-brand-muted">
+            <span className="font-semibold text-brand-navy">Reason: </span>
+            Current schedule variance and open coordination items indicate increased project risk.
+          </p>
+          <div className="mt-4 flex gap-2">
+            <span className="rounded-md border border-brand-line bg-white px-4 py-2 text-[11px] font-semibold text-brand-muted">
+              Cancel
+            </span>
+            <span className="rounded-md bg-brand-navy px-4 py-2 text-[11px] font-semibold text-white">
+              Confirm Change
+            </span>
+          </div>
+        </div>
+      </div>
+    </BrowserFrame>
+  );
+}
+
+/** Predictive Insights (AI_INTEL module) marketing mockups */
+
+function PredSeverityBadge({
+  level,
+}: {
+  level: "HIGH" | "MEDIUM" | "LOW" | "high" | "medium" | "low" | "monitor" | "ops";
+}) {
+  const normalized =
+    level === "high" ? "HIGH" : level === "medium" ? "MEDIUM" : level === "low" ? "LOW" : level;
+  const styles = {
+    HIGH: "border-brand-orange/40 bg-brand-orange/15 text-brand-orange",
+    MEDIUM: "border-amber-500/30 bg-amber-500/10 text-amber-300",
+    LOW: "border-white/15 bg-white/[0.06] text-slate-300",
+    monitor: "border-white/15 bg-white/[0.06] text-slate-300",
+    ops: "border-white/15 bg-white/[0.06] text-slate-300",
+  };
+  return (
+    <span
+      className={
+        "rounded-md border px-2 py-0.5 text-[8px] font-bold uppercase tracking-wide " +
+        styles[normalized as keyof typeof styles]
+      }
+    >
+      {normalized}
+    </span>
+  );
+}
+
+function PredTrendArrow({ direction }: { direction: "up" | "down" | "flat" }) {
+  const map = {
+    up: { glyph: "↗", cls: "text-brand-orange" },
+    down: { glyph: "↘", cls: "text-slate-300" },
+    flat: { glyph: "→", cls: "text-slate-400" },
+  };
+  const { glyph, cls } = map[direction];
+  return <span className={"text-[11px] font-bold " + cls}>{glyph}</span>;
+}
+
+export function PredHeroUI() {
+  const metrics = [
+    { label: "Project Health", value: "At Risk", warn: true },
+    { label: "Cost Forecast", value: "+$320K variance", warn: true },
+    { label: "Schedule Forecast", value: "+8 days", warn: true },
+    { label: "Open Risk Signals", value: "7", warn: false },
+    { label: "Critical Signals", value: "2", warn: true },
+  ];
+  const trends = [
+    { label: "Cost trend", direction: "up" as const, status: "Increasing" },
+    { label: "Schedule trend", direction: "up" as const, status: "Increasing" },
+    { label: "Labor performance", direction: "flat" as const, status: "Stable" },
+    { label: "Open issue trend", direction: "up" as const, status: "Increasing" },
+  ];
+  return (
+    <BrowserFrame url="app.vertexcms.com / predictive-insights" dark>
+      <div className="border-b border-white/10 px-4 py-3">
+        <p className="text-[9px] font-bold uppercase tracking-[0.14em] text-brand-orange">Project Intelligence</p>
+        <div className="mt-1 flex flex-wrap items-center justify-between gap-2">
+          <p className="text-[12px] font-semibold text-white">Riverside Medical Center</p>
+          <PredSeverityBadge level="HIGH" />
+        </div>
+      </div>
+      <div className="grid grid-cols-2 gap-2 p-3 sm:grid-cols-3 sm:p-4">
+        {metrics.map((m) => (
+          <div
+            key={m.label}
+            className={
+              "rounded-lg border px-2.5 py-2 " +
+              (m.warn ? "border-brand-orange/25 bg-brand-orange/[0.06]" : "border-white/10 bg-white/[0.04]")
+            }
+          >
+            <p className="text-[8px] text-slate-400">{m.label}</p>
+            <p className={"mt-0.5 text-[12px] font-bold " + (m.warn ? "text-brand-orange" : "text-white")}>
+              {m.value}
+            </p>
+          </div>
+        ))}
+      </div>
+      <div className="mx-3 mb-3 grid grid-cols-2 gap-2 sm:mx-4 sm:mb-4 sm:grid-cols-4">
+        {trends.map((t) => (
+          <div key={t.label} className="rounded-lg border border-white/10 bg-white/[0.04] px-2.5 py-2">
+            <p className="text-[8px] text-slate-400">{t.label}</p>
+            <div className="mt-1 flex items-center gap-1.5">
+              <PredTrendArrow direction={t.direction} />
+              <p className="text-[10px] font-semibold text-white">{t.status}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </BrowserFrame>
+  );
+}
+
+export function PredShowcaseUI() {
+  const signals = [
+    { label: "Cost signals", value: "12 active", trend: "up" as const },
+    { label: "Schedule signals", value: "8 active", trend: "up" as const },
+    { label: "Field signals", value: "5 active", trend: "flat" as const },
+    { label: "Workflow signals", value: "9 active", trend: "up" as const },
+  ];
+  return (
+    <BrowserFrame url="app.vertexcms.com / predictive-insights / signals" dark>
+      <div className="border-b border-white/10 px-4 py-2.5">
+        <p className="text-[9px] font-bold uppercase tracking-[0.14em] text-brand-orange">Signal Analysis</p>
+        <p className="mt-0.5 text-[12px] font-semibold text-white">Connected project workflows</p>
+      </div>
+      <div className="grid grid-cols-2 gap-2 p-3 sm:p-4">
+        {signals.map((s) => (
+          <div key={s.label} className="rounded-lg border border-white/10 bg-white/[0.04] px-3 py-2.5">
+            <p className="text-[9px] text-slate-400">{s.label}</p>
+            <div className="mt-1 flex items-center justify-between gap-2">
+              <p className="text-[12px] font-bold text-white">{s.value}</p>
+              <PredTrendArrow direction={s.trend} />
+            </div>
+          </div>
+        ))}
+      </div>
+      <div className="mx-3 mb-3 rounded-lg border border-white/10 bg-white/[0.04] px-3 py-2.5 sm:mx-4 sm:mb-4">
+        <p className="text-[9px] font-semibold uppercase tracking-wide text-slate-400">Pattern detected</p>
+        <p className="mt-1 text-[11px] leading-relaxed text-slate-200">
+          Cost and schedule signals are trending together — review coordination items and commitments.
+        </p>
+      </div>
+    </BrowserFrame>
+  );
+}
+
+export function PredRiskUI() {
+  return (
+    <div className="rounded-2xl border border-white/10 bg-white/[0.04] p-5 shadow-card sm:p-6" aria-hidden="true">
+      <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-slate-400">Insight</p>
+      <p className="mt-1 text-[14px] font-semibold text-white">Schedule variance increasing</p>
+      <span className="mt-2 inline-block rounded-md border border-brand-orange/40 bg-brand-orange/15 px-2 py-0.5 text-[9px] font-bold uppercase text-brand-orange">
+        At Risk
+      </span>
+      <div className="mt-4 rounded-xl border border-brand-orange/25 bg-brand-dark/40 px-4 py-3">
+        <p className="text-[10px] font-semibold uppercase tracking-wide text-brand-orange">Summary</p>
+        <p className="mt-2 text-[12px] leading-relaxed text-slate-200">
+          Riverside Medical Center is currently tracking 3 days behind schedule. Recent activity shows open
+          coordination items that may be contributing to schedule pressure.
+        </p>
+        <p className="mb-2 mt-3 text-[10px] font-semibold uppercase tracking-wide text-slate-400">
+          Supporting information
+        </p>
+        <div className="grid grid-cols-2 gap-2 sm:grid-cols-4">
+          {[["Schedule", "3 days behind"], ["Open RFIs", "7"], ["Recent Daily Logs", "12"], ["Open Punch", "28"]].map(
+            ([l, v]) => (
+              <div key={l} className="rounded-md border border-white/10 bg-white/[0.04] px-2 py-1.5">
+                <p className="text-[8px] text-slate-400">{l}</p>
+                <p className="text-[10px] font-semibold text-white">{v}</p>
+              </div>
+            )
+          )}
+        </div>
+        <div className="mt-3 flex flex-wrap gap-2">
+          <span className="text-[10px] font-semibold text-brand-orange">Review Related Records →</span>
+          <span className="text-[10px] text-slate-400">Dismiss Insight</span>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export function PredDetailUI() {
+  return (
+    <BrowserFrame url="app.vertexcms.com / predictive-insights / detail">
+      <div className="grid sm:grid-cols-2">
+        <div className="border-b border-brand-line p-4 sm:border-b-0 sm:border-r">
+          <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-brand-muted">Insight Detail</p>
+          <p className="mt-1 text-[13px] font-semibold text-brand-navy">Schedule Variance</p>
+          <ul className="mt-3 space-y-2 text-[11px]">
+            {[["Priority", "High"], ["Current", "-3 days"], ["Previous", "-1 day"], ["Trend", "Increasing"]].map(
+              ([l, v]) => (
+                <li key={l} className="flex justify-between border-b border-brand-line/60 pb-1.5">
+                  <span className="text-brand-muted">{l}</span>
+                  <span className={"font-semibold " + (l === "Priority" ? "text-brand-orange" : "text-brand-navy")}>
+                    {v}
+                  </span>
+                </li>
+              )
+            )}
+          </ul>
+        </div>
+        <div className="p-4">
+          <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-brand-muted">
+            Related Project Information
+          </p>
+          <ul className="mt-3 space-y-2">
+            {[
+              ["RFIs", "7 Open"],
+              ["Daily Logs", "Recent updates available"],
+              ["Projects", "Current schedule"],
+              ["Punch", "28 Open"],
+            ].map(([l, v]) => (
+              <li key={l} className="flex items-center justify-between rounded-md border border-brand-line bg-[#FAFBFD] px-2.5 py-2">
+                <span className="text-[11px] font-medium text-brand-navy">{l}</span>
+                <span className="text-[10px] text-brand-muted">{v}</span>
+              </li>
+            ))}
+          </ul>
+          <span className="mt-3 inline-block text-[10px] font-semibold text-brand-orange">View Project Context →</span>
+        </div>
+      </div>
+    </BrowserFrame>
+  );
+}
+
+export function PredPriorityUI() {
+  const items = [
+    { severity: "HIGH" as const, title: "Schedule risk", detail: "+8 days projected", action: "Review" },
+    { severity: "HIGH" as const, title: "Cost variance", detail: "+$320K projected", action: "Review" },
+    { severity: "MEDIUM" as const, title: "Open RFIs", detail: "7 unresolved", action: "View details" },
+    { severity: "MEDIUM" as const, title: "Submittal cycle", detail: "Trending slower", action: "View details" },
+    { severity: "LOW" as const, title: "Safety observations", detail: "Stable", action: "View details" },
+  ];
+  return (
+    <BrowserFrame url="app.vertexcms.com / predictive-insights / priorities" dark>
+      <div className="border-b border-white/10 px-4 py-2.5">
+        <p className="text-[12px] font-semibold text-white">Risk Priorities</p>
+        <p className="text-[10px] text-slate-400">Riverside Medical Center</p>
+      </div>
+      <div className="space-y-2 p-3 sm:p-4">
+        {items.map((item) => (
+          <div
+            key={item.title}
+            className="flex items-center justify-between gap-3 rounded-lg border border-white/10 bg-white/[0.04] px-3 py-2.5"
+          >
+            <div className="min-w-0 flex-1">
+              <PredSeverityBadge level={item.severity} />
+              <p className="mt-1.5 text-[11px] font-semibold text-white">{item.title}</p>
+              <p className="text-[10px] text-slate-400">{item.detail}</p>
+            </div>
+            <span className="shrink-0 rounded-md border border-white/15 bg-white/[0.06] px-2.5 py-1.5 text-[9px] font-semibold text-brand-orange">
+              {item.action}
+            </span>
+          </div>
+        ))}
+      </div>
+    </BrowserFrame>
+  );
+}
+
+export function PredHealthUI() {
+  const rows = [
+    { label: "Overall", value: "Needs Attention", warn: true },
+    { label: "Cost", value: "Moderate Risk", warn: true },
+    { label: "Schedule", value: "High Risk", warn: true },
+    { label: "Field Activity", value: "Stable", warn: false },
+    { label: "Open RFIs", value: "7", warn: false },
+    { label: "Submittals", value: "12 pending", warn: false },
+    { label: "Change Orders", value: "4 active", warn: false },
+    { label: "Safety", value: "Stable", warn: false },
+  ];
+  return (
+    <BrowserFrame url="app.vertexcms.com / predictive-insights / health" dark>
+      <div className="border-b border-white/10 px-4 py-3">
+        <p className="text-[9px] font-bold uppercase tracking-[0.14em] text-brand-orange">Project Health</p>
+        <p className="mt-0.5 text-[12px] font-semibold text-white">Riverside Medical Center</p>
+      </div>
+      <div className="grid grid-cols-2 gap-2 p-3 sm:grid-cols-4 sm:p-4">
+        {rows.map(({ label, value, warn }) => (
+          <div
+            key={label}
+            className={
+              "rounded-lg border px-2.5 py-2 " +
+              (warn ? "border-brand-orange/25 bg-brand-orange/[0.06]" : "border-white/10 bg-white/[0.04]")
+            }
+          >
+            <p className="text-[8px] text-slate-400">{label}</p>
+            <p className={"mt-0.5 text-[11px] font-semibold " + (warn ? "text-brand-orange" : "text-white")}>
+              {value}
+            </p>
+          </div>
+        ))}
+      </div>
+      <div className="mx-3 mb-3 flex items-center justify-between rounded-lg border border-brand-orange/25 bg-brand-orange/[0.06] px-3 py-2.5 sm:mx-4 sm:mb-4">
+        <div>
+          <p className="text-[9px] text-slate-400">Risk trend</p>
+          <p className="text-[12px] font-bold text-brand-orange">Increasing</p>
+        </div>
+        <PredTrendArrow direction="up" />
+      </div>
+    </BrowserFrame>
+  );
+}
+
+export function PredForecastUI() {
+  const costRows = [
+    { label: "Original Budget", current: "$4.50M", forecast: "—", variance: "—" },
+    { label: "Current Cost", current: "$4.82M", forecast: "—", variance: "+$320K to date" },
+    { label: "Forecast Cost", current: "—", forecast: "$5.14M", variance: "+$320K projected" },
+  ];
+  const scheduleRows = [
+    { label: "Baseline", current: "180 days", forecast: "—", variance: "—" },
+    { label: "Current Forecast", current: "—", forecast: "188 days", variance: "+8 days" },
+  ];
+  return (
+    <BrowserFrame url="app.vertexcms.com / predictive-insights / forecast" dark>
+      <div className="border-b border-white/10 px-4 py-2.5">
+        <p className="text-[12px] font-semibold text-white">Cost & Schedule Forecast</p>
+        <p className="text-[10px] text-slate-400">Riverside Medical Center</p>
+      </div>
+      <div className="p-3 sm:p-4">
+        <p className="text-[9px] font-bold uppercase tracking-wide text-brand-orange">Cost</p>
+        <div className="mt-2 overflow-hidden rounded-lg border border-white/10">
+          <div className="grid grid-cols-4 border-b border-white/10 bg-white/[0.04] px-2 py-1.5 text-[8px] font-semibold uppercase text-slate-400">
+            <span>Metric</span>
+            <span>Current</span>
+            <span>Forecast</span>
+            <span>Variance</span>
+          </div>
+          {costRows.map((r) => (
+            <div key={r.label} className="grid grid-cols-4 border-b border-white/10 px-2 py-2 text-[10px] last:border-0">
+              <span className="text-slate-300">{r.label}</span>
+              <span className="font-semibold text-white">{r.current}</span>
+              <span className="font-semibold text-slate-200">{r.forecast}</span>
+              <span className={"font-semibold " + (r.variance.includes("+") ? "text-brand-orange" : "text-slate-400")}>
+                {r.variance}
+              </span>
+            </div>
+          ))}
+        </div>
+        <p className="mb-2 mt-4 text-[9px] font-bold uppercase tracking-wide text-brand-orange">Schedule</p>
+        <div className="overflow-hidden rounded-lg border border-white/10">
+          <div className="grid grid-cols-4 border-b border-white/10 bg-white/[0.04] px-2 py-1.5 text-[8px] font-semibold uppercase text-slate-400">
+            <span>Metric</span>
+            <span>Current</span>
+            <span>Forecast</span>
+            <span>Variance</span>
+          </div>
+          {scheduleRows.map((r) => (
+            <div key={r.label} className="grid grid-cols-4 border-b border-white/10 px-2 py-2 text-[10px] last:border-0">
+              <span className="text-slate-300">{r.label}</span>
+              <span className="font-semibold text-white">{r.current}</span>
+              <span className="font-semibold text-slate-200">{r.forecast}</span>
+              <span className={"font-semibold " + (r.variance.includes("+") ? "text-brand-orange" : "text-slate-400")}>
+                {r.variance}
+              </span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </BrowserFrame>
+  );
+}
+
+export function PredEarlyWarningUI() {
+  const warnings = [
+    { severity: "HIGH" as const, title: "Cost pressure", body: "Material and commitment trends indicate increasing cost pressure." },
+    { severity: "HIGH" as const, title: "Schedule pressure", body: "Current activity suggests the project may be trending behind schedule." },
+    { severity: "MEDIUM" as const, title: "Workflow bottleneck", body: "Open items across project workflows may create downstream delays." },
+    { severity: "MEDIUM" as const, title: "Field performance", body: "Recent field activity shows a change that may require attention." },
+  ];
+  return (
+    <BrowserFrame url="app.vertexcms.com / predictive-insights / warnings" dark>
+      <div className="border-b border-white/10 px-4 py-2.5">
+        <p className="text-[12px] font-semibold text-white">Early Warning Signals</p>
+        <p className="text-[10px] text-slate-400">Riverside Medical Center · 4 active</p>
+      </div>
+      <div className="space-y-2 p-3 sm:p-4">
+        {warnings.map((w) => (
+          <div key={w.title} className="rounded-lg border border-white/10 bg-white/[0.04] px-3 py-2.5">
+            <PredSeverityBadge level={w.severity} />
+            <p className="mt-1.5 text-[11px] font-semibold text-white">{w.title}</p>
+            <p className="mt-0.5 text-[10px] leading-relaxed text-slate-400">{w.body}</p>
+          </div>
+        ))}
+      </div>
+    </BrowserFrame>
+  );
+}
+
+export function PredSignalActionUI() {
+  const steps = [
+    { label: "Signal", value: "Schedule risk increasing", accent: false },
+    { label: "Insight", value: "Recent activity and open items suggest a potential delay.", accent: false },
+    { label: "Source Records", value: "Daily Logs · RFIs · Submittals · Drawings", accent: true },
+    { label: "Team Action", value: "Review the affected work and assign follow-up.", accent: false },
+  ];
+  return (
+    <BrowserFrame url="app.vertexcms.com / predictive-insights / action">
+      <div className="p-4 sm:p-5">
+        <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-brand-muted">Signal to Action</p>
+        <div className="mt-4 space-y-0">
+          {steps.map((step, i) => (
+            <div key={step.label}>
+              <div className={"rounded-lg border px-3 py-3 " + (step.accent ? "border-brand-orange/30 bg-brand-orange/[0.04]" : "border-brand-line bg-[#FAFBFD]")}>
+                <p className="text-[9px] font-bold uppercase tracking-wide text-brand-orange">{step.label}</p>
+                <p className="mt-1 text-[11px] font-medium leading-relaxed text-brand-navy">{step.value}</p>
+              </div>
+              {i < steps.length - 1 ? (
+                <div className="flex justify-center py-1" aria-hidden="true">
+                  <span className="text-[12px] text-brand-muted">↓</span>
+                </div>
+              ) : null}
+            </div>
+          ))}
+        </div>
+        <div className="mt-4 flex gap-2">
+          <span className="rounded-md bg-brand-navy px-3 py-2 text-[10px] font-semibold text-white">Review Records</span>
+          <span className="rounded-md border border-brand-line bg-white px-3 py-2 text-[10px] font-semibold text-brand-muted">
+            Assign Follow-up
+          </span>
+        </div>
+      </div>
+    </BrowserFrame>
+  );
+}
+
+export function PredTrendUI() {
+  const trends = [
+    { label: "Cost Trend", direction: "up" as const, status: "Increasing" },
+    { label: "Schedule Trend", direction: "up" as const, status: "Increasing" },
+    { label: "Open Items", direction: "flat" as const, status: "Stable" },
+    { label: "Field Activity", direction: "down" as const, status: "Improving" },
+  ];
+  const bars = [42, 58, 65, 72, 68, 78, 85];
+  return (
+    <BrowserFrame url="app.vertexcms.com / predictive-insights / trends" dark>
+      <div className="border-b border-white/10 px-4 py-2.5">
+        <p className="text-[12px] font-semibold text-white">Project Trend Overview</p>
+        <p className="text-[10px] text-slate-400">Riverside Medical Center</p>
+      </div>
+      <div className="grid grid-cols-2 gap-2 p-3 sm:grid-cols-4 sm:p-4">
+        {trends.map((t) => (
+          <div key={t.label} className="rounded-lg border border-white/10 bg-white/[0.04] px-2.5 py-2">
+            <p className="text-[8px] text-slate-400">{t.label}</p>
+            <div className="mt-1 flex items-center gap-1.5">
+              <PredTrendArrow direction={t.direction} />
+              <p className="text-[10px] font-semibold text-white">{t.status}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+      <div className="mx-3 mb-2 rounded-lg border border-white/10 bg-white/[0.04] px-3 py-3 sm:mx-4">
+        <p className="text-[9px] text-slate-400">Risk signal trend (7 weeks)</p>
+        <div className="mt-3 flex items-end gap-1.5" aria-hidden="true">
+          {bars.map((h, i) => (
+            <div
+              key={i}
+              className={"flex-1 rounded-sm " + (i >= 5 ? "bg-brand-orange/70" : "bg-white/20")}
+              style={{ height: `${h * 0.35}px` }}
+            />
+          ))}
+        </div>
+      </div>
+      <div className="mx-3 mb-3 flex items-center justify-between rounded-lg border border-brand-orange/25 bg-brand-orange/[0.06] px-3 py-2 sm:mx-4 sm:mb-4">
+        <p className="text-[10px] text-slate-300">Overall Health</p>
+        <p className="text-[12px] font-bold text-brand-orange">Needs Attention</p>
+      </div>
+    </BrowserFrame>
+  );
+}
+
+export function PredControlUI() {
+  return (
+    <BrowserFrame url="app.vertexcms.com / predictive-insights / insight">
+      <div className="p-4 sm:p-5">
+        <div className="rounded-xl border border-brand-line bg-[#FAFBFD] p-4">
+          <p className="text-[10px] font-bold uppercase tracking-wide text-brand-orange">Insight</p>
+          <p className="mt-1 text-[14px] font-semibold text-brand-navy">Schedule Risk Detected</p>
+          <p className="mt-3 text-[12px] text-brand-muted">Recommended next step:</p>
+          <p className="mt-1 text-[12px] leading-relaxed text-brand-navy">
+            Review open RFIs and recent field updates.
+          </p>
+          <div className="mt-4 flex gap-2">
+            <span className="rounded-md bg-brand-navy px-4 py-2 text-[11px] font-semibold text-white">
+              Review Records
+            </span>
+            <span className="rounded-md border border-brand-line bg-white px-4 py-2 text-[11px] font-semibold text-brand-muted">
+              Dismiss
+            </span>
+          </div>
+        </div>
+      </div>
+    </BrowserFrame>
+  );
+}
+
+/** Automation (AI module) marketing mockups */
+
+function AutoStatusBadge({ status }: { status: "pending" | "approved" | "completed" | "failed" }) {
+  const styles = {
+    pending: "border-brand-orange/40 bg-brand-orange/15 text-brand-orange",
+    approved: "border-white/20 bg-white/10 text-slate-200",
+    completed: "border-white/15 bg-white/[0.06] text-slate-300",
+    failed: "border-red-400/30 bg-red-400/10 text-red-300",
+  };
+  const labels = {
+    pending: "Pending Review",
+    approved: "Approved",
+    completed: "Completed",
+    failed: "Failed",
+  };
+  return (
+    <span className={"rounded-md border px-2 py-0.5 text-[8px] font-bold uppercase tracking-wide " + styles[status]}>
+      {labels[status]}
+    </span>
+  );
+}
+
+export function AutoHeroUI() {
+  return (
+    <BrowserFrame url="app.vertexcms.com / automation" dark>
+      <div className="border-b border-white/10 px-4 py-2.5">
+        <div className="flex flex-wrap items-center justify-between gap-2">
+          <span className="rounded-lg border border-white/15 bg-white/10 px-2.5 py-1 text-[10px] text-slate-200">
+            Riverside Medical Center ▾
+          </span>
+          <span className="text-[10px] font-semibold text-brand-orange">Automation · AI Actions</span>
+        </div>
+      </div>
+      <div className="p-3 sm:p-4">
+        <div className="rounded-lg border border-brand-orange/30 bg-brand-orange/[0.06] px-3 py-3">
+          <div className="flex flex-wrap items-start justify-between gap-2">
+            <div>
+              <p className="text-[9px] font-bold uppercase tracking-wide text-brand-orange">Suggested Action</p>
+              <p className="mt-1 text-[13px] font-semibold text-white">Create RFI from unresolved field issue</p>
+            </div>
+            <span className="rounded-md border border-brand-orange/40 bg-brand-orange/15 px-2 py-0.5 text-[8px] font-bold uppercase text-brand-orange">
+              Requires approval
+            </span>
+          </div>
+          <div className="mt-3 grid gap-2 sm:grid-cols-2">
+            {[
+              ["Source", "Daily Log — Sep 09"],
+              ["Action type", "Create RFI"],
+              ["Affected record", "Daily Log #DL-2847"],
+              ["Activity status", "Awaiting review"],
+            ].map(([label, value]) => (
+              <div key={label} className="rounded-md border border-white/10 bg-white/[0.04] px-2.5 py-2">
+                <p className="text-[8px] text-slate-400">{label}</p>
+                <p className="text-[10px] font-semibold text-white">{value}</p>
+              </div>
+            ))}
+          </div>
+          <div className="mt-3 flex flex-wrap gap-2">
+            <span className="rounded-md border border-white/20 bg-white/[0.06] px-3 py-1.5 text-[10px] font-semibold text-slate-200">
+              Review Action
+            </span>
+            <span className="rounded-md bg-brand-orange px-3 py-1.5 text-[10px] font-semibold text-white">
+              Confirm & Run
+            </span>
+            <span className="rounded-md border border-white/15 px-3 py-1.5 text-[10px] font-semibold text-slate-400">
+              Cancel
+            </span>
+          </div>
+        </div>
+        <div className="mt-3 flex items-center justify-between rounded-lg border border-white/10 bg-white/[0.04] px-3 py-2">
+          <p className="text-[9px] text-slate-400">Automation status</p>
+          <p className="text-[10px] font-semibold text-white">1 pending · 3 completed today</p>
+        </div>
+      </div>
+    </BrowserFrame>
+  );
+}
+
+export function AutoHowItWorksUI() {
+  const steps = [
+    { label: "Trigger", detail: "Daily Log submitted" },
+    { label: "AI Recommendation", detail: "Create RFI" },
+    { label: "Review", detail: "User reviews action" },
+    { label: "Approval", detail: "Confirm & Run" },
+    { label: "Completed", detail: "Action logged" },
+  ];
+  return (
+    <BrowserFrame url="app.vertexcms.com / automation / flow">
+      <div className="p-4 sm:p-5">
+        <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-brand-muted">Automation flow</p>
+        <div className="mt-4 flex flex-col gap-0 sm:flex-row sm:items-start sm:gap-1">
+          {steps.map((step, i) => (
+            <div key={step.label} className="flex flex-1 flex-col items-center sm:min-w-0">
+              <div
+                className={
+                  "w-full rounded-lg border px-2 py-2.5 text-center " +
+                  (i === steps.length - 1
+                    ? "border-brand-orange/30 bg-brand-orange/[0.06]"
+                    : "border-brand-line bg-[#FAFBFD]")
+                }
+              >
+                <p className="text-[9px] font-bold uppercase tracking-wide text-brand-orange">{step.label}</p>
+                <p className="mt-1 text-[10px] font-medium text-brand-navy">{step.detail}</p>
+              </div>
+              {i < steps.length - 1 ? (
+                <span className="py-1 text-[11px] text-brand-muted sm:hidden" aria-hidden="true">
+                  ↓
+                </span>
+              ) : null}
+              {i < steps.length - 1 ? (
+                <span className="hidden px-0.5 pt-3 text-[11px] text-brand-muted sm:inline" aria-hidden="true">
+                  →
+                </span>
+              ) : null}
+            </div>
+          ))}
+        </div>
+      </div>
+    </BrowserFrame>
+  );
+}
+
+export function AutoShowcaseUI() {
+  const rows = [
+    { action: "Create RFI — Daily Log", status: "pending" as const, project: "Riverside Medical Center", trigger: "Daily Log", time: "09:42" },
+    { action: "Update Project Status — Schedule", status: "approved" as const, project: "Riverside Medical Center", trigger: "Schedule", time: "09:31" },
+    { action: "Create Follow-up Task — Safety", status: "completed" as const, project: "Riverside Medical Center", trigger: "Safety", time: "09:18" },
+    { action: "Generate Document Summary — Documents", status: "completed" as const, project: "Riverside Medical Center", trigger: "Documents", time: "08:55" },
+  ];
+  return (
+    <BrowserFrame url="app.vertexcms.com / automation / queue" dark>
+      <div className="border-b border-white/10 px-4 py-2.5">
+        <p className="text-[12px] font-semibold text-white">Automation Queue</p>
+        <div className="mt-2 flex flex-wrap gap-1">
+          {["Pending", "Completed", "Failed"].map((tab, i) => (
+            <span
+              key={tab}
+              className={
+                "rounded-md px-2 py-0.5 text-[9px] font-medium " +
+                (i === 0 ? "bg-brand-orange/20 text-brand-orange" : "border border-white/10 text-slate-400")
+              }
+            >
+              {tab}
+            </span>
+          ))}
+        </div>
+      </div>
+      <div className="overflow-x-auto p-3 sm:p-4">
+        <div className="min-w-[480px]">
+          <div className="grid grid-cols-[1fr_100px_80px_70px] gap-2 border-b border-white/10 pb-1.5 text-[8px] font-semibold uppercase tracking-wide text-slate-400">
+            <span>Action</span>
+            <span>Project</span>
+            <span>Trigger</span>
+            <span>Status</span>
+          </div>
+          {rows.map((row) => (
+            <div
+              key={row.action}
+              className="grid grid-cols-[1fr_100px_80px_70px] items-center gap-2 border-b border-white/10 py-2.5 text-[10px] last:border-0"
+            >
+              <div>
+                <p className="font-semibold text-white">{row.action}</p>
+                <p className="text-[9px] text-slate-400">{row.time}</p>
+              </div>
+              <span className="truncate text-slate-300">{row.project.split(" ")[0]}…</span>
+              <span className="text-slate-400">{row.trigger}</span>
+              <AutoStatusBadge status={row.status} />
+            </div>
+          ))}
+        </div>
+      </div>
+    </BrowserFrame>
+  );
+}
+
+export function AutoApprovalUI() {
+  return (
+    <BrowserFrame url="app.vertexcms.com / automation / approve">
+      <div className="p-4 sm:p-5">
+        <div className="rounded-xl border border-brand-orange/30 bg-brand-orange/[0.04] p-4">
+          <p className="text-[10px] font-bold uppercase tracking-wide text-brand-orange">Automation Action</p>
+          <p className="mt-1 text-[14px] font-semibold text-brand-navy">Create RFI from Daily Log</p>
+          <div className="mt-4 space-y-3 text-[12px]">
+            <div>
+              <p className="text-[10px] font-semibold uppercase tracking-wide text-brand-muted">Reason</p>
+              <p className="mt-1 leading-relaxed text-brand-navy">
+                Unresolved material delivery issue identified in today&apos;s field report.
+              </p>
+            </div>
+            <div>
+              <p className="text-[10px] font-semibold uppercase tracking-wide text-brand-muted">Affected record</p>
+              <p className="mt-1 font-medium text-brand-navy">Daily Log — Sep 09, 2026</p>
+            </div>
+            <div>
+              <p className="text-[10px] font-semibold uppercase tracking-wide text-brand-muted">Proposed action</p>
+              <p className="mt-1 font-medium text-brand-navy">Create RFI</p>
+            </div>
+          </div>
+          <div className="mt-4 flex flex-wrap gap-2">
+            <span className="rounded-md border border-brand-line bg-white px-3 py-2 text-[11px] font-semibold text-brand-navy">
+              Review Details
+            </span>
+            <span className="rounded-md bg-brand-navy px-3 py-2 text-[11px] font-semibold text-white">
+              Approve & Run
+            </span>
+            <span className="rounded-md border border-brand-line bg-white px-3 py-2 text-[11px] font-semibold text-brand-muted">
+              Cancel
+            </span>
+          </div>
+        </div>
+      </div>
+    </BrowserFrame>
+  );
+}
+
+export function AutoActivityLogUI() {
+  const rows = [
+    { time: "09:42", project: "Riverside Medical Center", trigger: "Daily Log", action: "Create RFI", approvedBy: "James Miller", status: "Completed" },
+    { time: "09:31", project: "Riverside Medical Center", trigger: "Safety", action: "Create Task", approvedBy: "Sarah Lee", status: "Completed" },
+    { time: "09:18", project: "Riverside Medical Center", trigger: "Documents", action: "Summarize Document", approvedBy: "System", status: "Completed" },
+  ];
+  return (
+    <BrowserFrame url="app.vertexcms.com / automation / activity-log">
+      <div className="border-b border-brand-line px-4 py-2.5">
+        <p className="text-[12px] font-semibold text-brand-navy">Activity Log</p>
+        <p className="text-[10px] text-brand-muted">Riverside Medical Center · Today</p>
+      </div>
+      <div className="overflow-x-auto p-3 sm:p-4">
+        <div className="min-w-[520px]">
+          <div className="grid grid-cols-[48px_1fr_72px_96px_80px_72px] gap-2 border-b border-brand-line pb-1.5 text-[8px] font-semibold uppercase tracking-wide text-brand-muted">
+            <span>Time</span>
+            <span>Project</span>
+            <span>Trigger</span>
+            <span>Action</span>
+            <span>Approved By</span>
+            <span>Status</span>
+          </div>
+          {rows.map((row) => (
+            <div
+              key={row.time + row.action}
+              className="grid grid-cols-[48px_1fr_72px_96px_80px_72px] items-center gap-2 border-b border-brand-line/60 py-2 text-[10px] last:border-0"
+            >
+              <span className="font-mono text-brand-muted">{row.time}</span>
+              <span className="truncate font-medium text-brand-navy">{row.project.split(" ")[0]}…</span>
+              <span className="text-brand-muted">{row.trigger}</span>
+              <span className="font-medium text-brand-navy">{row.action}</span>
+              <span className="truncate text-brand-muted">{row.approvedBy}</span>
+              <span className="font-semibold text-brand-navy">{row.status}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </BrowserFrame>
+  );
+}
+
+export function AutoGovernanceUI() {
+  const settings = [
+    { label: "Approval Required", value: "ON", on: true },
+    { label: "Activity Logging", value: "ON", on: true },
+    { label: "Destructive Actions", value: "Disabled", on: false },
+  ];
+  return (
+    <BrowserFrame url="app.vertexcms.com / automation / settings" dark>
+      <div className="p-4 sm:p-5">
+        <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-brand-orange">Automation Settings</p>
+        <ul className="mt-4 space-y-2">
+          {settings.map((s) => (
+            <li
+              key={s.label}
+              className="flex items-center justify-between rounded-lg border border-white/10 bg-white/[0.04] px-3 py-2.5"
+            >
+              <span className="text-[11px] text-slate-300">{s.label}</span>
+              <span
+                className={
+                  "rounded-md px-2 py-0.5 text-[10px] font-bold " +
+                  (s.on ? "bg-brand-orange/20 text-brand-orange" : "border border-white/15 text-slate-400")
+                }
+              >
+                {s.value}
+              </span>
+            </li>
+          ))}
+        </ul>
+        <p className="mt-4 text-[10px] leading-relaxed text-slate-400">
+          Supported actions only · Permission-scoped · Human confirmation required
+        </p>
+      </div>
+    </BrowserFrame>
+  );
+}
+
+/** Document Intelligence (AI + DOC modules) marketing mockups */
+
+function DiSourceChips({ sources, dark = false }: { sources: string[]; dark?: boolean }) {
+  return (
+    <div className="mt-2 flex flex-wrap gap-1.5">
+      {sources.map((s) => (
+        <span
+          key={s}
+          className={
+            "rounded-md px-2 py-0.5 text-[9px] font-semibold " +
+            (dark
+              ? "border border-white/15 bg-white/10 text-slate-300"
+              : "border border-brand-line bg-white text-brand-muted")
+          }
+        >
+          {s}
+        </span>
+      ))}
+    </div>
+  );
+}
+
+export function DiHeroUI() {
+  const categories = ["Specifications", "Contracts", "Reports", "Submittals"];
+  const recent = ["Structural Spec – Rev 06", "Mechanical Spec – Rev 04", "Project Manual – Rev 03"];
+  return (
+    <BrowserFrame url="app.vertexcms.com / document-intelligence" dark>
+      <div className="border-b border-white/10 px-4 py-2.5">
+        <div className="flex flex-wrap items-center justify-between gap-2">
+          <span className="rounded-lg border border-white/15 bg-white/10 px-2.5 py-1 text-[10px] text-slate-200">
+            Riverside Medical Center ▾
+          </span>
+          <span className="text-[10px] font-semibold text-brand-orange">Document Intelligence</span>
+        </div>
+        <div className="mt-2 rounded-lg border border-white/15 bg-white/[0.06] px-3 py-2 text-[11px] text-slate-400">
+          Search or ask about project documents…
+        </div>
+      </div>
+      <div className="grid gap-3 p-3 sm:grid-cols-[1fr_160px] sm:p-4">
+        <div>
+          <p className="text-[11px] font-semibold text-white">Structural Specification – Rev 06</p>
+          <div className="mt-2 grid grid-cols-2 gap-2 sm:grid-cols-4">
+            {[["Type", "Specification"], ["Revision", "Rev 06"], ["Status", "Current"], ["Uploaded", "Sep 08"]].map(
+              ([l, v]) => (
+                <div key={l} className="rounded-md border border-white/10 bg-white/[0.04] px-2 py-1.5">
+                  <p className="text-[8px] text-slate-400">{l}</p>
+                  <p className="text-[10px] font-semibold text-white">{v}</p>
+                </div>
+              )
+            )}
+          </div>
+          <div className="mt-3 rounded-lg border border-brand-orange/25 bg-brand-dark/50 px-3 py-2.5">
+            <p className="text-[9px] font-bold uppercase tracking-wide text-brand-orange">AI Summary</p>
+            <p className="mt-1 text-[11px] leading-relaxed text-slate-200">
+              Updated structural requirements for East Wing coordination, revised steel tolerances, and new
+              reference to drawing S-204.
+            </p>
+            <p className="mb-1 mt-2 text-[9px] font-semibold uppercase text-slate-400">Key Topics</p>
+            <DiSourceChips sources={["Structural Steel", "Coordination", "Tolerances", "S-204"]} dark />
+            <p className="mb-1 mt-2 text-[9px] font-semibold uppercase text-slate-400">Related</p>
+            <DiSourceChips sources={["RFI-018", "RFI-024", "SUB-031"]} dark />
+          </div>
+        </div>
+        <aside className="space-y-2">
+          <div className="rounded-xl border border-white/10 bg-white/[0.04] p-2.5">
+            <p className="text-[9px] font-semibold uppercase text-slate-400">Categories</p>
+            <ul className="mt-1 space-y-1">
+              {categories.map((c, i) => (
+                <li key={c} className={"text-[10px] " + (i === 0 ? "font-semibold text-brand-orange" : "text-slate-400")}>
+                  {c}
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className="rounded-xl border border-white/10 bg-white/[0.04] p-2.5">
+            <p className="text-[9px] font-semibold uppercase text-slate-400">Recent</p>
+            <ul className="mt-1 space-y-1">
+              {recent.map((r) => (
+                <li key={r} className="text-[10px] text-slate-400">
+                  {r}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </aside>
+      </div>
+    </BrowserFrame>
+  );
+}
+
+export function DiQaUI() {
+  const questions = [
+    "What does the latest specification say about fire-rated doors?",
+    "Which documents reference the revised mechanical scope?",
+    "What changed between the previous and current specification?",
+  ];
+  return (
+    <BrowserFrame url="app.vertexcms.com / document-intelligence / ask" dark>
+      <div className="p-3 sm:p-4">
+        <div className="mb-3 flex flex-wrap gap-1.5">
+          {questions.map((q, i) => (
+            <span
+              key={q}
+              className={
+                "rounded-md border px-2 py-1 text-[9px] " +
+                (i === 0 ? "border-brand-orange/30 bg-brand-orange/10 text-brand-orange" : "border-white/10 text-slate-400")
+              }
+            >
+              {q.length > 42 ? q.slice(0, 42) + "…" : q}
+            </span>
+          ))}
+        </div>
+        <div className="max-w-[92%] rounded-2xl rounded-tl-md bg-white/10 px-3 py-2 text-[11px] text-slate-200">
+          What does the latest specification say about fire-rated doors?
+        </div>
+        <div className="mt-3 rounded-xl border border-brand-orange/25 bg-brand-dark/50 px-3.5 py-3">
+          <p className="text-[11px] leading-relaxed text-slate-100">
+            Section 08 71 00 requires door hardware to meet specified accessibility and fire-rating requirements.
+            Referenced drawing A-204 includes updated door schedule details.
+          </p>
+          <p className="mb-1 mt-2 text-[9px] font-semibold uppercase text-slate-400">Source documents</p>
+          <DiSourceChips sources={["Project Specifications – Rev 06", "Section 08 71 00", "Drawing A-204"]} dark />
+          <div className="mt-2 flex flex-wrap items-center gap-2">
+            <span className="rounded-md border border-white/10 px-2 py-0.5 text-[9px] text-slate-300">
+              Page ref · §08 71 00
+            </span>
+            <span className="text-[9px] text-emerald-400/90">High relevance</span>
+            <span className="text-[10px] font-semibold text-brand-orange">View source →</span>
+          </div>
+        </div>
+      </div>
+    </BrowserFrame>
+  );
+}
+
+export function DiSummaryUI() {
+  return (
+    <BrowserFrame url="app.vertexcms.com / document-intelligence / summary">
+      <div className="p-4 sm:p-5">
+        <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-brand-muted">Document</p>
+        <p className="mt-1 text-[14px] font-semibold text-brand-navy">Project Specifications – Rev 06</p>
+        <div className="mt-4 rounded-xl border border-brand-orange/20 bg-brand-orange/[0.04] px-4 py-3">
+          <p className="text-[10px] font-bold uppercase tracking-wide text-brand-orange">AI Summary</p>
+          <p className="mt-2 text-[12px] leading-relaxed text-brand-navy">
+            Updated requirements for fire protection, electrical coordination, and mechanical equipment
+            installation.
+          </p>
+        </div>
+        <div className="mt-4 grid gap-3 sm:grid-cols-2">
+          <div>
+            <p className="text-[10px] font-semibold uppercase tracking-wide text-brand-muted">Key Topics</p>
+            <ul className="mt-2 space-y-1">
+              {["Fire Protection", "Electrical", "Mechanical", "Site Coordination"].map((t) => (
+                <li key={t} className="rounded-md border border-brand-line bg-[#FAFBFD] px-2.5 py-1.5 text-[11px] text-brand-navy">
+                  {t}
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div>
+            <p className="text-[10px] font-semibold uppercase tracking-wide text-brand-muted">Important Changes</p>
+            <ul className="mt-2 space-y-1">
+              {[
+                "Updated equipment requirements",
+                "Revised installation notes",
+                "New coordination requirements",
+              ].map((t) => (
+                <li key={t} className="flex items-start gap-2 text-[11px] text-brand-muted">
+                  <span className="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-brand-orange" aria-hidden="true" />
+                  {t}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </BrowserFrame>
+  );
+}
+
+export function DiExtractUI() {
+  return (
+    <BrowserFrame url="app.vertexcms.com / document-intelligence / extract">
+      <div className="p-4 sm:p-5">
+        <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-brand-muted">Document</p>
+        <p className="mt-1 text-[13px] font-semibold text-brand-navy">Specification Section 08 71 00</p>
+        <div className="mt-4 space-y-2">
+          {[
+            { label: "Requirement", value: "Door hardware must meet specified accessibility requirements." },
+            { label: "Reference", value: "Section 08 71 00" },
+            { label: "Related Drawing", value: "A-204" },
+            { label: "Related Submittal", value: "SUB-042" },
+          ].map(({ label, value }) => (
+            <div key={label} className="rounded-lg border border-brand-line bg-[#FAFBFD] px-3 py-2">
+              <p className="text-[9px] font-semibold uppercase tracking-wide text-brand-orange">{label}</p>
+              <p className="mt-0.5 text-[11px] text-brand-navy">{value}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </BrowserFrame>
+  );
+}
+
+export function DiCompareUI() {
+  return (
+    <BrowserFrame url="app.vertexcms.com / document-intelligence / compare" dark>
+      <div className="p-4 sm:p-5">
+        <div className="flex items-center gap-3">
+          <span className="rounded-lg border border-white/15 bg-white/[0.06] px-3 py-1.5 text-[11px] font-semibold text-slate-300">
+            REVISION 05
+          </span>
+          <span className="text-[11px] text-slate-500">vs</span>
+          <span className="rounded-lg border border-brand-orange/40 bg-brand-orange/10 px-3 py-1.5 text-[11px] font-semibold text-brand-orange">
+            REVISION 06
+          </span>
+        </div>
+        <div className="mt-4 flex flex-wrap gap-2">
+          {["12 changes", "4 new requirements", "3 modified sections", "5 updated references"].map((s) => (
+            <span key={s} className="rounded-md border border-white/10 bg-white/[0.04] px-2 py-1 text-[9px] text-slate-300">
+              + {s}
+            </span>
+          ))}
+        </div>
+        <div className="mt-4 rounded-lg border border-white/10 bg-white/[0.04] px-3 py-3">
+          <p className="text-[10px] font-semibold text-brand-orange">Section 03 30 00</p>
+          <div className="mt-2 grid gap-2 sm:grid-cols-2">
+            <div className="rounded-md border border-white/10 px-2.5 py-2">
+              <p className="text-[8px] uppercase text-slate-500">Previous</p>
+              <p className="text-[10px] text-slate-400">Standard concrete finish requirements.</p>
+            </div>
+            <div className="rounded-md border border-brand-orange/30 bg-brand-orange/10 px-2.5 py-2">
+              <p className="text-[8px] uppercase text-brand-orange">Current</p>
+              <p className="text-[10px] text-slate-200">Updated finish requirements and revised tolerance.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </BrowserFrame>
+  );
+}
+
+export function DiSearchUI() {
+  const filters = ["Document Type", "Project", "Revision", "Date", "Discipline", "Status"];
+  const results = [
+    { n: "Project Specifications – Rev 06", m: "Section 07 10 00" },
+    { n: "Architectural Notes", m: "Drawing A-301" },
+    { n: "Submittal Package 024", m: "Waterproofing Materials" },
+  ];
+  return (
+    <BrowserFrame url="app.vertexcms.com / document-intelligence / search">
+      <div className="p-4 sm:p-5">
+        <div className="rounded-xl border border-brand-orange/30 bg-white px-3 py-2.5 shadow-sm">
+          <p className="text-[10px] font-semibold uppercase tracking-[0.12em] text-brand-muted">Search</p>
+          <p className="mt-1 text-[13px] font-semibold text-brand-navy">
+            documents related to waterproofing requirements
+          </p>
+        </div>
+        <div className="mt-2 flex flex-wrap gap-1">
+          {filters.map((f, i) => (
+            <span
+              key={f}
+              className={
+                "rounded-md px-2 py-0.5 text-[9px] font-medium " +
+                (i === 0 ? "bg-brand-orange/10 text-brand-orange" : "border border-brand-line text-brand-muted")
+              }
+            >
+              {f}
+            </span>
+          ))}
+        </div>
+        <ul className="mt-3 space-y-2">
+          {results.map((r, i) => (
+            <li
+              key={r.n}
+              className={
+                "rounded-lg border px-3 py-2.5 " +
+                (i === 0 ? "border-brand-orange/35 bg-brand-orange/[0.04]" : "border-brand-line bg-[#FAFBFD]")
+              }
+            >
+              <p className="text-[11px] font-semibold text-brand-navy">
+                {String(i + 1).padStart(2, "0")} · {r.n}
+              </p>
+              <p className="text-[10px] text-brand-muted">{r.m}</p>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </BrowserFrame>
+  );
+}
+
+export function DiContextUI() {
+  const connected = ["RFI-018", "RFI-024", "SUB-031", "Drawing S-204", "Change Order CO-007"];
+  return (
+    <BrowserFrame url="app.vertexcms.com / document-intelligence / context">
+      <div className="p-4 sm:p-5">
+        <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-brand-muted">Document</p>
+        <p className="mt-1 text-[14px] font-semibold text-brand-navy">Structural Specification – Rev 06</p>
+        <p className="mb-2 mt-4 text-[10px] font-semibold uppercase tracking-wide text-brand-muted">
+          Connected Records
+        </p>
+        <ul className="space-y-1.5">
+          {connected.map((r) => (
+            <li
+              key={r}
+              className="flex items-center justify-between rounded-lg border border-brand-line bg-[#FAFBFD] px-3 py-2"
+            >
+              <span className="text-[11px] font-medium text-brand-navy">{r}</span>
+              <span className="text-[10px] text-brand-orange">Open →</span>
+            </li>
+          ))}
+        </ul>
+        <div className="mt-4 rounded-lg border border-brand-orange/20 bg-brand-orange/[0.04] px-3 py-2">
+          <p className="text-[10px] text-brand-muted">
+            Document insights stay connected to project workflows and records.
+          </p>
+        </div>
+      </div>
+    </BrowserFrame>
+  );
+}
+
+export function DiHowItWorksUI() {
+  return (
+    <BrowserFrame url="app.vertexcms.com / document-intelligence">
+      <div className="p-4 sm:p-5">
+        <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-brand-muted">
+          Document Intelligence
+        </p>
+        <div className="mt-3 flex items-center gap-2">
+          <span className="rounded-md bg-brand-navy px-2 py-1 text-[9px] font-semibold text-white">1</span>
+          <span className="text-[11px] text-brand-navy">Documents connected</span>
+          <span className="text-brand-muted">→</span>
+          <span className="rounded-md bg-brand-orange/10 px-2 py-1 text-[9px] font-semibold text-brand-orange">4</span>
+          <span className="text-[11px] text-brand-navy">Ask & discover</span>
+        </div>
+        <div className="mt-3 rounded-lg border border-brand-line bg-[#FAFBFD] px-3 py-2 text-[11px] text-brand-muted">
+          Summaries, search, and extracted requirements — grounded in project documents.
+        </div>
+      </div>
+    </BrowserFrame>
+  );
+}
+
 export function AIConsole() {
   return (
     <div className="overflow-hidden rounded-2xl border border-white/10 bg-white/[0.05] shadow-glow" aria-hidden="true">
@@ -6992,6 +11295,1448 @@ export function TakeoffUI() {
   );
 }
 
+/** CRM (Business Growth module) marketing mockups */
+
+export function CrmHeroUI() {
+  return (
+    <BrowserFrame url="app.vertexcms.com / crm" dark>
+      <div className="border-b border-white/10 px-4 py-2.5">
+        <div className="flex flex-wrap items-center justify-between gap-2">
+          <span className="text-[10px] font-semibold text-brand-orange">CRM</span>
+          <span className="text-[10px] text-slate-400">Riverside Medical Center</span>
+        </div>
+      </div>
+      <div className="grid gap-3 p-3 sm:grid-cols-[1fr_140px] sm:p-4">
+        <div>
+          <p className="text-[13px] font-semibold text-white">Apex Construction Group</p>
+          <p className="mt-0.5 text-[10px] text-slate-400">Contact · Sarah Chen · VP Development</p>
+          <div className="mt-3 grid grid-cols-2 gap-2">
+            {[
+              ["Relationship", "Active Customer"],
+              ["Opportunity", "Proposal"],
+              ["Project", "Riverside Medical Center"],
+              ["Owner", "James Miller"],
+            ].map(([label, value]) => (
+              <div key={label} className="rounded-md border border-white/10 bg-white/[0.04] px-2.5 py-2">
+                <p className="text-[8px] text-slate-400">{label}</p>
+                <p className="text-[10px] font-semibold text-white">{value}</p>
+              </div>
+            ))}
+          </div>
+          <div className="mt-3 rounded-lg border border-white/10 bg-white/[0.04] px-3 py-2.5">
+            <p className="text-[9px] font-semibold uppercase tracking-wide text-brand-orange">Recent activity</p>
+            <p className="mt-1 text-[10px] text-slate-300">Follow-up call completed · Proposal sent</p>
+            <p className="mt-1 text-[9px] text-slate-400">Next follow-up · Sep 14 · Opportunity value · $24.5M</p>
+          </div>
+        </div>
+        <div className="space-y-2">
+          <div className="rounded-lg border border-brand-orange/30 bg-brand-orange/[0.06] px-2.5 py-2">
+            <p className="text-[8px] text-slate-400">Status</p>
+            <p className="text-[11px] font-bold text-brand-orange">Active</p>
+          </div>
+          <div className="rounded-lg border border-white/10 bg-white/[0.04] px-2.5 py-2">
+            <p className="text-[8px] text-slate-400">Last activity</p>
+            <p className="text-[10px] font-semibold text-white">Today</p>
+          </div>
+          <div className="rounded-lg border border-white/10 bg-white/[0.04] px-2.5 py-2">
+            <p className="text-[8px] text-slate-400">Next follow-up</p>
+            <p className="text-[10px] font-semibold text-white">Sep 14</p>
+          </div>
+        </div>
+      </div>
+    </BrowserFrame>
+  );
+}
+
+export function CrmWorkflowUI() {
+  return (
+    <BrowserFrame url="app.vertexcms.com / crm / opportunity / new">
+      <div className="p-4 sm:p-5">
+        <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-brand-muted">Opportunity record</p>
+        <p className="mt-1 text-[14px] font-semibold text-brand-navy">Northline Office Renovation</p>
+        <div className="mt-4 grid gap-2 sm:grid-cols-2">
+          {[
+            ["Company", "Northline Commercial"],
+            ["Stage", "Qualified"],
+            ["Value", "$8.2M"],
+            ["Owner", "Sarah Lee"],
+            ["Expected close", "Oct 30, 2026"],
+            ["Connected project", "—"],
+          ].map(([label, value]) => (
+            <div key={label} className="rounded-lg border border-brand-line bg-[#FAFBFD] px-3 py-2.5">
+              <p className="text-[9px] font-semibold uppercase tracking-wide text-brand-muted">{label}</p>
+              <p className="mt-1 text-[12px] font-semibold text-brand-navy">{value}</p>
+            </div>
+          ))}
+        </div>
+        <div className="mt-3 rounded-lg border border-brand-orange/30 bg-brand-orange/[0.04] px-3 py-2.5">
+          <p className="text-[9px] font-semibold uppercase tracking-wide text-brand-orange">Next step</p>
+          <p className="mt-1 text-[11px] text-brand-navy">Schedule site walkthrough with estimating team</p>
+        </div>
+      </div>
+    </BrowserFrame>
+  );
+}
+
+export function CrmWorkspaceUI() {
+  const stages = ["New", "Qualified", "Proposal", "Negotiation", "Won", "Lost"];
+  const opportunities = [
+    { name: "Riverside Medical Center Expansion", company: "Apex Construction Group", value: "$24.5M", type: "Healthcare", owner: "J. Miller", close: "Nov 15", stage: 2 },
+    { name: "Northline Office Renovation", company: "Northline Commercial", value: "$8.2M", type: "Commercial", owner: "S. Lee", close: "Oct 30", stage: 1 },
+    { name: "Harbor Point Retail Build", company: "Harbor Point Development", value: "$12.1M", type: "Retail", owner: "M. Torres", close: "Dec 05", stage: 3 },
+    { name: "Westgate Commercial Development", company: "Westgate Partners", value: "$18.4M", type: "Commercial", owner: "J. Miller", close: "Jan 20", stage: 0 },
+  ];
+  return (
+    <BrowserFrame url="app.vertexcms.com / crm / pipeline">
+      <div className="border-b border-brand-line px-4 py-2.5">
+        <p className="text-[12px] font-semibold text-brand-navy">Business Pipeline</p>
+        <div className="mt-2 grid grid-cols-2 gap-2 sm:grid-cols-4">
+          {[
+            ["Active Opportunities", "12"],
+            ["Open Leads", "5"],
+            ["Pipeline Value", "$63.2M"],
+            ["Follow-ups Due", "3"],
+          ].map(([label, value]) => (
+            <div key={label} className="rounded-md border border-brand-line bg-[#FAFBFD] px-2.5 py-2">
+              <p className="text-[8px] text-brand-muted">{label}</p>
+              <p className="text-[12px] font-bold text-brand-navy">{value}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+      <div className="overflow-x-auto p-3 sm:p-4">
+        <div className="mb-3 flex min-w-[640px] gap-1.5">
+          {stages.map((stage, i) => (
+            <div
+              key={stage}
+              className={
+                "min-w-[5.5rem] shrink-0 rounded-lg border px-2 py-1.5 text-center " +
+                (i === 2 ? "border-brand-orange/40 bg-brand-orange/5" : "border-brand-line bg-white")
+              }
+            >
+              <p className={"text-[9px] font-semibold " + (i === 2 ? "text-brand-orange" : "text-brand-navy")}>{stage}</p>
+            </div>
+          ))}
+        </div>
+        <div className="min-w-[640px] space-y-2">
+          {opportunities.map((opp) => (
+            <div
+              key={opp.name}
+              className={
+                "rounded-lg border px-3 py-2.5 " +
+                (opp.stage === 2 ? "border-brand-orange/30 bg-brand-orange/[0.03]" : "border-brand-line bg-[#FAFBFD]")
+              }
+            >
+              <div className="flex flex-wrap items-start justify-between gap-2">
+                <div>
+                  <p className="text-[11px] font-semibold text-brand-navy">{opp.name}</p>
+                  <p className="text-[9px] text-brand-muted">{opp.company} · {opp.type}</p>
+                </div>
+                <span className="rounded-md border border-brand-line bg-white px-2 py-0.5 text-[8px] font-semibold text-brand-navy">
+                  {stages[opp.stage]}
+                </span>
+              </div>
+              <div className="mt-2 flex flex-wrap gap-3 text-[9px] text-brand-muted">
+                <span>{opp.value}</span>
+                <span>Owner · {opp.owner}</span>
+                <span>Close · {opp.close}</span>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </BrowserFrame>
+  );
+}
+
+export function CrmCustomerUI() {
+  return (
+    <BrowserFrame url="app.vertexcms.com / crm / companies / apex-construction">
+      <div className="grid sm:grid-cols-[1fr_180px]">
+        <div className="border-b border-brand-line p-4 sm:border-b-0 sm:border-r">
+          <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-brand-muted">Company profile</p>
+          <p className="mt-1 text-[14px] font-semibold text-brand-navy">Apex Construction Group</p>
+          <p className="mt-1 text-[11px] text-brand-muted">General contractor · Active customer</p>
+          <div className="mt-4">
+            <p className="text-[10px] font-semibold uppercase tracking-wide text-brand-muted">Primary contacts</p>
+            <ul className="mt-2 space-y-1.5">
+              {[
+                ["Sarah Chen", "VP Development"],
+                ["David Park", "Project Director"],
+              ].map(([name, role]) => (
+                <li key={name} className="rounded-md border border-brand-line bg-[#FAFBFD] px-2.5 py-2 text-[11px]">
+                  <span className="font-semibold text-brand-navy">{name}</span>
+                  <span className="text-brand-muted"> · {role}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className="mt-4">
+            <p className="text-[10px] font-semibold uppercase tracking-wide text-brand-muted">Active projects</p>
+            <p className="mt-2 rounded-md border border-brand-orange/30 bg-brand-orange/[0.04] px-2.5 py-2 text-[11px] font-medium text-brand-navy">
+              Riverside Medical Center
+            </p>
+          </div>
+        </div>
+        <div className="p-4">
+          <p className="text-[10px] font-semibold uppercase tracking-wide text-brand-muted">Opportunities</p>
+          <p className="mt-2 text-[12px] font-semibold text-brand-navy">$24.5M · Proposal</p>
+          <p className="mt-4 text-[10px] font-semibold uppercase tracking-wide text-brand-muted">Recent activity</p>
+          <ul className="mt-2 space-y-1.5 text-[10px] text-brand-muted">
+            <li>Proposal sent · Today</li>
+            <li>Follow-up call · Sep 09</li>
+            <li>Site visit logged · Sep 05</li>
+          </ul>
+          <p className="mt-4 text-[10px] font-semibold uppercase tracking-wide text-brand-muted">Follow-ups</p>
+          <p className="mt-1 text-[11px] font-medium text-brand-orange">Sep 14 · Pricing review</p>
+          <p className="mt-4 text-[10px] font-semibold uppercase tracking-wide text-brand-muted">Team</p>
+          <p className="mt-1 text-[11px] text-brand-navy">James Miller · Owner</p>
+        </div>
+      </div>
+    </BrowserFrame>
+  );
+}
+
+export function CrmOpportunityUI() {
+  return (
+    <BrowserFrame url="app.vertexcms.com / crm / opportunities / riveride-expansion" dark>
+      <div className="border-b border-white/10 px-4 py-3">
+        <p className="text-[9px] font-bold uppercase tracking-[0.14em] text-brand-orange">Opportunity detail</p>
+        <p className="mt-0.5 text-[13px] font-semibold text-white">Riverside Medical Center Expansion</p>
+      </div>
+      <div className="grid gap-2 p-3 sm:grid-cols-2 sm:p-4">
+        {[
+          ["Status", "Proposal"],
+          ["Customer", "Apex Construction Group"],
+          ["Project", "Riverside Medical Center"],
+          ["Value", "$24.5M"],
+          ["Next action", "Pricing review · Sep 14"],
+          ["Owner", "James Miller"],
+        ].map(([label, value]) => (
+          <div key={label} className="rounded-lg border border-white/10 bg-white/[0.04] px-2.5 py-2">
+            <p className="text-[8px] text-slate-400">{label}</p>
+            <p className={"text-[11px] font-semibold " + (label === "Value" ? "text-brand-orange" : "text-white")}>
+              {value}
+            </p>
+          </div>
+        ))}
+      </div>
+      <div className="mx-3 mb-3 rounded-lg border border-white/10 bg-white/[0.04] px-3 py-2.5 sm:mx-4 sm:mb-4">
+        <p className="text-[9px] font-semibold uppercase tracking-wide text-slate-400">Recent activity</p>
+        <p className="mt-1 text-[10px] text-slate-300">Proposal sent · Follow-up scheduled · Connected to project record</p>
+      </div>
+    </BrowserFrame>
+  );
+}
+
+/** Website Builder (Business Growth module) marketing mockups */
+
+function WbMiniSite({ variant = "modern" }: { variant?: "modern" | "corporate" | "portfolio" }) {
+  const heroBg =
+    variant === "corporate"
+      ? "bg-brand-navy"
+      : variant === "portfolio"
+        ? "bg-slate-700"
+        : "bg-gradient-to-br from-brand-navy to-[#0A2744]";
+  return (
+    <div className="overflow-hidden rounded-md border border-brand-line bg-white text-left">
+      <div className={"px-2 py-2 " + heroBg}>
+        <div className="h-1 w-8 rounded bg-brand-orange/80" />
+        <div className="mt-1.5 h-1.5 w-3/4 rounded bg-white/30" />
+        <div className="mt-1 h-1 w-1/2 rounded bg-white/20" />
+      </div>
+      <div className="grid grid-cols-3 gap-1 p-1.5">
+        {[1, 2, 3].map((i) => (
+          <div key={i} className="rounded border border-brand-line bg-[#FAFBFD] p-1">
+            <div className="h-4 rounded bg-slate-200" />
+            <div className="mt-1 h-1 w-full rounded bg-slate-100" />
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+export function WbHeroUI() {
+  const nav = ["Website", "Pages", "Portfolio", "Branding", "SEO", "Domain"];
+  return (
+    <BrowserFrame url="app.vertexcms.com / website-builder" dark className="min-h-[380px]">
+      <div className="grid min-h-[340px] grid-cols-[120px_1fr] sm:grid-cols-[140px_1fr]">
+        <aside className="border-r border-white/10 bg-[#061525] p-2">
+          <p className="text-[8px] font-bold uppercase tracking-wide text-brand-orange">Website Builder</p>
+          <ul className="mt-2 space-y-0.5">
+            {nav.map((item, i) => (
+              <li
+                key={item}
+                className={
+                  "rounded px-2 py-1 text-[9px] " +
+                  (i === 0 ? "bg-brand-orange/20 font-semibold text-brand-orange" : "text-slate-400")
+                }
+              >
+                {item}
+              </li>
+            ))}
+          </ul>
+          <div className="mt-3 rounded border border-white/10 bg-white/[0.04] px-2 py-1.5 text-[8px]">
+            <p className="text-slate-400">Template</p>
+            <p className="font-semibold text-white">Modern Contractor</p>
+            <p className="mt-1 text-slate-400">Domain</p>
+            <p className="text-slate-300">northline.cms-sites.io</p>
+            <span className="mt-1 inline-block rounded bg-brand-orange/20 px-1.5 py-0.5 text-[7px] font-bold text-brand-orange">
+              DRAFT
+            </span>
+          </div>
+        </aside>
+        <div className="flex flex-col bg-[#0A1F35]">
+          <div className="flex flex-wrap items-center justify-between gap-2 border-b border-white/10 px-3 py-2">
+            <div className="flex gap-1">
+              {["Desktop", "Mobile"].map((v, i) => (
+                <span
+                  key={v}
+                  className={
+                    "rounded px-2 py-0.5 text-[8px] font-semibold " +
+                    (i === 0 ? "bg-white/15 text-white" : "text-slate-400")
+                  }
+                >
+                  {v}
+                </span>
+              ))}
+            </div>
+            <div className="flex gap-1">
+              {["Preview", "Save", "Publish"].map((btn, i) => (
+                <span
+                  key={btn}
+                  className={
+                    "rounded px-2 py-0.5 text-[8px] font-semibold " +
+                    (btn === "Publish" ? "bg-brand-orange text-white" : "border border-white/20 text-slate-300")
+                  }
+                >
+                  {btn}
+                </span>
+              ))}
+            </div>
+          </div>
+          <div className="flex-1 overflow-hidden p-2">
+            <div className="h-full overflow-hidden rounded-lg border border-white/10 bg-white">
+              <div className="flex items-center justify-between border-b border-brand-line px-2 py-1.5">
+                <div className="h-2 w-12 rounded bg-brand-navy" />
+                <div className="flex gap-2 text-[7px] text-brand-muted">
+                  <span>Services</span>
+                  <span>Projects</span>
+                  <span>Contact</span>
+                </div>
+              </div>
+              <div className="bg-brand-navy px-3 py-4">
+                <div className="h-2 w-2/3 rounded bg-white/30" />
+                <div className="mt-2 h-1.5 w-1/2 rounded bg-white/20" />
+                <span className="mt-3 inline-block rounded bg-brand-orange px-2 py-0.5 text-[7px] font-semibold text-white">
+                  Request a Bid
+                </span>
+              </div>
+              <div className="grid grid-cols-3 gap-1 p-2">
+                {["Services", "Projects", "About"].map((s) => (
+                  <div key={s} className="rounded border border-brand-line p-1.5">
+                    <p className="text-[7px] font-semibold text-brand-navy">{s}</p>
+                    <div className="mt-1 h-3 rounded bg-[#FAFBFD]" />
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </BrowserFrame>
+  );
+}
+
+export function WbTemplatePreviewUI() {
+  return (
+    <BrowserFrame url="app.vertexcms.com / website-builder / templates / modern-contractor">
+      <div className="border-b border-brand-line px-4 py-2.5">
+        <p className="text-[11px] text-brand-muted">Template Gallery → Modern Contractor → Full Preview</p>
+        <div className="mt-2 flex gap-2">
+          {["Desktop", "Mobile"].map((v, i) => (
+            <span
+              key={v}
+              className={
+                "rounded-md px-2 py-0.5 text-[9px] font-semibold " +
+                (i === 0 ? "bg-brand-orange/10 text-brand-orange" : "text-brand-muted")
+              }
+            >
+              {v}
+            </span>
+          ))}
+        </div>
+      </div>
+      <div className="grid gap-3 p-4 sm:grid-cols-[1fr_120px]">
+        <div className="overflow-hidden rounded-lg border border-brand-line">
+          <WbMiniSite variant="modern" />
+        </div>
+        <div className="space-y-2">
+          <span className="block w-full rounded-md bg-brand-navy py-2 text-center text-[10px] font-semibold text-white">
+            Select Template
+          </span>
+          <div className="rounded-lg border border-brand-orange/30 bg-brand-orange/[0.04] px-2 py-2 text-[9px]">
+            <p className="font-semibold text-brand-orange">Template selected</p>
+            <p className="text-brand-muted">Draft website created</p>
+          </div>
+        </div>
+      </div>
+    </BrowserFrame>
+  );
+}
+
+export function WbEditorUI() {
+  const pages = ["Home", "About", "Services", "Projects", "Team", "Contact"];
+  return (
+    <BrowserFrame url="app.vertexcms.com / website-builder / editor">
+      <div className="grid min-h-[300px] grid-cols-[100px_1fr_130px]">
+        <aside className="border-r border-brand-line bg-[#FAFBFD] p-2">
+          <p className="text-[8px] font-bold uppercase text-brand-muted">Pages</p>
+          <ul className="mt-1 space-y-0.5">
+            {pages.map((p, i) => (
+              <li key={p} className={"rounded px-1.5 py-1 text-[9px] " + (i === 0 ? "bg-brand-orange/10 font-semibold text-brand-orange" : "text-brand-navy")}>
+                {p}
+              </li>
+            ))}
+          </ul>
+        </aside>
+        <div className="border-r border-brand-line bg-white p-2">
+          <div className="rounded border border-brand-line">
+            <div className="bg-brand-navy px-2 py-3">
+              <p className="text-[9px] font-bold text-white">Northline Construction</p>
+              <p className="mt-1 text-[8px] text-slate-300">Commercial construction & project delivery</p>
+            </div>
+            <div className="p-2 text-[8px] text-brand-muted">Live preview · Home</div>
+          </div>
+        </div>
+        <aside className="p-2">
+          <p className="text-[8px] font-bold uppercase text-brand-orange">Section Editor</p>
+          <p className="mt-1 text-[10px] font-semibold text-brand-navy">Hero</p>
+          {["Headline", "Supporting text", "CTA label", "CTA link"].map((f) => (
+            <div key={f} className="mt-2 rounded border border-brand-line bg-[#FAFBFD] px-1.5 py-1 text-[8px] text-brand-muted">
+              {f}
+            </div>
+          ))}
+          <span className="mt-3 block rounded bg-brand-navy py-1.5 text-center text-[9px] font-semibold text-white">
+            Save Changes
+          </span>
+        </aside>
+      </div>
+    </BrowserFrame>
+  );
+}
+
+export function WbSectionEditorUI() {
+  const sections = ["Hero", "Services", "Portfolio", "About", "Team", "Testimonials", "Certifications", "Contact"];
+  return (
+    <BrowserFrame url="app.vertexcms.com / website-builder / sections">
+      <div className="p-4">
+        <p className="text-[10px] font-semibold uppercase tracking-wide text-brand-muted">Page sections · Home</p>
+        <ul className="mt-3 space-y-1.5">
+          {sections.map((s, i) => (
+            <li key={s} className="flex items-center justify-between rounded-lg border border-brand-line bg-[#FAFBFD] px-3 py-2">
+              <span className="text-[11px] font-medium text-brand-navy">{s}</span>
+              <div className="flex items-center gap-2">
+                <span className="text-[9px] text-brand-muted">{i < 6 ? "Visible" : "Hidden"}</span>
+                <span className="text-[10px] text-brand-muted">⋮⋮</span>
+              </div>
+            </li>
+          ))}
+        </ul>
+        <span className="mt-4 inline-block rounded-md bg-brand-navy px-4 py-2 text-[10px] font-semibold text-white">
+          Save changes
+        </span>
+      </div>
+    </BrowserFrame>
+  );
+}
+
+export function WbCmsImportUI() {
+  return (
+    <BrowserFrame url="app.vertexcms.com / website-builder / import" dark>
+      <div className="grid gap-3 p-4 sm:grid-cols-2">
+        <div>
+          <p className="text-[9px] font-bold uppercase tracking-wide text-brand-orange">Vertex CMS</p>
+          {[
+            ["Projects", "Portfolio"],
+            ["Team", "About / Team"],
+            ["Safety / TRIR", "Trust / Certifications"],
+            ["Company information", "Website content"],
+          ].map(([src, tgt]) => (
+            <div key={src} className="mt-2 flex items-center gap-2 text-[9px]">
+              <span className="rounded border border-white/15 bg-white/[0.06] px-2 py-1 text-slate-300">{src}</span>
+              <span className="text-slate-500">↓</span>
+              <span className="text-slate-400">{tgt}</span>
+            </div>
+          ))}
+        </div>
+        <div className="rounded-lg border border-brand-orange/30 bg-brand-orange/[0.06] p-3">
+          <span className="rounded bg-brand-orange px-3 py-1.5 text-[10px] font-semibold text-white">Import from CMS</span>
+          <ul className="mt-3 space-y-1.5">
+            {["Projects", "Team", "Company", "Safety / TRIR"].map((opt) => (
+              <li key={opt} className="rounded border border-white/15 bg-white/[0.04] px-2 py-1.5 text-[10px] text-white">
+                {opt}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </BrowserFrame>
+  );
+}
+
+export function WbPortfolioUI() {
+  const projects = [
+    { name: "Riverside Medical Center", type: "Commercial", value: "$4.8M", selected: true },
+    { name: "Northline Office Complex", type: "Commercial", value: "$2.6M", selected: true },
+    { name: "Harbor Point Development", type: "Mixed Use", value: "$7.2M", selected: false },
+  ];
+  return (
+    <BrowserFrame url="app.vertexcms.com / website-builder / portfolio">
+      <div className="border-b border-brand-line px-4 py-2">
+        <div className="flex flex-wrap gap-2">
+          {["Select projects", "Import selected", "Published portfolio"].map((btn, i) => (
+            <span
+              key={btn}
+              className={
+                "rounded-md px-2 py-1 text-[9px] font-semibold " +
+                (i === 1 ? "bg-brand-navy text-white" : "border border-brand-line text-brand-muted")
+              }
+            >
+              {btn}
+            </span>
+          ))}
+        </div>
+      </div>
+      <div className="grid gap-2 p-3 sm:grid-cols-3">
+        {projects.map((p) => (
+          <div
+            key={p.name}
+            className={
+              "rounded-lg border p-2 " +
+              (p.selected ? "border-brand-orange/35 bg-brand-orange/[0.03]" : "border-brand-line bg-white")
+            }
+          >
+            <div className="flex items-start justify-between">
+              <span className={"text-[10px] " + (p.selected ? "text-brand-orange" : "text-brand-muted")}>
+                {p.selected ? "☑" : "☐"}
+              </span>
+            </div>
+            <div className="mt-1 h-10 rounded bg-slate-200" />
+            <p className="mt-2 text-[10px] font-semibold text-brand-navy">{p.name}</p>
+            <p className="text-[9px] text-brand-muted">{p.type} · {p.value}</p>
+          </div>
+        ))}
+      </div>
+    </BrowserFrame>
+  );
+}
+
+export function WbBrandingUI() {
+  return (
+    <BrowserFrame url="app.vertexcms.com / website-builder / branding">
+      <div className="grid sm:grid-cols-2">
+        <div className="border-b border-brand-line p-4 sm:border-b-0 sm:border-r">
+          {[
+            ["Company Logo", "Upload logo"],
+            ["Brand Colors", "Primary · Secondary · Accent"],
+            ["Typography", "Font selection"],
+            ["Favicon", "Upload favicon"],
+          ].map(([label, hint]) => (
+            <div key={label} className="mb-3 rounded-lg border border-brand-line bg-[#FAFBFD] px-3 py-2.5">
+              <p className="text-[10px] font-semibold text-brand-navy">{label}</p>
+              <p className="mt-1 text-[9px] text-brand-muted">{hint}</p>
+            </div>
+          ))}
+        </div>
+        <div className="p-4">
+          <p className="text-[10px] font-semibold uppercase text-brand-muted">Preview</p>
+          <div className="mt-2 overflow-hidden rounded-lg border border-brand-line">
+            <WbMiniSite variant="modern" />
+          </div>
+        </div>
+      </div>
+    </BrowserFrame>
+  );
+}
+
+export function WbSeoUI() {
+  return (
+    <BrowserFrame url="app.vertexcms.com / website-builder / seo">
+      <div className="p-4">
+        <p className="text-[10px] font-semibold uppercase text-brand-muted">Page · Home</p>
+        <div className="mt-3 space-y-3">
+          <div>
+            <p className="text-[9px] font-semibold uppercase text-brand-muted">SEO Title</p>
+            <p className="mt-1 rounded border border-brand-line bg-[#FAFBFD] px-2 py-1.5 text-[11px] text-brand-navy">
+              Northline Construction | Commercial Construction
+            </p>
+          </div>
+          <div>
+            <p className="text-[9px] font-semibold uppercase text-brand-muted">Meta Description</p>
+            <p className="mt-1 rounded border border-brand-line bg-[#FAFBFD] px-2 py-1.5 text-[10px] leading-relaxed text-brand-navy">
+              Commercial construction and project delivery services from Northline Construction.
+            </p>
+          </div>
+          <div className="flex items-center justify-between rounded-lg border border-brand-line px-3 py-2">
+            <span className="text-[10px] text-brand-muted">SEO status</span>
+            <span className="rounded bg-brand-orange/10 px-2 py-0.5 text-[9px] font-bold text-brand-orange">Ready</span>
+          </div>
+        </div>
+      </div>
+    </BrowserFrame>
+  );
+}
+
+export function WbPublishUI() {
+  const steps = ["Edit", "Save", "Preview", "Approve", "Publish"];
+  return (
+    <BrowserFrame url="app.vertexcms.com / website-builder / publish" dark>
+      <div className="p-4">
+        <div className="flex flex-wrap items-center justify-center gap-1">
+          {steps.map((s, i) => (
+            <span key={s} className="flex items-center gap-1">
+              <span className={"rounded px-2 py-1 text-[9px] font-semibold " + (i === steps.length - 1 ? "bg-brand-orange text-white" : "border border-white/15 text-slate-300")}>
+                {s}
+              </span>
+              {i < steps.length - 1 ? <span className="text-slate-500">↓</span> : null}
+            </span>
+          ))}
+        </div>
+        <div className="mt-4 flex justify-center gap-2">
+          {["Desktop", "Mobile"].map((v, i) => (
+            <span key={v} className={"rounded px-2 py-0.5 text-[9px] " + (i === 0 ? "bg-white/15 text-white" : "text-slate-400")}>{v}</span>
+          ))}
+        </div>
+        <div className="mx-auto mt-4 max-w-xs rounded-lg border border-white/10 bg-white/[0.04] px-4 py-3 text-center">
+          <p className="text-[10px] text-slate-400">Website status</p>
+          <p className="mt-1 text-[14px] font-bold text-brand-orange">PUBLISHED</p>
+          <span className="mt-2 inline-block rounded bg-brand-orange px-4 py-1.5 text-[10px] font-semibold text-white">
+            Publish Website
+          </span>
+        </div>
+      </div>
+    </BrowserFrame>
+  );
+}
+
+export function WbDomainUI() {
+  return (
+    <BrowserFrame url="app.vertexcms.com / website-builder / domain">
+      <div className="p-4">
+        <div className="rounded-lg border border-brand-line bg-[#FAFBFD] px-3 py-2.5">
+          <p className="text-[9px] text-brand-muted">Current domain</p>
+          <p className="text-[12px] font-semibold text-brand-navy">northline.cms-sites.io</p>
+        </div>
+        <span className="mt-3 inline-block rounded-md border border-brand-line bg-white px-3 py-2 text-[10px] font-semibold text-brand-navy">
+          Add Custom Domain
+        </span>
+        <div className="mt-4 rounded-lg border border-brand-orange/30 bg-brand-orange/[0.04] px-3 py-2.5">
+          <p className="text-[9px] text-brand-muted">Custom domain</p>
+          <p className="text-[12px] font-semibold text-brand-navy">www.northlineconstruction.com</p>
+        </div>
+        <ol className="mt-4 grid gap-1 sm:grid-cols-5">
+          {["Add domain", "Configure DNS", "Verify domain", "Activate SSL", "Publish"].map((s, i) => (
+            <li key={s} className="rounded border border-brand-line bg-white px-2 py-1.5 text-center text-[8px] font-semibold text-brand-navy">
+              {String(i + 1).padStart(2, "0")} {s}
+            </li>
+          ))}
+        </ol>
+      </div>
+    </BrowserFrame>
+  );
+}
+
+export function WbDnsUI() {
+  return (
+    <BrowserFrame url="app.vertexcms.com / website-builder / dns">
+      <div className="p-4">
+        <div className="space-y-2 text-[10px]">
+          <div className="rounded border border-brand-line bg-[#FAFBFD] px-3 py-2">
+            <p className="font-semibold text-brand-navy">CNAME</p>
+            <p className="text-brand-muted">www → sites.cms.io</p>
+          </div>
+          <div className="rounded border border-brand-line bg-[#FAFBFD] px-3 py-2">
+            <p className="font-semibold text-brand-navy">A RECORD</p>
+            <p className="text-brand-muted">@ → required target</p>
+          </div>
+          <div className="rounded border border-brand-line bg-[#FAFBFD] px-3 py-2">
+            <p className="font-semibold text-brand-navy">TXT</p>
+            <p className="text-brand-muted">Verification token</p>
+          </div>
+        </div>
+        <div className="mt-4 flex gap-2">
+          <span className="rounded border border-amber-500/30 bg-amber-500/10 px-2 py-1 text-[9px] font-semibold text-amber-700">
+            DNS verification pending
+          </span>
+          <span className="rounded border border-brand-line bg-[#FAFBFD] px-2 py-1 text-[9px] font-semibold text-brand-navy">
+            DNS verified ✓
+          </span>
+        </div>
+      </div>
+    </BrowserFrame>
+  );
+}
+
+export function WbSslUI() {
+  const steps = [
+    { label: "Domain", status: "VERIFIED", done: true },
+    { label: "SSL", status: "ACTIVE", done: true },
+    { label: "Website", status: "LIVE", done: true },
+  ];
+  return (
+    <BrowserFrame url="app.vertexcms.com / website-builder / ssl" dark>
+      <div className="p-4">
+        <div className="flex flex-wrap items-center justify-center gap-2">
+          {steps.map((s, i) => (
+            <span key={s.label} className="flex items-center gap-2">
+              <div className="rounded-lg border border-brand-orange/30 bg-brand-orange/[0.06] px-3 py-2 text-center">
+                <p className="text-[8px] text-slate-400">{s.label}</p>
+                <p className="text-[11px] font-bold text-brand-orange">{s.status}</p>
+              </div>
+              {i < steps.length - 1 ? <span className="text-slate-500">↓</span> : null}
+            </span>
+          ))}
+        </div>
+        <ul className="mx-auto mt-4 max-w-xs space-y-1.5 text-[10px] text-slate-300">
+          <li>HTTPS enabled</li>
+          <li>SSL active</li>
+          <li>Primary domain · www.northlineconstruction.com</li>
+          <li>www redirect configured</li>
+        </ul>
+      </div>
+    </BrowserFrame>
+  );
+}
+
+export function WbContactLeadUI() {
+  const fields = ["Name", "Email", "Phone", "Message", "Project Type"];
+  return (
+    <BrowserFrame url="app.vertexcms.com / website / contact → crm" dark>
+      <div className="grid gap-3 p-3 sm:grid-cols-2">
+        <div className="rounded-lg border border-white/10 bg-white p-3">
+          <p className="text-[9px] font-bold uppercase text-brand-muted">Public website</p>
+          <p className="mt-1 text-[11px] font-semibold text-brand-navy">Contact form</p>
+          <div className="mt-2 space-y-1.5">
+            {fields.map((f) => (
+              <div key={f} className="rounded border border-brand-line bg-[#FAFBFD] px-2 py-1 text-[9px] text-brand-muted">
+                {f}
+              </div>
+            ))}
+          </div>
+          <span className="mt-2 inline-block rounded bg-brand-orange px-3 py-1 text-[9px] font-semibold text-white">
+            Send Inquiry
+          </span>
+        </div>
+        <div className="rounded-lg border border-brand-orange/30 bg-brand-orange/[0.06] p-3">
+          <p className="text-[9px] font-bold uppercase text-brand-orange">Vertex CMS CRM</p>
+          <p className="mt-1 text-[11px] font-semibold text-white">New Lead</p>
+          <div className="mt-2 space-y-1 text-[9px] text-slate-300">
+            {fields.map((f) => (
+              <p key={f}>{f}: —</p>
+            ))}
+          </div>
+          <p className="mt-2 text-[10px] font-semibold text-brand-orange">Status: New</p>
+        </div>
+      </div>
+      <div className="mx-3 mb-3 flex items-center justify-center gap-2 text-[9px] text-slate-400 sm:mx-4">
+        <span>Website inquiry</span>
+        <span>↓</span>
+        <span>Vertex CMS</span>
+        <span>↓</span>
+        <span className="text-brand-orange">CRM Lead</span>
+      </div>
+    </BrowserFrame>
+  );
+}
+
+/** Leads (Business Growth module) marketing mockups */
+
+const LEADS_NAV = ["Pipeline", "My Leads", "Follow-ups", "Sources", "Won / Lost"];
+
+function LeadBadge({
+  label,
+  tone = "muted",
+}: {
+  label: string;
+  tone?: "muted" | "orange" | "navy" | "ok" | "warn" | "lost";
+}) {
+  const cls =
+    tone === "orange"
+      ? "border-brand-orange/35 bg-brand-orange/10 text-brand-orange"
+      : tone === "navy"
+        ? "border-brand-navy/20 bg-brand-navy text-white"
+        : tone === "ok"
+          ? "border-emerald-200 bg-emerald-50 text-emerald-800"
+          : tone === "warn"
+            ? "border-amber-200 bg-amber-50 text-amber-800"
+            : tone === "lost"
+              ? "border-brand-line bg-[#F4F7FB] text-brand-muted"
+              : "border-brand-line bg-white text-brand-navy";
+  return (
+    <span className={"inline-flex rounded-sm border px-1.5 py-0.5 text-[8px] font-semibold " + cls}>{label}</span>
+  );
+}
+
+function LeadsShell({
+  url,
+  activeNav,
+  children,
+  dark = false,
+}: {
+  url: string;
+  activeNav: string;
+  children: React.ReactNode;
+  dark?: boolean;
+}) {
+  return (
+    <BrowserFrame url={url} dark={dark}>
+      <div className={dark ? "bg-[#0A1F35]" : "bg-[#F7F9FC]"}>
+        <div
+          className={
+            "flex items-center justify-between border-b px-4 py-2.5 " +
+            (dark ? "border-white/10 bg-white/[0.03]" : "border-brand-line bg-white")
+          }
+        >
+          <div className="flex items-center gap-2">
+            <span className="flex h-6 w-6 items-center justify-center rounded-sm bg-brand-navy text-[8px] font-bold text-white">
+              VC
+            </span>
+            <div>
+              <p className={"text-[11px] font-semibold " + (dark ? "text-white" : "text-brand-navy")}>Leads</p>
+              <p className="text-[8px] font-semibold uppercase tracking-[0.12em] text-brand-orange">Business Growth</p>
+            </div>
+          </div>
+          <span
+            className={
+              "hidden rounded-sm border px-2 py-1 text-[8px] font-semibold sm:inline " +
+              (dark ? "border-white/15 text-slate-300" : "border-brand-line bg-[#FAFBFD] text-brand-muted")
+            }
+          >
+            Northline Construction
+          </span>
+        </div>
+        <div className="grid lg:grid-cols-[132px_minmax(0,1fr)]">
+          <div className={"border-b p-2.5 lg:border-b-0 lg:border-r " + (dark ? "border-white/10" : "border-brand-line bg-white")}>
+            <ul className="flex gap-1 overflow-x-auto lg:flex-col lg:overflow-visible">
+              {LEADS_NAV.map((item) => (
+                <li
+                  key={item}
+                  className={
+                    "shrink-0 rounded-md px-2 py-1.5 text-[9px] font-semibold " +
+                    (item === activeNav
+                      ? "bg-brand-orange/10 text-brand-orange"
+                      : dark
+                        ? "text-slate-400"
+                        : "text-brand-muted")
+                  }
+                >
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className="min-w-0">{children}</div>
+        </div>
+      </div>
+    </BrowserFrame>
+  );
+}
+
+export function LeadsHeroUI() {
+  const rows = [
+    { company: "Riverside Medical Center", contact: "Sarah Chen", value: "$2.4M", source: "Referral", owner: "A. Morgan", status: "Qualified", action: "Sep 14 call", prob: "70%", last: "Today", attention: true },
+    { company: "Northline Commercial", contact: "David Park", value: "$1.8M", source: "Website", owner: "J. Lee", status: "Proposal", action: "Send SOV draft", prob: "55%", last: "Yesterday", attention: true },
+    { company: "Harbor Point Development", contact: "Maria Santos", value: "$3.1M", source: "Partner", owner: "A. Morgan", status: "Contacted", action: "Qualify fit", prob: "40%", last: "Sep 09", attention: false },
+    { company: "Westgate Retail Group", contact: "Tom Walsh", value: "$980K", source: "Repeat", owner: "S. Reed", status: "New", action: "First outreach", prob: "20%", last: "Sep 10", attention: false },
+    { company: "Summit Industrial", contact: "Lisa Nguyen", value: "$1.2M", source: "Inbound", owner: "J. Lee", status: "Negotiation", action: "Review terms", prob: "65%", last: "Sep 08", attention: false },
+  ];
+  return (
+    <LeadsShell url="app.vertexcms.com / leads" activeNav="Pipeline" dark>
+      <div className="p-3 sm:p-4">
+        <div className="mb-3 flex flex-wrap gap-1.5">
+          {["New", "Contacted", "Qualified", "Proposal", "Negotiation", "Won", "Lost"].map((stage, i) => (
+            <span
+              key={stage}
+              className={
+                "rounded-sm border px-2 py-1 text-[8px] font-semibold " +
+                (i === 2 ? "border-brand-orange/40 bg-brand-orange/10 text-brand-orange" : "border-white/10 text-slate-300")
+              }
+            >
+              {stage}
+            </span>
+          ))}
+        </div>
+        <div className="overflow-x-auto">
+          <div className="min-w-[620px]">
+            <div className="grid grid-cols-[1.2fr_0.7fr_0.5fr_0.55fr_0.5fr_0.55fr_0.7fr_0.4fr] gap-1 border-b border-white/10 pb-1.5 text-[7px] font-semibold uppercase tracking-wide text-slate-400">
+              <span>Lead</span>
+              <span>Contact</span>
+              <span>Value</span>
+              <span>Source</span>
+              <span>Owner</span>
+              <span>Status</span>
+              <span>Next follow-up</span>
+              <span>Prob.</span>
+            </div>
+            {rows.map((row) => (
+              <div
+                key={row.company}
+                className={
+                  "grid grid-cols-[1.2fr_0.7fr_0.5fr_0.55fr_0.5fr_0.55fr_0.7fr_0.4fr] items-center gap-1 border-b border-white/10 py-2 text-[9px] last:border-0 " +
+                  (row.attention ? "bg-brand-orange/[0.06]" : "")
+                }
+              >
+                <span className={"font-semibold " + (row.attention ? "text-brand-orange" : "text-white")}>{row.company}</span>
+                <span className="text-slate-300">{row.contact}</span>
+                <span className="font-semibold text-white">{row.value}</span>
+                <span className="text-slate-400">{row.source}</span>
+                <span className="text-slate-300">{row.owner}</span>
+                <span className="text-slate-300">{row.status}</span>
+                <span className={row.attention ? "font-semibold text-brand-orange" : "text-slate-400"}>{row.action}</span>
+                <span className="text-slate-400">{row.prob}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </LeadsShell>
+  );
+}
+
+export function LeadsWorkspaceUI() {
+  const columns = [
+    {
+      stage: "New",
+      items: [{ company: "Westgate Retail Group", contact: "Tom Walsh", value: "$980K", source: "Repeat", owner: "S. Reed", action: "First outreach", last: "Sep 10", attention: false }],
+    },
+    {
+      stage: "Contacted",
+      items: [{ company: "Harbor Point Development", contact: "Maria Santos", value: "$3.1M", source: "Partner", owner: "A. Morgan", action: "Qualify fit", last: "Sep 09", attention: false }],
+    },
+    {
+      stage: "Qualified",
+      items: [{ company: "Riverside Medical Center", contact: "Sarah Chen", value: "$2.4M", source: "Referral", owner: "A. Morgan", action: "Sep 14 call", last: "Today", attention: true }],
+    },
+    {
+      stage: "Proposal",
+      items: [{ company: "Northline Commercial", contact: "David Park", value: "$1.8M", source: "Website", owner: "J. Lee", action: "Send SOV draft", last: "Yesterday", attention: true }],
+    },
+    {
+      stage: "Negotiation",
+      items: [{ company: "Summit Industrial", contact: "Lisa Nguyen", value: "$1.2M", source: "Inbound", owner: "J. Lee", action: "Review terms", last: "Sep 08", attention: false }],
+    },
+    {
+      stage: "Won",
+      items: [{ company: "Cedar Clinic TI", contact: "Priya Shah", value: "$640K", source: "Referral", owner: "A. Morgan", action: "Create project", last: "Sep 07", attention: false }],
+    },
+  ];
+  return (
+    <LeadsShell url="app.vertexcms.com / leads / pipeline" activeNav="Pipeline">
+      <div className="p-3 sm:p-4">
+        <div className="grid grid-cols-2 gap-2 sm:grid-cols-4">
+          {[
+            ["Active Leads", "18"],
+            ["Qualified Leads", "7"],
+            ["Pipeline Value", "$8.4M"],
+            ["Closing This Month", "3"],
+          ].map(([label, value]) => (
+            <div key={label} className="rounded-md border border-brand-line bg-white px-2.5 py-2">
+              <p className="text-[8px] text-brand-muted">{label}</p>
+              <p className="text-[12px] font-bold text-brand-navy">{value}</p>
+            </div>
+          ))}
+        </div>
+        <div className="mt-3 flex flex-wrap gap-1.5">
+          {["All Leads", "My Leads", "Stage", "Source", "Owner", "Date"].map((f, i) => (
+            <span
+              key={f}
+              className={
+                "rounded-sm border px-2 py-1 text-[8px] font-semibold " +
+                (i === 0 ? "border-brand-navy bg-brand-navy text-white" : "border-brand-line bg-white text-brand-muted")
+              }
+            >
+              {f}
+            </span>
+          ))}
+        </div>
+        <div className="mt-3 overflow-x-auto">
+          <div className="flex min-w-[720px] gap-2">
+            {columns.map((col) => (
+              <div key={col.stage} className="min-w-[132px] flex-1">
+                <p className="mb-1.5 text-[9px] font-bold uppercase tracking-wide text-brand-muted">{col.stage}</p>
+                <div className="space-y-2">
+                  {col.items.map((item) => (
+                    <div
+                      key={item.company}
+                      className={
+                        "rounded-lg border px-2.5 py-2 " +
+                        (item.attention ? "border-brand-orange/35 bg-brand-orange/[0.04]" : "border-brand-line bg-white")
+                      }
+                    >
+                      <p className={"text-[10px] font-semibold " + (item.attention ? "text-brand-orange" : "text-brand-navy")}>
+                        {item.company}
+                      </p>
+                      <p className="text-[8px] text-brand-muted">{item.contact}</p>
+                      <p className="mt-1.5 text-[9px] font-semibold text-brand-navy">{item.value}</p>
+                      <div className="mt-1 space-y-0.5 text-[8px] text-brand-muted">
+                        <p>{item.source} · {item.owner}</p>
+                        <p>{item.action}</p>
+                        <p>Last · {item.last}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </LeadsShell>
+  );
+}
+
+export function LeadsWorkflowUI() {
+  return (
+    <LeadsShell url="app.vertexcms.com / leads / harbor-point" activeNav="Pipeline">
+      <div className="p-4">
+        <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-brand-muted">Lead detail</p>
+        <p className="mt-1 text-[14px] font-semibold text-brand-navy">Harbor Point Development</p>
+        <p className="text-[11px] text-brand-muted">Mixed-use · Contacted · Owner · Alex Morgan</p>
+        <div className="mt-3 flex flex-wrap gap-1.5">
+          {["Capture", "Qualify", "Follow up", "Convert"].map((s, i) => (
+            <span
+              key={s}
+              className={
+                "rounded-sm border px-2 py-1 text-[8px] font-semibold " +
+                (i === 1 ? "border-brand-orange/40 bg-brand-orange/10 text-brand-orange" : "border-brand-line text-brand-muted")
+              }
+            >
+              0{i + 1} {s}
+            </span>
+          ))}
+        </div>
+        <div className="mt-3 grid gap-2 sm:grid-cols-2">
+          {[
+            ["Project type", "Mixed-use"],
+            ["Location", "Harbor District"],
+            ["Estimated value", "$3.1M"],
+            ["Expected start", "Q1 2027"],
+          ].map(([label, value]) => (
+            <div key={label} className="rounded-lg border border-brand-line bg-white px-3 py-2.5">
+              <p className="text-[9px] font-semibold uppercase tracking-wide text-brand-muted">{label}</p>
+              <p className="mt-1 text-[12px] font-semibold text-brand-navy">{value}</p>
+            </div>
+          ))}
+        </div>
+        <div className="mt-3 rounded-lg border border-brand-orange/30 bg-brand-orange/[0.04] px-3 py-2.5">
+          <p className="text-[9px] font-semibold uppercase tracking-wide text-brand-orange">Next step</p>
+          <p className="mt-1 text-[11px] text-brand-navy">Complete qualification review before assigning estimating</p>
+        </div>
+      </div>
+    </LeadsShell>
+  );
+}
+
+export function LeadsDetailUI() {
+  return (
+    <LeadsShell url="app.vertexcms.com / leads / riverside-medical" activeNav="My Leads">
+      <div className="grid sm:grid-cols-[1fr_168px]">
+        <div className="border-b border-brand-line p-4 sm:border-b-0 sm:border-r">
+          <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-brand-muted">Lead profile</p>
+          <p className="mt-1 text-[14px] font-semibold text-brand-navy">Riverside Medical Center</p>
+          <p className="text-[11px] text-brand-muted">Medical Center Expansion · Qualified</p>
+          <div className="mt-3 grid grid-cols-2 gap-2">
+            {[
+              ["Company", "Apex Group"],
+              ["Contact", "Sarah Chen"],
+              ["Project type", "Healthcare"],
+              ["Location", "Austin, TX"],
+              ["Est. value", "$2.4M"],
+              ["Expected start", "Q1 2027"],
+              ["Source", "Referral"],
+              ["Owner", "Alex Morgan"],
+              ["Probability", "70%"],
+              ["Go / no-go", "Go"],
+            ].map(([label, value]) => (
+              <div key={label} className="rounded-md border border-brand-line bg-white px-2.5 py-2">
+                <p className="text-[8px] font-semibold uppercase tracking-wide text-brand-muted">{label}</p>
+                <p className="mt-0.5 text-[11px] font-semibold text-brand-navy">{value}</p>
+              </div>
+            ))}
+          </div>
+          <p className="mt-3 text-[10px] font-semibold uppercase tracking-wide text-brand-muted">Notes</p>
+          <p className="mt-1 rounded-md border border-brand-line bg-white px-2.5 py-2 text-[10px] text-brand-muted">
+            Owner wants GMP pricing after schematic set. Site constraints on east wing.
+          </p>
+        </div>
+        <div className="p-4">
+          <p className="text-[10px] font-semibold uppercase tracking-wide text-brand-orange">Next follow-up</p>
+          <p className="mt-1 text-[11px] font-semibold text-brand-navy">Sep 14 · Discovery call</p>
+          <p className="mt-4 text-[10px] font-semibold uppercase tracking-wide text-brand-muted">Recent activity</p>
+          <ul className="mt-2 space-y-1.5 text-[10px] text-brand-muted">
+            <li>Inquiry received</li>
+            <li>Lead assigned</li>
+            <li>Qualification completed</li>
+            <li>Follow-up scheduled</li>
+          </ul>
+        </div>
+      </div>
+    </LeadsShell>
+  );
+}
+
+export function LeadsActivityUI() {
+  const events = [
+    ["Today · 9:14 AM", "Call completed", "Discovery call with Sarah Chen"],
+    ["Today · 8:40 AM", "Follow-up scheduled", "Sep 14 · Owner: Alex Morgan"],
+    ["Sep 10", "Project details updated", "Value set to $2.4M · Austin, TX"],
+    ["Sep 09", "Note added", "GMP requested after schematic set"],
+    ["Sep 08", "Lead assigned", "Owner · Alex Morgan"],
+    ["Sep 08", "Status changed", "New → Qualified"],
+    ["Sep 07", "New inquiry received", "Referral · Apex Group"],
+  ];
+  return (
+    <LeadsShell url="app.vertexcms.com / leads / riverside-medical / activity" activeNav="My Leads" dark>
+      <div className="p-4">
+        <p className="text-[9px] font-bold uppercase tracking-[0.14em] text-brand-orange">Activity</p>
+        <p className="mt-1 text-[13px] font-semibold text-white">Riverside Medical Center</p>
+        <ol className="mt-3 space-y-2">
+          {events.map(([when, title, detail]) => (
+            <li key={title + when} className="rounded-lg border border-white/10 bg-white/[0.04] px-3 py-2">
+              <p className="text-[8px] text-slate-400">{when}</p>
+              <p className="text-[11px] font-semibold text-white">{title}</p>
+              <p className="text-[10px] text-slate-300">{detail}</p>
+            </li>
+          ))}
+        </ol>
+      </div>
+    </LeadsShell>
+  );
+}
+
+export function LeadsDarkStoryUI() {
+  return (
+    <LeadsShell url="app.vertexcms.com / leads" activeNav="Pipeline" dark>
+      <div className="p-4">
+        <div className="grid grid-cols-2 gap-2 sm:grid-cols-4">
+          {[
+            ["Active", "18"],
+            ["Qualified", "7"],
+            ["Pipeline", "$8.4M"],
+            ["Follow-ups", "6"],
+          ].map(([k, v]) => (
+            <div key={k} className="rounded-md border border-white/10 bg-white/[0.04] px-2.5 py-2">
+              <p className="text-[8px] text-slate-400">{k}</p>
+              <p className="text-[12px] font-bold text-white">{v}</p>
+            </div>
+          ))}
+        </div>
+        <div className="mt-3 rounded-lg border border-brand-orange/30 bg-brand-orange/[0.06] px-3 py-3">
+          <p className="text-[9px] font-semibold uppercase tracking-wide text-brand-orange">Needs attention</p>
+          <p className="mt-1 text-[12px] font-semibold text-white">Riverside Medical Center · Qualified</p>
+          <p className="mt-0.5 text-[10px] text-slate-300">Follow up with Sarah · Due Sep 14 · $2.4M</p>
+        </div>
+        <ul className="mt-3 space-y-1.5">
+          {[
+            ["Northline Commercial", "Proposal · $1.8M"],
+            ["Harbor Point Development", "Contacted · $3.1M"],
+            ["Summit Industrial", "Negotiation · $1.2M"],
+          ].map(([name, meta]) => (
+            <li key={name} className="flex items-center justify-between rounded-md border border-white/10 bg-white/[0.04] px-3 py-2">
+              <span className="text-[11px] font-semibold text-white">{name}</span>
+              <span className="text-[10px] text-slate-400">{meta}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </LeadsShell>
+  );
+}
+
+export function LeadsQualifyUI() {
+  return (
+    <LeadsShell url="app.vertexcms.com / leads / harbor-point / qualify" activeNav="Pipeline">
+      <div className="p-4">
+        <div className="flex flex-wrap items-center justify-between gap-2">
+          <div>
+            <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-brand-muted">Qualification</p>
+            <p className="mt-1 text-[13px] font-semibold text-brand-navy">Harbor Point Development</p>
+          </div>
+          <LeadBadge label="Needs Review" tone="warn" />
+        </div>
+        <div className="mt-3 grid gap-2 sm:grid-cols-2">
+          {[
+            ["Project type", "Mixed-use"],
+            ["Location", "Harbor District"],
+            ["Est. contract value", "$3.1M"],
+            ["Expected start", "Q1 2027"],
+            ["Project stage", "Schematic"],
+            ["Lead source", "Partner"],
+            ["Decision maker", "Maria Santos"],
+            ["Probability", "40%"],
+          ].map(([label, value]) => (
+            <div key={label} className="rounded-md border border-brand-line bg-white px-2.5 py-2">
+              <p className="text-[8px] font-semibold uppercase tracking-wide text-brand-muted">{label}</p>
+              <p className="mt-0.5 text-[11px] font-semibold text-brand-navy">{value}</p>
+            </div>
+          ))}
+        </div>
+        <div className="mt-3 flex flex-wrap gap-1.5">
+          <LeadBadge label="Qualified" tone="ok" />
+          <LeadBadge label="Needs Review" tone="warn" />
+          <LeadBadge label="Not a Fit" tone="lost" />
+        </div>
+        <p className="mt-3 text-[10px] text-brand-muted">Go / no-go: review delivery capacity before advancing to proposal.</p>
+      </div>
+    </LeadsShell>
+  );
+}
+
+export function LeadsFollowUpUI() {
+  const rows = [
+    { lead: "Riverside Medical Center", task: "Follow up with Sarah Chen", owner: "Sarah", due: "Sep 14", status: "Qualified", last: "Today", state: "Due" },
+    { lead: "Northline Commercial", task: "Send proposal draft", owner: "J. Lee", due: "Sep 12", status: "Proposal", last: "Yesterday", state: "Overdue" },
+    { lead: "Harbor Point Development", task: "Complete qualification", owner: "A. Morgan", due: "Sep 16", status: "Contacted", last: "Sep 09", state: "Upcoming" },
+  ];
+  return (
+    <LeadsShell url="app.vertexcms.com / leads / follow-ups" activeNav="Follow-ups">
+      <div className="p-4">
+        <p className="text-[12px] font-semibold text-brand-navy">Follow-ups</p>
+        <div className="mt-3 space-y-2">
+          {rows.map((row) => (
+            <div
+              key={row.lead}
+              className={
+                "rounded-lg border px-3 py-2.5 " +
+                (row.state === "Overdue"
+                  ? "border-amber-200 bg-amber-50/60"
+                  : row.state === "Due"
+                    ? "border-brand-orange/35 bg-brand-orange/[0.04]"
+                    : "border-brand-line bg-white")
+              }
+            >
+              <div className="flex flex-wrap items-start justify-between gap-2">
+                <div>
+                  <p className="text-[11px] font-semibold text-brand-navy">{row.task}</p>
+                  <p className="text-[9px] text-brand-muted">{row.lead}</p>
+                </div>
+                <LeadBadge
+                  label={row.state}
+                  tone={row.state === "Overdue" ? "warn" : row.state === "Due" ? "orange" : "muted"}
+                />
+              </div>
+              <div className="mt-2 flex flex-wrap gap-3 text-[9px] text-brand-muted">
+                <span>Owner · {row.owner}</span>
+                <span>Due · {row.due}</span>
+                <span>Status · {row.status}</span>
+                <span>Last contact · {row.last}</span>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </LeadsShell>
+  );
+}
+
+export function LeadsNotesUI() {
+  const items = [
+    ["Call", "Sep 11 · 9:14 AM", "Discovery call completed. Owner confirmed Q1 start."],
+    ["Note", "Sep 10 · 4:02 PM", "Site constraints on east wing. Need estimating input."],
+    ["Meeting", "Sep 09 · 11:00 AM", "Internal qualification review with Alex Morgan."],
+    ["Follow-up", "Sep 08 · 2:20 PM", "Next conversation scheduled for Sep 14."],
+    ["Internal", "Sep 08 · 10:05 AM", "Assign to healthcare pursuit team."],
+  ];
+  return (
+    <LeadsShell url="app.vertexcms.com / leads / riverside-medical / history" activeNav="My Leads">
+      <div className="p-4">
+        <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-brand-muted">Lead history</p>
+        <p className="mt-1 text-[13px] font-semibold text-brand-navy">Riverside Medical Center</p>
+        <ul className="mt-3 space-y-2">
+          {items.map(([type, when, body]) => (
+            <li key={when} className="rounded-lg border border-brand-line bg-white px-3 py-2.5">
+              <div className="flex items-center justify-between gap-2">
+                <LeadBadge label={type} tone={type === "Follow-up" ? "orange" : "muted"} />
+                <span className="text-[8px] text-brand-muted">{when}</span>
+              </div>
+              <p className="mt-1.5 text-[11px] text-brand-navy">{body}</p>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </LeadsShell>
+  );
+}
+
+export function LeadsPriorityUI() {
+  const rows = [
+    { lead: "Riverside Medical Center", value: "$2.4M", stage: "Qualified", prob: "70%", next: "Sep 14 call", owner: "A. Morgan", close: "Oct 24", tag: "High Priority" },
+    { lead: "Northline Commercial", value: "$1.8M", stage: "Proposal", prob: "55%", next: "Send SOV", owner: "J. Lee", close: "Oct 30", tag: "Needs Follow-up" },
+    { lead: "Summit Industrial", value: "$1.2M", stage: "Negotiation", prob: "65%", next: "Review terms", owner: "J. Lee", close: "Nov 02", tag: "At Risk" },
+    { lead: "Harbor Point Development", value: "$3.1M", stage: "Contacted", prob: "40%", next: "Qualify fit", owner: "A. Morgan", close: "Nov 18", tag: "Recently Qualified" },
+  ];
+  return (
+    <LeadsShell url="app.vertexcms.com / leads / priority" activeNav="Pipeline">
+      <div className="overflow-x-auto p-4">
+        <div className="mb-3 flex flex-wrap gap-1.5">
+          <LeadBadge label="High Priority" tone="orange" />
+          <LeadBadge label="Needs Follow-up" tone="warn" />
+          <LeadBadge label="At Risk" tone="lost" />
+          <LeadBadge label="Recently Qualified" tone="ok" />
+        </div>
+        <div className="min-w-[640px]">
+          <div className="grid grid-cols-[1.3fr_0.5fr_0.6fr_0.4fr_0.8fr_0.5fr_0.5fr] gap-1 border-b border-brand-line pb-1.5 text-[8px] font-semibold uppercase tracking-wide text-brand-muted">
+            <span>Lead</span>
+            <span>Value</span>
+            <span>Stage</span>
+            <span>Prob.</span>
+            <span>Next action</span>
+            <span>Owner</span>
+            <span>Close</span>
+          </div>
+          {rows.map((row) => (
+            <div key={row.lead} className="grid grid-cols-[1.3fr_0.5fr_0.6fr_0.4fr_0.8fr_0.5fr_0.5fr] items-center gap-1 border-b border-brand-line/80 py-2 text-[10px] last:border-0">
+              <span>
+                <span className="font-semibold text-brand-navy">{row.lead}</span>
+                <span className="mt-0.5 block text-[8px] text-brand-orange">{row.tag}</span>
+              </span>
+              <span className="font-semibold text-brand-navy">{row.value}</span>
+              <span className="text-brand-muted">{row.stage}</span>
+              <span className="text-brand-navy">{row.prob}</span>
+              <span className="text-brand-muted">{row.next}</span>
+              <span className="text-brand-muted">{row.owner}</span>
+              <span className="text-brand-muted">{row.close}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </LeadsShell>
+  );
+}
+
+export function LeadsHandoffUI() {
+  const steps = ["Lead", "Qualified", "Estimate / Proposal", "Awarded", "Project"];
+  return (
+    <LeadsShell url="app.vertexcms.com / leads / cedar-clinic / convert" activeNav="Won / Lost">
+      <div className="p-4">
+        <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-brand-muted">Handoff</p>
+        <p className="mt-1 text-[13px] font-semibold text-brand-navy">Cedar Clinic TI · Won</p>
+        <div className="mt-3 flex flex-wrap items-center gap-1.5">
+          {steps.map((s, i) => (
+            <span key={s} className="flex items-center gap-1.5">
+              <span
+                className={
+                  "rounded-sm border px-2 py-1 text-[8px] font-semibold " +
+                  (i >= 3 ? "border-brand-orange/40 bg-brand-orange/10 text-brand-orange" : "border-brand-line bg-white text-brand-navy")
+                }
+              >
+                {s}
+              </span>
+              {i < steps.length - 1 ? <span className="text-[8px] text-brand-muted">→</span> : null}
+            </span>
+          ))}
+        </div>
+        <div className="mt-3 grid gap-2 sm:grid-cols-2">
+          <div className="rounded-lg border border-brand-line bg-white px-3 py-2.5">
+            <p className="text-[8px] font-semibold uppercase tracking-wide text-brand-muted">From lead</p>
+            <p className="mt-1 text-[11px] font-semibold text-brand-navy">$640K · Tenant improvement</p>
+            <p className="text-[9px] text-brand-muted">Win recorded · Sep 07</p>
+          </div>
+          <div className="rounded-lg border border-brand-orange/30 bg-brand-orange/[0.04] px-3 py-2.5">
+            <p className="text-[8px] font-semibold uppercase tracking-wide text-brand-orange">Create project</p>
+            <p className="mt-1 text-[11px] font-semibold text-brand-navy">Cedar Clinic TI</p>
+            <p className="text-[9px] text-brand-muted">Carry company, value, and owner into delivery</p>
+          </div>
+        </div>
+      </div>
+    </LeadsShell>
+  );
+}
+
+export function LeadsPipelineDashUI() {
+  const stages = [
+    ["New", "4", "w-[28%]"],
+    ["Contacted", "3", "w-[22%]"],
+    ["Qualified", "7", "w-[48%]"],
+    ["Proposal", "2", "w-[16%]"],
+    ["Negotiation", "2", "w-[16%]"],
+    ["Won", "5", "w-[36%]"],
+    ["Lost", "3", "w-[20%]"],
+  ];
+  return (
+    <LeadsShell url="app.vertexcms.com / leads / pipeline-view" activeNav="Pipeline">
+      <div className="p-4">
+        <div className="grid grid-cols-2 gap-2 sm:grid-cols-3">
+          {[
+            ["Total pipeline", "$8.4M"],
+            ["Qualified pipeline", "$5.1M"],
+            ["Won", "$2.9M"],
+            ["Lost", "$1.1M"],
+            ["Expected close", "$3.6M"],
+            ["Active leads", "18"],
+          ].map(([k, v]) => (
+            <div key={k} className="rounded-md border border-brand-line bg-white px-2.5 py-2">
+              <p className="text-[8px] text-brand-muted">{k}</p>
+              <p className="text-[12px] font-bold text-brand-navy">{v}</p>
+            </div>
+          ))}
+        </div>
+        <p className="mt-4 text-[9px] font-semibold uppercase tracking-wide text-brand-muted">Leads by stage</p>
+        <ul className="mt-2 space-y-1.5">
+          {stages.map(([label, count, width]) => (
+            <li key={label} className="flex items-center gap-2">
+              <span className="w-20 text-[9px] text-brand-muted">{label}</span>
+              <div className="h-1.5 flex-1 rounded-full bg-brand-line">
+                <div className={"h-full rounded-full bg-brand-navy " + width} />
+              </div>
+              <span className="w-4 text-right text-[9px] font-semibold text-brand-navy">{count}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </LeadsShell>
+  );
+}
+
+export function LeadsSourcesUI() {
+  const sources = [
+    ["Website", "8", "3", "38%", "$1.8M"],
+    ["Referral", "6", "4", "67%", "$3.0M"],
+    ["Repeat client", "4", "3", "75%", "$1.6M"],
+    ["Partner", "3", "1", "33%", "$3.1M"],
+    ["Inbound inquiry", "5", "2", "40%", "$1.2M"],
+    ["Other", "2", "0", "—", "$0.4M"],
+  ];
+  return (
+    <LeadsShell url="app.vertexcms.com / leads / sources" activeNav="Sources">
+      <div className="overflow-x-auto p-4">
+        <p className="text-[12px] font-semibold text-brand-navy">Lead sources</p>
+        <div className="mt-3 min-w-[420px]">
+          <div className="grid grid-cols-5 gap-1 border-b border-brand-line pb-1.5 text-[8px] font-semibold uppercase tracking-wide text-brand-muted">
+            <span>Source</span>
+            <span>Leads</span>
+            <span>Qualified</span>
+            <span>Conversion</span>
+            <span>Pipeline</span>
+          </div>
+          {sources.map((row) => (
+            <div key={row[0]} className="grid grid-cols-5 items-center gap-1 border-b border-brand-line/80 py-2 text-[10px] last:border-0">
+              <span className="font-semibold text-brand-navy">{row[0]}</span>
+              <span className="text-brand-muted">{row[1]}</span>
+              <span className="text-brand-muted">{row[2]}</span>
+              <span className="text-brand-navy">{row[3]}</span>
+              <span className="font-semibold text-brand-navy">{row[4]}</span>
+            </div>
+          ))}
+        </div>
+        <p className="mt-3 text-[9px] text-brand-muted">Website inquiries create lead records from the connected company website.</p>
+      </div>
+    </LeadsShell>
+  );
+}
+
 export function CrmPipelineUI() {
   return (
     <BrowserFrame url="app.vertexcms.com / crm / pipeline">
@@ -7188,6 +12933,948 @@ export function ProjectSwitcherUI() {
           ))}
         </ul>
       </div>
+    </BrowserFrame>
+  );
+}
+
+/** Customer Portals (Business Growth module) — four documented portal experiences */
+
+const CP_PROJECT = "Riverside Medical Center";
+
+function CpPortalShell({
+  role,
+  roleLabel,
+  url,
+  nav,
+  activeNav,
+  children,
+}: {
+  role: string;
+  roleLabel: string;
+  url: string;
+  nav: string[];
+  activeNav: string;
+  children: React.ReactNode;
+}) {
+  return (
+    <div className="bg-[#F7F9FC]">
+      <div className="flex items-center justify-between border-b border-brand-line bg-white px-4 py-3">
+        <div className="flex items-center gap-3">
+          <div className="flex h-8 w-8 items-center justify-center rounded-sm bg-brand-navy text-[10px] font-bold text-white">
+            VC
+          </div>
+          <div>
+            <p className="text-[11px] font-semibold text-brand-navy">Vertex CMS</p>
+            <p className="text-[9px] font-semibold uppercase tracking-[0.12em] text-brand-orange">{roleLabel}</p>
+          </div>
+        </div>
+        <span className="hidden rounded-sm border border-brand-line bg-[#FAFBFD] px-2 py-1 text-[9px] font-semibold text-brand-muted sm:inline">
+          {CP_PROJECT}
+        </span>
+      </div>
+      <div className="grid lg:grid-cols-[168px_minmax(0,1fr)]">
+        <div className="border-b border-brand-line bg-white p-3 lg:border-b-0 lg:border-r">
+          <p className="text-[9px] font-semibold uppercase tracking-[0.12em] text-brand-muted">Portal</p>
+          <p className="mt-0.5 text-[12px] font-bold text-brand-navy">{role}</p>
+          <p className="mt-1 text-[9px] text-brand-muted">Assigned scope only</p>
+          <ul className="mt-3 space-y-0.5">
+            {nav.map((item) => (
+              <li
+                key={item}
+                className={
+                  "rounded-md px-2 py-1.5 text-[10px] font-semibold " +
+                  (item === activeNav ? "bg-brand-orange/10 text-brand-orange" : "text-brand-muted")
+                }
+              >
+                {item}
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div className="p-4">{children}</div>
+      </div>
+    </div>
+  );
+}
+
+function CpPortalContent({ detailed = false }: { detailed?: boolean }) {
+  const milestones = [
+    { name: "Foundation complete", date: "Aug 12", done: true },
+    { name: "Structural steel", date: "Sep 28", done: true },
+    { name: "MEP rough-in", date: "Oct 18", done: false },
+    { name: "Substantial completion", date: "Dec 06", done: false },
+  ];
+  const documents = [
+    { name: "Architectural Set — Rev C", type: "Drawings", date: "Sep 04" },
+    { name: "Weekly Progress Report", type: "Report", date: "Sep 08" },
+    { name: "Approved Submittal — Curtain Wall", type: "Submittal", date: "Sep 06" },
+  ];
+  const upcoming = [
+    { item: "Owner walkthrough", date: "Sep 14" },
+    { item: "Ceiling inspection", date: "Sep 19" },
+    { item: "Pay application review", date: "Sep 22" },
+  ];
+
+  return (
+    <div className="bg-[#F7F9FC]">
+      <div className="flex items-center justify-between border-b border-brand-line bg-white px-4 py-3">
+        <div className="flex items-center gap-3">
+          <div className="flex h-8 w-8 items-center justify-center rounded-sm bg-brand-navy text-[10px] font-bold text-white">
+            NL
+          </div>
+          <div>
+            <p className="text-[11px] font-semibold text-brand-navy">Northline Construction</p>
+            <p className="text-[9px] font-semibold uppercase tracking-[0.12em] text-brand-orange">Client Portal</p>
+          </div>
+        </div>
+        <span className="rounded-sm border border-emerald-200 bg-emerald-50 px-2 py-1 text-[9px] font-semibold text-emerald-700">
+          On Track
+        </span>
+      </div>
+
+      <div className="border-b border-brand-line bg-white px-4 py-3">
+        <p className="text-[10px] font-semibold uppercase tracking-[0.12em] text-brand-muted">Project</p>
+        <p className="mt-0.5 text-[14px] font-bold text-brand-navy">Riverside Medical Center</p>
+        <div className="mt-3 flex flex-wrap items-center gap-3">
+          <div className="min-w-[120px] flex-1">
+            <div className="mb-1 flex items-center justify-between text-[9px]">
+              <span className="font-semibold text-brand-muted">Overall progress</span>
+              <span className="font-bold text-brand-navy">68%</span>
+            </div>
+            <div className="h-2 overflow-hidden rounded-full bg-brand-line">
+              <div className="h-full w-[68%] rounded-full bg-brand-orange" />
+            </div>
+          </div>
+          <div className="rounded-md border border-brand-line bg-[#FAFBFD] px-2.5 py-2">
+            <p className="text-[8px] font-semibold uppercase tracking-wide text-brand-muted">Current phase</p>
+            <p className="text-[11px] font-semibold text-brand-navy">Interior build-out</p>
+          </div>
+        </div>
+      </div>
+
+      <div className={"grid gap-0 " + (detailed ? "lg:grid-cols-[1fr_220px]" : "")}>
+        <div className="p-4">
+          <div className="rounded-lg border border-brand-line bg-white p-3">
+            <p className="text-[9px] font-semibold uppercase tracking-wide text-brand-muted">Recent project update</p>
+            <p className="mt-1.5 text-[11px] font-semibold text-brand-navy">MEP rough-in progressing on Level 3</p>
+            <p className="mt-1 text-[10px] leading-relaxed text-brand-muted">
+              Mechanical and electrical rough-in is underway on the third floor. Structural steel inspection passed
+              last week and ceiling grid installation begins Sep 16.
+            </p>
+            <p className="mt-2 text-[9px] text-brand-muted">Posted Sep 08 · Project team</p>
+          </div>
+
+          {detailed ? (
+            <>
+              <div className="mt-3 grid gap-3 sm:grid-cols-2">
+                <div className="rounded-lg border border-brand-line bg-white p-3">
+                  <p className="text-[9px] font-semibold uppercase tracking-wide text-brand-muted">Milestones</p>
+                  <ul className="mt-2 space-y-1.5">
+                    {milestones.map((m) => (
+                      <li key={m.name} className="flex items-center justify-between text-[10px]">
+                        <span className={m.done ? "text-brand-navy" : "text-brand-muted"}>{m.name}</span>
+                        <span className={m.done ? "font-semibold text-emerald-600" : "text-brand-muted"}>
+                          {m.done ? "Complete" : m.date}
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <div className="rounded-lg border border-brand-line bg-white p-3">
+                  <p className="text-[9px] font-semibold uppercase tracking-wide text-brand-muted">Upcoming</p>
+                  <ul className="mt-2 space-y-1.5">
+                    {upcoming.map((u) => (
+                      <li key={u.item} className="flex items-center justify-between text-[10px]">
+                        <span className="text-brand-navy">{u.item}</span>
+                        <span className="text-brand-muted">{u.date}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+              <div className="mt-3 rounded-lg border border-brand-line bg-white p-3">
+                <p className="text-[9px] font-semibold uppercase tracking-wide text-brand-muted">Documents</p>
+                <ul className="mt-2 space-y-1.5">
+                  {documents.map((doc) => (
+                    <li
+                      key={doc.name}
+                      className="flex items-center justify-between rounded-md border border-brand-line bg-[#FAFBFD] px-2.5 py-2 text-[10px]"
+                    >
+                      <div>
+                        <p className="font-semibold text-brand-navy">{doc.name}</p>
+                        <p className="text-[9px] text-brand-muted">
+                          {doc.type} · {doc.date}
+                        </p>
+                      </div>
+                      <span className="text-brand-orange">View</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </>
+          ) : (
+            <div className="mt-3 grid gap-2 sm:grid-cols-2">
+              <div className="rounded-lg border border-brand-line bg-white p-3">
+                <p className="text-[9px] font-semibold uppercase tracking-wide text-brand-muted">Documents</p>
+                <p className="mt-1 text-[10px] font-semibold text-brand-navy">Architectural Set — Rev C</p>
+                <p className="text-[9px] text-brand-muted">Drawings · Sep 04</p>
+              </div>
+              <div className="rounded-lg border border-brand-line bg-white p-3">
+                <p className="text-[9px] font-semibold uppercase tracking-wide text-brand-muted">Next milestone</p>
+                <p className="mt-1 text-[10px] font-semibold text-brand-navy">MEP rough-in</p>
+                <p className="text-[9px] text-brand-muted">Target · Oct 18</p>
+              </div>
+            </div>
+          )}
+        </div>
+
+        {detailed ? (
+          <div className="border-t border-brand-line bg-white p-4 lg:border-l lg:border-t-0">
+            <p className="text-[9px] font-semibold uppercase tracking-wide text-brand-muted">Project overview</p>
+            <ul className="mt-2 space-y-2 text-[10px] text-brand-muted">
+              <li>
+                <span className="font-semibold text-brand-navy">Location</span>
+                <br />
+                Austin, TX
+              </li>
+              <li>
+                <span className="font-semibold text-brand-navy">Contract value</span>
+                <br />
+                $4.8M
+              </li>
+              <li>
+                <span className="font-semibold text-brand-navy">Approved billing</span>
+                <br />
+                Pay App #6 · $842K
+              </li>
+            </ul>
+            <div className="mt-4 rounded-md border border-brand-orange/25 bg-brand-orange/[0.04] px-2.5 py-2">
+              <p className="text-[9px] font-semibold uppercase tracking-wide text-brand-orange">Awaiting approval</p>
+              <p className="mt-1 text-[10px] font-semibold text-brand-navy">Change Order CO-014</p>
+              <p className="text-[9px] text-brand-muted">Owner review · Due Sep 12</p>
+            </div>
+            <div className="mt-3 rounded-md border border-brand-line bg-[#FAFBFD] px-2.5 py-2">
+              <p className="text-[9px] font-semibold uppercase tracking-wide text-brand-muted">Recent activity</p>
+              <ul className="mt-1.5 space-y-1 text-[9px] text-brand-muted">
+                <li>Progress update published</li>
+                <li>Drawing set Rev C shared</li>
+                <li>Pay application submitted</li>
+              </ul>
+            </div>
+          </div>
+        ) : null}
+      </div>
+    </div>
+  );
+}
+
+export function CpHeroUI() {
+  return (
+    <BrowserFrame url="portal.vertexcms.com / riverside-medical">
+      <CpPortalShell
+        role="Client Portal"
+        roleLabel="Project workspace"
+        url="portal.vertexcms.com"
+        nav={["Overview", "Updates", "Documents", "RFIs", "Submittals", "Approvals", "Contacts"]}
+        activeNav="Overview"
+      >
+        <div className="space-y-3">
+          <div className="flex flex-wrap items-center justify-between gap-2">
+            <div>
+              <p className="text-[10px] font-semibold uppercase tracking-[0.12em] text-brand-muted">Project</p>
+              <p className="text-[14px] font-bold text-brand-navy">{CP_PROJECT}</p>
+            </div>
+            <div className="flex flex-wrap items-center gap-2">
+              <span className="rounded-sm border border-emerald-200 bg-emerald-50 px-2 py-1 text-[9px] font-semibold text-emerald-700">
+                On Track
+              </span>
+              <span className="rounded-sm border border-brand-line bg-[#FAFBFD] px-2 py-1 text-[9px] font-semibold text-brand-navy">
+                68% complete
+              </span>
+            </div>
+          </div>
+          <div className="h-1.5 overflow-hidden rounded-full bg-brand-line">
+            <div className="h-full w-[68%] rounded-full bg-brand-orange" />
+          </div>
+          <div className="grid gap-2 sm:grid-cols-2">
+            <div className="rounded-lg border border-brand-orange/30 bg-brand-orange/[0.04] p-3">
+              <p className="text-[9px] font-semibold uppercase tracking-wide text-brand-orange">Pending approvals</p>
+              <p className="mt-1 text-[11px] font-semibold text-brand-navy">Pay App #07 · Change Order #12</p>
+              <p className="mt-1 text-[10px] text-brand-muted">2 items awaiting review</p>
+            </div>
+            <div className="rounded-lg border border-brand-line bg-white p-3">
+              <p className="text-[9px] font-semibold uppercase tracking-wide text-brand-muted">Open items</p>
+              <p className="mt-1 text-[11px] font-semibold text-brand-navy">RFI-204 · SUB-118</p>
+              <p className="mt-1 text-[10px] text-brand-muted">1 RFI · 1 submittal in review</p>
+            </div>
+          </div>
+          <div className="grid gap-2 sm:grid-cols-3">
+            {[
+              ["Documents", "12 shared"],
+              ["RFIs", "3 visible"],
+              ["Submittals", "5 in review"],
+            ].map(([label, value]) => (
+              <div key={label} className="rounded-lg border border-brand-line bg-[#FAFBFD] p-2.5">
+                <p className="text-[8px] font-semibold uppercase tracking-wide text-brand-muted">{label}</p>
+                <p className="mt-0.5 text-[11px] font-semibold text-brand-navy">{value}</p>
+              </div>
+            ))}
+          </div>
+          <div className="rounded-lg border border-brand-line bg-white p-3">
+            <p className="text-[9px] font-semibold uppercase tracking-wide text-brand-muted">Recent update</p>
+            <p className="mt-1 text-[11px] font-semibold text-brand-navy">MEP rough-in progressing on Level 3</p>
+            <p className="mt-1 text-[10px] text-brand-muted">Posted Sep 08 · Project team</p>
+          </div>
+          <div className="rounded-lg border border-brand-line bg-white p-3">
+            <p className="text-[9px] font-semibold uppercase tracking-wide text-brand-muted">Recent activity</p>
+            <ul className="mt-2 space-y-1.5 text-[10px] text-brand-muted">
+              <li>Document shared · Architectural Set Rev C</li>
+              <li>Approval requested · Pay Application #07</li>
+              <li>Submittal submitted · Curtain wall system</li>
+            </ul>
+          </div>
+        </div>
+      </CpPortalShell>
+    </BrowserFrame>
+  );
+}
+
+export function CpOwnerPortalUI() {
+  return (
+    <BrowserFrame url="portal.vertexcms.com / owner / pay-apps">
+      <CpPortalShell
+        role="Owner Portal"
+        roleLabel="Owner access"
+        url="portal.vertexcms.com"
+        nav={["Overview", "Budget", "Schedule", "Photos", "Pay Applications", "Change Orders", "Invoices", "Warranty"]}
+        activeNav="Pay Applications"
+      >
+        <div className="space-y-3">
+          <div className="rounded-lg border border-brand-line bg-white p-3">
+            <div className="flex items-start justify-between gap-2">
+              <div>
+                <p className="text-[11px] font-bold text-brand-navy">Pay Application #07</p>
+                <p className="text-[10px] text-brand-muted">Period ending Aug 31 · G702/G703 attached</p>
+              </div>
+              <span className="rounded-sm bg-amber-50 px-2 py-0.5 text-[9px] font-semibold text-amber-700">Pending</span>
+            </div>
+            <p className="mt-2 text-[18px] font-bold text-brand-navy">$892,400</p>
+            <div className="mt-3 flex gap-2">
+              <span className="rounded-sm bg-brand-navy px-3 py-1.5 text-[10px] font-semibold text-white">Approve</span>
+              <span className="rounded-sm border border-brand-line px-3 py-1.5 text-[10px] font-semibold text-brand-navy">Reject</span>
+            </div>
+          </div>
+          <div className="rounded-lg border border-brand-line bg-white p-3">
+            <div className="flex items-start justify-between gap-2">
+              <div>
+                <p className="text-[11px] font-bold text-brand-navy">Change Order #12</p>
+                <p className="text-[10px] text-brand-muted">Ceiling grid revision · Level 3</p>
+              </div>
+              <span className="rounded-sm bg-amber-50 px-2 py-0.5 text-[9px] font-semibold text-amber-700">Pending</span>
+            </div>
+            <p className="mt-2 text-[14px] font-bold text-brand-navy">$48,200</p>
+            <div className="mt-3 flex gap-2">
+              <span className="rounded-sm bg-brand-navy px-3 py-1.5 text-[10px] font-semibold text-white">Approve</span>
+              <span className="rounded-sm border border-brand-line px-3 py-1.5 text-[10px] font-semibold text-brand-navy">Reject</span>
+            </div>
+          </div>
+          <div className="grid gap-2 sm:grid-cols-2">
+            <div className="rounded-lg border border-brand-line bg-[#FAFBFD] p-3">
+              <p className="text-[9px] font-semibold uppercase tracking-wide text-brand-muted">Read-only budget</p>
+              <p className="mt-1 text-[12px] font-semibold text-brand-navy">$4.8M committed</p>
+            </div>
+            <div className="rounded-lg border border-brand-line bg-[#FAFBFD] p-3">
+              <p className="text-[9px] font-semibold uppercase tracking-wide text-brand-muted">Draw request</p>
+              <p className="mt-1 text-[12px] font-semibold text-brand-navy">DR-04 submitted</p>
+            </div>
+          </div>
+        </div>
+      </CpPortalShell>
+    </BrowserFrame>
+  );
+}
+
+export function CpSubPortalUI() {
+  return (
+    <BrowserFrame url="portal.vertexcms.com / sub / scope">
+      <CpPortalShell
+        role="Subcontractor Portal"
+        roleLabel="Assigned scope"
+        url="portal.vertexcms.com"
+        nav={["My Scope", "Bids", "Submittals", "COI", "Lien Waiver", "Invoices", "RFIs", "Schedule"]}
+        activeNav="My Scope"
+      >
+        <div className="space-y-3">
+          <div className="rounded-lg border border-brand-line bg-white p-3">
+            <p className="text-[9px] font-semibold uppercase tracking-wide text-brand-muted">My scope</p>
+            <p className="mt-1 text-[12px] font-bold text-brand-navy">MEP Rough-in · Levels 2–3</p>
+            <p className="text-[10px] text-brand-muted">{CP_PROJECT}</p>
+          </div>
+          <ul className="space-y-2">
+            {[
+              ["Bid PKG-118", "Draft → Submitted", "Submitted Sep 09"],
+              ["Lien Waiver LW-044", "Ready to sign", "E-sign pending"],
+              ["COI — General Liability", "Uploaded", "Valid through Dec 2026"],
+              ["Invoice INV-2201", "Payment status", "Approved · $86,400"],
+            ].map(([title, status, meta]) => (
+              <li key={title} className="flex items-center justify-between rounded-lg border border-brand-line bg-white px-3 py-2.5">
+                <div>
+                  <p className="text-[11px] font-semibold text-brand-navy">{title}</p>
+                  <p className="text-[9px] text-brand-muted">{meta}</p>
+                </div>
+                <span className="text-[10px] font-semibold text-brand-orange">{status}</span>
+              </li>
+            ))}
+          </ul>
+          <div className="rounded-lg border border-brand-line bg-[#FAFBFD] p-3">
+            <p className="text-[9px] font-semibold uppercase tracking-wide text-brand-muted">RFI-198</p>
+            <p className="mt-1 text-[11px] font-semibold text-brand-navy">Ceiling coordination · Awaiting response</p>
+          </div>
+        </div>
+      </CpPortalShell>
+    </BrowserFrame>
+  );
+}
+
+export function CpVendorPortalUI() {
+  return (
+    <BrowserFrame url="portal.vertexcms.com / vendor / po-1048">
+      <CpPortalShell
+        role="Vendor Portal"
+        roleLabel="Purchase orders"
+        url="portal.vertexcms.com"
+        nav={["Purchase Orders", "Delivery", "Invoices", "ASN", "Acknowledgments"]}
+        activeNav="Purchase Orders"
+      >
+        <div className="space-y-3">
+          <div className="rounded-lg border border-brand-line bg-white p-3">
+            <div className="flex items-start justify-between">
+              <div>
+                <p className="text-[11px] font-bold text-brand-navy">PO-1048 · Formwork materials</p>
+                <p className="text-[10px] text-brand-muted">{CP_PROJECT}</p>
+              </div>
+              <span className="rounded-sm bg-amber-50 px-2 py-0.5 text-[9px] font-semibold text-amber-700">Ack pending</span>
+            </div>
+            <p className="mt-2 text-[16px] font-bold text-brand-navy">$28,100</p>
+          </div>
+          <div className="grid gap-2 sm:grid-cols-2">
+            <div className="rounded-lg border border-brand-line bg-[#FAFBFD] p-3">
+              <p className="text-[9px] font-semibold uppercase tracking-wide text-brand-muted">Delivered quantity</p>
+              <p className="mt-1 text-[12px] font-semibold text-brand-navy">840 units</p>
+            </div>
+            <div className="rounded-lg border border-brand-line bg-[#FAFBFD] p-3">
+              <p className="text-[9px] font-semibold uppercase tracking-wide text-brand-muted">Delivery date</p>
+              <p className="mt-1 text-[12px] font-semibold text-brand-navy">Sep 10, 2026</p>
+            </div>
+          </div>
+          <ul className="space-y-2 text-[10px]">
+            <li className="flex justify-between rounded-md border border-brand-line bg-white px-3 py-2">
+              <span className="text-brand-navy">PO acknowledgment</span>
+              <span className="font-semibold text-amber-700">Pending</span>
+            </li>
+            <li className="flex justify-between rounded-md border border-brand-line bg-white px-3 py-2">
+              <span className="text-brand-navy">Invoice submission</span>
+              <span className="font-semibold text-emerald-600">Submitted</span>
+            </li>
+            <li className="flex justify-between rounded-md border border-brand-line bg-white px-3 py-2">
+              <span className="text-brand-navy">ASN</span>
+              <span className="font-semibold text-brand-blue">Shipped</span>
+            </li>
+          </ul>
+        </div>
+      </CpPortalShell>
+    </BrowserFrame>
+  );
+}
+
+export function CpArchitectPortalUI() {
+  return (
+    <BrowserFrame url="portal.vertexcms.com / architect / submittals">
+      <CpPortalShell
+        role="Architect Portal"
+        roleLabel="Design review"
+        url="portal.vertexcms.com"
+        nav={["RFIs", "Submittals", "Drawings", "Revisions"]}
+        activeNav="Submittals"
+      >
+        <div className="space-y-3">
+          <div className="rounded-lg border border-brand-line bg-white p-3">
+            <p className="text-[9px] font-semibold uppercase tracking-wide text-brand-muted">RFI-204</p>
+            <p className="mt-1 text-[11px] font-semibold text-brand-navy">Curtain wall anchor detail</p>
+            <p className="mt-1 text-[10px] text-brand-muted">Response submitted · Sep 08</p>
+          </div>
+          <div className="rounded-lg border border-brand-orange/25 bg-brand-orange/[0.04] p-3">
+            <div className="flex items-start justify-between">
+              <div>
+                <p className="text-[9px] font-semibold uppercase tracking-wide text-brand-orange">Submittal SUB-118</p>
+                <p className="mt-1 text-[11px] font-bold text-brand-navy">Curtain wall system</p>
+              </div>
+              <span className="rounded-sm bg-blue-50 px-2 py-0.5 text-[9px] font-semibold text-brand-blue">In review</span>
+            </div>
+            <div className="mt-3 flex flex-wrap gap-2">
+              <span className="rounded-sm bg-brand-navy px-2.5 py-1 text-[9px] font-semibold text-white">Stamp</span>
+              <span className="rounded-sm border border-brand-line bg-white px-2.5 py-1 text-[9px] font-semibold text-brand-navy">Add notes</span>
+              <span className="rounded-sm border border-brand-line bg-white px-2.5 py-1 text-[9px] font-semibold text-brand-navy">Approve</span>
+            </div>
+          </div>
+          <div className="rounded-lg border border-brand-line bg-white p-3">
+            <p className="text-[9px] font-semibold uppercase tracking-wide text-brand-muted">Drawing revision</p>
+            <p className="mt-1 text-[11px] font-semibold text-brand-navy">A-301 · Revision 06</p>
+            <p className="mt-1 text-[10px] text-brand-muted">Pending approval · Notifies project team on stamp</p>
+          </div>
+        </div>
+      </CpPortalShell>
+    </BrowserFrame>
+  );
+}
+
+export function CpEsignUI() {
+  return (
+    <BrowserFrame url="portal.vertexcms.com / sub / lien-waiver">
+      <div className="bg-[#F7F9FC] p-4">
+        <div className="rounded-lg border border-brand-line bg-white p-4">
+          <p className="text-[9px] font-semibold uppercase tracking-[0.14em] text-brand-orange">Lien waiver · E-sign</p>
+          <p className="mt-2 text-[14px] font-bold text-brand-navy">LW-044 · Conditional progress waiver</p>
+          <p className="mt-1 text-[11px] text-brand-muted">{CP_PROJECT} · MEP Rough-in scope</p>
+          <div className="mt-4 rounded-md border border-emerald-200 bg-emerald-50 px-3 py-3">
+            <p className="text-[11px] font-semibold text-emerald-800">Signed</p>
+            <p className="mt-1 text-[10px] text-emerald-700">John Smith · Sep 09, 2026 · 2:14 PM</p>
+          </div>
+          <ul className="mt-4 space-y-2 border-t border-brand-line pt-4 text-[10px]">
+            <li className="flex justify-between"><span className="text-brand-muted">IP address</span><span className="font-mono text-brand-navy">Recorded</span></li>
+            <li className="flex justify-between"><span className="text-brand-muted">Timestamp</span><span className="font-mono text-brand-navy">2026-09-09T14:14:22Z</span></li>
+            <li className="flex justify-between"><span className="text-brand-muted">Certificate</span><span className="font-semibold text-brand-navy">Stored</span></li>
+            <li className="flex justify-between"><span className="text-brand-muted">Delivery</span><span className="text-brand-navy">Email-to-sign</span></li>
+          </ul>
+        </div>
+      </div>
+    </BrowserFrame>
+  );
+}
+
+export function CpShowcaseUI() {
+  return (
+    <BrowserFrame url="portal.vertexcms.com / riverside-medical">
+      <CpPortalContent detailed />
+    </BrowserFrame>
+  );
+}
+
+export function CpPortalScreenUI() {
+  const sections = [
+    { label: "Project Overview", active: false },
+    { label: "Current Phase", active: false },
+    { label: "Recent Updates", active: true },
+    { label: "Milestones", active: false },
+    { label: "Documents", active: false },
+    { label: "Upcoming", active: false },
+  ];
+
+  return (
+    <BrowserFrame url="portal.vertexcms.com / riverside-medical">
+      <div className="bg-[#F7F9FC]">
+        <div className="flex items-center justify-between border-b border-brand-line bg-white px-4 py-3">
+          <div className="flex items-center gap-3">
+            <div className="flex h-8 w-8 items-center justify-center rounded-sm bg-brand-navy text-[10px] font-bold text-white">
+              NL
+            </div>
+            <div>
+              <p className="text-[11px] font-semibold text-brand-navy">Northline Construction</p>
+              <p className="text-[9px] font-semibold uppercase tracking-[0.12em] text-brand-orange">Client Portal</p>
+            </div>
+          </div>
+          <div className="flex items-center gap-2">
+            <span className="hidden rounded-sm border border-brand-line bg-[#FAFBFD] px-2 py-1 text-[9px] font-semibold text-brand-muted sm:inline">
+              Riverside Medical Center
+            </span>
+            <span className="rounded-sm border border-emerald-200 bg-emerald-50 px-2 py-1 text-[9px] font-semibold text-emerald-700">
+              On Track
+            </span>
+          </div>
+        </div>
+
+        <div className="border-b border-brand-line bg-white px-4 py-3">
+          <div className="flex flex-wrap items-end justify-between gap-3">
+            <div>
+              <p className="text-[10px] font-semibold uppercase tracking-[0.12em] text-brand-muted">Project</p>
+              <p className="text-[15px] font-bold text-brand-navy">Riverside Medical Center</p>
+            </div>
+            <div className="text-right">
+              <p className="text-[9px] font-semibold uppercase tracking-wide text-brand-muted">Progress</p>
+              <p className="text-[18px] font-bold text-brand-navy">68%</p>
+            </div>
+          </div>
+          <div className="mt-3 h-2 overflow-hidden rounded-full bg-brand-line">
+            <div className="h-full w-[68%] rounded-full bg-brand-orange" />
+          </div>
+        </div>
+
+        <div className="overflow-x-auto border-b border-brand-line bg-white px-2 [scrollbar-width:thin]">
+          <div className="flex min-w-max gap-1 py-2">
+            {sections.map((s) => (
+              <span
+                key={s.label}
+                className={
+                  "shrink-0 rounded-md px-3 py-1.5 text-[10px] font-semibold " +
+                  (s.active
+                    ? "bg-brand-orange/10 text-brand-orange"
+                    : "text-brand-muted hover:bg-[#FAFBFD]")
+                }
+              >
+                {s.label}
+              </span>
+            ))}
+          </div>
+        </div>
+
+        <div className="grid gap-0 lg:grid-cols-[1fr_240px]">
+          <div className="space-y-3 p-4">
+            <div className="rounded-lg border border-brand-line bg-white p-3">
+              <p className="text-[9px] font-semibold uppercase tracking-wide text-brand-muted">Project overview</p>
+              <p className="mt-1.5 text-[11px] leading-relaxed text-brand-muted">
+                42,000 SF medical office expansion with phased occupancy. Interior build-out is active on Levels 2–3
+                while exterior punch continues on the south wing.
+              </p>
+            </div>
+            <div className="rounded-lg border border-brand-line bg-white p-3">
+              <p className="text-[9px] font-semibold uppercase tracking-wide text-brand-muted">Current phase</p>
+              <p className="mt-1 text-[12px] font-semibold text-brand-navy">Interior build-out</p>
+              <p className="mt-1 text-[10px] text-brand-muted">MEP rough-in · Ceiling grid prep · Level 3</p>
+            </div>
+            <div className="rounded-lg border border-brand-orange/25 bg-brand-orange/[0.04] p-3">
+              <p className="text-[9px] font-semibold uppercase tracking-wide text-brand-orange">Recent updates</p>
+              <p className="mt-1 text-[11px] font-semibold text-brand-navy">MEP rough-in progressing on Level 3</p>
+              <p className="mt-1 text-[10px] leading-relaxed text-brand-muted">
+                Structural steel inspection passed. Mechanical and electrical rough-in is underway with ceiling grid
+                installation scheduled for Sep 16.
+              </p>
+            </div>
+            <div className="grid gap-3 sm:grid-cols-2">
+              <div className="rounded-lg border border-brand-line bg-white p-3">
+                <p className="text-[9px] font-semibold uppercase tracking-wide text-brand-muted">Milestones</p>
+                <ul className="mt-2 space-y-1 text-[10px]">
+                  <li className="flex justify-between">
+                    <span className="text-brand-navy">Foundation complete</span>
+                    <span className="text-emerald-600">Done</span>
+                  </li>
+                  <li className="flex justify-between">
+                    <span className="text-brand-navy">Structural steel</span>
+                    <span className="text-emerald-600">Done</span>
+                  </li>
+                  <li className="flex justify-between">
+                    <span className="text-brand-muted">MEP rough-in</span>
+                    <span className="text-brand-muted">Oct 18</span>
+                  </li>
+                </ul>
+              </div>
+              <div className="rounded-lg border border-brand-line bg-white p-3">
+                <p className="text-[9px] font-semibold uppercase tracking-wide text-brand-muted">Documents</p>
+                <ul className="mt-2 space-y-1.5 text-[10px]">
+                  <li className="rounded border border-brand-line bg-[#FAFBFD] px-2 py-1.5">
+                    <span className="font-semibold text-brand-navy">Architectural Set — Rev C</span>
+                  </li>
+                  <li className="rounded border border-brand-line bg-[#FAFBFD] px-2 py-1.5">
+                    <span className="font-semibold text-brand-navy">Weekly Progress Report</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div className="border-t border-brand-line bg-white p-4 lg:border-l lg:border-t-0">
+            <p className="text-[9px] font-semibold uppercase tracking-wide text-brand-muted">Upcoming</p>
+            <ul className="mt-2 space-y-2">
+              {[
+                ["Owner walkthrough", "Sep 14"],
+                ["Ceiling inspection", "Sep 19"],
+                ["Pay application review", "Sep 22"],
+              ].map(([item, date]) => (
+                <li key={item} className="rounded-md border border-brand-line bg-[#FAFBFD] px-2.5 py-2 text-[10px]">
+                  <p className="font-semibold text-brand-navy">{item}</p>
+                  <p className="text-[9px] text-brand-muted">{date}</p>
+                </li>
+              ))}
+            </ul>
+            <div className="mt-4 rounded-md border border-brand-line bg-[#FAFBFD] px-2.5 py-2">
+              <p className="text-[9px] font-semibold uppercase tracking-wide text-brand-muted">Approved financial</p>
+              <p className="mt-1 text-[11px] font-semibold text-brand-navy">Pay App #6</p>
+              <p className="text-[10px] text-brand-muted">$842,000 · Approved Aug 28</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </BrowserFrame>
+  );
+}
+
+export function CpPermissionsUI() {
+  const roles = ["Owner", "Client", "Architect"];
+  const rows = [
+    { perm: "Project Overview", levels: ["Full", "Full", "View"] },
+    { perm: "Documents", levels: ["Full", "Full", "Full"] },
+    { perm: "RFIs", levels: ["View", "View", "Full"] },
+    { perm: "Approvals", levels: ["Full", "Full", "Full"] },
+  ];
+  return (
+    <BrowserFrame url="app.vertexcms.com / projects / riverside-medical / portal-access">
+      <div className="bg-[#F7F9FC] p-4">
+        <div className="mb-3 flex flex-wrap items-center justify-between gap-2">
+          <div>
+            <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-brand-muted">Portal access</p>
+            <p className="text-[13px] font-bold text-brand-navy">{CP_PROJECT}</p>
+          </div>
+          <span className="rounded-sm bg-brand-navy px-2.5 py-1 text-[9px] font-semibold text-white">Manage access</span>
+        </div>
+        <div className="overflow-x-auto rounded-lg border border-brand-line bg-white">
+          <div className="min-w-[420px]">
+            <div className="grid grid-cols-4 gap-1 border-b border-brand-line bg-[#FAFBFD] px-3 py-2 text-[8px] font-semibold uppercase tracking-wide text-brand-muted">
+              <span>Permission</span>
+              {roles.map((r) => (
+                <span key={r}>{r}</span>
+              ))}
+            </div>
+            {rows.map((row) => (
+              <div
+                key={row.perm}
+                className="grid grid-cols-4 items-center gap-1 border-b border-brand-line/80 px-3 py-2.5 text-[10px] last:border-0"
+              >
+                <span className="font-semibold text-brand-navy">{row.perm}</span>
+                {row.levels.map((level, i) => (
+                  <span
+                    key={`${row.perm}-${roles[i]}`}
+                    className={
+                      "w-fit rounded-sm border px-2 py-0.5 text-[9px] font-semibold " +
+                      (level === "Full"
+                        ? "border-emerald-200 bg-emerald-50 text-emerald-800"
+                        : "border-brand-line bg-[#FAFBFD] text-brand-muted")
+                    }
+                  >
+                    {level === "Full" ? "Full Access" : "View"}
+                  </span>
+                ))}
+              </div>
+            ))}
+          </div>
+        </div>
+        <p className="mt-3 text-[9px] text-brand-muted">
+          Subcontractor and Vendor portals use assigned scope — not tenant-wide visibility.
+        </p>
+      </div>
+    </BrowserFrame>
+  );
+}
+
+export function CpActivityUI() {
+  const items = [
+    { type: "Update", title: "Project update posted", detail: "MEP rough-in progressing on Level 3", when: "Sep 08 · 9:14 AM" },
+    { type: "Document", title: "Document shared", detail: "Architectural Set — Rev C", when: "Sep 07 · 4:02 PM" },
+    { type: "RFI", title: "RFI updated", detail: "RFI-204 · Response submitted", when: "Sep 08 · 11:30 AM" },
+    { type: "Submittal", title: "Submittal submitted", detail: "SUB-118 · Curtain wall system", when: "Sep 06 · 2:45 PM" },
+    { type: "Approval", title: "Approval requested", detail: "Pay Application #07 · $892,400", when: "Sep 05 · 10:00 AM" },
+    { type: "Comment", title: "Comment added", detail: "Change Order #12 · Owner review note", when: "Sep 04 · 3:18 PM" },
+  ];
+  return (
+    <BrowserFrame url="portal.vertexcms.com / riverside-medical / activity">
+      <CpPortalShell
+        role="Client Portal"
+        roleLabel="Project activity"
+        url="portal.vertexcms.com"
+        nav={["Overview", "Updates", "Documents", "RFIs", "Submittals", "Approvals", "Activity"]}
+        activeNav="Activity"
+      >
+        <ul className="space-y-2">
+          {items.map((item) => (
+            <li key={item.when + item.title} className="rounded-lg border border-brand-line bg-white px-3 py-2.5">
+              <div className="flex items-start justify-between gap-2">
+                <div>
+                  <span className="rounded-sm bg-brand-orange/10 px-1.5 py-0.5 text-[8px] font-semibold uppercase text-brand-orange">
+                    {item.type}
+                  </span>
+                  <p className="mt-1.5 text-[11px] font-semibold text-brand-navy">{item.title}</p>
+                  <p className="mt-0.5 text-[10px] text-brand-muted">{item.detail}</p>
+                </div>
+                <span className="shrink-0 text-[8px] text-brand-muted">{item.when}</span>
+              </div>
+            </li>
+          ))}
+        </ul>
+      </CpPortalShell>
+    </BrowserFrame>
+  );
+}
+
+export function CpApprovalsUI() {
+  const rows = [
+    { item: "Pay Application #07", type: "Pay Application", by: "Project team", due: "Sep 14", status: "Pending", comment: "G702/G703 attached" },
+    { item: "Change Order #12", type: "Change Request", by: "A. Morgan", due: "Sep 12", status: "Pending", comment: "Ceiling grid revision" },
+    { item: "SUB-118", type: "Submittal Review", by: "MEP Sub", due: "Sep 10", status: "Changes Requested", comment: "Revise anchor detail" },
+    { item: "A-301 Rev 06", type: "Project Document", by: "Design team", due: "Sep 09", status: "Approved", comment: "Stamped Sep 08" },
+  ];
+  const statusTone = (s: string) =>
+    s === "Approved"
+      ? "text-emerald-700 bg-emerald-50 border-emerald-200"
+      : s === "Changes Requested"
+        ? "text-amber-800 bg-amber-50 border-amber-200"
+        : "text-amber-700 bg-amber-50 border-amber-200";
+  return (
+    <BrowserFrame url="portal.vertexcms.com / riverside-medical / approvals">
+      <CpPortalShell
+        role="Owner Portal"
+        roleLabel="Pending decisions"
+        url="portal.vertexcms.com"
+        nav={["Overview", "Budget", "Schedule", "Pay Applications", "Change Orders", "Approvals"]}
+        activeNav="Approvals"
+      >
+        <div className="overflow-x-auto">
+          <div className="min-w-[480px]">
+            <div className="grid grid-cols-[1.1fr_0.7fr_0.6fr_0.5fr_0.7fr] gap-1 border-b border-brand-line pb-1.5 text-[8px] font-semibold uppercase tracking-wide text-brand-muted">
+              <span>Item</span>
+              <span>Requested by</span>
+              <span>Due</span>
+              <span>Status</span>
+              <span>Comment</span>
+            </div>
+            {rows.map((row) => (
+              <div
+                key={row.item}
+                className="grid grid-cols-[1.1fr_0.7fr_0.6fr_0.5fr_0.7fr] items-start gap-1 border-b border-brand-line/80 py-2.5 text-[10px] last:border-0"
+              >
+                <span>
+                  <span className="font-semibold text-brand-navy">{row.item}</span>
+                  <span className="mt-0.5 block text-[8px] text-brand-muted">{row.type}</span>
+                </span>
+                <span className="text-brand-muted">{row.by}</span>
+                <span className="text-brand-muted">{row.due}</span>
+                <span className={"w-fit rounded-sm border px-1.5 py-0.5 text-[8px] font-semibold " + statusTone(row.status)}>
+                  {row.status}
+                </span>
+                <span className="text-brand-muted">{row.comment}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </CpPortalShell>
+    </BrowserFrame>
+  );
+}
+
+export function CpDocumentsUI() {
+  const docs = [
+    { name: "Architectural Plans — Rev C", type: "Plans", updated: "Sep 04", access: "View" },
+    { name: "Project Specifications", type: "Specifications", updated: "Aug 28", access: "View" },
+    { name: "Master Schedule — Sep", type: "Schedules", updated: "Sep 01", access: "View" },
+    { name: "Weekly Progress Report", type: "Project Reports", updated: "Sep 08", access: "View" },
+    { name: "SUB-118 · Curtain Wall", type: "Submittals", updated: "Sep 06", access: "View" },
+  ];
+  return (
+    <BrowserFrame url="portal.vertexcms.com / riverside-medical / documents">
+      <CpPortalShell
+        role="Client Portal"
+        roleLabel="Shared documents"
+        url="portal.vertexcms.com"
+        nav={["Overview", "Updates", "Documents", "RFIs", "Submittals", "Approvals"]}
+        activeNav="Documents"
+      >
+        <div className="mb-3 flex flex-wrap gap-1.5">
+          {["All", "Recent", "Shared"].map((tab, i) => (
+            <span
+              key={tab}
+              className={
+                "rounded-sm border px-2 py-1 text-[9px] font-semibold " +
+                (i === 0 ? "border-brand-orange/40 bg-brand-orange/10 text-brand-navy" : "border-brand-line bg-white text-brand-muted")
+              }
+            >
+              {tab}
+            </span>
+          ))}
+        </div>
+        <div className="overflow-x-auto">
+          <div className="min-w-[420px]">
+            <div className="grid grid-cols-[1.2fr_0.6fr_0.5fr_0.4fr] gap-1 border-b border-brand-line pb-1.5 text-[8px] font-semibold uppercase tracking-wide text-brand-muted">
+              <span>Document</span>
+              <span>Type</span>
+              <span>Updated</span>
+              <span>Access</span>
+            </div>
+            {docs.map((doc) => (
+              <div
+                key={doc.name}
+                className="grid grid-cols-[1.2fr_0.6fr_0.5fr_0.4fr] items-center gap-1 border-b border-brand-line/80 py-2.5 text-[10px] last:border-0"
+              >
+                <span className="font-semibold text-brand-navy">{doc.name}</span>
+                <span className="text-brand-muted">{doc.type}</span>
+                <span className="text-brand-muted">{doc.updated}</span>
+                <span className="font-semibold text-brand-orange">{doc.access}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </CpPortalShell>
+    </BrowserFrame>
+  );
+}
+
+export function CpFullPortalUI() {
+  const nav = ["Overview", "Updates", "Documents", "RFIs", "Submittals", "Open Items", "Approvals"];
+  return (
+    <BrowserFrame url="portal.vertexcms.com / riverside-medical">
+      <CpPortalShell
+        role="Client Portal"
+        roleLabel="Full project workspace"
+        url="portal.vertexcms.com"
+        nav={nav}
+        activeNav="Overview"
+      >
+        <div className="space-y-3">
+          <div className="flex flex-wrap items-center justify-between gap-2">
+            <div>
+              <p className="text-[10px] font-semibold uppercase tracking-[0.12em] text-brand-muted">Project status</p>
+              <p className="text-[13px] font-bold text-brand-navy">{CP_PROJECT}</p>
+            </div>
+            <span className="rounded-sm border border-emerald-200 bg-emerald-50 px-2 py-1 text-[9px] font-semibold text-emerald-700">
+              On Track · 68%
+            </span>
+          </div>
+          <div className="h-1.5 overflow-hidden rounded-full bg-brand-line">
+            <div className="h-full w-[68%] rounded-full bg-brand-orange" />
+          </div>
+          <div className="grid gap-3 lg:grid-cols-[1fr_200px]">
+            <div className="space-y-3">
+              <div className="rounded-lg border border-brand-line bg-white p-3">
+                <p className="text-[9px] font-semibold uppercase tracking-wide text-brand-muted">Recent updates</p>
+                <p className="mt-1 text-[11px] font-semibold text-brand-navy">MEP rough-in progressing on Level 3</p>
+                <p className="mt-1 text-[10px] text-brand-muted">Structural inspection passed · Sep 08</p>
+              </div>
+              <div className="grid gap-2 sm:grid-cols-2">
+                <div className="rounded-lg border border-brand-line bg-white p-3">
+                  <p className="text-[9px] font-semibold uppercase tracking-wide text-brand-muted">Documents</p>
+                  <p className="mt-1 text-[11px] font-semibold text-brand-navy">12 shared</p>
+                  <p className="text-[9px] text-brand-muted">Plans · Specs · Reports</p>
+                </div>
+                <div className="rounded-lg border border-brand-line bg-white p-3">
+                  <p className="text-[9px] font-semibold uppercase tracking-wide text-brand-muted">Open items</p>
+                  <p className="mt-1 text-[11px] font-semibold text-brand-navy">RFI-204 · SUB-118</p>
+                  <p className="text-[9px] text-brand-muted">2 items in review</p>
+                </div>
+              </div>
+            </div>
+            <div className="space-y-2">
+              <div className="rounded-lg border border-brand-orange/25 bg-brand-orange/[0.04] p-3">
+                <p className="text-[9px] font-semibold uppercase tracking-wide text-brand-orange">Approvals</p>
+                <p className="mt-1 text-[10px] font-semibold text-brand-navy">Pay App #07</p>
+                <p className="text-[9px] text-brand-muted">Pending · Due Sep 14</p>
+              </div>
+              <div className="rounded-lg border border-brand-line bg-[#FAFBFD] p-3">
+                <p className="text-[9px] font-semibold uppercase tracking-wide text-brand-muted">Project info</p>
+                <ul className="mt-1.5 space-y-1 text-[9px] text-brand-muted">
+                  <li>Austin, TX · $4.8M</li>
+                  <li>Phase · Interior build-out</li>
+                  <li>Next milestone · MEP rough-in</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </CpPortalShell>
     </BrowserFrame>
   );
 }

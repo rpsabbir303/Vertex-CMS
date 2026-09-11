@@ -12,7 +12,8 @@ const base = "Vertex CMS";
 export const MARKETING_PAGES: Record<string, MarketingPageConfig> = {
   solutions: {
     title: `Construction Software Solutions | ${base}`,
-    description: "Construction software solutions for general contractors, subcontractors, and project teams.",
+    description:
+      "Find the Vertex CMS solution that fits your construction business, project type, or role — connected project, financial, field, workforce, and intelligence workflows.",
     breadcrumbs: [{ label: "Home", href: ROUTES.home }, { label: "Solutions" }],
   },
   pricing: {

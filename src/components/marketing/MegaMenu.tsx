@@ -267,7 +267,7 @@ function SolutionsMegaPanel({ onClose }: { onClose: () => void }) {
       }
     >
       <MenuHeader type="solutions" />
-      <div className="grid gap-4 p-5 sm:grid-cols-2 sm:gap-5 sm:p-6">
+      <div className="grid gap-4 p-5 sm:grid-cols-2 lg:grid-cols-3 sm:gap-5 sm:p-6">
         {SOLUTIONS_MEGA_MENU.map((group) => (
           <LinkGroupColumn key={group.id} group={group} onClose={onClose} />
         ))}

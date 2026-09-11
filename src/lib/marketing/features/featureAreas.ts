@@ -494,17 +494,17 @@ const AREA_SEEDS: AreaSeed[] = [
   {
     slug: "subcontractors",
     areaId: "cw-subs",
-    heroTagline: "Keep subcontractor records and insurance tracking organized.",
-    preview: "workforce",
-    moduleCodes: ["SUB"],
+    heroTagline: "Keep subcontractor records, compliance, and insurance tracking organized.",
+    preview: "subDirectory",
+    moduleCodes: ["SUB", "LIEN", "INS"],
     howItWorks: [
-      "Maintain subcontractor records.",
-      "Track subcontractor insurance information.",
-      "Connect sub data to procurement and compliance workflows.",
+      "Maintain subcontractor records and project relationships.",
+      "Track insurance, COI, lien waivers, and compliance readiness.",
+      "Surface missing or expiring requirements before assignment and payment.",
     ],
     outcomes: [
       "Subcontractor information stays centralized.",
-      "Insurance tracking is visible before work proceeds.",
+      "Insurance and compliance status is visible before work proceeds.",
       "Downstream compliance and disbursement workflows share the same records.",
     ],
     relatedSlugs: ["compliance", "workforce", "time", "payroll-readiness"],
@@ -512,13 +512,13 @@ const AREA_SEEDS: AreaSeed[] = [
   {
     slug: "compliance",
     areaId: "cw-compliance",
-    heroTagline: "Track COI, compliance radar, and related project compliance workflows.",
-    preview: "safety",
-    moduleCodes: ["COMPLY", "INS"],
+    heroTagline: "Track requirements, COI, lien waivers, and compliance readiness across projects.",
+    preview: "compOverview",
+    moduleCodes: ["COMPLY", "INS", "LIEN"],
     howItWorks: [
       "Track subcontractor insurance and COI compliance.",
       "Use compliance radar and calendar views.",
-      "Support DBE participation tracking where enabled.",
+      "Surface missing or expiring requirements before project decisions.",
     ],
     outcomes: [
       "Compliance status is visible before issues escalate.",
@@ -530,14 +530,14 @@ const AREA_SEEDS: AreaSeed[] = [
   {
     slug: "workforce",
     areaId: "cw-workforce",
-    heroTagline: "Keep workers and crew visibility alongside project activity.",
-    preview: "workforce",
+    heroTagline: "Manage workers, crews, hours, certifications, and project assignments.",
+    preview: "wfOverview",
     moduleCodes: ["TIME"],
     capabilities: ["Workers", "Crew visibility", "Timesheets", "Timesheet entries"],
     howItWorks: [
-      "Maintain worker records connected to projects.",
-      "Keep crew visibility next to project activity.",
-      "Feed time capture into payroll readiness workflows.",
+      "Maintain worker records connected to projects and crews.",
+      "Capture and approve timesheets tied to project cost structure.",
+      "Keep certifications and workforce requirements visible before assignment.",
     ],
     outcomes: [
       "People data stays connected to project delivery.",
@@ -549,13 +549,13 @@ const AREA_SEEDS: AreaSeed[] = [
   {
     slug: "time",
     areaId: "cw-time",
-    heroTagline: "Capture timesheets and entries tied to projects and cost codes.",
-    preview: "workforce",
+    heroTagline: "Capture timesheets and labor hours tied to projects and cost codes.",
+    preview: "timeOverview",
     moduleCodes: ["TIME"],
     howItWorks: [
       "Create timesheets for project work.",
-      "Record timesheet entries against cost structure.",
-      "Keep time capture connected to workforce and project records.",
+      "Record regular, overtime, and double-time hours against cost codes.",
+      "Move submitted timesheets through approval to project cost and payroll readiness.",
     ],
     outcomes: [
       "Time is not trapped in disconnected spreadsheets.",
@@ -567,17 +567,17 @@ const AREA_SEEDS: AreaSeed[] = [
   {
     slug: "payroll-readiness",
     areaId: "cw-payroll",
-    heroTagline: "Structure workforce and time data for payroll and certified payroll reporting.",
-    preview: "workforce",
+    heroTagline: "Organize approved time and workforce data for payroll-related review.",
+    preview: "prOverview",
     moduleCodes: ["PAYROLL", "TIME"],
     howItWorks: [
-      "Use workforce and timesheet data as the payroll foundation.",
-      "Support payroll runs and entries where enabled.",
-      "Produce certified payroll reporting from structured project time.",
+      "Start with approved timesheets and connected workforce information.",
+      "Organize labor by payroll period, classification, and hours.",
+      "Surface payroll-ready summaries for review before the next workflow.",
     ],
     outcomes: [
       "Payroll inputs come from the same operating system.",
-      "Certified payroll reporting stays grounded in project time.",
+      "Approved labor stays connected to project context.",
       "Fewer handoffs between field time and payroll prep.",
     ],
     relatedSlugs: ["time", "workforce", "compliance", "subcontractors"],
@@ -588,12 +588,12 @@ const AREA_SEEDS: AreaSeed[] = [
     slug: "ai-assistant",
     areaId: "ai-assistant",
     heroTagline: "Ask project questions grounded in live data — with confirmation before writes.",
-    preview: "ai",
+    preview: "aiHero",
     dark: true,
     moduleCodes: ["AI"],
     howItWorks: [
       "Ask questions scoped to live project data.",
-      "Use AI tools with permission-scoped answers.",
+      "Get answers grounded in connected project records.",
       "Confirm write actions in plain English before execution.",
     ],
     outcomes: [
@@ -607,7 +607,7 @@ const AREA_SEEDS: AreaSeed[] = [
     slug: "project-intelligence",
     areaId: "ai-project-intel",
     heroTagline: "Surface project insights from live operating data.",
-    preview: "ai",
+    preview: "piHero",
     dark: true,
     moduleCodes: ["AI", "AI_INTEL"],
     capabilities: [
@@ -632,7 +632,7 @@ const AREA_SEEDS: AreaSeed[] = [
     slug: "predictive-insights",
     areaId: "ai-predictive",
     heroTagline: "Layer predictive intelligence on AI Assistant and live project data.",
-    preview: "ai",
+    preview: "predHero",
     dark: true,
     moduleCodes: ["AI_INTEL"],
     howItWorks: [
@@ -651,7 +651,7 @@ const AREA_SEEDS: AreaSeed[] = [
     slug: "document-intelligence",
     areaId: "ai-documents",
     heroTagline: "Work with project documents through AI grounded in the document record.",
-    preview: "ai",
+    preview: "diHero",
     dark: true,
     moduleCodes: ["AI", "DOC"],
     capabilities: [

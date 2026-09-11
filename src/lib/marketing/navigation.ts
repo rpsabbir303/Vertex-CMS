@@ -4,6 +4,12 @@ export const ROUTES = {
   home: "/",
   features: "/features",
   solutions: "/solutions",
+  solutionsGeneralContractors: "/solutions/general-contractors",
+  solutionsSpecialtyContractors: "/solutions/specialty-contractors",
+  solutionsOwners: "/solutions/owners",
+  solutionsCommercial: "/solutions/commercial",
+  solutionsResidential: "/solutions/residential",
+  solutionsCivil: "/solutions/civil",
   pricing: "/pricing",
   productTour: "/product-tour",
   customers: "/customers",
@@ -138,22 +144,36 @@ export const FEATURES_MEGA_MENU: MegaMenuCategory[] = [
 
 export const SOLUTIONS_MEGA_MENU: MegaMenuCategory[] = [
   {
-    id: "by-trade",
-    title: "By Trade",
-    href: ROUTES.solutions,
+    id: "by-business",
+    title: "By Business",
+    href: `${ROUTES.solutions}#finder`,
     links: [
-      { label: "General Contractors", href: `${ROUTES.solutions}#general-contractors` },
-      { label: "Subcontractors", href: `${ROUTES.solutions}#subcontractors` },
+      { label: "General Contractors", href: ROUTES.solutionsGeneralContractors },
+      { label: "Specialty Contractors", href: ROUTES.solutionsSpecialtyContractors },
+      { label: "Owners & Clients", href: ROUTES.solutionsOwners },
     ],
   },
   {
     id: "by-project-type",
     title: "By Project Type",
-    href: ROUTES.solutions,
+    href: `${ROUTES.solutions}#project-types`,
     links: [
-      { label: "Commercial", href: `${ROUTES.solutions}#commercial` },
-      { label: "Residential", href: `${ROUTES.solutions}#residential` },
-      { label: "Civil", href: `${ROUTES.solutions}#civil` },
+      { label: "Commercial", href: ROUTES.solutionsCommercial },
+      { label: "Residential", href: ROUTES.solutionsResidential },
+      { label: "Civil / Infrastructure", href: ROUTES.solutionsCivil },
+    ],
+  },
+  {
+    id: "by-role",
+    title: "By Role",
+    href: `${ROUTES.solutions}#roles`,
+    links: [
+      { label: "Project Manager", href: `${ROUTES.solutions}#role-project-manager` },
+      { label: "Estimator", href: `${ROUTES.solutions}#role-estimator` },
+      { label: "Superintendent", href: `${ROUTES.solutions}#role-superintendent` },
+      { label: "Controller / Accountant", href: `${ROUTES.solutions}#role-controller` },
+      { label: "Safety", href: `${ROUTES.solutions}#role-safety` },
+      { label: "Executive", href: `${ROUTES.solutions}#role-executive` },
     ],
   },
 ];
@@ -235,11 +255,12 @@ export const FOOTER_COLUMNS = {
   solutions: {
     title: "Solutions",
     links: [
-      { label: "General Contractors", href: `${ROUTES.solutions}#general-contractors` },
-      { label: "Subcontractors", href: `${ROUTES.solutions}#subcontractors` },
-      { label: "Commercial", href: `${ROUTES.solutions}#commercial` },
-      { label: "Residential", href: `${ROUTES.solutions}#residential` },
-      { label: "Civil", href: `${ROUTES.solutions}#civil` },
+      { label: "General Contractors", href: ROUTES.solutionsGeneralContractors },
+      { label: "Specialty Contractors", href: ROUTES.solutionsSpecialtyContractors },
+      { label: "Owners & Clients", href: ROUTES.solutionsOwners },
+      { label: "Commercial", href: ROUTES.solutionsCommercial },
+      { label: "Residential", href: ROUTES.solutionsResidential },
+      { label: "Civil / Infrastructure", href: ROUTES.solutionsCivil },
     ],
   },
   resources: {
