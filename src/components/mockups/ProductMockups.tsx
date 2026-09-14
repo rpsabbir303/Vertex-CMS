@@ -13879,3 +13879,48 @@ export function CpFullPortalUI() {
   );
 }
 
+export function CpOwnerWarrantyUI() {
+  return (
+    <BrowserFrame url="portal.vertexcms.com / owner / warranty">
+      <CpPortalShell
+        role="Owner Portal"
+        roleLabel="Warranty"
+        url="portal.vertexcms.com"
+        nav={["Overview", "Budget", "Schedule", "Photos", "Pay Applications", "Change Orders", "Invoices", "Warranty"]}
+        activeNav="Warranty"
+      >
+        <div className="space-y-3">
+          <div className="rounded-lg border border-brand-line bg-white p-3">
+            <p className="text-[9px] font-semibold uppercase tracking-wide text-brand-muted">Warranty claim</p>
+            <p className="mt-1 text-[13px] font-bold text-brand-navy">{CP_PROJECT}</p>
+            <p className="mt-1 text-[10px] text-brand-muted">Assigned project · Owner Portal</p>
+          </div>
+          <div className="rounded-lg border border-brand-line bg-white p-3">
+            <p className="text-[9px] font-semibold uppercase tracking-wide text-brand-muted">Description</p>
+            <p className="mt-2 rounded-md border border-brand-line bg-[#FAFBFD] px-2.5 py-2 text-[10px] leading-relaxed text-brand-navy">
+              Roof sealant at south wing requires attention after occupancy.
+            </p>
+          </div>
+          <div className="rounded-lg border border-brand-line bg-white p-3">
+            <p className="text-[9px] font-semibold uppercase tracking-wide text-brand-muted">Photos</p>
+            <div className="mt-2 grid grid-cols-3 gap-2">
+              {["Photo 1", "Photo 2", "Photo 3"].map((label) => (
+                <div
+                  key={label}
+                  className="flex aspect-[4/3] items-center justify-center rounded-md border border-dashed border-brand-line bg-[#FAFBFD] text-[9px] font-semibold text-brand-muted"
+                >
+                  {label}
+                </div>
+              ))}
+            </div>
+          </div>
+          <div className="flex items-center justify-between rounded-lg border border-brand-line bg-[#FAFBFD] px-3 py-2.5">
+            <p className="text-[10px] text-brand-muted">Ready to send to the project record</p>
+            <span className="rounded-sm bg-brand-navy px-3 py-1.5 text-[10px] font-semibold text-white">Submit</span>
+          </div>
+        </div>
+      </CpPortalShell>
+    </BrowserFrame>
+  );
+}
+

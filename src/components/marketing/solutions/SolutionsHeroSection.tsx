@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useEffect, useRef } from "react";
 import { ArrowRight } from "@/components/Icons";
 import { FloatChip } from "@/components/FloatChip";
-import { FeatureProductPreview } from "@/components/marketing/features/FeatureProductPreview";
+import { ProductPreviewClip } from "@/components/marketing/features/ProductPreviewClip";
 import { FloatingChip } from "@/components/mockups/ProductMockups";
 import { Reveal } from "@/components/Reveal";
 import { CTAS } from "@/lib/marketing/navigation";
@@ -387,11 +387,7 @@ export function SolutionsHeroSection() {
                   <div className="border-b border-brand-line bg-white px-4 py-2.5">
                     <p className="text-[12px] font-bold text-brand-navy">Vertex CMS</p>
                   </div>
-                  <FeatureProductPreview
-                    preview="projectDashboard"
-                    framed
-                    className="min-h-[280px] sm:min-h-[340px] lg:min-h-[400px]"
-                  />
+                  <ProductPreviewClip preview="projectDashboard" size="lg" scale="lg" />
                 </div>
 
                 <div

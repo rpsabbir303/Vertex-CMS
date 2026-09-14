@@ -298,6 +298,7 @@ export type PreviewKey =
   | "cpApprovals"
   | "cpDocuments"
   | "cpFullPortal"
+  | "cpOwnerWarranty"
   | "diHero"
   | "diQa"
   | "diSummary"

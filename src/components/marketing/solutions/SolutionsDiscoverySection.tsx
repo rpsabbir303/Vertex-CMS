@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useState } from "react";
 import { ArrowRight, CheckIcon } from "@/components/Icons";
 import { FeatureProductPreview } from "@/components/marketing/features/FeatureProductPreview";
+import { ProductPreviewClip } from "@/components/marketing/features/ProductPreviewClip";
 import type { PreviewKey } from "@/lib/marketing/features/register";
 import { Reveal } from "@/components/Reveal";
 import {
@@ -401,22 +402,22 @@ export function SolutionsByRoleSection() {
                 className="absolute left-0 top-1/2 hidden w-[28%] -translate-y-1/2 -rotate-6 opacity-35 transition hover:opacity-60 lg:block"
               >
                 <span className="mb-2 block text-center text-[12px] font-semibold text-brand-navy">{prev.label}</span>
-                <FeatureProductPreview
+                <ProductPreviewClip
                   preview={prev.preview}
                   dark={Boolean(prev.previewDark)}
-                  framed
+                  size="md"
                   scale="sm"
-                  className="pointer-events-none min-h-[200px] shadow-md"
+                  className="pointer-events-none shadow-md"
                 />
               </button>
 
               <div key={role.id} className="relative z-20 w-full lg:w-[50%]">
-                <FeatureProductPreview
+                <ProductPreviewClip
                   preview={role.preview}
                   dark={Boolean(role.previewDark)}
-                  framed
+                  size="lg"
                   scale="md"
-                  className="min-h-[280px] shadow-[0_40px_90px_-40px_rgba(8,37,66,0.45)] sm:min-h-[320px] lg:min-h-[360px]"
+                  className="shadow-[0_40px_90px_-40px_rgba(8,37,66,0.45)]"
                 />
               </div>
 
@@ -427,12 +428,12 @@ export function SolutionsByRoleSection() {
                 className="absolute right-0 top-1/2 hidden w-[28%] -translate-y-1/2 rotate-6 opacity-35 transition hover:opacity-60 lg:block"
               >
                 <span className="mb-2 block text-center text-[12px] font-semibold text-brand-navy">{next.label}</span>
-                <FeatureProductPreview
+                <ProductPreviewClip
                   preview={next.preview}
                   dark={Boolean(next.previewDark)}
-                  framed
+                  size="md"
                   scale="sm"
-                  className="pointer-events-none min-h-[200px] shadow-md"
+                  className="pointer-events-none shadow-md"
                 />
               </button>
             </div>
