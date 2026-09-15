@@ -166,10 +166,71 @@ const en = {
     spanish: "Español",
   },
   cookie: {
-    message: "We use cookies to improve your experience and analyze site usage.",
-    accept: "Accept",
-    preferences: "Preferences",
+    bannerLabel: "Cookie consent",
+    message:
+      "We use cookies and similar technologies to support core site functionality and optional features. You can accept all, reject non-essential cookies, or manage your preferences.",
+    acceptAll: "Accept All",
+    rejectAll: "Reject All",
     manage: "Manage Preferences",
+    preferencesTitle: "Cookie preferences",
+    preferencesDescription:
+      "Review and update the cookie categories supported on this site. Strictly necessary cookies remain active for core functionality.",
+    save: "Save Preferences",
+    cancel: "Cancel",
+    saving: "Saving…",
+    saved: "Your cookie preferences have been saved.",
+    error: "We couldn't save your preferences. Please try again.",
+    requiredLabel: "Always active",
+    onLabel: "On",
+    offLabel: "Off",
+    demoHeading: "Demo controls",
+    demoHelp:
+      "Reset saved consent to test the first-visit banner, Accept All, Reject All, and Manage Preferences flows locally.",
+    demoReset: "Reset consent (demo)",
+    categories: {
+      necessary: {
+        name: "Strictly necessary",
+        description:
+          "Required for core site functionality such as security, session continuity, and storing your consent choice.",
+      },
+      functional: {
+        name: "Functional",
+        description:
+          "Support optional site features and remembered settings when enabled. Specific technologies are documented in the Cookie Policy when approved.",
+      },
+      analytics: {
+        name: "Analytics",
+        description:
+          "Help us understand site usage when enabled. Specific vendors and technologies are documented in the Cookie Policy when approved.",
+      },
+    },
+  },
+  legal: {
+    eyebrow: "Legal",
+    navigationAriaLabel: "Legal documents",
+    onThisPage: "On this page",
+    lastUpdated: "Last updated",
+    version: "Version",
+    metaPending: "To be provided",
+    relatedHeading: "Legal",
+    pendingBannerTitle: "Approved legal copy pending",
+    pendingBannerBody:
+      "This page presents the document structure only. Official legal copy will replace placeholder content once Vertex legal counsel publishes approved text.",
+    localeNotice:
+      "A Spanish translation will be published when approved legal copy is available. Document text below remains in English until then.",
+    nav: {
+      terms: "Terms of Service",
+      privacy: "Privacy Policy",
+      dpa: "DPA",
+      cookies: "Cookie Policy",
+    },
+    placeholderBadge: "Editable legal placeholder",
+    cookiePreferencesHeading: "Cookie preferences",
+    cookiePreferencesBody:
+      "Manage your cookie choices using the same controls as the site cookie banner. Approved cookie categories will appear here when documented by legal counsel.",
+    demoNoticeTitle: "Demo content — not final legal copy",
+    demoNoticeBody:
+      "The text below is sample legal-document content for visual design review only. It does not represent approved Vertex CMS terms, policies, or contractual obligations.",
   },
 };
 
@@ -218,6 +279,75 @@ export const marketingContent: Record<MarketingLocale, typeof en> = {
       rights: "© Vertex Software",
       english: "English",
       spanish: "Español",
+    },
+    cookie: {
+      ...en.cookie,
+      bannerLabel: "Consentimiento de cookies",
+      message:
+        "Usamos cookies y tecnologías similares para la funcionalidad principal y funciones opcionales. Puede aceptar todas, rechazar las no esenciales o administrar sus preferencias.",
+      acceptAll: "Aceptar todo",
+      rejectAll: "Rechazar todo",
+      manage: "Administrar preferencias",
+      preferencesTitle: "Preferencias de cookies",
+      preferencesDescription:
+        "Revise y actualice las categorías de cookies admitidas en este sitio. Las cookies estrictamente necesarias permanecen activas.",
+      save: "Guardar preferencias",
+      cancel: "Cancelar",
+      saving: "Guardando…",
+      saved: "Sus preferencias de cookies se han guardado.",
+      error: "No pudimos guardar sus preferencias. Inténtelo de nuevo.",
+      requiredLabel: "Siempre activas",
+      onLabel: "Activado",
+      offLabel: "Desactivado",
+      demoHeading: "Controles de demostración",
+      demoHelp:
+        "Restablezca el consentimiento guardado para probar el banner de primera visita y los flujos de aceptar, rechazar y administrar preferencias.",
+      demoReset: "Restablecer consentimiento (demo)",
+      categories: {
+        necessary: {
+          name: "Estrictamente necesarias",
+          description:
+            "Requeridas para la funcionalidad principal del sitio, como seguridad, continuidad de sesión y almacenamiento de su elección de consentimiento.",
+        },
+        functional: {
+          name: "Funcionales",
+          description:
+            "Admiten funciones opcionales y ajustes recordados cuando están habilitadas. Las tecnologías específicas se documentarán en la Política de cookies cuando estén aprobadas.",
+        },
+        analytics: {
+          name: "Analíticas",
+          description:
+            "Ayudan a comprender el uso del sitio cuando están habilitadas. Los proveedores y tecnologías específicos se documentarán en la Política de cookies cuando estén aprobados.",
+        },
+      },
+    },
+    legal: {
+      ...en.legal,
+      eyebrow: "Legal",
+      navigationAriaLabel: "Documentos legales",
+      onThisPage: "En esta página",
+      lastUpdated: "Última actualización",
+      version: "Versión",
+      metaPending: "Por proporcionar",
+      relatedHeading: "Legal",
+      pendingBannerTitle: "Contenido legal aprobado pendiente",
+      pendingBannerBody:
+        "Esta página presenta únicamente la estructura del documento. Los Términos de Servicio oficiales reemplazarán el contenido provisional cuando el equipo legal de Vertex publique el texto aprobado.",
+      localeNotice:
+        "La traducción al español se publicará cuando exista contenido legal aprobado. El texto del documento permanece en inglés hasta entonces.",
+      nav: {
+        terms: "Términos de servicio",
+        privacy: "Política de privacidad",
+        dpa: "DPA",
+        cookies: "Política de cookies",
+      },
+      placeholderBadge: "Marcador de posición legal",
+      cookiePreferencesHeading: "Preferencias de cookies",
+      cookiePreferencesBody:
+        "Administre sus opciones de cookies con los mismos controles del banner del sitio. Las categorías aprobadas aparecerán aquí cuando el equipo legal las documente.",
+      demoNoticeTitle: "Contenido demo — no es texto legal final",
+      demoNoticeBody:
+        "El texto siguiente es contenido de muestra para revisión visual únicamente. No representa términos, políticas u obligaciones contractuales aprobados de Vertex CMS.",
     },
   },
 };

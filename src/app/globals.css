@@ -604,14 +604,35 @@ svg {
 
   }
 
-
-
-  .legal-document-page a[href^="#"]::after {
-
-    content: none;
-
-  }
-
 }
 
+
+
+.legal-prose a {
+  font-weight: 500;
+  color: var(--brand-blue, #2563eb);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.legal-prose a:hover {
+  color: var(--brand-orange, #e85d04);
+}
+
+.legal-prose-body a {
+  font-weight: 500;
+  color: var(--brand-blue, #2563eb);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.legal-prose-body a:hover {
+  color: var(--brand-orange, #e85d04);
+}
+
+@media print {
+  .legal-document-page a[href^="#"]::after {
+    content: none;
+  }
+}
 

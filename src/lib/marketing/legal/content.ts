@@ -8,15 +8,49 @@
  * - Missing clauses use editable placeholders for Vertex / legal counsel.
  *
  * lastUpdated / version: set to a string when counsel provides values; leave null otherwise.
+ *
+ * Demo sections (demoContent: true) are sample copy for visual design review only.
  */
 
+import { COOKIES_DEMO_SECTIONS } from "./demo/cookiesDemo";
+import { DPA_DEMO_SECTIONS } from "./demo/dpaDemo";
+import { PRIVACY_DEMO_SECTIONS } from "./demo/privacyDemo";
+import { TERMS_DEMO_SECTIONS } from "./demo/termsDemo";
+
 export type LegalDocId = "terms" | "privacy" | "dpa" | "cookies";
+
+export type LegalList = {
+  ordered?: boolean;
+  items: string[];
+  /** When true, list is illustrative / pending — not official policy */
+  placeholder?: boolean;
+};
+
+export type LegalTable = {
+  caption?: string;
+  headers: string[];
+  rows: string[][];
+  /** When true, table is illustrative / pending — not official policy */
+  placeholder?: boolean;
+};
+
+export type LegalSubsection = {
+  title: string;
+  body?: string[];
+  lists?: LegalList[];
+};
 
 export type LegalSection = {
   id: string;
   title: string;
   /** Faithful documented text, or placeholder for counsel */
   body: string[];
+  /** Optional lists for long-form legal copy */
+  lists?: LegalList[];
+  /** Optional tables for structured DPA / disclosure content */
+  tables?: LegalTable[];
+  /** Nested subsections (h3) within a section */
+  subsections?: LegalSubsection[];
   /** When true, section is a structural placeholder — not official policy */
   placeholder?: boolean;
 };
@@ -30,25 +64,12 @@ export type LegalDocument = {
   description: string | null;
   metaTitle: string;
   metaDescription: string;
+  /** When true, document uses sample copy for visual design review */
+  demoContent?: boolean;
   lastUpdated: string | null;
   version: string | null;
   sections: LegalSection[];
 };
-
-const PLACEHOLDER = "[Legal section to be provided by Vertex/legal counsel]";
-const TERMS_PLACEHOLDER = "[Terms content to be provided by Vertex/legal counsel]";
-const PRIVACY_PLACEHOLDER = "[Privacy policy content to be provided by Vertex/legal counsel]";
-const DPA_PLACEHOLDER = "[Data Processing Addendum content to be provided by Vertex/legal counsel]";
-const COOKIE_PLACEHOLDER = "[Cookie Policy content to be provided by Vertex/legal counsel]";
-
-function placeholderSection(id: string, title: string, line: string): LegalSection {
-  return {
-    id,
-    title,
-    placeholder: true,
-    body: [line],
-  };
-}
 
 export const LEGAL_DOCS: Record<LegalDocId, LegalDocument> = {
   terms: {
@@ -56,117 +77,93 @@ export const LEGAL_DOCS: Record<LegalDocId, LegalDocument> = {
     slug: "/terms",
     navLabel: "Terms",
     title: "Terms of Service",
-    description: null,
+    description:
+      "Terms governing access to and use of the Vertex CMS platform and related services.",
     metaTitle: "Terms of Service | Vertex CMS",
-    metaDescription: "Vertex CMS Terms of Service.",
+    metaDescription:
+      "Read the Vertex CMS Terms of Service document for platform access and use.",
+    demoContent: true,
     lastUpdated: null,
     version: null,
-    sections: [
-      placeholderSection("introduction", "1. Introduction", TERMS_PLACEHOLDER),
-      placeholderSection("agreement", "2. Agreement", TERMS_PLACEHOLDER),
-      placeholderSection("use-of-service", "3. Use of the Service", TERMS_PLACEHOLDER),
-      placeholderSection("accounts", "4. Accounts", TERMS_PLACEHOLDER),
-      placeholderSection("subscriptions-billing", "5. Subscriptions and Billing", TERMS_PLACEHOLDER),
-      placeholderSection("acceptable-use", "6. Acceptable Use", TERMS_PLACEHOLDER),
-      placeholderSection("intellectual-property", "7. Intellectual Property", TERMS_PLACEHOLDER),
-      placeholderSection("termination", "8. Termination", TERMS_PLACEHOLDER),
-      placeholderSection("disclaimers", "9. Disclaimers", TERMS_PLACEHOLDER),
-      placeholderSection("limitation-of-liability", "10. Limitation of Liability", TERMS_PLACEHOLDER),
-      placeholderSection("changes", "11. Changes", TERMS_PLACEHOLDER),
-      placeholderSection("contact", "12. Contact", TERMS_PLACEHOLDER),
-    ],
+    sections: TERMS_DEMO_SECTIONS,
   },
   privacy: {
     id: "privacy",
     slug: "/privacy",
     navLabel: "Privacy",
     title: "Privacy Policy",
-    description: null,
+    description:
+      "How Vertex CMS handles personal information in connection with the platform and this website.",
     metaTitle: "Privacy Policy | Vertex CMS",
-    metaDescription: "Vertex CMS Privacy Policy.",
+    metaDescription:
+      "Read the Vertex CMS Privacy Policy document for information about personal data practices.",
+    demoContent: true,
     lastUpdated: null,
     version: null,
-    sections: [
-      placeholderSection("overview", "1. Overview", PRIVACY_PLACEHOLDER),
-      placeholderSection("information-collected", "2. Information We Collect", PRIVACY_PLACEHOLDER),
-      placeholderSection("how-used", "3. How Information Is Used", PRIVACY_PLACEHOLDER),
-      placeholderSection("storage-retention", "4. Data Storage and Retention", PRIVACY_PLACEHOLDER),
-      placeholderSection("data-sharing", "5. Data Sharing", PRIVACY_PLACEHOLDER),
-      placeholderSection("user-rights", "6. User Rights", PRIVACY_PLACEHOLDER),
-      {
-        id: "cookies-tracking",
-        title: "7. Cookies and Tracking",
-        placeholder: true,
-        body: [
-          PRIVACY_PLACEHOLDER,
-          "See also the Cookie Policy. Specific vendors, technologies, and retention periods are not listed until documented by counsel.",
-        ],
-      },
-      placeholderSection("data-requests", "8. Data Requests", PRIVACY_PLACEHOLDER),
-      placeholderSection("contact", "9. Contact", PRIVACY_PLACEHOLDER),
-    ],
+    sections: PRIVACY_DEMO_SECTIONS,
   },
   dpa: {
     id: "dpa",
     slug: "/dpa",
     navLabel: "DPA",
     title: "Data Processing Addendum",
-    description: null,
+    description:
+      "Data processing terms for Vertex CMS customer arrangements.",
     metaTitle: "Data Processing Addendum | Vertex CMS",
-    metaDescription: "Vertex CMS Data Processing Addendum (DPA).",
+    metaDescription:
+      "Read the Vertex CMS Data Processing Addendum (DPA) document for customer data processing arrangements.",
+    demoContent: true,
     lastUpdated: null,
     version: null,
-    sections: [
-      placeholderSection("introduction", "1. Introduction", DPA_PLACEHOLDER),
-      placeholderSection("roles", "2. Roles of the Parties", DPA_PLACEHOLDER),
-      placeholderSection("processing", "3. Processing Details", DPA_PLACEHOLDER),
-      placeholderSection("security", "4. Security Measures", DPA_PLACEHOLDER),
-      placeholderSection("subprocessors", "5. Subprocessors", DPA_PLACEHOLDER),
-      placeholderSection("transfers", "6. International Transfers", DPA_PLACEHOLDER),
-      placeholderSection("assistance", "7. Assistance and Audits", DPA_PLACEHOLDER),
-      placeholderSection("contact", "8. Contact", DPA_PLACEHOLDER),
-    ],
+    sections: DPA_DEMO_SECTIONS,
   },
   cookies: {
     id: "cookies",
     slug: "/cookie-policy",
     navLabel: "Cookie Policy",
     title: "Cookie Policy",
-    description: null,
+    description: "Cookie and tracking practices for the Vertex CMS website.",
     metaTitle: "Cookie Policy | Vertex CMS",
-    metaDescription: "Vertex CMS Cookie Policy.",
+    metaDescription:
+      "Read the Vertex CMS Cookie Policy document for website cookie and tracking practices.",
+    demoContent: true,
     lastUpdated: null,
     version: null,
-    sections: [
-      placeholderSection("introduction", "1. Introduction", COOKIE_PLACEHOLDER),
-      placeholderSection("what-are-cookies", "2. What Cookies Are", COOKIE_PLACEHOLDER),
-      placeholderSection("how-used", "3. How Cookies Are Used", COOKIE_PLACEHOLDER),
-      placeholderSection("types", "4. Types of Cookies", COOKIE_PLACEHOLDER),
-      placeholderSection("analytics", "5. Analytics / Tracking", COOKIE_PLACEHOLDER),
-      placeholderSection("controls", "6. Cookie Controls", COOKIE_PLACEHOLDER),
-      {
-        id: "consent",
-        title: "7. Consent",
-        body: [
-          "The Vertex CMS website presents a cookie consent prompt that allows visitors to accept cookies or manage preferences.",
-          "[Additional consent details to be provided by Vertex/legal counsel]",
-        ],
-      },
-      placeholderSection("changes", "8. Changes to This Policy", COOKIE_PLACEHOLDER),
-      placeholderSection("contact", "9. Contact", COOKIE_PLACEHOLDER),
-    ],
+    sections: COOKIES_DEMO_SECTIONS,
   },
 };
 
-export const LEGAL_NAV: { id: LegalDocId; label: string; href: string }[] = [
-  { id: "terms", label: LEGAL_DOCS.terms.navLabel, href: LEGAL_DOCS.terms.slug },
-  { id: "privacy", label: LEGAL_DOCS.privacy.navLabel, href: LEGAL_DOCS.privacy.slug },
-  { id: "dpa", label: LEGAL_DOCS.dpa.navLabel, href: LEGAL_DOCS.dpa.slug },
-  { id: "cookies", label: LEGAL_DOCS.cookies.navLabel, href: LEGAL_DOCS.cookies.slug },
+/**
+ * Canonical legal document routes — labels come from i18n (t.legal.nav).
+ * Order: Terms → Privacy → DPA → Cookie Policy
+ */
+export const LEGAL_NAV: { id: LegalDocId; href: string }[] = [
+  { id: "terms", href: LEGAL_DOCS.terms.slug },
+  { id: "privacy", href: LEGAL_DOCS.privacy.slug },
+  { id: "dpa", href: LEGAL_DOCS.dpa.slug },
+  { id: "cookies", href: LEGAL_DOCS.cookies.slug },
 ];
 
 export function getLegalDocument(id: LegalDocId): LegalDocument {
   return LEGAL_DOCS[id];
+}
+
+/** True when every section is marked placeholder — show pending banner. */
+export function isLegalDocumentContentPending(document: LegalDocument): boolean {
+  return document.sections.length > 0 && document.sections.every((s) => s.placeholder);
+}
+
+/** Document-specific pending banner copy — no fabricated legal text. */
+export function getLegalPendingBannerBody(docId: LegalDocId): string | undefined {
+  const labels: Record<LegalDocId, string> = {
+    terms: "Terms of Service",
+    privacy: "Privacy Policy",
+    dpa: "Data Processing Addendum",
+    cookies: "Cookie Policy",
+  };
+  const label = labels[docId];
+  if (!isLegalDocumentContentPending(LEGAL_DOCS[docId])) return undefined;
+  return `This page presents the document structure only. Official ${label} will replace placeholder content once Vertex legal counsel publishes approved copy.`;
 }
 
 /** Shared placeholder token for meta fields — never invent dates/versions in UI. */

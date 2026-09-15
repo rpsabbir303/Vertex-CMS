@@ -1,11 +1,19 @@
 import { Breadcrumbs } from "@/components/marketing/Breadcrumbs";
 import { MarketingPageShell } from "@/components/marketing/MarketingPageShell";
 import type { LegalDocId } from "@/lib/marketing/legal/content";
-import { getLegalDocument } from "@/lib/marketing/legal/content";
+import {
+  getLegalDocument,
+  getLegalPendingBannerBody,
+  isLegalDocumentContentPending,
+} from "@/lib/marketing/legal/content";
 import { ROUTES } from "@/lib/marketing/navigation";
+import { LegalContentPendingBanner } from "./LegalContentPendingBanner";
+import { LegalDemoNotice } from "./LegalDemoNotice";
 import { LegalHeader } from "./LegalHeader";
+import { LegalLocaleNotice } from "./LegalLocaleNotice";
 import { LegalNavigation } from "./LegalNavigation";
 import { LegalOnThisPage } from "./LegalOnThisPage";
+import { LegalCookiePreferences } from "./LegalCookiePreferences";
 import { LegalRelatedLinks } from "./LegalRelatedLinks";
 import { LegalSection } from "./LegalSection";
 
@@ -15,6 +23,7 @@ type Props = {
 
 export function LegalLayout({ docId }: Props) {
   const document = getLegalDocument(docId);
+  const contentPending = isLegalDocumentContentPending(document);
 
   return (
     <MarketingPageShell documentMode showPlaceholder={false}>
@@ -38,6 +47,14 @@ export function LegalLayout({ docId }: Props) {
             <article className="legal-document-article min-w-0 rounded-xl border border-brand-line/80 bg-white px-5 py-8 shadow-[0_1px_2px_rgba(6,21,37,0.04)] sm:px-8 sm:py-10 lg:px-10 print:rounded-none print:border-0 print:bg-white print:p-0 print:shadow-none">
               <LegalHeader document={document} />
 
+              <LegalLocaleNotice />
+
+              {document.demoContent ? <LegalDemoNotice /> : null}
+
+              {contentPending ? (
+                <LegalContentPendingBanner body={getLegalPendingBannerBody(docId)} />
+              ) : null}
+
               <LegalOnThisPage sections={document.sections} variant="inline" />
 
               <div className="legal-prose mt-2 max-w-[42rem]">
@@ -45,6 +62,8 @@ export function LegalLayout({ docId }: Props) {
                   <LegalSection key={section.id} section={section} />
                 ))}
               </div>
+
+              {docId === "cookies" ? <LegalCookiePreferences /> : null}
 
               <LegalRelatedLinks current={docId} />
             </article>

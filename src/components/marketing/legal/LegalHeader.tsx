@@ -1,14 +1,19 @@
+"use client";
+
 import type { LegalDocument } from "@/lib/marketing/legal/content";
 import { LegalDocumentMeta } from "./LegalDocumentMeta";
+import { useLegalUi } from "./useLegalUi";
 
 type Props = {
   document: LegalDocument;
 };
 
 export function LegalHeader({ document }: Props) {
+  const { ui } = useLegalUi();
+
   return (
     <header className="border-b border-brand-line/80 pb-2">
-      <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-brand-orange">Legal</p>
+      <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-brand-orange">{ui.eyebrow}</p>
       <h1 className="mt-3 font-display text-3xl font-bold tracking-tight text-brand-navy sm:text-4xl lg:text-[2.75rem] lg:leading-tight">
         {document.title}
       </h1>

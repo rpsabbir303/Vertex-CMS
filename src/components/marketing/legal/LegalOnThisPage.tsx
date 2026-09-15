@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import type { LegalSection } from "@/lib/marketing/legal/content";
+import { useLegalUi } from "./useLegalUi";
 
 type Props = {
   sections: LegalSection[];
@@ -10,6 +11,7 @@ type Props = {
 };
 
 export function LegalOnThisPage({ sections, variant = "sidebar" }: Props) {
+  const { ui } = useLegalUi();
   const [active, setActive] = useState(sections[0]?.id ?? "");
 
   useEffect(() => {
@@ -33,11 +35,15 @@ export function LegalOnThisPage({ sections, variant = "sidebar" }: Props) {
     return () => observer.disconnect();
   }, [sections]);
 
+  if (sections.length <= 1) {
+    return null;
+  }
+
   if (variant === "inline") {
     return (
       <nav aria-label="On this page" className="mb-8 xl:hidden print:hidden">
         <p className="mb-2 text-[11px] font-semibold uppercase tracking-[0.14em] text-brand-muted">
-          On this page
+          {ui.onThisPage}
         </p>
         <ul className="-mx-1 flex gap-2 overflow-x-auto pb-1 [scrollbar-width:thin]">
           {sections.map((section) => {
@@ -64,9 +70,7 @@ export function LegalOnThisPage({ sections, variant = "sidebar" }: Props) {
 
   return (
     <nav aria-label="On this page" className="hidden xl:block print:hidden">
-      <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-brand-muted">
-        On this page
-      </p>
+      <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-brand-muted">{ui.onThisPage}</p>
       <ul className="mt-4 max-h-[70vh] space-y-1 overflow-y-auto border-l border-brand-line">
         {sections.map((section) => {
           const isActive = active === section.id;

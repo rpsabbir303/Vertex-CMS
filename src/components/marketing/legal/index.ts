@@ -1,7 +1,14 @@
 export { LegalLayout } from "./LegalLayout";
 export { LegalHeader } from "./LegalHeader";
 export { LegalNavigation } from "./LegalNavigation";
+export { LegalNavLink } from "./LegalNavLink";
+export { useLegalNavItems, useLegalNavLabel } from "./useLegalNavItems";
 export { LegalDocumentMeta } from "./LegalDocumentMeta";
 export { LegalSection, LegalSectionBlock } from "./LegalSection";
 export { LegalOnThisPage } from "./LegalOnThisPage";
 export { LegalRelatedLinks, LegalFooterLinks } from "./LegalRelatedLinks";
+export { LegalContentPendingBanner } from "./LegalContentPendingBanner";
+export { LegalDemoNotice } from "./LegalDemoNotice";
+export { LegalCookiePreferences } from "./LegalCookiePreferences";
+export { LegalLocaleNotice } from "./LegalLocaleNotice";
+export { useLegalUi } from "./useLegalUi";

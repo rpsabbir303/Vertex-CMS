@@ -1,6 +1,7 @@
 "use client";
 
 import { createContext, useContext, useState, type ReactNode } from "react";
+import { CookieConsentProvider } from "./CookieConsentProvider";
 import { marketingContent, type MarketingContent, type MarketingLocale } from "@/lib/marketing/content";
 
 type Value = {
@@ -13,7 +14,11 @@ const Ctx = createContext<Value | null>(null);
 
 export function MarketingProviders({ children }: { children: ReactNode }) {
   const [locale, setLocale] = useState<MarketingLocale>("en");
-  return <Ctx.Provider value={{ locale, setLocale, t: marketingContent[locale] }}>{children}</Ctx.Provider>;
+  return (
+    <Ctx.Provider value={{ locale, setLocale, t: marketingContent[locale] }}>
+      <CookieConsentProvider>{children}</CookieConsentProvider>
+    </Ctx.Provider>
+  );
 }
 
 export function useMarketing() {
