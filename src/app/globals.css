@@ -636,54 +636,9 @@ svg {
   }
 }
 
-/* Careers page — unified SaaS canvas */
+/* Careers page — canvas surface + content safe zones. Abstract graphics are inline SVG. */
 .careers-canvas {
-  --careers-grid-major: rgba(8, 35, 63, 0.055);
-  --careers-grid-minor: rgba(8, 35, 63, 0.022);
-  --careers-dot: rgba(8, 35, 63, 0.11);
-  --careers-grid-size: 72px;
   background-color: #f5f8fc;
-}
-
-.careers-canvas-grid {
-  background-image:
-    linear-gradient(to right, var(--careers-grid-major) 1px, transparent 1px),
-    linear-gradient(to bottom, var(--careers-grid-major) 1px, transparent 1px),
-    linear-gradient(to right, var(--careers-grid-minor) 1px, transparent 1px),
-    linear-gradient(to bottom, var(--careers-grid-minor) 1px, transparent 1px);
-  background-size:
-    var(--careers-grid-size) var(--careers-grid-size),
-    var(--careers-grid-size) var(--careers-grid-size),
-    24px 24px,
-    24px 24px;
-  -webkit-mask-image: linear-gradient(
-    to right,
-    #000 0%,
-    rgba(0, 0, 0, 0.9) 5%,
-    rgba(0, 0, 0, 0.16) 16%,
-    rgba(0, 0, 0, 0.1) 50%,
-    rgba(0, 0, 0, 0.16) 84%,
-    rgba(0, 0, 0, 0.9) 95%,
-    #000 100%
-  );
-  mask-image: linear-gradient(
-    to right,
-    #000 0%,
-    rgba(0, 0, 0, 0.9) 5%,
-    rgba(0, 0, 0, 0.16) 16%,
-    rgba(0, 0, 0, 0.1) 50%,
-    rgba(0, 0, 0, 0.16) 84%,
-    rgba(0, 0, 0, 0.9) 95%,
-    #000 100%
-  );
-}
-
-.careers-canvas-dots {
-  background-image: radial-gradient(circle, var(--careers-dot) 0.65px, transparent 0.7px);
-  background-size: 18px 18px;
-  opacity: 0.28;
-  -webkit-mask-image: radial-gradient(ellipse 42% 38% at 88% 8%, #000 0%, transparent 70%);
-  mask-image: radial-gradient(ellipse 42% 38% at 88% 8%, #000 0%, transparent 70%);
 }
 
 .careers-canvas-frame {
@@ -737,34 +692,17 @@ svg {
   animation: careers-dash 32s linear infinite;
 }
 
+.careers-pulse,
+.careers-pulse-delay {
+  opacity: 1;
+}
+
 .careers-pulse {
   animation: careers-pulse 5.5s ease-in-out infinite;
 }
 
 .careers-pulse-delay {
   animation: careers-pulse 6.8s ease-in-out 1.4s infinite;
-}
-
-@media (max-width: 767px) {
-  .careers-canvas {
-    --careers-grid-size: 48px;
-    --careers-grid-major: rgba(8, 35, 63, 0.055);
-  }
-
-  .careers-canvas-dots {
-    opacity: 0.16;
-    -webkit-mask-image: radial-gradient(ellipse 50% 28% at 90% 0%, #000 0%, transparent 68%);
-    mask-image: radial-gradient(ellipse 50% 28% at 90% 0%, #000 0%, transparent 68%);
-  }
-
-  .careers-canvas-grid {
-    background-image:
-      linear-gradient(to right, var(--careers-grid-major) 1px, transparent 1px),
-      linear-gradient(to bottom, var(--careers-grid-major) 1px, transparent 1px);
-    background-size: var(--careers-grid-size) var(--careers-grid-size);
-    -webkit-mask-image: linear-gradient(to bottom, #000 0%, rgba(0, 0, 0, 0.12) 14%, rgba(0, 0, 0, 0.08) 50%, rgba(0, 0, 0, 0.12) 86%, #000 100%);
-    mask-image: linear-gradient(to bottom, #000 0%, rgba(0, 0, 0, 0.12) 14%, rgba(0, 0, 0, 0.08) 50%, rgba(0, 0, 0, 0.12) 86%, #000 100%);
-  }
 }
 
 @media (prefers-reduced-motion: reduce) {

@@ -45,11 +45,7 @@ export function CareersCultureStorySection({ principle, visual, layout, backgrou
     </Reveal>
   );
 
-  const visualBlock = (
-    <Reveal delay={80} className="relative z-[1] min-w-0">
-      {visual}
-    </Reveal>
-  );
+  const visualBlock = <div className="relative z-[1] min-w-0">{visual}</div>;
 
   return (
     <section className={`relative z-[2] border-b border-brand-navy/[0.1] ${background}`} aria-labelledby={headingId}>

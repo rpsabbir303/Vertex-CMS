@@ -22,9 +22,9 @@ export function CareersHero() {
           </div>
         </Reveal>
 
-        <Reveal delay={80} className="relative z-[1] min-w-0">
+        <div className="relative z-[1] min-w-0">
           <CareersHeroVisual />
-        </Reveal>
+        </div>
       </div>
     </section>
   );

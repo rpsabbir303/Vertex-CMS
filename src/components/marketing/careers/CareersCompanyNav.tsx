@@ -66,6 +66,7 @@ export function CareersCompanyNav({ current }: Props) {
                           d="M 10 50 C 40 20, 80 70, 150 28"
                           stroke="#08233F"
                           strokeOpacity="0.1"
+                          strokeWidth="1"
                           className="careers-line-flow-slow"
                           strokeDasharray="4 8"
                         />
