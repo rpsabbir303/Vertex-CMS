@@ -9,6 +9,7 @@ import {
   type TeamMember,
 } from "@/lib/marketing/team/content";
 import type { TeamDirectoryStatus } from "@/lib/marketing/team/useTeamDirectory";
+import { TeamPeopleField } from "./TeamPeopleField";
 import { TeamProfile } from "./TeamProfile";
 
 type Props = {
@@ -16,21 +17,44 @@ type Props = {
   members: TeamMember[];
 };
 
+function gridPlacement(index: number, total: number, filtered: boolean) {
+  if (filtered || total === 0) {
+    return { spotlight: false, compact: false, className: "" };
+  }
+
+  if (index === 0) {
+    return { spotlight: true, compact: false, className: "col-span-1 md:col-span-12" };
+  }
+
+  if (index === 1 || index === 2) {
+    return { spotlight: false, compact: false, className: "col-span-1 md:col-span-6" };
+  }
+
+  return {
+    spotlight: false,
+    compact: index >= 5,
+    className: "col-span-1 md:col-span-4",
+  };
+}
+
 export function TeamDirectory({ status, members }: Props) {
   const directory = getDirectoryMembers(members);
   const departments = useMemo(
     () => Array.from(new Set(directory.map((member) => member.department).filter((value): value is string => Boolean(value)))),
-    [directory]
+    [directory],
   );
   const [filter, setFilter] = useState("All");
-  const visible = filter === "All" ? directory : directory.filter((member) => member.department === filter);
+  const filtered = filter !== "All";
+  const visible = filtered ? directory.filter((member) => member.department === filter) : directory;
   const showDemoNotice = hasDemoTeamContent(directory);
 
   if (status !== "loaded" || directory.length === 0) return null;
 
   return (
-    <section className="relative z-[2] border-b border-brand-navy/[0.1]" aria-labelledby="team-directory-heading">
-      <div className="site-shell relative py-16 sm:py-20 lg:py-24">
+    <section className="relative z-[2] overflow-hidden border-b border-brand-navy/[0.1]" aria-labelledby="team-directory-heading">
+      <TeamPeopleField />
+
+      <div className="site-shell relative z-[2] py-16 sm:py-20 lg:py-24">
         <Reveal>
           <div className="careers-safe-zone">
             <p className="font-mono text-[11px] font-semibold uppercase tracking-[0.16em] text-brand-orange">{teamDirectoryCopy.eyebrow}</p>
@@ -44,7 +68,7 @@ export function TeamDirectory({ status, members }: Props) {
         </Reveal>
 
         {departments.length > 1 ? (
-          <div className="mt-8 flex flex-wrap gap-2" role="group" aria-label={teamDirectoryCopy.filterAriaLabel}>
+          <div className="relative z-[2] mt-8 flex flex-wrap gap-2" role="group" aria-label={teamDirectoryCopy.filterAriaLabel}>
             {[teamDirectoryCopy.filterAll, ...departments].map((label) => {
               const active = filter === label;
               return (
@@ -66,13 +90,19 @@ export function TeamDirectory({ status, members }: Props) {
           </div>
         ) : null}
 
-        <ul className="mt-10 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 lg:gap-6" role="list">
+        <ul
+          className={`relative z-[2] mt-10 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 sm:gap-y-12 ${
+            filtered ? "lg:grid-cols-3" : "md:grid-cols-12 lg:gap-x-8 lg:gap-y-14"
+          }`}
+          role="list"
+        >
           {visible.map((member, index) => {
-            const spotlight = filter === "All" && index === 0;
-            const compact = filter === "All" && index >= 4;
+            const placement = gridPlacement(index, visible.length, filtered);
+            const variant = placement.spotlight ? "spotlight" : placement.compact ? "compact" : "secondary";
+
             return (
-              <li key={member.id} className={spotlight ? "sm:col-span-2 lg:col-span-2 lg:row-span-1" : ""}>
-                <TeamProfile member={member} variant={spotlight ? "spotlight" : compact ? "compact" : "secondary"} />
+              <li key={member.id} className={`min-w-0 ${placement.className}`}>
+                <TeamProfile member={member} variant={variant} />
               </li>
             );
           })}

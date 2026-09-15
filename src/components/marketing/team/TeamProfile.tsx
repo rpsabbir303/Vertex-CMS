@@ -1,11 +1,14 @@
 import { TEAM_PENDING, type TeamMember } from "@/lib/marketing/team/content";
 
-type Variant = "featured" | "secondary" | "spotlight" | "compact";
+type Variant = "featured" | "leadership-support" | "spotlight" | "secondary" | "compact";
 
 type Props = {
   member: TeamMember & { name: string };
   variant?: Variant;
 };
+
+const hoverSurface =
+  "transition duration-200 ease-out group-hover:-translate-y-px group-focus-within:-translate-y-px";
 
 function portraitAlt(member: TeamMember & { name: string }) {
   const role = member.role ? `, ${member.role}` : "";
@@ -13,20 +16,65 @@ function portraitAlt(member: TeamMember & { name: string }) {
   return `${member.name}${role}${demo}`;
 }
 
+function roleLine(member: TeamMember & { name: string }) {
+  const parts = [member.role, member.department].filter(Boolean) as string[];
+  return parts.length ? parts.join(" · ") : null;
+}
+
+function ProfileCopy({
+  member,
+  nameClass,
+  roleClass,
+  bioClass,
+  showBio = true,
+}: {
+  member: TeamMember & { name: string };
+  nameClass: string;
+  roleClass: string;
+  bioClass: string;
+  showBio?: boolean;
+}) {
+  const line = roleLine(member);
+  return (
+    <>
+      <h3 className={nameClass}>{member.name}</h3>
+      {line ? <p className={roleClass}>{line}</p> : null}
+      {showBio && member.bio ? <p className={bioClass}>{member.bio}</p> : null}
+    </>
+  );
+}
+
 export function TeamProfile({ member, variant = "secondary" }: Props) {
   if (variant === "featured") {
     return (
-      <article className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-center lg:gap-12">
-        <PhotoBlock member={member} className="aspect-[4/5] sm:aspect-[5/4] lg:aspect-[4/5]" />
-        <div className="careers-safe-zone max-w-none">
-          <p className="font-mono text-[11px] font-semibold uppercase tracking-[0.16em] text-brand-orange">
-            {member.department ?? "Leadership"}
-          </p>
-          <h3 className="display-title mt-3 text-[1.85rem] leading-[1.1] sm:text-[2.2rem]">{member.name}</h3>
-          {member.role ? <p className="mt-2 text-[15px] font-medium text-brand-navy">{member.role}</p> : null}
-          {member.bio ? (
-            <p className="mt-5 max-w-md text-[15px] leading-[1.8] text-brand-muted">{member.bio}</p>
-          ) : null}
+      <article className={`group relative grid gap-8 lg:grid-cols-[minmax(0,0.88fr)_minmax(0,1.12fr)] lg:items-center lg:gap-14 ${hoverSurface}`}>
+        <PhotoFrame member={member} className="aspect-[4/5] sm:aspect-[5/4] lg:aspect-[3/4] lg:max-h-[520px]" prominent />
+        <div className="careers-safe-zone max-w-none lg:pl-2">
+          <span className="mb-6 hidden h-px w-12 bg-brand-orange/60 lg:block" aria-hidden="true" />
+          <ProfileCopy
+            member={member}
+            nameClass="display-title text-[1.95rem] leading-[1.08] sm:text-[2.35rem] lg:text-[2.55rem] text-brand-navy"
+            roleClass="mt-3 text-[15px] font-medium tracking-[0.01em] text-brand-navy/75 sm:text-[16px]"
+            bioClass="mt-6 max-w-md text-[15px] leading-[1.85] text-brand-muted sm:text-[16px]"
+          />
+        </div>
+      </article>
+    );
+  }
+
+  if (variant === "leadership-support") {
+    return (
+      <article
+        className={`group grid grid-cols-[minmax(0,112px)_minmax(0,1fr)] items-start gap-5 border-t border-brand-navy/10 py-8 sm:grid-cols-[minmax(0,148px)_minmax(0,1fr)] sm:gap-6 lg:gap-8 ${hoverSurface}`}
+      >
+        <PhotoFrame member={member} className="aspect-[3/4] w-full" />
+        <div className="min-w-0 pt-1">
+          <ProfileCopy
+            member={member}
+            nameClass="text-[1.15rem] font-semibold leading-snug text-brand-navy sm:text-[1.25rem]"
+            roleClass="mt-1.5 text-[13px] font-medium text-brand-navy/70 sm:text-[14px]"
+            bioClass="mt-3 text-[13px] leading-[1.75] text-brand-muted sm:text-[14px] sm:leading-[1.8]"
+          />
         </div>
       </article>
     );
@@ -34,15 +82,21 @@ export function TeamProfile({ member, variant = "secondary" }: Props) {
 
   if (variant === "spotlight") {
     return (
-      <article className="group flex h-full flex-col overflow-hidden rounded-lg border border-brand-navy/12 bg-white transition duration-200 hover:-translate-y-0.5 hover:border-brand-navy/25 hover:shadow-[0_8px_24px_-18px_rgba(8,35,63,0.35)] lg:grid lg:grid-cols-[0.9fr_1.1fr] lg:items-stretch">
-        <PhotoBlock member={member} className="aspect-[4/5] lg:h-full lg:aspect-auto lg:min-h-[320px]" />
-        <div className="flex flex-col justify-end p-5 sm:p-6 lg:p-8">
-          {member.department ? (
-            <p className="font-mono text-[11px] font-semibold uppercase tracking-[0.16em] text-brand-orange">{member.department}</p>
-          ) : null}
-          <h3 className="mt-3 text-[1.35rem] font-semibold leading-snug text-brand-navy sm:text-[1.5rem]">{member.name}</h3>
-          {member.role ? <p className="mt-1 text-[14px] font-medium text-brand-navy/80">{member.role}</p> : null}
-          {member.bio ? <p className="mt-4 max-w-md text-[14px] leading-[1.8] text-brand-muted">{member.bio}</p> : null}
+      <article
+        className={`group relative flex h-full flex-col overflow-hidden border border-brand-navy/12 bg-white/80 sm:flex-row sm:items-stretch ${hoverSurface} hover:border-brand-navy/20`}
+      >
+        <span
+          className="pointer-events-none absolute inset-x-0 top-0 z-[1] h-px scale-x-0 bg-brand-orange/70 transition duration-200 group-hover:scale-x-100 group-focus-within:scale-x-100"
+          aria-hidden="true"
+        />
+        <PhotoFrame member={member} className="aspect-[4/5] sm:aspect-auto sm:h-auto sm:min-h-[280px] sm:w-[42%] sm:max-w-[320px] lg:min-h-[340px]" />
+        <div className="flex min-w-0 flex-1 flex-col justify-center px-5 py-6 sm:px-8 sm:py-8 lg:px-10">
+          <ProfileCopy
+            member={member}
+            nameClass="display-title text-[1.45rem] leading-[1.12] text-brand-navy sm:text-[1.65rem] lg:text-[1.85rem]"
+            roleClass="mt-2 text-[14px] font-medium text-brand-navy/75"
+            bioClass="mt-4 max-w-lg text-[14px] leading-[1.8] text-brand-muted sm:text-[15px]"
+          />
         </div>
       </article>
     );
@@ -51,21 +105,41 @@ export function TeamProfile({ member, variant = "secondary" }: Props) {
   const compact = variant === "compact";
 
   return (
-    <article className="group flex h-full flex-col rounded-lg border border-brand-navy/12 bg-white p-5 transition duration-200 hover:-translate-y-0.5 hover:border-brand-navy/25 hover:shadow-[0_8px_24px_-18px_rgba(8,35,63,0.35)] sm:p-6">
-      <PhotoBlock member={member} className={compact ? "aspect-[4/5]" : "aspect-[4/5]"} />
-      {member.department ? (
-        <p className="mt-5 font-mono text-[11px] font-semibold uppercase tracking-[0.16em] text-brand-orange">{member.department}</p>
-      ) : null}
-      <h3 className={`font-semibold leading-snug text-brand-navy ${member.department ? "mt-2" : "mt-5"} text-[16px] sm:text-[17px]`}>
-        {member.name}
-      </h3>
-      {member.role ? <p className="mt-1 text-[13px] font-medium text-brand-navy/80">{member.role}</p> : null}
-      {member.bio ? (
-        <p className={`mt-3 text-[13px] leading-relaxed text-brand-muted ${compact ? "line-clamp-2 group-hover:line-clamp-none" : ""}`}>
-          {member.bio}
-        </p>
-      ) : null}
+    <article className={`group flex h-full flex-col ${hoverSurface}`}>
+      <PhotoFrame member={member} className={compact ? "aspect-[3/4]" : "aspect-[3/4]"} />
+      <div className="min-w-0 pt-5">
+        <ProfileCopy
+          member={member}
+          nameClass={`font-semibold leading-snug text-brand-navy ${compact ? "text-[15px] sm:text-[16px]" : "text-[16px] sm:text-[17px]"}`}
+          roleClass="mt-1.5 text-[12px] font-medium text-brand-navy/70 sm:text-[13px]"
+          bioClass={`mt-3 text-[13px] leading-[1.75] text-brand-muted ${compact ? "line-clamp-2 group-hover:line-clamp-none" : "sm:leading-[1.8]"}`}
+        />
+      </div>
     </article>
+  );
+}
+
+function PhotoFrame({
+  member,
+  className = "",
+  prominent = false,
+}: {
+  member: TeamMember & { name: string };
+  className?: string;
+  prominent?: boolean;
+}) {
+  return (
+    <div className={`relative min-w-0 ${className}`}>
+      <span
+        className={`pointer-events-none absolute -left-px -top-px z-[2] border-l border-t border-brand-orange/45 ${prominent ? "h-4 w-4" : "h-2.5 w-2.5"}`}
+        aria-hidden="true"
+      />
+      <span
+        className={`pointer-events-none absolute -bottom-px -right-px z-[2] border-b border-r border-brand-navy/15 ${prominent ? "h-4 w-4" : "h-2.5 w-2.5"}`}
+        aria-hidden="true"
+      />
+      <PhotoBlock member={member} className="h-full w-full" />
+    </div>
   );
 }
 
@@ -76,14 +150,14 @@ function PhotoBlock({ member, className = "" }: { member: TeamMember & { name: s
       <img
         src={member.image}
         alt={portraitAlt(member)}
-        className={`w-full rounded-lg border border-brand-navy/12 object-cover object-top ${className}`}
+        className={`h-full w-full border border-brand-navy/12 bg-[#F3F7FC] object-cover object-top ${className}`}
       />
     );
   }
 
   return (
     <div
-      className={`relative flex w-full flex-col items-center justify-center overflow-hidden rounded-lg border border-brand-navy/12 bg-[#F3F7FC] ${className}`}
+      className={`relative flex h-full w-full flex-col items-center justify-center overflow-hidden border border-brand-navy/12 bg-[#F3F7FC] ${className}`}
       role="img"
       aria-label={TEAM_PENDING.photo}
     >

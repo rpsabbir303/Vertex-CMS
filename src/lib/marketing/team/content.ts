@@ -78,14 +78,16 @@ export function getLocalTeamMembers(): TeamMember[] {
  */
 export const approvedKeyRoles: KeyRole[] = [];
 
+/** Demo pillar copy for UI review — replace when Vertex publishes approved building copy. */
 export const buildingSection = {
   eyebrow: "How we build",
   headline: "How the team builds Vertex CMS",
+  demoContent: true,
   pillars: [
     {
       id: "people",
       label: "People",
-      body: null as string | null,
+      body: "We bring product, design, engineering, and customer perspectives together to build software around the realities of construction work.",
     },
     {
       id: "product",
@@ -95,12 +97,12 @@ export const buildingSection = {
     {
       id: "industry",
       label: "Industry knowledge",
-      body: null as string | null,
+      body: "We design around the workflows construction teams rely on every day — from project coordination and field operations to financial control and workforce management.",
     },
     {
       id: "technology",
       label: "Technology",
-      body: null as string | null,
+      body: "We combine thoughtful product design, modern technology, and connected systems to create a platform that teams can rely on across their work.",
     },
   ],
 };

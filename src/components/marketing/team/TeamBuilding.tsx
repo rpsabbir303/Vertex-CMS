@@ -1,7 +1,6 @@
 import { Reveal } from "@/components/Reveal";
 import { AboutConvergeVisual } from "@/components/marketing/company/CompanyVisuals";
-import { buildingSection, TEAM_PENDING } from "@/lib/marketing/team/content";
-import { TeamPendingState } from "./TeamPendingState";
+import { buildingSection } from "@/lib/marketing/team/content";
 
 export function TeamBuilding() {
   return (
@@ -33,11 +32,7 @@ export function TeamBuilding() {
                 <p className="font-mono text-[11px] font-semibold uppercase tracking-[0.14em] text-brand-orange">{pillar.label}</p>
                 {pillar.body ? (
                   <p className="mt-3 max-w-xl text-[15px] leading-[1.8] text-brand-navy/85 sm:text-base">{pillar.body}</p>
-                ) : (
-                  <div className="mt-3">
-                    <TeamPendingState compact body={TEAM_PENDING.pillar} />
-                  </div>
-                )}
+                ) : null}
               </li>
             ))}
           </ul>
