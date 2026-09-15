@@ -30,6 +30,7 @@ export const ROUTES = {
   team: "/company/team",
   careers: "/company/careers",
   contact: "/contact",
+  contactSuccess: "/contact/success",
   legalTerms: "/terms",
   legalPrivacy: "/privacy",
   legalDpa: "/dpa",
@@ -331,6 +332,15 @@ export function getMarketingActiveNav(pathname: string): string {
   }
   return "";
 }
+
+export type CompanyPageId = "about" | "team" | "careers" | "contact";
+
+export const COMPANY_PAGE_LINKS: { id: CompanyPageId; label: string; href: string }[] = [
+  { id: "about", label: "About", href: ROUTES.about },
+  { id: "team", label: "Team", href: ROUTES.team },
+  { id: "careers", label: "Careers", href: ROUTES.careers },
+  { id: "contact", label: "Contact", href: ROUTES.contact },
+];
 
 /** @deprecated Use FEATURES_MEGA_MENU */
 export const MEGA_MENU = FEATURES_MEGA_MENU;

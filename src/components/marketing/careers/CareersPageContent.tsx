@@ -1,18 +1,16 @@
-import { careersJobs } from "@/lib/marketing/careers/content";
-import { CareersCTA } from "./CareersCTA";
+import { CareersCanvas } from "./CareersCanvas";
+import { CareersCompanyNav } from "./CareersCompanyNav";
+import { CareersCultureStories } from "./CareersCultureStories";
 import { CareersHero } from "./CareersHero";
 import { CareersOpenPositions } from "./CareersOpenPositions";
-import { CareersStory } from "./CareersStory";
-import { CareersWhatWeBuild } from "./CareersWhatWeBuild";
 
 export function CareersPageContent() {
   return (
-    <>
+    <CareersCanvas>
       <CareersHero />
-      <CareersStory />
-      <CareersWhatWeBuild />
-      <CareersOpenPositions jobs={careersJobs} />
-      <CareersCTA />
-    </>
+      <CareersCultureStories />
+      <CareersOpenPositions />
+      <CareersCompanyNav current="careers" />
+    </CareersCanvas>
   );
 }

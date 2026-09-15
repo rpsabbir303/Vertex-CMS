@@ -115,7 +115,8 @@ export const MARKETING_PAGES: Record<string, MarketingPageConfig> = {
   },
   careers: {
     title: `Careers | ${base}`,
-    description: "Careers at Vertex CMS — join the team building construction management software.",
+    description:
+      "Join Vertex CMS — build construction management software that connects projects, financials, field operations, and intelligence.",
     breadcrumbs: [
       { label: "Home", href: ROUTES.home },
       { label: "Company", href: ROUTES.company },
@@ -172,6 +173,27 @@ export const MARKETING_PAGES: Record<string, MarketingPageConfig> = {
     title: `Request a Quote | ${base}`,
     description: "Request an enterprise quote for Vertex CMS based on your organization requirements.",
     breadcrumbs: [{ label: "Home", href: ROUTES.home }, { label: "Request Quote" }],
+  },
+  contact: {
+    title: `Contact | ${base}`,
+    description:
+      "Contact Vertex CMS with general company and product inquiries. Send a message and our team will route your request appropriately.",
+    breadcrumbs: [
+      { label: "Home", href: ROUTES.home },
+      { label: "Company", href: ROUTES.company },
+      { label: "Contact" },
+    ],
+  },
+  contactSuccess: {
+    title: `Inquiry Received | ${base}`,
+    description:
+      "Your Vertex CMS inquiry was submitted successfully and will be routed appropriately.",
+    breadcrumbs: [
+      { label: "Home", href: ROUTES.home },
+      { label: "Company", href: ROUTES.company },
+      { label: "Contact", href: ROUTES.contact },
+      { label: "Inquiry Received" },
+    ],
   },
 };
 

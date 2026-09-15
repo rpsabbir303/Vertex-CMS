@@ -1,109 +1,101 @@
 /**
- * Vertex CMS SaaS Careers page content.
+ * Vertex CMS SaaS Careers listing — job data layer.
  *
  * RULES:
- * - Do NOT invent job openings, salaries, benefits, locations, or culture claims.
- * - jobs[] is empty until Vertex publishes real openings.
- * - Populate CareerJob objects to render the job board without redesigning the page.
+ * - Do NOT invent real vacancies, benefits, offices, or culture claims.
+ * - Set `useDemoJobs: false` and populate `careersJobs` when approved openings exist.
  */
 
 export type CareerJobStatus = "open" | "closed" | "draft";
 
 export type CareerJob = {
   id: string;
+  slug: string;
   title: string;
-  department?: string;
+  team?: string;
   location?: string;
+  workArrangement?: string;
   employmentType?: string;
   description?: string;
   requirements?: string[];
   applicationUrl?: string;
   status: CareerJobStatus;
+  /** Sample listing for UI review — not a real opening */
+  demoContent?: boolean;
+};
+
+/** Set demo flags to false when Vertex publishes approved careers content. */
+export const careersConfig = {
+  /** Sample listings for UI review — not real openings. */
+  useDemoJobs: true,
+  /** Employer/culture copy for UI review — not approved company policy. */
+  useDemoCultureContent: true,
 };
 
 export const careersPageMeta = {
   title: "Careers | Vertex CMS",
-  description: "Careers at Vertex CMS — join the team building construction management software.",
+  description:
+    "Join Vertex CMS — build construction management software that connects projects, financials, field operations, and intelligence.",
   canonical: "/company/careers",
 };
 
-export const careersHero = {
-  eyebrow: "Careers",
-  headline: "Build what comes next.",
-  supporting: null as string | null,
-  supportingPlaceholder: "[Approved Careers introduction copy]",
-};
-
-/** No approved culture/mission copy in project docs — show placeholder story. */
-export const careersStory = {
-  enabled: true,
-  statement: null as string | null,
-  statementPlaceholder: "[Approved career/company story content]",
-  supporting: null as string | null,
-  supportingPlaceholder: "[Approved supporting careers copy]",
-};
-
-/**
- * Product areas the company builds — from documented marketing product surface.
- * Framed as product domains, not as employee responsibilities.
- */
-export const whatWeBuild = {
-  enabled: true,
-  eyebrow: "What we build",
-  headline: "Software for how construction businesses run.",
-  supporting:
-    "Vertex CMS is construction management software connecting projects, financials, field operations, compliance, workforce, and intelligence.",
-  flow: [
-    { id: "product", label: "Product", detail: "Construction management SaaS" },
-    { id: "technology", label: "Technology", detail: "Platform & interfaces" },
-    { id: "workflows", label: "Construction workflows", detail: "Projects · financials · field · CRM" },
-    { id: "value", label: "Customer value", detail: "Connected operations" },
-  ],
-  domains: [
-    { label: "Project management", source: "documented product capability" },
-    { label: "Financial workflows", source: "documented product capability" },
-    { label: "CRM & growth", source: "documented product capability" },
-    { label: "AI & intelligence", source: "documented product capability" },
-    { label: "Integrations", source: "documented product capability" },
-    { label: "Mobile field workflows", source: "documented product capability" },
-  ],
-};
-
-/**
- * Published open roles. Keep empty until real jobs are provided.
- * Example entry shape (do not uncomment fake data):
- * {
- *   id: "example",
- *   title: "…",
- *   department: "…",
- *   location: "…",
- *   employmentType: "…",
- *   description: "…",
- *   applicationUrl: "https://…",
- *   status: "open",
- * }
- */
+/** Approved open roles — empty until Vertex publishes real listings. */
 export const careersJobs: CareerJob[] = [];
 
-export const careersEmptyState = {
-  title: "No open positions at the moment.",
-  body: "When roles are published, they will appear here. Check back, or explore the product while you wait.",
-  placeholderNote: "[Open positions content to be provided]",
-};
+/** Demo listings for UI review only — not real hiring opportunities. */
+export const careersDemoJobs: CareerJob[] = [
+  {
+    id: "demo-product-designer",
+    slug: "senior-product-designer",
+    title: "Senior Product Designer",
+    team: "Product",
+    employmentType: "Full-time",
+    description: "Shape product experiences across the Vertex CMS platform.",
+    status: "open",
+    demoContent: true,
+  },
+  {
+    id: "demo-platform-engineer",
+    slug: "platform-engineer",
+    title: "Platform Engineer",
+    team: "Engineering",
+    employmentType: "Full-time",
+    description: "Build and scale platform services that support the connected product.",
+    status: "open",
+    demoContent: true,
+  },
+  {
+    id: "demo-customer-success",
+    slug: "customer-success-manager",
+    title: "Customer Success Manager",
+    team: "Customer Experience",
+    employmentType: "Full-time",
+    status: "open",
+    demoContent: true,
+  },
+  /** Limited-content demo — title and team only; no location or employment type. */
+  {
+    id: "demo-implementation-specialist",
+    slug: "implementation-specialist",
+    title: "Implementation Specialist",
+    team: "Customer Experience",
+    status: "open",
+    demoContent: true,
+  },
+];
 
-export const careersCtaSection = {
-  eyebrow: "Interested in joining?",
-  /** Design-copy suggestion — replace when Vertex provides approved copy */
-  headline: "Let's build the future together.",
-  supporting: null as string | null,
-  supportingPlaceholder: "[Approved careers CTA copy]",
-  /** Scrolls / focuses open positions on this page */
-  primaryLabel: "View Open Roles",
-  primaryHref: "#open-positions",
-  secondaryLabel: "Meet the team",
-  secondaryHref: "/company/team",
-};
+export function getPublishedJobs(): CareerJob[] {
+  return careersConfig.useDemoJobs ? careersDemoJobs : careersJobs;
+}
 
-export function getOpenJobs(jobs: CareerJob[] = careersJobs): CareerJob[] {
+export function getOpenJobs(jobs: CareerJob[] = getPublishedJobs()): CareerJob[] {
   return jobs.filter((job) => job.status === "open");
+}
+
+export function getJobBySlug(slug: string, jobs: CareerJob[] = getPublishedJobs()): CareerJob | undefined {
+  return jobs.find((job) => job.slug === slug && job.status === "open");
+}
+
+export function careerDetailPath(slug: string): string {
+  return `/company/careers/${slug}`;
 }

@@ -636,3 +636,143 @@ svg {
   }
 }
 
+/* Careers page — unified SaaS canvas */
+.careers-canvas {
+  --careers-grid-major: rgba(8, 35, 63, 0.055);
+  --careers-grid-minor: rgba(8, 35, 63, 0.022);
+  --careers-dot: rgba(8, 35, 63, 0.11);
+  --careers-grid-size: 72px;
+  background-color: #f5f8fc;
+}
+
+.careers-canvas-grid {
+  background-image:
+    linear-gradient(to right, var(--careers-grid-major) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--careers-grid-major) 1px, transparent 1px),
+    linear-gradient(to right, var(--careers-grid-minor) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--careers-grid-minor) 1px, transparent 1px);
+  background-size:
+    var(--careers-grid-size) var(--careers-grid-size),
+    var(--careers-grid-size) var(--careers-grid-size),
+    24px 24px,
+    24px 24px;
+  -webkit-mask-image: linear-gradient(
+    to right,
+    #000 0%,
+    rgba(0, 0, 0, 0.9) 5%,
+    rgba(0, 0, 0, 0.16) 16%,
+    rgba(0, 0, 0, 0.1) 50%,
+    rgba(0, 0, 0, 0.16) 84%,
+    rgba(0, 0, 0, 0.9) 95%,
+    #000 100%
+  );
+  mask-image: linear-gradient(
+    to right,
+    #000 0%,
+    rgba(0, 0, 0, 0.9) 5%,
+    rgba(0, 0, 0, 0.16) 16%,
+    rgba(0, 0, 0, 0.1) 50%,
+    rgba(0, 0, 0, 0.16) 84%,
+    rgba(0, 0, 0, 0.9) 95%,
+    #000 100%
+  );
+}
+
+.careers-canvas-dots {
+  background-image: radial-gradient(circle, var(--careers-dot) 0.65px, transparent 0.7px);
+  background-size: 18px 18px;
+  opacity: 0.28;
+  -webkit-mask-image: radial-gradient(ellipse 42% 38% at 88% 8%, #000 0%, transparent 70%);
+  mask-image: radial-gradient(ellipse 42% 38% at 88% 8%, #000 0%, transparent 70%);
+}
+
+.careers-canvas-frame {
+  box-shadow: 1px 0 0 rgba(8, 35, 63, 0.07), -1px 0 0 rgba(8, 35, 63, 0.07);
+}
+
+.careers-safe-zone {
+  position: relative;
+  z-index: 2;
+  max-width: 36rem;
+  padding: 0.15rem 0.75rem 0.85rem 0;
+  background: linear-gradient(
+    90deg,
+    rgba(245, 248, 252, 0.94) 0%,
+    rgba(245, 248, 252, 0.82) 68%,
+    rgba(245, 248, 252, 0) 100%
+  );
+}
+
+.careers-safe-zone-wide {
+  max-width: none;
+  background: linear-gradient(
+    180deg,
+    rgba(245, 248, 252, 0.92) 0%,
+    rgba(245, 248, 252, 0.88) 70%,
+    rgba(245, 248, 252, 0.55) 100%
+  );
+}
+
+@keyframes careers-dash {
+  to {
+    stroke-dashoffset: -180;
+  }
+}
+
+@keyframes careers-pulse {
+  0%,
+  100% {
+    opacity: 0.28;
+  }
+  50% {
+    opacity: 0.85;
+  }
+}
+
+.careers-line-flow {
+  animation: careers-dash 22s linear infinite;
+}
+
+.careers-line-flow-slow {
+  animation: careers-dash 32s linear infinite;
+}
+
+.careers-pulse {
+  animation: careers-pulse 5.5s ease-in-out infinite;
+}
+
+.careers-pulse-delay {
+  animation: careers-pulse 6.8s ease-in-out 1.4s infinite;
+}
+
+@media (max-width: 767px) {
+  .careers-canvas {
+    --careers-grid-size: 48px;
+    --careers-grid-major: rgba(8, 35, 63, 0.055);
+  }
+
+  .careers-canvas-dots {
+    opacity: 0.16;
+    -webkit-mask-image: radial-gradient(ellipse 50% 28% at 90% 0%, #000 0%, transparent 68%);
+    mask-image: radial-gradient(ellipse 50% 28% at 90% 0%, #000 0%, transparent 68%);
+  }
+
+  .careers-canvas-grid {
+    background-image:
+      linear-gradient(to right, var(--careers-grid-major) 1px, transparent 1px),
+      linear-gradient(to bottom, var(--careers-grid-major) 1px, transparent 1px);
+    background-size: var(--careers-grid-size) var(--careers-grid-size);
+    -webkit-mask-image: linear-gradient(to bottom, #000 0%, rgba(0, 0, 0, 0.12) 14%, rgba(0, 0, 0, 0.08) 50%, rgba(0, 0, 0, 0.12) 86%, #000 100%);
+    mask-image: linear-gradient(to bottom, #000 0%, rgba(0, 0, 0, 0.12) 14%, rgba(0, 0, 0, 0.08) 50%, rgba(0, 0, 0, 0.12) 86%, #000 100%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .careers-line-flow,
+  .careers-line-flow-slow,
+  .careers-pulse,
+  .careers-pulse-delay {
+    animation: none !important;
+  }
+}
+

@@ -3,8 +3,14 @@
  * No CRM/API is connected in this marketing repository.
  */
 
-import type { ConversionMode, ConversionResult, DemoRequestInput, QuoteRequestInput } from "./types";
-import { validateDemoRequest, validateQuoteRequest } from "./validation";
+import type {
+  ContactInquiryInput,
+  ConversionMode,
+  ConversionResult,
+  DemoRequestInput,
+  QuoteRequestInput,
+} from "./types";
+import { validateContactInquiry, validateDemoRequest, validateQuoteRequest } from "./validation";
 
 const delay = (ms = 700) => new Promise((r) => setTimeout(r, ms));
 
@@ -24,6 +30,20 @@ export const ConversionClient = {
       ok: true,
       data: { referenceId: `demo-local-${Date.now()}` },
       message: "Demo request received",
+    };
+  },
+
+  async submitContact(input: ContactInquiryInput): Promise<ConversionResult<{ referenceId: string }>> {
+    const validated = validateContactInquiry(input);
+    if (!validated.ok) {
+      await delay(300);
+      return validated;
+    }
+    await delay();
+    return {
+      ok: true,
+      data: { referenceId: `contact-local-${Date.now()}` },
+      message: "Inquiry received",
     };
   },
 

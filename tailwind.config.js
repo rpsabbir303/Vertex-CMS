@@ -52,11 +52,21 @@ module.exports = {
           "0%, 100%": { transform: "translateY(0)" },
           "50%": { transform: "translateY(-10px)" },
         },
+        "contact-map-pulse": {
+          "0%, 100%": { opacity: "0.35" },
+          "50%": { opacity: "0.92" },
+        },
+        "contact-map-line": {
+          "0%": { strokeDashoffset: "48" },
+          "100%": { strokeDashoffset: "0" },
+        },
       },
       animation: {
         float: "float 6s ease-in-out infinite",
         "float-slow": "float-slow 8s ease-in-out infinite",
         "float-delay": "float-delay 7s ease-in-out 1s infinite",
+        "contact-map-pulse": "contact-map-pulse 5s ease-in-out infinite",
+        "contact-map-line": "contact-map-line 14s linear infinite",
       },
     },
   },

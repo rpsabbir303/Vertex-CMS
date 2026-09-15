@@ -1,6 +1,7 @@
 type Props = {
   children: React.ReactNode;
   loading?: boolean;
+  loadingLabel?: string;
   disabled?: boolean;
   variant?: "primary" | "secondary";
   type?: "button" | "submit";
@@ -11,6 +12,7 @@ type Props = {
 export function AuthButton({
   children,
   loading,
+  loadingLabel,
   disabled,
   variant = "primary",
   type = "submit",
@@ -34,7 +36,7 @@ export function AuthButton({
             }`}
             aria-hidden="true"
           />
-          Please wait…
+          {loadingLabel ?? "Please wait…"}
         </>
       ) : (
         children

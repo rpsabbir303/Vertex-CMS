@@ -21,6 +21,24 @@ export type DemoRequestInput = {
   notes?: string;
 };
 
+export type ContactInquiryType = "general" | "product" | "sales" | "other";
+
+export const CONTACT_INQUIRY_TYPES: { value: ContactInquiryType; label: string }[] = [
+  { value: "general", label: "General Inquiry" },
+  { value: "product", label: "Product Question" },
+  { value: "sales", label: "Sales" },
+  { value: "other", label: "Other" },
+];
+
+export type ContactInquiryInput = {
+  name: string;
+  email: string;
+  company?: string;
+  phone?: string;
+  inquiryType: ContactInquiryType | "";
+  message: string;
+};
+
 export type QuoteRequestInput = {
   name: string;
   email: string;

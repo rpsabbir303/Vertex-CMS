@@ -1,5 +1,10 @@
 import { isValidEmail, validateRequired } from "@/lib/auth/validation";
-import type { ConversionResult, DemoRequestInput, QuoteRequestInput } from "./types";
+import type {
+  ContactInquiryInput,
+  ConversionResult,
+  DemoRequestInput,
+  QuoteRequestInput,
+} from "./types";
 
 export function validateDemoRequest(input: DemoRequestInput): ConversionResult<void> {
   const fieldErrors: Record<string, string> = {};
@@ -13,6 +18,24 @@ export function validateDemoRequest(input: DemoRequestInput): ConversionResult<v
   if (roleErr) fieldErrors.role = roleErr;
   if (sizeErr) fieldErrors.companySize = sizeErr;
   if (typeErr) fieldErrors.projectType = typeErr;
+  if (!isValidEmail(input.email)) fieldErrors.email = "Please enter a valid work email.";
+  if (Object.keys(fieldErrors).length) {
+    return { ok: false, error: "Please correct the highlighted fields.", fieldErrors };
+  }
+  return { ok: true, data: undefined };
+}
+
+export function validateContactInquiry(input: ContactInquiryInput): ConversionResult<void> {
+  const fieldErrors: Record<string, string> = {};
+  const nameErr = validateRequired(input.name, "Full name");
+  const typeErr = validateRequired(input.inquiryType, "Inquiry type");
+  const messageErr = validateRequired(input.message, "Message");
+  if (nameErr) fieldErrors.name = nameErr;
+  if (typeErr) fieldErrors.inquiryType = typeErr;
+  if (messageErr) fieldErrors.message = messageErr;
+  if (input.message.trim().length > 0 && input.message.trim().length < 10) {
+    fieldErrors.message = "Please provide a bit more detail (at least 10 characters).";
+  }
   if (!isValidEmail(input.email)) fieldErrors.email = "Please enter a valid work email.";
   if (Object.keys(fieldErrors).length) {
     return { ok: false, error: "Please correct the highlighted fields.", fieldErrors };

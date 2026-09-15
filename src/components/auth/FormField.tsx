@@ -5,14 +5,24 @@ type Props = {
   hint?: string;
   valid?: boolean;
   touched?: boolean;
+  required?: boolean;
   children: React.ReactNode;
 };
 
-export function FormField({ id, label, error, hint, valid, touched, children }: Props) {
+export function FormField({ id, label, error, hint, valid, touched, required, children }: Props) {
   return (
     <div className="space-y-1.5">
       <label htmlFor={id} className="block text-[13px] font-semibold text-brand-navy">
         {label}
+        {required ? (
+          <>
+            <span className="text-brand-orange" aria-hidden="true">
+              {" "}
+              *
+            </span>
+            <span className="sr-only"> (required)</span>
+          </>
+        ) : null}
       </label>
       {children}
       {hint && !error && (
