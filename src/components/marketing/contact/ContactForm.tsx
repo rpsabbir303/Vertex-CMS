@@ -121,8 +121,8 @@ export function ContactForm() {
   }
 
   return (
-    <div className="rounded-2xl border border-brand-line bg-white p-6 shadow-[0_4px_24px_rgba(6,21,37,0.07)] sm:p-8 lg:p-9">
-      <div className="border-b border-brand-line/60 pb-5 sm:pb-6">
+    <div className="border border-brand-navy/12 bg-white p-5 sm:p-6 lg:p-8">
+      <div className="border-b border-brand-navy/10 pb-5 sm:pb-6">
         <h2 className="font-display text-xl font-bold tracking-tight text-brand-navy sm:text-2xl">{c.formTitle}</h2>
         <p className="mt-2 max-w-md text-[14px] leading-relaxed text-brand-muted">{c.formSubtitle}</p>
       </div>

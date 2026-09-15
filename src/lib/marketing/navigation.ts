@@ -26,7 +26,7 @@ export const ROUTES = {
   comparisonCmic: "/comparisons/cmic",
   security: "/security",
   company: "/company",
-  about: "/about",
+  about: "/company/about",
   team: "/company/team",
   careers: "/company/careers",
   contact: "/contact",

@@ -104,6 +104,16 @@ export const MARKETING_PAGES: Record<string, MarketingPageConfig> = {
     description: "About Vertex CMS and our team.",
     breadcrumbs: [{ label: "Home", href: ROUTES.home }, { label: "Company" }],
   },
+  about: {
+    title: `About | ${base}`,
+    description:
+      "Vertex CMS is the connected operating platform for construction — project management, financials, field operations, compliance, and intelligence in one system.",
+    breadcrumbs: [
+      { label: "Home", href: ROUTES.home },
+      { label: "Company", href: ROUTES.company },
+      { label: "About" },
+    ],
+  },
   team: {
     title: `Team | ${base}`,
     description: "Leadership, key roles, and careers at Vertex CMS.",

@@ -6,7 +6,7 @@ import { CareersSvgField } from "./CareersSvgField";
  */
 export function CareersCanvas({ children }: { children: React.ReactNode }) {
   return (
-    <div className="careers-canvas relative">
+    <div className="company-canvas careers-canvas relative">
       <div className="pointer-events-none absolute inset-0 z-0 overflow-hidden" aria-hidden="true">
         <CareersSvgField tone="light" showDots showPaths />
       </div>

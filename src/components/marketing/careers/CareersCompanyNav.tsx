@@ -17,14 +17,14 @@ export function CareersCompanyNav({ current }: Props) {
   const n = t.careers.companyNav;
 
   return (
-    <section className="relative overflow-hidden bg-white" aria-labelledby="careers-company-nav-heading">
+    <section className="relative overflow-hidden bg-white" aria-labelledby="company-nav-heading">
       <CareersTechField tone="light" intensity="quiet" paths />
 
       <div className="site-shell relative z-[2] py-16 sm:py-20 lg:py-24">
         <Reveal className="mx-auto max-w-2xl text-center">
           <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-brand-orange">{n.eyebrow}</p>
           <h2
-            id="careers-company-nav-heading"
+            id="company-nav-heading"
             className="display-title mt-4 text-[2rem] leading-tight sm:text-[2.35rem] lg:text-[2.5rem]"
           >
             {n.headline}

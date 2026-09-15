@@ -21,7 +21,15 @@ export const metadata: Metadata = {
   robots: { index: true, follow: true },
 };
 
-export default function CompanyTeamPage() {
+export default function CompanyTeamPage({
+  searchParams,
+}: {
+  searchParams?: { teamPreview?: string | string[] };
+}) {
+  const raw = searchParams?.teamPreview;
+  const preview = Array.isArray(raw) ? raw[0] : raw;
+  const teamPreview = preview === "loading" || preview === "error" ? preview : undefined;
+
   return (
     <MarketingProviders>
       <div className="flex min-h-screen flex-col overflow-x-hidden bg-white text-brand-navy">
@@ -34,7 +42,7 @@ export default function CompanyTeamPage() {
               { label: "Team" },
             ]}
           />
-          <TeamPageContent />
+          <TeamPageContent preview={teamPreview} />
         </main>
         <MarketingFooter />
         <CookieConsent />

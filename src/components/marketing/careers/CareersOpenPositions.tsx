@@ -58,7 +58,7 @@ export function CareersOpenPositions() {
           ) : (
             <ul className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-5" role="list">
               {openJobs.map((job) => (
-                <CareersJobCard key={job.id} job={job} applyLabel={o.applyNow} />
+                <CareersJobCard key={job.id} job={job} ctaLabel={o.viewPosition} />
               ))}
             </ul>
           )}

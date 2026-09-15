@@ -1,5 +1,5 @@
 import { Reveal } from "@/components/Reveal";
-import { teamHero } from "@/lib/marketing/team/content";
+import { TEAM_PENDING, teamHero } from "@/lib/marketing/team/content";
 
 export function TeamHero() {
   return (
@@ -23,7 +23,7 @@ export function TeamHero() {
             <p className="body-copy mt-6 max-w-lg">{teamHero.supporting}</p>
           ) : (
             <p className="mt-6 max-w-lg rounded-lg border border-dashed border-brand-line bg-white/80 px-4 py-3 text-[15px] italic leading-relaxed text-brand-muted">
-              {teamHero.supportingPlaceholder}
+              {TEAM_PENDING.hero}
             </p>
           )}
         </Reveal>

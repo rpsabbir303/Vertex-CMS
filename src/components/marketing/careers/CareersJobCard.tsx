@@ -4,7 +4,7 @@ import { careerDetailPath } from "@/lib/marketing/careers/content";
 
 type Props = {
   job: CareerJob;
-  applyLabel: string;
+  ctaLabel: string;
 };
 
 export function formatJobPlacement(job: CareerJob): string | null {
@@ -15,8 +15,8 @@ export function formatJobPlacement(job: CareerJob): string | null {
   return `(${parts.join(" - ")})`;
 }
 
-export function CareersJobCard({ job, applyLabel }: Props) {
-  const href = job.applicationUrl ?? careerDetailPath(job.slug);
+export function CareersJobCard({ job, ctaLabel }: Props) {
+  const href = careerDetailPath(job.slug);
   const placement = formatJobPlacement(job);
   const pills = [job.team, job.employmentType].filter(Boolean) as string[];
   const ariaLabel = placement ? `${job.title} ${placement}` : job.title;
@@ -53,10 +53,10 @@ export function CareersJobCard({ job, applyLabel }: Props) {
         <div className="mt-auto pt-5">
           <Link
             href={href}
-            aria-label={`${applyLabel}: ${ariaLabel}`}
+            aria-label={`${ctaLabel}: ${ariaLabel}`}
             className="inline-flex items-center justify-center rounded-full bg-brand-navy px-4 py-2 text-[12px] font-semibold text-white transition duration-200 hover:bg-[#0c2d4d] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-orange/40 focus-visible:ring-offset-2"
           >
-            {applyLabel}
+            {ctaLabel}
           </Link>
         </div>
       </article>
