@@ -54,11 +54,15 @@ export function formatPlanPrice(amount: number | null, currency: string): string
   }
 }
 
-export function planSignupHref(planId: string): string {
-  return `/signup?plan=${encodeURIComponent(planId)}`;
-}
+export type { PlanContextQuery } from "./planLinks";
+export { planSignupHref, planQuoteHref } from "./planLinks";
 
-/** Enterprise (and other quote CTAs) → Request a Quote with plan context. */
-export function planQuoteHref(planId: string): string {
-  return `/request-quote?plan=${encodeURIComponent(planId)}`;
-}
+export { fetchPricingCatalog, getPricingStructureFallback, PricingLoadError } from "./loader";
+export type { PricingIntent } from "./cta";
+export {
+  planCtaHref,
+  planCtaLabel,
+  planCtaDescription,
+  isRecommendedPlan,
+  resolvePricingIntent,
+} from "./cta";

@@ -63,6 +63,8 @@ export type AuthPreviewSession = {
     workspaceLabel?: string;
     planAssociated: boolean;
     errorMessage?: string;
+    /** When provisioning fails — whether Try again is appropriate */
+    failureRetryable?: boolean;
   };
   /** Separate from tenant provisioning */
   trial: {

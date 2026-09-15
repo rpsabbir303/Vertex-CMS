@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import { TrialExpiredView } from "@/components/conversion/TrialExpiredView";
 
 export const metadata: Metadata = {
@@ -7,5 +8,9 @@ export const metadata: Metadata = {
 };
 
 export default function TrialExpiredPage() {
-  return <TrialExpiredView />;
+  return (
+    <Suspense fallback={<div className="flex min-h-screen items-center justify-center text-sm text-brand-muted">Loading…</div>}>
+      <TrialExpiredView />
+    </Suspense>
+  );
 }

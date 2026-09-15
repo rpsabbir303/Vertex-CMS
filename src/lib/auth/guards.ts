@@ -8,6 +8,7 @@ export type AuthGateReason =
   | "tenant_incomplete"
   | "tenant_failed"
   | "trial_incomplete"
+  | "trial_expired"
   | "onboarding_incomplete"
   | "ready";
 
@@ -60,11 +61,15 @@ export function resolveAuthGate(
   }
 
   if (session.tenant.status === "failed" && !options?.allowUnprovisionedTenant) {
-    return { reason: "tenant_failed", redirectTo: AUTH_ROUTES.tenantSetup };
+    return { reason: "tenant_failed", redirectTo: AUTH_ROUTES.tenantSetupFailed };
   }
 
   if (session.tenant.status !== "ready" && !options?.allowUnprovisionedTenant) {
     return { reason: "tenant_incomplete", redirectTo: AUTH_ROUTES.tenantSetup };
+  }
+
+  if (session.trial.status === "expired") {
+    return { reason: "trial_expired", redirectTo: AUTH_ROUTES.trialExpired };
   }
 
   if (session.trial.status !== "trial" && !options?.allowTrialInactive) {

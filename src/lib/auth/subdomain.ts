@@ -49,16 +49,27 @@ export function allocateUniqueSubdomain(companyName: string): {
   ok: false;
   error: string;
   attempted: string;
+  retryable: boolean;
 } {
   const base = previewSubdomainFromCompany(companyName);
   const reg = readRegistry();
 
-  // Explicit failure path for QA / unrecoverable collisions
+  // Preview QA paths — not production behavior
+  if (/^fail[- ]?provision[- ]?permanent$/i.test(companyName.trim())) {
+    return {
+      ok: false,
+      error: "We couldn’t complete your workspace setup.",
+      attempted: base,
+      retryable: false,
+    };
+  }
+
   if (/^fail[- ]?provision$/i.test(companyName.trim()) || base === "fail-provision") {
     return {
       ok: false,
       error: "We couldn’t finish setting up your workspace.",
       attempted: base,
+      retryable: true,
     };
   }
 
@@ -74,6 +85,7 @@ export function allocateUniqueSubdomain(companyName: string): {
     ok: false,
     error: "This workspace address is already in use.",
     attempted: base,
+    retryable: false,
   };
 }
 

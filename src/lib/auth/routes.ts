@@ -5,6 +5,8 @@ export const AUTH_ROUTES = {
   login: ROUTES.login,
   signIn: "/sign-in",
   signup: ROUTES.signup,
+  /** Documented alias — redirects to /signup */
+  signUp: "/sign-up",
   forgotPassword: "/forgot-password",
   resetPassword: "/reset-password",
   mfa: "/mfa",
@@ -16,9 +18,13 @@ export const AUTH_ROUTES = {
   verifyEmail: "/verify-email",
   /** Required after email verification — creates tenant workspace + subdomain */
   tenantSetup: "/tenant-setup",
+  /** Workspace provisioning failure recovery */
+  tenantSetupFailed: "/tenant-setup/failed",
+  /** Preview-only demo hub for provisioning failure scenarios */
+  provisioningDemo: "/provisioning-demo",
   /** After successful provisioning — trial ready handoff */
   trialStarted: "/trial-started",
-  /** Documented trial-ended state */
+  /** Trial-ended recovery — preview demo: /trial-expired?mode=demo */
   trialExpired: "/trial-expired",
   onboarding: "/onboarding",
   onboardingCompany: "/onboarding/company",

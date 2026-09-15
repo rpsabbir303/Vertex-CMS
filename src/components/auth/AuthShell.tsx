@@ -5,6 +5,8 @@ import { ROUTES } from "@/lib/marketing/navigation";
 
 type Props = {
   children: React.ReactNode;
+  /** Optional uppercase label above the page title */
+  eyebrow?: string;
   title: string;
   subtitle?: string;
   panelTitle?: string;
@@ -13,6 +15,7 @@ type Props = {
 
 export function AuthShell({
   children,
+  eyebrow,
   title,
   subtitle,
   panelTitle = "Construction runs better when everything connects.",
@@ -51,7 +54,14 @@ export function AuthShell({
                   ← Back to website
                 </Link>
               </div>
-              <h2 className="font-display text-2xl font-bold tracking-tight text-brand-navy sm:text-[1.75rem]">{title}</h2>
+              {eyebrow ? (
+                <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-brand-orange">{eyebrow}</p>
+              ) : null}
+              <h2
+                className={`font-display text-2xl font-bold tracking-tight text-brand-navy sm:text-[1.75rem] ${eyebrow ? "mt-3" : ""}`}
+              >
+                {title}
+              </h2>
               {subtitle && <p className="mt-2 text-[14px] leading-relaxed text-brand-muted">{subtitle}</p>}
               <div className="mt-7">{children}</div>
             </div>

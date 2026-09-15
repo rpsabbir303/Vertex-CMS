@@ -26,6 +26,8 @@ import { ROUTES } from "@/lib/marketing/navigation";
 export function RequestQuoteForm() {
   const searchParams = useSearchParams();
   const planId = (searchParams.get("plan") || "").toLowerCase();
+  const billingPeriod = searchParams.get("period");
+  const quoteIntent = searchParams.get("intent");
 
   const planContext = useMemo(() => {
     if (!planId) return null;
@@ -35,8 +37,10 @@ export function RequestQuoteForm() {
       id: plan.id,
       name: plan.name,
       isCustomPricing: plan.monthlyPrice == null && plan.yearlyPrice == null,
+      billingPeriod: billingPeriod === "yearly" || billingPeriod === "monthly" ? billingPeriod : null,
+      isUpgradeIntent: quoteIntent === "upgrade",
     };
-  }, [planId]);
+  }, [planId, billingPeriod, quoteIntent]);
 
   const [name, setName] = useState("");
   const [company, setCompany] = useState("");
@@ -154,7 +158,10 @@ export function RequestQuoteForm() {
             <div className="mt-5 rounded-lg border border-brand-line bg-[#FAFBFD] px-4 py-3">
               <p className="text-[13px] font-semibold text-brand-navy">{planContext.name} Plan</p>
               <p className="mt-0.5 text-[12px] text-brand-muted">
-                {planContext.isCustomPricing ? "Custom pricing" : "Quote request"}
+                {planContext.isUpgradeIntent ? "Upgrade quote request" : planContext.isCustomPricing ? "Custom pricing" : "Quote request"}
+                {planContext.billingPeriod
+                  ? ` · ${planContext.billingPeriod === "yearly" ? "Yearly billing" : "Monthly billing"}`
+                  : ""}
               </p>
             </div>
           ) : null}

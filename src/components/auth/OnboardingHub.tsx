@@ -48,6 +48,10 @@ export function OnboardingHub() {
       router.replace(AUTH_ROUTES.trialStarted);
       return;
     }
+    if (gate.reason === "trial_expired") {
+      router.replace(AUTH_ROUTES.trialExpired);
+      return;
+    }
 
     if (!session) return;
 

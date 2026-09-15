@@ -13,8 +13,8 @@ import type { AddOn, FeatureGroup, Plan, PricingCatalog, PricingFAQ } from "./ty
 
 const PLAN_IDS = {
   starter: "starter",
-  professional: "professional",
-  business: "business",
+  pro: "pro",
+  premium: "premium",
   enterprise: "enterprise",
 } as const;
 
@@ -22,8 +22,8 @@ function row(
   id: string,
   name: string,
   starter: "included" | "excluded" | "addon",
-  professional: "included" | "excluded" | "addon",
-  business: "included" | "excluded" | "addon",
+  pro: "included" | "excluded" | "addon",
+  premium: "included" | "excluded" | "addon",
   enterprise: "included" | "excluded" | "addon"
 ) {
   return {
@@ -31,8 +31,8 @@ function row(
     name,
     entitlements: {
       [PLAN_IDS.starter]: starter,
-      [PLAN_IDS.professional]: professional,
-      [PLAN_IDS.business]: business,
+      [PLAN_IDS.pro]: pro,
+      [PLAN_IDS.premium]: premium,
       [PLAN_IDS.enterprise]: enterprise,
     },
   };
@@ -58,8 +58,8 @@ export const PLACEHOLDER_PLANS: Plan[] = [
     cta: { label: "Start Free Trial", action: "trial" },
   },
   {
-    id: PLAN_IDS.professional,
-    name: "Professional",
+    id: PLAN_IDS.pro,
+    name: "Pro",
     description: "Connected project and financial control for growing general contractors and subcontractors.",
     monthlyPrice: null,
     yearlyPrice: null,
@@ -77,8 +77,8 @@ export const PLACEHOLDER_PLANS: Plan[] = [
     cta: { label: "Start Free Trial", action: "trial" },
   },
   {
-    id: PLAN_IDS.business,
-    name: "Business",
+    id: PLAN_IDS.premium,
+    name: "Premium",
     description: "Full operational depth with workforce, AI intelligence, and growth tools for multi-project teams.",
     monthlyPrice: null,
     yearlyPrice: null,
@@ -87,7 +87,7 @@ export const PLACEHOLDER_PLANS: Plan[] = [
     sort: 3,
     trialDays: null,
     highlights: [
-      "Everything in Professional",
+      "Everything in Pro",
       "Native accounting & WIP",
       "AI assistant & insights",
       "CRM & customer portals",
@@ -105,7 +105,7 @@ export const PLACEHOLDER_PLANS: Plan[] = [
     sort: 4,
     trialDays: null,
     highlights: [
-      "Everything in Business",
+      "Everything in Premium",
       "Custom entitlements",
       "Advanced admin & security",
       "Dedicated onboarding support",

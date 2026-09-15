@@ -22,9 +22,22 @@ import {
   registerEmail,
   writeAuthSession,
 } from "./session";
+import {
+  clearProvisionDemoRetry,
+  getProvisionDemoRetry,
+  PROVISION_DEMO_COMPANY,
+} from "./provisioningDemo";
 import { allocateUniqueSubdomain } from "./subdomain";
+import { TRIAL_EXPIRED_DEMO } from "./trialDemo";
 import { resolveTrialEndsAt } from "./trial";
-import { isValidEmail, validatePassword, validateRequired, validateTotpCode } from "./validation";
+import {
+  isValidEmail,
+  validatePassword,
+  validateRequired,
+  validateSignInFields,
+  validateSignUpFields,
+  validateTotpCode,
+} from "./validation";
 
 const delay = (ms = 700) => new Promise((r) => setTimeout(r, ms));
 
@@ -60,6 +73,7 @@ async function previewFail(error: string, fieldErrors?: Record<string, string>):
 
 function returningUserRedirect(session: ReturnType<typeof readAuthSession>): string {
   if (!session) return AUTH_ROUTES.signIn;
+  if (session.trial.status === "expired") return AUTH_ROUTES.trialExpired;
   if (session.mfaRequired && !session.mfaVerified) return AUTH_ROUTES.mfa;
   if (!session.emailVerified) return AUTH_ROUTES.verifyEmail;
   if (session.tenant.status !== "ready") return AUTH_ROUTES.tenantSetup;
@@ -76,14 +90,15 @@ export const AuthClient = {
     password: string;
     remember?: boolean;
   }): Promise<AuthResult<{ requireMfa: boolean; redirectTo: string }>> {
-    const fieldErrors: Record<string, string> = {};
-    if (!isValidEmail(input.email)) fieldErrors.email = "Enter a valid email address.";
-    if (!input.password) fieldErrors.password = "Password is required.";
+    const fieldErrors = validateSignInFields(input);
     if (Object.keys(fieldErrors).length) {
       return previewFail("Please correct the highlighted fields.", fieldErrors);
     }
 
     const requireMfa = input.password === "mfa12345";
+    const emailLower = input.email.trim().toLowerCase();
+    const trialExpired =
+      input.password === TRIAL_EXPIRED_DEMO.password || emailLower === TRIAL_EXPIRED_DEMO.email;
 
     if (input.password === "wrongpass") {
       return previewFail("Invalid email or password.", {
@@ -95,7 +110,8 @@ export const AuthClient = {
       defaultSession({
         email: input.email.trim(),
         name: input.email.split("@")[0] ?? "User",
-        companyName: "Your Company",
+        companyName: trialExpired ? "Demo Construction Co." : "Your Company",
+        planId: trialExpired ? "pro" : undefined,
         accountStatus: "verified",
         mfaRequired: requireMfa,
         mfaVerified: !requireMfa,
@@ -107,10 +123,12 @@ export const AuthClient = {
           workspaceLabel: "Your Company",
           planAssociated: true,
         },
-        trial: {
-          status: "trial",
-          trial_ends_at: resolveTrialEndsAt(undefined),
-        },
+        trial: trialExpired
+          ? { status: "expired", trial_ends_at: null }
+          : {
+              status: "trial",
+              trial_ends_at: resolveTrialEndsAt(undefined),
+            },
         onboarding: {
           companyComplete: true,
           projectComplete: true,
@@ -121,9 +139,16 @@ export const AuthClient = {
       })
     );
 
+    if (trialExpired) {
+      return previewOk({
+        requireMfa: false,
+        redirectTo: AUTH_ROUTES.trialExpired,
+      });
+    }
+
     return previewOk({
       requireMfa,
-      redirectTo: requireMfa ? AUTH_ROUTES.mfa : AUTH_ROUTES.appHome,
+      redirectTo: requireMfa ? AUTH_ROUTES.mfa : returningUserRedirect(readAuthSession()),
     });
   },
 
@@ -133,33 +158,23 @@ export const AuthClient = {
     email: string;
     password: string;
     planId?: string;
+    termsAccepted?: boolean;
     botCheckAcknowledged?: boolean;
   }): Promise<AuthResult<{ redirectTo: string }>> {
-    const fieldErrors: Record<string, string> = {};
-    const companyErr = validateRequired(input.companyName, "Company name");
-    const nameErr = validateRequired(input.name, "Name");
-    if (companyErr) fieldErrors.companyName = companyErr;
-    if (nameErr) fieldErrors.name = nameErr;
-    if (!isValidEmail(input.email)) fieldErrors.email = "Please enter a valid work email.";
-    const pwErr = validatePassword(input.password);
-    if (pwErr) fieldErrors.password = pwErr;
-
-    const emailLower = input.email.trim().toLowerCase();
-    if (
-      emailLower === "exists@company.com" ||
-      emailLower.startsWith("taken@") ||
-      isEmailRegistered(emailLower)
-    ) {
-      fieldErrors.email = "This email is already associated with an account.";
-    }
-
-    if (!input.botCheckAcknowledged) {
-      fieldErrors.captcha = "Complete the bot check to continue.";
-    }
+    const fieldErrors = validateSignUpFields(
+      {
+        ...input,
+        termsAccepted: input.termsAccepted,
+        botCheckAcknowledged: input.botCheckAcknowledged ?? false,
+      },
+      { checkDuplicate: (email) => isEmailRegistered(email), includeAcknowledgements: true }
+    );
 
     if (Object.keys(fieldErrors).length) {
       return previewFail("Please correct the highlighted fields.", fieldErrors);
     }
+
+    const emailLower = input.email.trim().toLowerCase();
 
     // Account creation only — tenant is NOT created here
     registerEmail(emailLower);
@@ -304,6 +319,7 @@ export const AuthClient = {
           workspaceLabel: session.companyName,
           planAssociated: false,
           errorMessage: allocated.error,
+          failureRetryable: allocated.retryable,
         },
       });
       return previewFail(allocated.error);
@@ -358,6 +374,83 @@ export const AuthClient = {
     });
   },
 
+  /**
+   * Preview-only — seed a failed provisioning session for demo / QA.
+   * Uses sessionStorage; does not create real tenants.
+   */
+  seedProvisioningFailurePreview(options?: {
+    retryable?: boolean;
+    planId?: string;
+    companyName?: string;
+    email?: string;
+  }) {
+    const retryable = options?.retryable !== false;
+    const company =
+      options?.companyName ??
+      (retryable ? PROVISION_DEMO_COMPANY.retryableFail : PROVISION_DEMO_COMPANY.nonRetryableFail);
+
+    writeAuthSession(
+      defaultSession({
+        email: options?.email ?? "demo.provision@vertexcms.test",
+        name: "Demo User",
+        companyName: company,
+        planId: options?.planId ?? "pro",
+        accountStatus: "verified",
+        emailVerified: true,
+        tenant: {
+          status: "failed",
+          tenantId: "tenant_demo_preview",
+          workspaceLabel: company,
+          planAssociated: true,
+          failureRetryable: retryable,
+          errorMessage: retryable
+            ? "We couldn\u2019t finish setting up your workspace."
+            : "We couldn\u2019t complete your workspace setup.",
+        },
+        trial: { status: "not_started", trial_ends_at: null },
+      })
+    );
+  },
+
+  /**
+   * Preview-only — seed an expired-trial session for demo / QA.
+   * Uses sessionStorage; does not change real subscription status.
+   */
+  seedTrialExpiredPreview(options?: {
+    planId?: string;
+    companyName?: string;
+    email?: string;
+    name?: string;
+  }) {
+    writeAuthSession(
+      defaultSession({
+        email: options?.email ?? TRIAL_EXPIRED_DEMO.email,
+        name: options?.name ?? "Demo User",
+        companyName: options?.companyName ?? "Demo Construction Co.",
+        planId: options?.planId ?? "pro",
+        accountStatus: "verified",
+        emailVerified: true,
+        mfaRequired: false,
+        mfaVerified: true,
+        tenant: {
+          status: "ready",
+          tenantId: "tenant_demo_expired",
+          subdomain: "demo-construction-co",
+          workspaceLabel: options?.companyName ?? "Demo Construction Co.",
+          planAssociated: true,
+        },
+        trial: { status: "expired", trial_ends_at: null },
+        onboarding: {
+          companyComplete: true,
+          projectComplete: true,
+          inviteComplete: true,
+          connectSkipped: true,
+          financeStatus: "not_connected",
+        },
+      })
+    );
+  },
+
   async retryTenantProvisioning(): Promise<
     AuthResult<{
       redirectTo: string;
@@ -368,18 +461,49 @@ export const AuthClient = {
     }>
   > {
     const session = readAuthSession();
-    if (session) {
+    if (!session) {
+      return previewFail("Your session expired. Please sign up again.");
+    }
+
+    const demoOutcome = getProvisionDemoRetry();
+    if (demoOutcome === "fail-retryable" || demoOutcome === "fail-non-retryable") {
+      await delay(900);
+      clearProvisionDemoRetry();
+      const retryable = demoOutcome === "fail-retryable";
       writeAuthSession({
         ...session,
-        companyName: session.companyName.replace(/fail[- ]?provision/gi, "Workspace").trim() || "Workspace",
         tenant: {
-          status: "not_started",
-          planAssociated: false,
-          errorMessage: undefined,
+          ...session.tenant,
+          status: "failed",
+          failureRetryable: retryable,
+          errorMessage: retryable
+            ? "We couldn\u2019t finish setting up your workspace."
+            : "We couldn\u2019t complete your workspace setup.",
         },
-        trial: { status: "not_started", trial_ends_at: null },
       });
+      return previewFail(
+        retryable
+          ? "We couldn\u2019t finish setting up your workspace."
+          : "We couldn\u2019t complete your workspace setup."
+      );
     }
+
+    if (demoOutcome === "success") {
+      clearProvisionDemoRetry();
+    }
+
+    writeAuthSession({
+      ...session,
+      companyName: session.companyName.replace(/fail[- ]?provision[- ]?permanent/gi, "Workspace").replace(/fail[- ]?provision/gi, "Workspace").trim() || "Workspace",
+      tenant: {
+        status: "not_started",
+        planAssociated: Boolean(session.planId),
+        errorMessage: undefined,
+        failureRetryable: undefined,
+      },
+      trial: { status: "not_started", trial_ends_at: null },
+    });
+
     return AuthClient.provisionTenant();
   },
 

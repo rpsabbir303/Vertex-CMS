@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import { MarketingProviders } from "@/components/marketing/MarketingProviders";
 import { MarketingHeader } from "@/components/marketing/MarketingHeader";
 import { MarketingFooter } from "@/components/marketing/MarketingFooter";
@@ -17,7 +18,13 @@ export default function PricingPage() {
         <MarketingHeader />
         <main className="w-full min-w-0 flex-1">
           <Breadcrumbs items={config.breadcrumbs ?? [{ label: "Home", href: ROUTES.home }, { label: "Pricing" }]} />
-          <PricingPageContent />
+          <Suspense
+            fallback={
+              <div className="flex min-h-[40vh] items-center justify-center text-sm text-brand-muted">Loading pricing…</div>
+            }
+          >
+            <PricingPageContent />
+          </Suspense>
         </main>
         <MarketingFooter />
         <CookieConsent />
