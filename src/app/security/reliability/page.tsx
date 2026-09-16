@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { SecurityPageShell } from "@/components/marketing/security/SecurityPageShell";
-import { SecurityTopicContent } from "@/components/marketing/security/SecurityTopicContent";
 import { securitySubpageMeta } from "@/lib/marketing/security/content";
 
 const meta = securitySubpageMeta.reliability;
@@ -14,9 +13,5 @@ export const metadata: Metadata = {
 };
 
 export default function SecurityReliabilityPage() {
-  return (
-    <SecurityPageShell pageId="reliability">
-      <SecurityTopicContent pageId="reliability" />
-    </SecurityPageShell>
-  );
+  return <SecurityPageShell pageId="reliability" editorial />;
 }

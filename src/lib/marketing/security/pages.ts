@@ -16,20 +16,19 @@ export type SecurityNavItem = {
   labelKey: SecurityPageId;
 };
 
-/** System index numbers for the Security & Trust navigation rail. */
+/** Index numbers for Security & Trust topic sub-pages (hub is the parent landing page, not listed). */
 export const SECURITY_NAV_INDEX: Record<SecurityPageId, string> = {
-  hub: "01",
-  "data-protection": "02",
-  "access-security": "03",
-  compliance: "04",
-  "ai-governance": "05",
-  reliability: "06",
-  contact: "07",
+  hub: "",
+  "data-protection": "01",
+  "access-security": "02",
+  compliance: "03",
+  "ai-governance": "04",
+  reliability: "05",
+  contact: "",
 };
 
-/** Shared Security & Trust family navigation — same on every page. */
+/** Topic sub-pages only — excludes Security & Trust hub and contact. */
 export const SECURITY_NAV_ITEMS: SecurityNavItem[] = [
-  { id: "hub", href: SECURITY_ROUTES.home, labelKey: "hub" },
   { id: "data-protection", href: SECURITY_ROUTES.dataProtection, labelKey: "data-protection" },
   { id: "access-security", href: SECURITY_ROUTES.accessSecurity, labelKey: "access-security" },
   { id: "compliance", href: SECURITY_ROUTES.compliance, labelKey: "compliance" },

@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { SecurityPageShell } from "@/components/marketing/security/SecurityPageShell";
-import { SecurityTopicContent } from "@/components/marketing/security/SecurityTopicContent";
 import { securitySubpageMeta } from "@/lib/marketing/security/content";
 
 const meta = securitySubpageMeta.dataProtection;
@@ -14,9 +13,5 @@ export const metadata: Metadata = {
 };
 
 export default function SecurityDataProtectionPage() {
-  return (
-    <SecurityPageShell pageId="data-protection">
-      <SecurityTopicContent pageId="data-protection" />
-    </SecurityPageShell>
-  );
+  return <SecurityPageShell pageId="data-protection" editorial />;
 }

@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { SecurityPageShell } from "@/components/marketing/security/SecurityPageShell";
-import { SecurityTopicContent } from "@/components/marketing/security/SecurityTopicContent";
 import { securitySubpageMeta } from "@/lib/marketing/security/content";
 
 const meta = securitySubpageMeta.accessSecurity;
@@ -14,9 +13,5 @@ export const metadata: Metadata = {
 };
 
 export default function SecurityAccessPage() {
-  return (
-    <SecurityPageShell pageId="access-security">
-      <SecurityTopicContent pageId="access-security" />
-    </SecurityPageShell>
-  );
+  return <SecurityPageShell pageId="access-security" editorial />;
 }

@@ -1,5 +1,7 @@
+import type { ComponentPropsWithoutRef } from "react";
 import Link from "next/link";
 import { ArrowRight } from "@/components/Icons";
+import { SecurityPaperGrid } from "./SecurityPaperGrid";
 
 export function SecurityMeasure({
   children,
@@ -15,12 +17,24 @@ export function SecurityPaper({
   children,
   className = "",
   dark = false,
+  "data-figma-layer": figmaLayer = "paper-surface",
+  ...rest
 }: {
   children: React.ReactNode;
   className?: string;
   dark?: boolean;
-}) {
-  return <div className={`${dark ? "security-paper-dark" : "security-paper"} ${className}`}>{children}</div>;
+  "data-figma-layer"?: string;
+} & ComponentPropsWithoutRef<"div">) {
+  return (
+    <div
+      {...rest}
+      data-figma-layer={figmaLayer}
+      className={`relative overflow-hidden ${dark ? "security-paper-dark" : "security-paper"} ${className}`}
+    >
+      <SecurityPaperGrid dark={dark} />
+      <div className="relative z-[1] h-full w-full min-h-0">{children}</div>
+    </div>
+  );
 }
 
 export function SecurityLimeButton({

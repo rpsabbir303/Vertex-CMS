@@ -4,7 +4,7 @@ import { useMarketing } from "@/components/marketing/MarketingProviders";
 import { securityCta } from "@/lib/marketing/security/content";
 import type { SecurityPageId } from "@/lib/marketing/security/pages";
 import { SecurityConstellation } from "./SecurityConstellation";
-import { SecurityGhostButton, SecurityLimeButton, SecurityLiveEyebrow, SecurityMeasure } from "./SecuritySurface";
+import { SecurityGhostButton, SecurityLimeButton, SecurityLiveEyebrow, SecurityMeasure, SecurityPaper } from "./SecuritySurface";
 
 type Props = {
   pageId: SecurityPageId;
@@ -15,9 +15,13 @@ export function SecurityHero({ pageId }: Props) {
   const copy = t.security.pages[pageId];
 
   return (
-    <section className="border-b border-[#E8E8E8]" aria-labelledby="security-page-heading">
+    <section
+      className="border-b border-[#E8E8E8] bg-white"
+      aria-labelledby="security-page-heading"
+      data-figma-section="security-hero"
+    >
       <div className="grid lg:grid-cols-2">
-        <div className="bg-white">
+        <div className="border-b border-[#E8E8E8] bg-white lg:border-b-0" data-figma-region="hero-content">
           <SecurityMeasure className="flex h-full flex-col justify-center py-14 sm:py-16 lg:max-w-none lg:py-[4.5rem]">
             <SecurityLiveEyebrow>{t.security.hero.eyebrow}</SecurityLiveEyebrow>
             <h1
@@ -33,9 +37,12 @@ export function SecurityHero({ pageId }: Props) {
             </div>
           </SecurityMeasure>
         </div>
-        <div className="security-paper relative min-h-[320px] border-t border-[#C5DDB8] lg:min-h-[520px] lg:border-l lg:border-t-0">
+        <SecurityPaper
+          className="min-h-[320px] border-t border-[#C5DDB8] lg:min-h-[520px] lg:border-l lg:border-t-0"
+          data-figma-region="hero-abstract-panel"
+        >
           <SecurityConstellation pageId={pageId} />
-        </div>
+        </SecurityPaper>
       </div>
     </section>
   );

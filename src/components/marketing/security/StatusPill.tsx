@@ -9,11 +9,13 @@ const STATUS_STYLE: Record<SecurityStatus, string> = {
 };
 
 export function StatusPill({ status }: { status: SecurityStatus }) {
+  const label = SECURITY_STATUS_LABEL[status];
+  if (!label) return null;
   return (
     <span
       className={`inline-flex items-center rounded-sm border px-2 py-0.5 text-[10px] font-semibold uppercase tracking-[0.12em] ${STATUS_STYLE[status]}`}
     >
-      {SECURITY_STATUS_LABEL[status]}
+      {label}
     </span>
   );
 }

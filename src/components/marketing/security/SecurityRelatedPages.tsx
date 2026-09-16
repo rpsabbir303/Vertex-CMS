@@ -14,10 +14,16 @@ export function SecurityRelatedPages({ current }: Props) {
   const { t } = useMarketing();
   const r = t.security.related;
   const pages = t.security.pages;
-  const [open, setOpen] = useState<string | null>(current);
+  const [open, setOpen] = useState<string | null>(
+    current === "hub" || current === "contact" ? null : current,
+  );
 
   return (
-    <section className="border-b border-[#E8E8E8] bg-white" aria-labelledby="security-related-heading">
+    <section
+      className="border-b border-[#E8E8E8] bg-white"
+      aria-labelledby="security-related-heading"
+      data-figma-section="explore-trust-model"
+    >
       <SecurityMeasure className="py-14 sm:py-16">
         <SecurityLiveEyebrow>{r.eyebrow}</SecurityLiveEyebrow>
         <h2
@@ -26,13 +32,13 @@ export function SecurityRelatedPages({ current }: Props) {
         >
           {r.headline}
         </h2>
-        <nav aria-label={r.navAria} className="mt-10 border-t border-[#E8E8E8]">
+        <nav aria-label={r.navAria} className="mt-10 border-t border-[#E8E8E8]" data-figma-region="explore-trust-model-nav">
           {SECURITY_NAV_ITEMS.map((item) => {
             const copy = pages[item.labelKey];
             const isOpen = open === item.id;
             const active = item.id === current;
             return (
-              <div key={item.id} className="border-b border-[#E8E8E8]">
+              <div key={item.id} className="border-b border-[#E8E8E8]" data-figma-cell={item.id}>
                 <button
                   type="button"
                   aria-expanded={isOpen}

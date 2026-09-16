@@ -16,5 +16,5 @@ export function SecurityBreadcrumbs({ pageId }: { pageId: SecurityPageId }) {
     reliability: labels.reliability.nav,
     contact: labels.contact.nav,
   };
-  return <Breadcrumbs items={securityBreadcrumbs(pageId, navLabels)} />;
+  return <Breadcrumbs items={securityBreadcrumbs(pageId, navLabels)} editorialAlign />;
 }

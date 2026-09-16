@@ -70,57 +70,126 @@ function curve(a: Node, b: Node) {
   return `M ${a.x} ${a.y} Q ${cx} ${cy} ${b.x} ${b.y}`;
 }
 
+function nodeRadius(kind: NodeKind) {
+  if (kind === "hub") return 5.5;
+  if (kind === "card") return 4;
+  return 2.5;
+}
+
 export function SecurityConstellation({ pageId }: { pageId: SecurityPageId }) {
   const focus = FOCUS[pageId];
 
   return (
-    <div className="relative h-full min-h-[380px] w-full overflow-hidden sm:min-h-[440px] lg:min-h-full" aria-hidden="true">
-      <svg className="absolute inset-0 h-full w-full" viewBox="0 0 560 480" fill="none" preserveAspectRatio="xMidYMid slice">
-        {LINKS.map(([from, to], i) => {
-          const a = nodeById(from);
-          const b = nodeById(to);
-          const hot = from === focus || to === focus;
-          return (
-            <path
-              key={`${from}-${to}`}
-              d={curve(a, b)}
-              stroke={hot ? "#3FE844" : "#2F7A3A"}
-              strokeOpacity={hot ? 0.85 : 0.28}
-              strokeWidth={hot ? 1.4 : 1}
-              strokeDasharray={i % 3 === 0 ? "4 6" : undefined}
-              className={hot ? "security-line-flow" : undefined}
-            />
-          );
-        })}
-      </svg>
-
-      {NODES.map((node) => {
-        const active = node.id === focus;
-        const size = node.kind === "hub" ? 11 : node.kind === "card" ? 8 : 5;
-        return (
-          <span
-            key={node.id}
-            className="absolute -translate-x-1/2 -translate-y-1/2"
-            style={{ left: `${(node.x / 560) * 100}%`, top: `${(node.y / 480) * 100}%` }}
-          >
-            <span className="flex items-center gap-2">
-              <span
-                className={`block rounded-full ${active ? "bg-[#3FE844] security-lime-dot" : "bg-[#2F7A3A]/70"}`}
-                style={{ width: size, height: size }}
+    <div
+      className="relative h-full min-h-[380px] w-full sm:min-h-[440px] lg:min-h-full"
+      data-figma-layer="hero-abstract"
+      aria-hidden="true"
+    >
+      <svg
+        className="h-full w-full"
+        viewBox="0 0 560 480"
+        fill="none"
+        preserveAspectRatio="xMidYMid slice"
+        data-figma-layer="hero-abstract-svg"
+      >
+        <g data-figma-layer="abstract-links">
+          {LINKS.map(([from, to], i) => {
+            const a = nodeById(from);
+            const b = nodeById(to);
+            const hot = from === focus || to === focus;
+            return (
+              <path
+                key={`${from}-${to}`}
+                d={curve(a, b)}
+                stroke={hot ? "#3FE844" : "#2F7A3A"}
+                strokeOpacity={hot ? 0.85 : 0.28}
+                strokeWidth={hot ? 1.4 : 1}
+                strokeDasharray={i % 3 === 0 ? "4 6" : undefined}
+                className={hot ? "security-line-flow" : undefined}
               />
-              <span
-                className={`whitespace-nowrap font-semibold tracking-[0.08em] ${
-                  node.kind === "hub" || node.kind === "card"
-                    ? "rounded-md border border-[#163326]/10 bg-white/80 px-2 py-1 text-[10px] uppercase"
-                    : "text-[10px]"
-                } ${active ? "text-[#0D0D0D]" : "text-[#163326]/70"}`}
-              >
-                {node.label}
-              </span>
-            </span>
-          </span>
-        );
-      })}
+            );
+          })}
+        </g>
+
+        <g data-figma-layer="abstract-nodes">
+          {NODES.map((node) => {
+            const active = node.id === focus;
+            const r = nodeRadius(node.kind);
+            const labelFill = active ? "#0D0D0D" : "#163326";
+            const labelOpacity = active ? 1 : 0.7;
+            const dotFill = active ? "#3FE844" : "#2F7A3A";
+            const dotOpacity = active ? 1 : 0.7;
+
+            if (node.kind === "card" || node.kind === "hub") {
+              const padX = 8;
+              const padY = 5;
+              const textW = node.label.length * 5.8 + padX * 2;
+              const textH = 18;
+              const rx = 4;
+              const rectX = node.x + r + 4;
+              const rectY = node.y - textH / 2;
+
+              return (
+                <g key={node.id} data-figma-node={node.id}>
+                  <circle
+                    cx={node.x}
+                    cy={node.y}
+                    r={r}
+                    fill={dotFill}
+                    fillOpacity={dotOpacity}
+                    className={active ? "security-lime-dot" : undefined}
+                  />
+                  <rect
+                    x={rectX}
+                    y={rectY}
+                    width={textW}
+                    height={textH}
+                    rx={rx}
+                    fill="rgba(255,255,255,0.8)"
+                    stroke="rgba(22,51,38,0.1)"
+                    strokeWidth={1}
+                  />
+                  <text
+                    x={rectX + padX}
+                    y={node.y + 4}
+                    fill={labelFill}
+                    fillOpacity={labelOpacity}
+                    fontSize={10}
+                    fontWeight={600}
+                    letterSpacing="0.08em"
+                  >
+                    {node.label}
+                  </text>
+                </g>
+              );
+            }
+
+            return (
+              <g key={node.id} data-figma-node={node.id}>
+                <circle
+                  cx={node.x}
+                  cy={node.y}
+                  r={r}
+                  fill={dotFill}
+                  fillOpacity={dotOpacity}
+                  className={active ? "security-lime-dot" : undefined}
+                />
+                <text
+                  x={node.x + r + 6}
+                  y={node.y + 3.5}
+                  fill={labelFill}
+                  fillOpacity={labelOpacity}
+                  fontSize={10}
+                  fontWeight={600}
+                  letterSpacing="0.08em"
+                >
+                  {node.label}
+                </text>
+              </g>
+            );
+          })}
+        </g>
+      </svg>
     </div>
   );
 }

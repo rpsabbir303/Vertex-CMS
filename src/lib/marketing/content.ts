@@ -429,8 +429,36 @@ const en = {
       eyebrow: "Compliance",
       headline: "Compliance support, clearly labeled",
     },
+    complianceKeyInfo: {
+      eyebrow: "Key compliance information",
+    },
+    complianceCta: {
+      title: "Need additional compliance information?",
+      supporting:
+        "Connect with the Vertex CMS team for compliance-related evaluation questions and follow-up — for prospective customers, enterprise reviewers, and compliance stakeholders.",
+    },
     aiGovernance: { eyebrow: "AI governance" },
+    aiGovernanceHero: {
+      primary: "Explore Security",
+      secondary: "Contact Security",
+    },
+    aiGovernanceCta: {
+      title: "Questions about AI governance?",
+      supporting: "Contact the Vertex CMS team for security and governance questions.",
+      primary: "Contact Security",
+      secondary: "Request a Demo",
+    },
     reliability: { eyebrow: "Reliability / DR" },
+    reliabilityHero: {
+      primary: "Explore Security",
+      secondary: "Contact Security",
+    },
+    reliabilityCta: {
+      title: "Questions about reliability or recovery?",
+      supporting: "Contact the Vertex CMS team for security, reliability, and recovery questions.",
+      primary: "Contact Security",
+      secondary: "Request a Demo",
+    },
     cta: {
       title: "Need additional security information?",
       supporting:
@@ -463,27 +491,27 @@ const en = {
       },
       "access-security": {
         nav: "Access Security",
-        title: "Access security",
+        title: "Access security for every team and role.",
         description:
-          "Identity, authentication, authorization, and administrative access controls — with plan-dependent capabilities where documented.",
+          "Vertex CMS supports controlled access through identity, authentication, authorization, MFA, role-based access control, and applicable SSO/SCIM capabilities where documented.",
       },
       compliance: {
         nav: "Compliance",
-        title: "Compliance",
+        title: "Compliance designed into construction workflows.",
         description:
-          "Documented compliance workflows and product support areas — distinct from formal organizational certification.",
+          "Vertex CMS supports compliance-related workflows across privacy, accessibility, construction records, and workforce and safety requirements, while distinguishing product support from formal organizational certification.",
       },
       "ai-governance": {
         nav: "AI Governance",
-        title: "AI governance",
+        title: "AI governance built around human control.",
         description:
-          "Permission-scoped AI assistance with explicit human confirmation for consequential writes and accountable tool-call logging.",
+          "Vertex CMS is designed so AI can assist with analysis, recommendations, and workflow actions while keeping consequential actions under explicit human control.",
       },
       reliability: {
         nav: "Reliability / DR",
-        title: "Reliability & disaster recovery",
+        title: "Built for continuity, recovery, and resilience.",
         description:
-          "Documented availability and recovery objectives — targets and architecture patterns, not historical guarantees.",
+          "Vertex CMS is designed around resilient infrastructure, recovery planning, and operational continuity so construction teams can keep critical project information available when it matters.",
       },
       contact: {
         nav: "Security Contact",
@@ -848,8 +876,36 @@ export const marketingContent: Record<MarketingLocale, typeof en> = {
         eyebrow: "Cumplimiento",
         headline: "Soporte de cumplimiento, claramente etiquetado",
       },
+      complianceKeyInfo: {
+        eyebrow: "Información clave de cumplimiento",
+      },
+      complianceCta: {
+        title: "¿Necesita información adicional de cumplimiento?",
+        supporting:
+          "Conéctese con el equipo de Vertex CMS para preguntas de evaluación relacionadas con cumplimiento — para clientes potenciales, revisores empresariales y partes interesadas en cumplimiento.",
+      },
       aiGovernance: { eyebrow: "Gobernanza de IA" },
+      aiGovernanceHero: {
+        primary: "Explorar seguridad",
+        secondary: "Contacto de seguridad",
+      },
+      aiGovernanceCta: {
+        title: "¿Preguntas sobre gobernanza de IA?",
+        supporting: "Contacte al equipo de Vertex CMS para preguntas de seguridad y gobernanza.",
+        primary: "Contacto de seguridad",
+        secondary: "Solicitar demo",
+      },
       reliability: { eyebrow: "Fiabilidad / DR" },
+      reliabilityHero: {
+        primary: "Explorar seguridad",
+        secondary: "Contacto de seguridad",
+      },
+      reliabilityCta: {
+        title: "¿Preguntas sobre fiabilidad o recuperación?",
+        supporting: "Contacte al equipo de Vertex CMS para preguntas de seguridad, fiabilidad y recuperación.",
+        primary: "Contacto de seguridad",
+        secondary: "Solicitar demo",
+      },
       cta: {
         title: "¿Necesita información de seguridad adicional?",
         supporting:
@@ -882,27 +938,27 @@ export const marketingContent: Record<MarketingLocale, typeof en> = {
         },
         "access-security": {
           nav: "Seguridad de acceso",
-          title: "Seguridad de acceso",
+          title: "Seguridad de acceso para cada equipo y rol.",
           description:
-            "Identidad, autenticación, autorización y controles de acceso administrativo — con capacidades según plan donde esté documentado.",
+            "Vertex CMS admite acceso controlado mediante identidad, autenticación, autorización, MFA, control de acceso basado en roles y capacidades SSO/SCIM aplicables donde esté documentado.",
         },
         compliance: {
           nav: "Cumplimiento",
-          title: "Cumplimiento",
+          title: "Cumplimiento diseñado en los flujos de construcción.",
           description:
-            "Flujos de cumplimiento documentados y áreas de soporte del producto — distintos de la certificación organizacional formal.",
+            "Vertex CMS admite flujos relacionados con cumplimiento en privacidad, accesibilidad, registros de construcción y requisitos de fuerza laboral y seguridad, distinguiendo el soporte del producto de la certificación organizacional formal.",
         },
         "ai-governance": {
           nav: "Gobernanza de IA",
-          title: "Gobernanza de IA",
+          title: "Gobernanza de IA basada en control humano.",
           description:
-            "Asistencia de IA acotada al permiso del usuario con confirmación humana explícita para escrituras y registro de llamadas a herramientas.",
+            "Vertex CMS está diseñado para que la IA pueda ayudar con análisis, recomendaciones y acciones de flujo de trabajo, manteniendo las acciones consecuentes bajo control humano explícito.",
         },
         reliability: {
           nav: "Fiabilidad / DR",
-          title: "Fiabilidad y recuperación ante desastres",
+          title: "Diseñado para continuidad, recuperación y resiliencia.",
           description:
-            "Objetivos documentados de disponibilidad y recuperación — metas y patrones de arquitectura, no garantías históricas.",
+            "Vertex CMS está diseñado en torno a infraestructura resiliente, planificación de recuperación y continuidad operativa para que los equipos de construcción mantengan disponible la información crítica del proyecto cuando importa.",
         },
         contact: {
           nav: "Contacto de seguridad",

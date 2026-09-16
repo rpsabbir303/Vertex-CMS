@@ -38,7 +38,7 @@ export function SecurityContactCTA({ compact, embedded }: Props) {
   }
 
   return (
-    <section aria-labelledby="security-cta-heading">
+    <section aria-labelledby="security-cta-heading" data-figma-section="security-contact">
       <SecurityPaper dark>
         <SecurityMeasure className="py-16 text-center sm:py-20">
           <p className="text-[12px] font-semibold uppercase tracking-[0.18em] text-[#3FE844]">{t.security.hero.eyebrow}</p>

@@ -680,6 +680,18 @@ svg {
   background-color: #ffffff;
 }
 
+/* Security & Trust — DM Sans (body) + DM Serif Display (headings) */
+.security-font-scope {
+  --font-sans: var(--font-security-sans), system-ui, sans-serif;
+  --font-display: var(--font-security-display), Georgia, "Times New Roman", serif;
+  font-family: var(--font-sans);
+}
+
+.security-font-scope .font-mono {
+  font-family: var(--font-sans);
+  font-variant-numeric: tabular-nums;
+}
+
 .security-ds {
   background-color: #fdfdfd;
   color: #0d0d0d;
@@ -687,18 +699,10 @@ svg {
 
 .security-paper {
   background-color: #eaf6e4;
-  background-image:
-    linear-gradient(to right, rgba(62, 110, 62, 0.14) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(62, 110, 62, 0.14) 1px, transparent 1px);
-  background-size: 28px 28px;
 }
 
 .security-paper-dark {
   background-color: #163326;
-  background-image:
-    linear-gradient(to right, rgba(63, 232, 68, 0.08) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(63, 232, 68, 0.08) 1px, transparent 1px);
-  background-size: 28px 28px;
   color: #f3faf3;
 }
 

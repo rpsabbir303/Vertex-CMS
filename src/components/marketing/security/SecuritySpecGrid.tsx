@@ -29,7 +29,7 @@ export function SecuritySpecGrid({ items, eyebrow }: Props) {
           >
             <p className="text-[1.15rem] font-bold tracking-tight text-[#0D0D0D]">{item.label}</p>
             <p className="mt-2 text-[13px] leading-relaxed text-[#5C6560]">{item.detail}</p>
-            {item.status ? (
+            {item.status && SECURITY_STATUS_LABEL[item.status] ? (
               <p className="mt-3 text-[10px] font-semibold uppercase tracking-[0.14em] text-[#5C6560]/80">
                 {SECURITY_STATUS_LABEL[item.status]}
               </p>
