@@ -647,18 +647,201 @@ svg {
   box-shadow: 1px 0 0 rgba(8, 35, 63, 0.07), -1px 0 0 rgba(8, 35, 63, 0.07);
 }
 
-.careers-safe-zone {
+.careers-safe-zone,
+.security-safe-zone {
   position: relative;
   z-index: 2;
-  max-width: 36rem;
+  max-width: 42rem;
   min-width: 0;
-  padding: 0.15rem 0.75rem 0.85rem 0;
-  background: linear-gradient(
-    90deg,
-    rgba(245, 248, 252, 0.94) 0%,
-    rgba(245, 248, 252, 0.82) 68%,
-    rgba(245, 248, 252, 0) 100%
+  padding: 0;
+  background: none;
+}
+
+.security-editorial-canvas {
+  width: 100%;
+  min-width: 0;
+}
+
+.security-hero-copy {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  min-width: 0;
+  max-width: none;
+  padding: 0;
+  background: none;
+}
+
+.security-saas {
+  background-color: #fdfdfd;
+}
+
+.security-grid {
+  background-color: #ffffff;
+}
+
+.security-ds {
+  background-color: #fdfdfd;
+  color: #0d0d0d;
+}
+
+.security-paper {
+  background-color: #eaf6e4;
+  background-image:
+    linear-gradient(to right, rgba(62, 110, 62, 0.14) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(62, 110, 62, 0.14) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+.security-paper-dark {
+  background-color: #163326;
+  background-image:
+    linear-gradient(to right, rgba(63, 232, 68, 0.08) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(63, 232, 68, 0.08) 1px, transparent 1px);
+  background-size: 28px 28px;
+  color: #f3faf3;
+}
+
+.security-lime-dot {
+  animation: security-node-pulse 3.4s ease-in-out infinite;
+}
+
+@media (max-width: 1023px) {
+  .sta-deco {
+    display: none;
+  }
+}
+
+.security-scatter {
+  overflow: visible;
+}
+
+.security-scatter::before {
+  content: "";
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  background-image: repeating-linear-gradient(
+    -28deg,
+    transparent,
+    transparent 10px,
+    rgba(8, 35, 63, 0.035) 10px,
+    rgba(8, 35, 63, 0.035) 11px
   );
+  mask-image: linear-gradient(90deg, transparent 42%, black 78%);
+}
+
+.security-snippet,
+.security-chip {
+  border: 1px dashed #e8b4b4;
+}
+
+.security-snippet {
+  padding: 14px 16px;
+}
+
+.security-chip {
+  width: 138px;
+  padding: 8px 10px;
+}
+
+.security-editorial-intro {
+  position: relative;
+  z-index: 2;
+  min-width: 0;
+}
+
+.security-structural-grid__guides {
+  display: none;
+}
+
+/* Security & Trust — dedicated canvas + infrastructure motion (not Careers visuals). */
+.security-canvas {
+  background-color: #f5f8fc;
+}
+
+.security-canvas-frame {
+  box-shadow: 1px 0 0 rgba(8, 35, 63, 0.07), -1px 0 0 rgba(8, 35, 63, 0.07);
+}
+
+@keyframes security-dash {
+  to {
+    stroke-dashoffset: -160;
+  }
+}
+
+@keyframes security-node-pulse {
+  0%,
+  100% {
+    opacity: 0.35;
+  }
+  50% {
+    opacity: 0.92;
+  }
+}
+
+.security-line-flow {
+  animation: security-dash 26s linear infinite;
+}
+
+.security-line-flow-slow {
+  animation: security-dash 38s linear infinite;
+}
+
+.security-node-pulse {
+  animation: security-node-pulse 6.2s ease-in-out infinite;
+}
+
+.security-zone {
+  position: relative;
+}
+
+.security-zone--trust::before,
+.security-zone--spec::before,
+.security-zone--nav::before {
+  content: "";
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  opacity: 0.55;
+  background-repeat: no-repeat;
+}
+
+.security-zone--trust::before {
+  background-image: linear-gradient(90deg, transparent 0%, rgba(20, 110, 245, 0.04) 55%, transparent 100%);
+  background-size: 100% 100%;
+}
+
+.security-zone--spec::before {
+  background-image: linear-gradient(180deg, transparent, rgba(8, 35, 63, 0.03) 40%, transparent);
+}
+
+.security-zone--nav::before {
+  background-image: linear-gradient(90deg, rgba(8, 35, 63, 0.025) 0%, transparent 45%, rgba(20, 110, 245, 0.03) 100%);
+}
+
+.security-system-flow {
+  isolation: isolate;
+}
+
+.security-system-spine {
+  z-index: 1;
+  inset-inline: 0;
+}
+
+.security-flow-bridge {
+  opacity: 0.9;
+}
+
+.security-hero-canvas {
+  mask-image: linear-gradient(to bottom, transparent 0%, black 12%, black 88%, transparent 100%);
+}
+
+.security-ambient--trust,
+.security-ambient--spec,
+.security-ambient--nav,
+.security-ambient--topic {
+  z-index: 0;
 }
 
 .careers-safe-zone-wide {
@@ -712,8 +895,16 @@ svg {
   .careers-line-flow,
   .careers-line-flow-slow,
   .careers-pulse,
-  .careers-pulse-delay {
+  .careers-pulse-delay,
+  .security-line-flow,
+  .security-line-flow-slow,
+  .security-node-pulse,
+  .security-lime-dot {
     animation: none !important;
+  }
+
+  .sta-signal {
+    visibility: hidden;
   }
 }
 

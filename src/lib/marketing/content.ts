@@ -403,6 +403,104 @@ const en = {
       viewAllRoles: "View all roles",
     },
   },
+  security: {
+    hero: {
+      eyebrow: "Security & Trust",
+      headline: "Security built into the platform.",
+      supporting:
+        "Vertex CMS is designed with data protection, controlled access, compliance support, AI governance, and operational reliability in mind — so construction teams and enterprise reviewers can understand how the platform is intended to operate.",
+    },
+    overview: {
+      eyebrow: "Trust overview",
+      headline: "Security, privacy, compliance, AI governance, and reliability.",
+      supporting:
+        "A single trust model spans how data is protected, how access is controlled, which compliance workflows the product supports, how AI actions are governed, and how the platform is expected to recover from disruption.",
+    },
+    protection: {
+      eyebrow: "Protection areas",
+      headline: "Explore the trust model",
+      navAria: "Security and trust destinations",
+      exploreSuffix: "→",
+    },
+    explore: "Explore",
+    dataProtection: { eyebrow: "Data protection" },
+    accessSecurity: { eyebrow: "Access security" },
+    compliance: {
+      eyebrow: "Compliance",
+      headline: "Compliance support, clearly labeled",
+    },
+    aiGovernance: { eyebrow: "AI governance" },
+    reliability: { eyebrow: "Reliability / DR" },
+    cta: {
+      title: "Need additional security information?",
+      supporting:
+        "Connect with the Vertex CMS team for security-related questions, evaluation support, or follow-up — for prospective customers, enterprise security reviewers, and authorized stakeholders.",
+      note: "This contact path is for evaluation and sales inquiries — not for reporting security incidents.",
+      primary: "Contact",
+      secondary: "Book a Demo",
+      tertiary: "Request Quote",
+      legalHeading: "Related policies",
+      privacy: "Privacy Policy",
+      terms: "Terms of Service",
+      dpa: "DPA",
+      cookies: "Cookie Policy",
+    },
+    subpage: {
+      back: "← Security & Trust",
+    },
+    pages: {
+      hub: {
+        nav: "Security & Trust",
+        title: "Security built into the platform.",
+        description:
+          "Vertex CMS is designed with data protection, controlled access, compliance support, AI governance, and operational reliability in mind — so construction teams and enterprise reviewers can understand how the platform is intended to operate.",
+      },
+      "data-protection": {
+        nav: "Data Protection",
+        title: "Data protection",
+        description:
+          "How tenant data is protected in transit and at rest, with isolation and handling patterns defined for the platform.",
+      },
+      "access-security": {
+        nav: "Access Security",
+        title: "Access security",
+        description:
+          "Identity, authentication, authorization, and administrative access controls — with plan-dependent capabilities where documented.",
+      },
+      compliance: {
+        nav: "Compliance",
+        title: "Compliance",
+        description:
+          "Documented compliance workflows and product support areas — distinct from formal organizational certification.",
+      },
+      "ai-governance": {
+        nav: "AI Governance",
+        title: "AI governance",
+        description:
+          "Permission-scoped AI assistance with explicit human confirmation for consequential writes and accountable tool-call logging.",
+      },
+      reliability: {
+        nav: "Reliability / DR",
+        title: "Reliability & disaster recovery",
+        description:
+          "Documented availability and recovery objectives — targets and architecture patterns, not historical guarantees.",
+      },
+      contact: {
+        nav: "Security Contact",
+        title: "Security contact",
+        description:
+          "Connect with Vertex CMS for security-related evaluation questions and enterprise review follow-up.",
+      },
+    },
+    related: {
+      eyebrow: "Security & Trust",
+      headline: "Explore the trust model",
+      navAria: "Security and trust pages",
+    },
+    keyInfo: {
+      eyebrow: "Key security information",
+    },
+  },
   legal: {
     eyebrow: "Legal",
     navigationAriaLabel: "Legal documents",
@@ -721,6 +819,105 @@ export const marketingContent: Record<MarketingLocale, typeof en> = {
         adjacentNav: "Otras posiciones",
         contactCta: "Ponerse en contacto",
         viewAllRoles: "Ver todos los roles",
+      },
+    },
+    security: {
+      ...en.security,
+      hero: {
+        eyebrow: "Seguridad y confianza",
+        headline: "Seguridad integrada en la plataforma.",
+        supporting:
+          "Vertex CMS está diseñado con protección de datos, acceso controlado, soporte de cumplimiento, gobernanza de IA y fiabilidad operativa — para que equipos de construcción y revisores empresariales entiendan cómo se prevé que opere la plataforma.",
+      },
+      overview: {
+        eyebrow: "Panorama de confianza",
+        headline: "Seguridad, privacidad, cumplimiento, gobernanza de IA y fiabilidad.",
+        supporting:
+          "Un único modelo de confianza abarca cómo se protegen los datos, cómo se controla el acceso, qué flujos de cumplimiento admite el producto, cómo se gobiernan las acciones de IA y cómo se espera que la plataforma se recupere ante interrupciones.",
+      },
+      protection: {
+        eyebrow: "Áreas de protección",
+        headline: "Explore el modelo de confianza",
+        navAria: "Destinos de seguridad y confianza",
+        exploreSuffix: "→",
+      },
+      explore: "Explorar",
+      dataProtection: { eyebrow: "Protección de datos" },
+      accessSecurity: { eyebrow: "Seguridad de acceso" },
+      compliance: {
+        eyebrow: "Cumplimiento",
+        headline: "Soporte de cumplimiento, claramente etiquetado",
+      },
+      aiGovernance: { eyebrow: "Gobernanza de IA" },
+      reliability: { eyebrow: "Fiabilidad / DR" },
+      cta: {
+        title: "¿Necesita información de seguridad adicional?",
+        supporting:
+          "Conéctese con el equipo de Vertex CMS para preguntas de seguridad, apoyo en evaluaciones o seguimiento — para clientes potenciales, revisores de seguridad empresarial y partes autorizadas.",
+        note: "Esta vía es para evaluación y consultas comerciales — no para reportar incidentes de seguridad.",
+        primary: "Contacto",
+        secondary: "Reservar demo",
+        tertiary: "Solicitar cotización",
+        legalHeading: "Políticas relacionadas",
+        privacy: "Política de privacidad",
+        terms: "Términos de servicio",
+        dpa: "DPA",
+        cookies: "Política de cookies",
+      },
+      subpage: {
+        back: "← Seguridad y confianza",
+      },
+      pages: {
+        hub: {
+          nav: "Seguridad y confianza",
+          title: "Seguridad integrada en la plataforma.",
+          description:
+            "Vertex CMS está diseñado con protección de datos, acceso controlado, soporte de cumplimiento, gobernanza de IA y fiabilidad operativa — para que equipos de construcción y revisores empresariales entiendan cómo se prevé que opere la plataforma.",
+        },
+        "data-protection": {
+          nav: "Protección de datos",
+          title: "Protección de datos",
+          description:
+            "Cómo se protegen los datos del tenant en tránsito y en reposo, con patrones de aislamiento y manejo definidos para la plataforma.",
+        },
+        "access-security": {
+          nav: "Seguridad de acceso",
+          title: "Seguridad de acceso",
+          description:
+            "Identidad, autenticación, autorización y controles de acceso administrativo — con capacidades según plan donde esté documentado.",
+        },
+        compliance: {
+          nav: "Cumplimiento",
+          title: "Cumplimiento",
+          description:
+            "Flujos de cumplimiento documentados y áreas de soporte del producto — distintos de la certificación organizacional formal.",
+        },
+        "ai-governance": {
+          nav: "Gobernanza de IA",
+          title: "Gobernanza de IA",
+          description:
+            "Asistencia de IA acotada al permiso del usuario con confirmación humana explícita para escrituras y registro de llamadas a herramientas.",
+        },
+        reliability: {
+          nav: "Fiabilidad / DR",
+          title: "Fiabilidad y recuperación ante desastres",
+          description:
+            "Objetivos documentados de disponibilidad y recuperación — metas y patrones de arquitectura, no garantías históricas.",
+        },
+        contact: {
+          nav: "Contacto de seguridad",
+          title: "Contacto de seguridad",
+          description:
+            "Conéctese con Vertex CMS para preguntas de evaluación de seguridad y seguimiento de revisiones empresariales.",
+        },
+      },
+      related: {
+        eyebrow: "Seguridad y confianza",
+        headline: "Explore el modelo de confianza",
+        navAria: "Páginas de seguridad y confianza",
+      },
+      keyInfo: {
+        eyebrow: "Información de seguridad clave",
       },
     },
     legal: {

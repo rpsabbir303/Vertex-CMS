@@ -2,11 +2,10 @@ import type { SecurityStatus } from "@/lib/marketing/security/content";
 import { SECURITY_STATUS_LABEL } from "@/lib/marketing/security/content";
 
 const STATUS_STYLE: Record<SecurityStatus, string> = {
-  requirement: "border-brand-line bg-brand-soft text-brand-navy",
-  target: "border-brand-orange/30 bg-brand-orange/5 text-brand-navy",
-  capability: "border-brand-line bg-white text-brand-muted",
-  product: "border-brand-line bg-white text-brand-muted",
-  placeholder: "border-dashed border-brand-line bg-[#FAFBFD] text-brand-muted italic",
+  requirement: "border-brand-navy/12 bg-white text-brand-navy",
+  target: "border-[#3FE844]/50 bg-[#3FE844]/10 text-[#163326]",
+  capability: "border-brand-navy/12 bg-[#F5F8FC] text-brand-muted",
+  product: "border-brand-navy/12 bg-[#F5F8FC] text-brand-muted",
 };
 
 export function StatusPill({ status }: { status: SecurityStatus }) {
