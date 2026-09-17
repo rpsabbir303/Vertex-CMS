@@ -156,7 +156,7 @@ function MainModule({ area }: { area: HubFeatureArea }) {
           {PM_OPEN_RFIS.map((row) => (
             <li key={row.id} className="border border-brand-line/80 bg-[#FAFBFC] px-3 py-2.5">
               <div className="flex flex-wrap items-start justify-between gap-2">
-                <p className="font-mono text-[11px] font-semibold text-brand-orange">{row.id}</p>
+                <p className="font-sans tabular-nums text-[11px] font-semibold text-brand-orange">{row.id}</p>
                 <span className="rounded-sm border border-brand-orange/25 bg-brand-orange/[0.06] px-1.5 py-0.5 text-[9px] font-semibold uppercase text-brand-orange">
                   {row.status}
                 </span>
@@ -176,7 +176,7 @@ function MainModule({ area }: { area: HubFeatureArea }) {
           {PM_SUBMITTALS.map((row) => (
             <li key={row.id} className="border border-brand-line/80 bg-[#FAFBFC] px-3 py-2.5">
               <div className="flex flex-wrap items-start justify-between gap-2">
-                <p className="font-mono text-[11px] font-semibold text-brand-navy">{row.id}</p>
+                <p className="font-sans tabular-nums text-[11px] font-semibold text-brand-navy">{row.id}</p>
                 <span className="text-[10px] font-semibold text-brand-blue">{row.status}</span>
               </div>
               <p className="mt-1 text-[12px] leading-snug text-brand-muted">{row.item}</p>
@@ -190,7 +190,7 @@ function MainModule({ area }: { area: HubFeatureArea }) {
 
   return (
     <ShellPanel label="Change order">
-      <p className="font-mono text-[12px] font-semibold text-brand-orange">{PM_CHANGE_ORDER.id}</p>
+      <p className="font-sans tabular-nums text-[12px] font-semibold text-brand-orange">{PM_CHANGE_ORDER.id}</p>
       <p className="mt-1 text-[13px] font-semibold text-brand-navy">{PM_CHANGE_ORDER.title}</p>
       <p className="mt-2 text-[12px] text-brand-muted">{detail?.heroTagline ?? area.description}</p>
       <dl className="mt-3 space-y-2 text-[11px]">
@@ -225,7 +225,7 @@ export function ProjectCommandWorkspace({ area, areas, onSelect }: Props) {
             <p className="font-sans text-[10px] font-semibold uppercase tracking-[0.16em] text-brand-muted">
               Project command center
             </p>
-            <p className="mt-1 font-display text-[1.35rem] leading-tight text-brand-navy sm:text-[1.5rem]">
+            <p className="mt-1 font-sans text-[1.35rem] font-semibold leading-tight text-brand-navy sm:text-[1.5rem]">
               {PM_DEMO_PROJECT}
             </p>
           </div>
@@ -341,7 +341,7 @@ export function ProjectCommandWorkspace({ area, areas, onSelect }: Props) {
             <p className="text-[10px] font-semibold uppercase tracking-wide text-brand-muted">RFIs</p>
             {PM_OPEN_RFIS.map((r) => (
               <p key={r.id} className="mt-1 truncate text-[11px] text-brand-navy">
-                <span className="font-mono text-brand-orange">{r.id}</span> · {r.status}
+                <span className="font-sans tabular-nums text-brand-orange">{r.id}</span> · {r.status}
               </p>
             ))}
           </div>
@@ -349,14 +349,14 @@ export function ProjectCommandWorkspace({ area, areas, onSelect }: Props) {
             <p className="text-[10px] font-semibold uppercase tracking-wide text-brand-muted">Submittals</p>
             {PM_SUBMITTALS.map((s) => (
               <p key={s.id} className="mt-1 truncate text-[11px] text-brand-navy">
-                <span className="font-mono text-brand-navy">{s.id}</span> · {s.status}
+                <span className="font-sans tabular-nums text-brand-navy">{s.id}</span> · {s.status}
               </p>
             ))}
           </div>
           <div className={"min-w-0 p-2.5 " + PANEL}>
             <p className="text-[10px] font-semibold uppercase tracking-wide text-brand-muted">Change orders</p>
             <p className="mt-1 text-[11px] text-brand-navy">
-              <span className="font-mono text-brand-orange">{PM_CHANGE_ORDER.id}</span> · {PM_CHANGE_ORDER.status}
+              <span className="font-sans tabular-nums text-brand-orange">{PM_CHANGE_ORDER.id}</span> · {PM_CHANGE_ORDER.status}
             </p>
           </div>
         </div>

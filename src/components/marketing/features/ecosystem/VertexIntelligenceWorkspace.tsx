@@ -232,7 +232,7 @@ function PredictiveMode() {
             <div className="min-w-0">
               <p className="font-sans text-[12px] font-semibold text-brand-navy">{s.title}</p>
               <p className="mt-1 text-[11px] leading-relaxed text-brand-muted">{s.body}</p>
-              <p className="mt-2 font-mono text-[9px] uppercase tracking-wider text-brand-muted">{s.severity} signal</p>
+              <p className="mt-2 font-sans tabular-nums text-[9px] uppercase tracking-wider text-brand-muted">{s.severity} signal</p>
             </div>
           </li>
         ))}
@@ -318,7 +318,7 @@ function AutomationMode() {
                     aria-hidden="true"
                   />
                 ) : null}
-                <span className="relative z-[1] flex h-6 w-6 shrink-0 items-center justify-center rounded-full border border-brand-line bg-white font-mono text-[10px] font-bold text-brand-orange">
+                <span className="relative z-[1] flex h-6 w-6 shrink-0 items-center justify-center rounded-full border border-brand-line bg-white font-sans tabular-nums text-[10px] font-bold text-brand-orange">
                   {step.n}
                 </span>
                 <div className={"min-w-0 flex-1 px-3 py-2 " + PANEL_BORDER}>
@@ -354,7 +354,7 @@ export function VertexIntelligenceWorkspace({ area }: { area: HubFeatureArea }) 
       <div className="border-b border-brand-line/70 px-4 py-4 sm:px-6 sm:py-5">
         <div className="flex flex-wrap items-center justify-between gap-3">
           <div>
-            <p className="font-display text-[1.25rem] text-brand-navy sm:text-[1.35rem]">{area.label}</p>
+            <p className="font-sans text-[1.25rem] font-semibold text-brand-navy sm:text-[1.35rem]">{area.label}</p>
             <FlowStrip />
           </div>
           <div className="flex flex-wrap gap-2 text-[11px]">

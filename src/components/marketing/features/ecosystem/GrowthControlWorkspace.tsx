@@ -95,7 +95,7 @@ function LeadsModule() {
       <ol className="space-y-2">
         {leadsFeatureDetail.workflow.steps.map((step) => (
           <li key={step.n} className="flex gap-3 border border-brand-line/80 bg-[#FAFBFC] px-3 py-2.5">
-            <span className="font-mono text-[10px] font-bold text-brand-orange">{step.n}</span>
+            <span className="font-sans tabular-nums text-[10px] font-bold text-brand-orange">{step.n}</span>
             <div>
               <p className="text-[12px] font-semibold text-brand-navy">{step.title}</p>
               <p className="mt-0.5 text-[11px] text-brand-muted">{step.body}</p>
@@ -202,7 +202,7 @@ function PortalsModule() {
       <ol className="mt-3 space-y-2">
         {customerPortalsFeatureDetail.howItWorks.steps.map((s) => (
           <li key={s.n} className="flex gap-2 text-[11px]">
-            <span className="font-mono font-bold text-brand-orange">{s.n}</span>
+            <span className="font-sans tabular-nums font-bold text-brand-orange">{s.n}</span>
             <span className="text-brand-navy">
               <span className="font-semibold">{s.title}</span>
               <span className="text-brand-muted"> — {s.body}</span>
@@ -271,7 +271,7 @@ export function GrowthControlWorkspace({ area, section, onSelect }: Props) {
                   : "border-brand-line/70 bg-white/70 hover:border-brand-blue/30 hover:bg-white")
               }
             >
-              <p className="font-mono text-[10px] font-bold text-brand-orange">{String(index + 1).padStart(2, "0")}</p>
+              <p className="font-sans tabular-nums text-[10px] font-bold text-brand-orange">{String(index + 1).padStart(2, "0")}</p>
               <p className="mt-1 font-sans text-[12px] font-semibold leading-snug text-brand-navy">{mod.label}</p>
               <p className="mt-0.5 text-[10px] text-brand-muted">{stageLabels[index] ?? mod.tags[0]}</p>
               {index < orderedAreas.length - 1 ? (

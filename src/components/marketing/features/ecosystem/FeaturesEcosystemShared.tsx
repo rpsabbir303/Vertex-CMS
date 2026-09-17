@@ -82,7 +82,7 @@ export function SectionIntro({
 }) {
   return (
     <header className="max-w-[36rem]">
-      <p className="font-mono text-[11px] font-bold tracking-[0.12em] text-brand-orange">{section.number}</p>
+      <p className="font-sans text-[11px] font-semibold uppercase tracking-[0.16em] text-brand-orange">{section.number}</p>
       <h2
         id={`${section.id}-heading`}
         className={"mt-6 font-display text-[1.75rem] tracking-tight sm:text-[2rem] " + (invert ? "text-white" : "text-brand-navy")}

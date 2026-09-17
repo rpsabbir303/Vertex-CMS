@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { BillingCadenceControl } from "@/components/conversion/BillingCadenceControl";
 import { AuthClient } from "@/lib/auth/client";
 import type { BillingPeriod } from "@/lib/auth/types";
 import {
@@ -24,13 +25,13 @@ function PlanPriceLine({ plan, period }: { plan: Plan; period: BillingPeriod }) 
   const formatted = formatPlanPrice(amount, plan.currency);
   if (formatted) {
     return (
-      <p className="mt-2 text-[14px] font-semibold text-brand-navy">
+      <p className="mt-2 text-[13px] font-semibold text-brand-navy">
         {formatted}
-        <span className="text-[12px] font-normal text-brand-muted"> / {period === "yearly" ? "year" : "month"}</span>
+        <span className="font-normal text-brand-muted"> / {period === "yearly" ? "yr" : "mo"}</span>
       </p>
     );
   }
-  return <p className="mt-2 text-[13px] text-brand-muted">Pricing from plan configuration</p>;
+  return <p className="mt-2 text-[12px] text-brand-muted">Pricing from plan configuration</p>;
 }
 
 export function BillingPlanPicker({
@@ -55,38 +56,25 @@ export function BillingPlanPicker({
   }
 
   return (
-    <section className="min-w-0 rounded-xl border border-brand-line bg-[#FAFBFD] p-5 sm:p-6" aria-labelledby="choose-plan-heading">
-      <h3 id="choose-plan-heading" className="text-[14px] font-semibold text-brand-navy">
-        Choose your plan
-      </h3>
-      <p className="mt-1 text-[13px] text-brand-muted">Select a Vertex CMS plan to continue with billing setup.</p>
-
-      <div className="mt-4 flex gap-2" role="group" aria-label="Billing frequency">
-        {(["monthly", "yearly"] as const).map((period) => (
-          <button
-            key={period}
-            type="button"
-            disabled={disabled}
-            onClick={() => onPeriodChange(period)}
-            className={`rounded-md border px-3 py-2 text-[12px] font-semibold transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-orange disabled:opacity-60 ${
-              billingPeriod === period
-                ? "border-brand-orange bg-brand-orange/10 text-brand-navy"
-                : "border-brand-line bg-white text-brand-muted hover:text-brand-navy"
-            }`}
-            aria-pressed={billingPeriod === period}
-          >
-            {period === "yearly" ? "Yearly billing" : "Monthly billing"}
-          </button>
-        ))}
+    <section className="min-w-0 rounded-xl border border-brand-line bg-white p-5 sm:p-6" aria-labelledby="choose-plan-heading">
+      <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+        <div>
+          <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-brand-orange">Select your plan</p>
+          <h2 id="choose-plan-heading" className="mt-1 text-[17px] font-semibold text-brand-navy">
+            Choose a Vertex CMS plan
+          </h2>
+          <p className="mt-1 text-[13px] text-brand-muted">Starter, Pro, Premium, and Enterprise — loaded from your plan configuration.</p>
+        </div>
+        <BillingCadenceControl value={billingPeriod} onChange={onPeriodChange} disabled={disabled} />
       </div>
 
       {error ? (
-        <p className="mt-3 text-[13px] font-medium text-red-600" role="alert">
+        <p className="mt-4 text-[13px] font-medium text-red-600" role="alert">
           {error}
         </p>
       ) : null}
 
-      <ul className="mt-5 grid min-w-0 grid-cols-1 gap-3 sm:grid-cols-2">
+      <ul className="mt-5 grid min-w-0 grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4">
         {plans.map((plan) => {
           const selected = plan.id === selectedPlanId;
           const loading = saving === plan.id;
@@ -97,23 +85,24 @@ export function BillingPlanPicker({
                 disabled={disabled || Boolean(saving)}
                 aria-pressed={selected}
                 onClick={() => void select(plan.id)}
-                className={`flex h-full w-full min-w-0 flex-col rounded-xl border p-4 text-left transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-orange disabled:opacity-60 ${
-                  selected
-                    ? "border-brand-orange bg-brand-orange/5 ring-1 ring-brand-orange/30"
-                    : "border-brand-line bg-white hover:border-brand-navy/25"
-                }`}
+                className={
+                  "flex h-full w-full min-w-0 flex-col rounded-lg border p-4 text-left transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-orange disabled:opacity-60 " +
+                  (selected
+                    ? "border-brand-orange/60 bg-brand-orange/[0.04] ring-1 ring-brand-orange/25"
+                    : "border-brand-line bg-[#FAFBFD] hover:border-brand-navy/20 hover:bg-white")
+                }
               >
                 <span className="flex items-center justify-between gap-2">
                   <span className="text-[15px] font-semibold text-brand-navy">{plan.name}</span>
                   {selected ? (
-                    <span className="rounded-full bg-brand-orange px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-white">
-                      Selected
+                    <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-brand-orange text-[11px] font-bold text-white" aria-hidden="true">
+                      ✓
                     </span>
                   ) : null}
                 </span>
-                <p className="mt-2 text-[13px] leading-relaxed text-brand-muted">{plan.description}</p>
+                <p className="mt-1.5 line-clamp-3 text-[12px] leading-relaxed text-brand-muted">{plan.description}</p>
                 <PlanPriceLine plan={plan} period={billingPeriod} />
-                {loading ? <span className="mt-2 text-[12px] text-brand-muted">Saving…</span> : null}
+                {loading ? <span className="mt-2 text-[11px] text-brand-muted">Saving…</span> : null}
               </button>
             </li>
           );
@@ -140,52 +129,38 @@ export function BillingSelectedPlanBanner({
   const formatted = formatPlanPrice(amount, plan.currency);
 
   return (
-    <section className="rounded-xl border border-brand-line bg-[#FAFBFD] px-5 py-4 sm:px-6" aria-label="Current plan">
-      <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-brand-orange">Current plan</p>
-      <div className="mt-2 flex flex-wrap items-start justify-between gap-3">
-        <div>
-          <p className="text-[17px] font-semibold text-brand-navy">{plan.name}</p>
+    <section className="rounded-xl border border-brand-line bg-white p-5 sm:p-6" aria-label="Selected plan">
+      <div className="flex flex-col gap-4 lg:flex-row lg:items-start lg:justify-between">
+        <div className="min-w-0 flex-1">
+          <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-brand-orange">Your plan</p>
+          <p className="mt-1 text-[20px] font-semibold text-brand-navy">{plan.name}</p>
+          <p className="mt-1 max-w-xl text-[14px] leading-relaxed text-brand-muted">{plan.description}</p>
           {formatted ? (
-            <p className="mt-1 text-[13px] font-medium text-brand-navy/90">
+            <p className="mt-2 text-[13px] font-medium text-brand-navy/90">
               {formatted} / {billingPeriod === "yearly" ? "year" : "month"}
             </p>
           ) : (
-            <p className="mt-1 text-[13px] text-brand-muted">Pricing from plan configuration</p>
+            <p className="mt-2 text-[13px] text-brand-muted">Pricing from plan configuration</p>
           )}
         </div>
-        {onChangePlan ? (
-          <button
-            type="button"
-            onClick={onChangePlan}
-            disabled={disabled}
-            className="text-[13px] font-semibold text-brand-blue hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-blue disabled:opacity-60"
-          >
-            Change plan
-          </button>
-        ) : null}
-      </div>
-      {onPeriodChange ? (
-        <div className="mt-4 flex flex-wrap gap-2" role="group" aria-label="Billing cadence">
-          {(["monthly", "yearly"] as const).map((period) => (
+        <div className="flex shrink-0 flex-col items-start gap-3 sm:flex-row sm:items-center lg:flex-col lg:items-end">
+          {onPeriodChange ? (
+            <BillingCadenceControl value={billingPeriod} onChange={onPeriodChange} disabled={disabled} compact />
+          ) : (
+            <p className="text-[13px] text-brand-muted">{billingPeriod === "yearly" ? "Yearly" : "Monthly"}</p>
+          )}
+          {onChangePlan ? (
             <button
-              key={period}
               type="button"
+              onClick={onChangePlan}
               disabled={disabled}
-              onClick={() => onPeriodChange(period)}
-              aria-pressed={billingPeriod === period}
-              className={`rounded-md border px-3 py-2 text-[12px] font-semibold transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-orange disabled:opacity-60 ${
-                billingPeriod === period
-                  ? "border-brand-orange bg-brand-orange/10 text-brand-navy"
-                  : "border-brand-line bg-white text-brand-muted hover:text-brand-navy"
-              }`}
+              className="text-[13px] font-semibold text-brand-blue hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-blue disabled:opacity-60"
             >
-              {period === "yearly" ? "Yearly billing" : "Monthly billing"}
+              Change plan
             </button>
-          ))}
+          ) : null}
         </div>
-      ) : (
-        <p className="mt-2 text-[13px] text-brand-muted">{billingPeriod === "yearly" ? "Yearly billing" : "Monthly billing"}</p>
-      )}
+      </div>
     </section>
   );
 }

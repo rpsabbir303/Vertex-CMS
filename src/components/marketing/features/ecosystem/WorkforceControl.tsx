@@ -139,7 +139,7 @@ export function WorkforceControl({ section }: { section: HubModuleSection }) {
             <p className="font-sans text-[12px] font-semibold uppercase tracking-[0.14em] text-brand-navy">
               Workforce control
             </p>
-            <p className="font-mono text-[10px] text-brand-muted">Subcontractors · Compliance · Workforce · Payroll</p>
+            <p className="font-sans text-[10px] text-brand-muted">Subcontractors · Compliance · Workforce · Payroll</p>
           </div>
 
           <div className="hidden min-w-0 md:block">
@@ -185,7 +185,7 @@ export function WorkforceControl({ section }: { section: HubModuleSection }) {
 
         <div className="mt-5 grid min-w-0 gap-4 lg:grid-cols-[minmax(0,0.36fr)_minmax(0,0.64fr)] lg:items-start">
           <div className="border border-brand-line/80 bg-white p-4 shadow-[0_1px_0_0_rgba(8,35,63,0.04)]">
-            <p className="font-mono text-[10px] font-bold uppercase tracking-[0.14em] text-brand-orange">
+            <p className="font-sans text-[10px] font-bold uppercase tracking-[0.14em] text-brand-orange">
               Subcontractors → compliance → payroll readiness
             </p>
             <p className="mt-3 font-sans text-[15px] font-semibold text-brand-navy">{active.label}</p>

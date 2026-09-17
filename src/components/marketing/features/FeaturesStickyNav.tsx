@@ -52,7 +52,7 @@ export function FeaturesStickyNav() {
                       : "border-transparent text-brand-muted hover:text-brand-navy")
                   }
                 >
-                  <span className={"font-mono text-[10px] font-bold " + (selected ? "text-brand-orange" : "text-brand-muted/70")}>
+                  <span className={"font-sans tabular-nums text-[10px] font-bold " + (selected ? "text-brand-orange" : "text-brand-muted/70")}>
                     {mod.number}
                   </span>
                   <span className="whitespace-nowrap">{mod.title}</span>

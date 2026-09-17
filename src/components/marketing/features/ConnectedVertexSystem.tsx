@@ -96,7 +96,7 @@ function SystemSignal({ label, className }: { label: string; className: string }
   return (
     <div
       className={
-        "absolute hidden items-center gap-1.5 font-mono text-[8px] font-semibold uppercase tracking-[0.14em] text-brand-muted lg:flex " +
+        "absolute hidden items-center gap-1.5 font-sans text-[8px] font-semibold uppercase tracking-[0.14em] text-brand-muted lg:flex " +
         className
       }
       aria-hidden="true"
@@ -115,10 +115,10 @@ function SystemCore() {
       data-design-layer="SystemCore"
     >
       <span className="absolute left-0 top-0 h-1 w-10 bg-brand-orange" aria-hidden="true" />
-      <span className="font-mono text-[9px] font-bold uppercase tracking-[0.18em] text-brand-orange">System core</span>
+      <span className="font-sans text-[9px] font-bold uppercase tracking-[0.18em] text-brand-orange">System core</span>
       <strong className="mt-2 font-sans text-[17px] font-semibold tracking-[-0.02em] text-brand-navy">VERTEX CMS</strong>
       <span className="mt-1 font-sans text-[10px] leading-snug text-brand-muted">Construction Management</span>
-      <span className="mt-3 inline-flex items-center gap-1.5 font-mono text-[8px] font-semibold uppercase tracking-[0.12em] text-brand-blue">
+      <span className="mt-3 inline-flex items-center gap-1.5 font-sans text-[8px] font-semibold uppercase tracking-[0.12em] text-brand-blue">
         <span className="h-1.5 w-1.5 rounded-full bg-brand-orange" aria-hidden="true" />
         Connected record
       </span>
@@ -137,7 +137,7 @@ function SystemNode({ module }: { module: HubModuleSection }) {
       data-design-layer="SystemNode"
     >
       <span className="flex items-center justify-between gap-2">
-        <span className="font-mono text-[9px] font-bold text-brand-orange">{module.number}</span>
+        <span className="font-sans text-[9px] font-bold text-brand-orange">{module.number}</span>
         <span className="h-1.5 w-1.5 rounded-full border border-brand-blue bg-white" aria-hidden="true" />
       </span>
       <strong className="mt-1.5 font-sans text-[10px] font-semibold uppercase leading-snug tracking-[0.06em] text-brand-navy">
@@ -166,7 +166,7 @@ function MobileConnectedSystem() {
               href={`#${module.id}`}
               className="flex min-w-0 items-start gap-3 border border-brand-line bg-white p-3 transition hover:border-brand-blue/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-orange/40"
             >
-              <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full border border-brand-blue bg-white font-mono text-[8px] font-bold text-brand-orange">
+              <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full border border-brand-blue bg-white font-sans text-[8px] font-bold text-brand-orange">
                 {module.number}
               </span>
               <span className="min-w-0">
@@ -207,7 +207,7 @@ export function ConnectedSystemDiagram() {
         <p className="font-sans text-[10px] uppercase tracking-[0.12em] text-brand-muted">
           Connected data · workflows · operations
         </p>
-        <p className="font-mono text-[9px] uppercase tracking-[0.12em] text-brand-blue">System map / 06 nodes</p>
+        <p className="font-sans text-[9px] uppercase tracking-[0.12em] text-brand-blue">System map / 06 nodes</p>
       </div>
     </div>
   );

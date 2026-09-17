@@ -138,7 +138,7 @@ function BudgetJobCostModule() {
         {FM_JOB_COST_SUMMARY.slice(0, 6).map((m) => (
           <div key={m.label} className="border border-brand-line/80 bg-[#FAFBFC] px-2 py-2">
             <p className="text-[9px] font-semibold uppercase tracking-wide text-brand-muted">{m.label}</p>
-            <p className="mt-0.5 font-mono text-[12px] font-semibold text-brand-navy">{m.value}</p>
+            <p className="mt-0.5 font-sans tabular-nums text-[12px] font-semibold text-brand-navy">{m.value}</p>
           </div>
         ))}
       </div>
@@ -177,7 +177,7 @@ function NativeAccountingModule() {
                 {nativeAccountingFeatureDetail.dashboard.metrics.slice(0, 4).map((m) => (
                   <tr key={m.label} className="border-b border-brand-line/50">
                     <td className="py-2 font-medium text-brand-navy">{m.label}</td>
-                    <td className="py-2 font-mono text-brand-navy">{m.value}</td>
+                    <td className="py-2 font-sans tabular-nums text-brand-navy">{m.value}</td>
                     <td className="py-2 text-brand-blue">Posted</td>
                   </tr>
                 ))}
@@ -189,7 +189,7 @@ function NativeAccountingModule() {
       <ol className="mt-3 grid gap-2 sm:grid-cols-2">
         {steps.map((s) => (
           <li key={s.n} className="flex gap-2 border border-brand-line/80 bg-[#FAFBFC] px-2.5 py-2">
-            <span className="font-mono text-[10px] font-bold text-brand-orange">{s.n}</span>
+            <span className="font-sans tabular-nums text-[10px] font-bold text-brand-orange">{s.n}</span>
             <div>
               <p className="text-[11px] font-semibold text-brand-navy">{s.title}</p>
               <p className="text-[10px] text-brand-muted">{s.body}</p>
@@ -229,16 +229,16 @@ function BillingModule() {
             </thead>
             <tbody>
               <tr className="border-b border-brand-line/50">
-                <td className="py-2 font-mono font-semibold text-brand-navy">{row.invoice}</td>
+                <td className="py-2 font-sans tabular-nums font-semibold text-brand-navy">{row.invoice}</td>
                 <td className="py-2 text-brand-navy">{row.project}</td>
-                <td className="py-2 font-mono text-brand-navy">{row.amount}</td>
+                <td className="py-2 font-sans tabular-nums text-brand-navy">{row.amount}</td>
                 <td className="py-2 text-brand-blue">{row.status}</td>
               </tr>
               {cashFlowFeatureDetail.inflows.rows.slice(1).map((r) => (
                 <tr key={r.invoice} className="border-b border-brand-line/50">
-                  <td className="py-2 font-mono text-brand-navy">{r.invoice}</td>
+                  <td className="py-2 font-sans tabular-nums text-brand-navy">{r.invoice}</td>
                   <td className="py-2 text-brand-muted">{r.project}</td>
-                  <td className="py-2 font-mono text-brand-muted">{r.amount}</td>
+                  <td className="py-2 font-sans tabular-nums text-brand-muted">{r.amount}</td>
                   <td className="py-2 text-brand-muted">{r.status}</td>
                 </tr>
               ))}
@@ -269,7 +269,7 @@ function PayAppModule() {
         {aiaPayApplicationsFeatureDetail.workspace.metrics.map((m) => (
           <div key={m.label} className="border border-brand-line/80 bg-[#FAFBFC] px-2.5 py-2">
             <p className="text-[9px] font-semibold uppercase tracking-wide text-brand-muted">{m.label}</p>
-            <p className="mt-0.5 font-mono text-[12px] font-semibold text-brand-navy">{m.value}</p>
+            <p className="mt-0.5 font-sans tabular-nums text-[12px] font-semibold text-brand-navy">{m.value}</p>
           </div>
         ))}
       </div>
@@ -310,10 +310,10 @@ function WipModule() {
                   }
                 >
                   <td className="py-2 font-semibold text-brand-navy">{r.project}</td>
-                  <td className="py-2 font-mono text-brand-navy">{r.contract}</td>
-                  <td className="py-2 font-mono text-brand-muted">{r.budget}</td>
-                  <td className="py-2 font-mono text-brand-muted">{r.cost}</td>
-                  <td className="py-2 font-mono text-brand-muted">{r.billed}</td>
+                  <td className="py-2 font-sans tabular-nums text-brand-navy">{r.contract}</td>
+                  <td className="py-2 font-sans tabular-nums text-brand-muted">{r.budget}</td>
+                  <td className="py-2 font-sans tabular-nums text-brand-muted">{r.cost}</td>
+                  <td className="py-2 font-sans tabular-nums text-brand-muted">{r.billed}</td>
                   <td className="py-2 text-brand-blue">{r.snapshot}</td>
                 </tr>
               ))}
@@ -325,7 +325,7 @@ function WipModule() {
         {wipFeatureDetail.showcase.metrics.map((m) => (
           <div key={m.label} className="border border-brand-line/80 bg-[#FAFBFC] px-2 py-2">
             <p className="text-[9px] font-semibold uppercase tracking-wide text-brand-muted">{m.label}</p>
-            <p className="mt-0.5 font-mono text-[12px] font-semibold text-brand-navy">{m.value}</p>
+            <p className="mt-0.5 font-sans tabular-nums text-[12px] font-semibold text-brand-navy">{m.value}</p>
           </div>
         ))}
       </div>
@@ -350,7 +350,7 @@ function CashFlowModule() {
         {metrics.map((m) => (
           <div key={m.label} className="border border-brand-line/80 bg-[#FAFBFC] px-2.5 py-2">
             <p className="text-[9px] font-semibold uppercase tracking-wide text-brand-muted">{m.label}</p>
-            <p className="mt-0.5 font-mono text-[12px] font-semibold text-brand-navy">{m.value}</p>
+            <p className="mt-0.5 font-sans tabular-nums text-[12px] font-semibold text-brand-navy">{m.value}</p>
           </div>
         ))}
       </div>
@@ -401,7 +401,7 @@ export function FinancialControlWorkspace({ area, areas, onSelect }: Props) {
           {FM_CONTRACT_SUMMARY.map((m) => (
             <div key={m.label} className="min-w-0 border border-brand-line/80 bg-white px-2.5 py-2">
               <p className="truncate text-[9px] font-semibold uppercase tracking-wide text-brand-muted">{m.label}</p>
-              <p className="mt-0.5 truncate font-mono text-[12px] font-semibold text-brand-navy sm:text-[13px]">
+              <p className="mt-0.5 truncate font-sans tabular-nums text-[12px] font-semibold text-brand-navy sm:text-[13px]">
                 {m.value}
               </p>
             </div>
@@ -416,7 +416,7 @@ export function FinancialControlWorkspace({ area, areas, onSelect }: Props) {
           ].map((m) => (
             <div key={m.label} className="min-w-0 border border-brand-line/70 bg-white/80 px-2 py-1.5">
               <p className="text-[9px] font-semibold uppercase tracking-wide text-brand-muted">{m.label}</p>
-              <p className="font-mono text-[11px] font-semibold text-brand-navy">{m.value}</p>
+              <p className="font-sans tabular-nums text-[11px] font-semibold text-brand-navy">{m.value}</p>
             </div>
           ))}
         </div>
@@ -467,7 +467,7 @@ export function FinancialControlWorkspace({ area, areas, onSelect }: Props) {
                         : "border-transparent bg-transparent hover:border-brand-line/80 hover:bg-white")
                     }
                   >
-                    <span className="font-mono text-[10px] font-bold text-brand-orange">{String(index + 1).padStart(2, "0")}</span>
+                    <span className="font-sans tabular-nums text-[10px] font-bold text-brand-orange">{String(index + 1).padStart(2, "0")}</span>
                     <span className={"font-sans text-[11px] font-semibold leading-snug " + (selected ? "text-brand-navy" : "text-brand-muted")}>
                       {mod.label}
                     </span>
