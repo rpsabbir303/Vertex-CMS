@@ -4,6 +4,8 @@ type Props = {
   loadingLabel?: string;
   disabled?: boolean;
   variant?: "primary" | "secondary";
+  /** Default uppercase labels; checkout CTAs use sentence case. */
+  labelStyle?: "uppercase" | "normal";
   type?: "button" | "submit";
   onClick?: () => void;
   className?: string;
@@ -15,12 +17,14 @@ export function AuthButton({
   loadingLabel,
   disabled,
   variant = "primary",
+  labelStyle = "uppercase",
   type = "submit",
   onClick,
   className = "",
 }: Props) {
-  const base =
-    "inline-flex w-full items-center justify-center gap-2 rounded-sm px-5 py-3.5 text-[13px] font-semibold uppercase tracking-wide transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-blue disabled:cursor-not-allowed disabled:opacity-60";
+  const labelClass =
+    labelStyle === "normal" ? "text-[15px] font-semibold tracking-normal normal-case" : "text-[13px] font-semibold uppercase tracking-wide";
+  const base = `inline-flex w-full items-center justify-center gap-2 whitespace-nowrap rounded-sm px-6 py-3.5 transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-blue disabled:cursor-not-allowed disabled:opacity-60 sm:w-auto sm:min-w-[12.5rem] ${labelClass}`;
   const styles =
     variant === "primary"
       ? "bg-brand-orange text-white hover:bg-[#e85f00]"

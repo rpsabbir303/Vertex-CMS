@@ -1,0 +1,107 @@
+/**
+ * Integration Detail — spacing tokens + Figma-friendly static surfaces
+ * (scoped under .integrations-typography .int-detail-page)
+ */
+
+.integrations-typography .int-detail-page {
+  --int-detail-max: 72rem;
+  --int-detail-surface: #f7f9fc;
+  --int-detail-grid-line: rgba(8, 35, 63, 0.04);
+  --int-detail-gap-sm: 0.5rem;
+  --int-detail-gap-md: 1rem;
+  --int-detail-gap-lg: 1.5rem;
+}
+
+.integrations-typography .int-detail-page .int-detail-container {
+  max-width: var(--int-detail-max);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Detail hero: keep abstract grid on mobile (lower density via shared hero masks) */
+@media (max-width: 639px) {
+  .integrations-typography .int-detail-page .int-bg-hero .int-section-bg::before {
+    mask-image: linear-gradient(to left, #000 0%, #000 55%, transparent 92%);
+    -webkit-mask-image: linear-gradient(to left, #000 0%, #000 55%, transparent 92%);
+    opacity: 0.85;
+  }
+
+  .integrations-typography .int-detail-page .int-bg-hero .int-section-bg svg {
+    opacity: 0.22;
+  }
+}
+
+.integrations-typography .int-detail-band-major {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+
+.integrations-typography .int-detail-band-compact {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+.integrations-typography .int-detail-band-tight {
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+}
+
+@media (min-width: 640px) {
+  .integrations-typography .int-detail-band-major {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+
+  .integrations-typography .int-detail-band-compact {
+    padding-top: 2.5rem;
+    padding-bottom: 2.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .integrations-typography .int-detail-band-major {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+  }
+
+  .integrations-typography .int-detail-band-compact {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+}
+
+.integrations-typography .int-detail-hero-band {
+  padding-top: 2rem;
+  padding-bottom: 2.5rem;
+}
+
+@media (min-width: 640px) {
+  .integrations-typography .int-detail-hero-band {
+    padding-top: 2.5rem;
+    padding-bottom: 3rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .integrations-typography .int-detail-hero-band {
+    padding-top: 3rem;
+    padding-bottom: 3.5rem;
+  }
+}
+
+.integrations-typography .int-detail-page .int-inset-blueprint {
+  padding: var(--int-detail-gap-md) var(--int-detail-gap-lg);
+  border: 1px solid rgba(8, 35, 63, 0.12);
+  background-color: #ffffff;
+}
+
+@media (min-width: 640px) {
+  .integrations-typography .int-detail-page .int-inset-blueprint {
+    padding: 1.25rem 1.5rem;
+  }
+}
+
+.integrations-typography .int-detail-page .int-detail-related-row {
+  padding-top: 0.875rem;
+  padding-bottom: 0.875rem;
+}

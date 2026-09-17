@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation";
 import { AuthAlert } from "@/components/auth/AuthAlert";
 import { VertexLogo } from "@/components/Icons";
 import { AUTH_BACKEND_GAPS, AUTH_PREVIEW_NOTICE } from "@/lib/auth/client";
-import { resolveAuthGate, isOnboardingComplete } from "@/lib/auth/guards";
+import { resolveAuthGate } from "@/lib/auth/guards";
 import { AUTH_ROUTES } from "@/lib/auth/routes";
 import { readAuthSession } from "@/lib/auth/session";
 
@@ -24,22 +24,18 @@ export default function AppEntryPage() {
 
   useEffect(() => {
     const session = readAuthSession();
-    const gate = resolveAuthGate(session, { requireOnboardingComplete: true });
+    const gate = resolveAuthGate(session, { requirePostTrialCheckout: true });
 
     if (gate.reason === "unauthenticated") {
       router.replace(AUTH_ROUTES.signIn);
       return;
     }
-    if (gate.redirectTo && gate.reason !== "ready" && gate.reason !== "onboarding_incomplete") {
+    if (gate.redirectTo && gate.reason !== "ready") {
       router.replace(gate.redirectTo);
       return;
     }
-    if (gate.reason === "onboarding_incomplete" && gate.redirectTo) {
-      router.replace(gate.redirectTo);
-      return;
-    }
-    if (!session || !isOnboardingComplete(session)) {
-      router.replace(AUTH_ROUTES.onboarding);
+    if (!session) {
+      router.replace(AUTH_ROUTES.signIn);
       return;
     }
 
@@ -116,10 +112,8 @@ export default function AppEntryPage() {
               ))}
             </ul>
           </details>
-          <p className="mt-6 text-[13px]">
-            <Link href={AUTH_ROUTES.onboarding} className="font-semibold text-brand-blue hover:underline">
-              Back to onboarding
-            </Link>
+          <p className="mt-6 text-[13px] text-brand-muted">
+            Complete company profile, projects, and team setup from the dashboard when you&apos;re ready.
           </p>
         </div>
       </main>

@@ -1,5 +1,6 @@
 "use client";
 
+import { defaultCheckout } from "./postTrial";
 import type { AuthPreviewSession, OnboardingStepId } from "./types";
 
 const KEY = "vertex_cms_auth_preview_session";
@@ -48,6 +49,22 @@ export function registerEmail(email: string): void {
   } catch {
     sessionStorage.setItem(EMAIL_REGISTRY_KEY, JSON.stringify([key]));
   }
+}
+
+export function updateCheckoutPlan(
+  planId: string,
+  billingPeriod?: import("./types").BillingPeriod
+): AuthPreviewSession | null {
+  const session = readAuthSession();
+  if (!session) return null;
+  const next: AuthPreviewSession = {
+    ...session,
+    planId,
+    billingPeriod: billingPeriod ?? session.billingPeriod ?? "monthly",
+    tenant: { ...session.tenant, planAssociated: true },
+  };
+  writeAuthSession(next);
+  return next;
 }
 
 export function updateOnboarding(
@@ -107,6 +124,10 @@ function normalizeSession(partial: Partial<AuthPreviewSession>): AuthPreviewSess
       financeStatus: "not_connected",
       ...partial.onboarding,
     },
+    checkout: {
+      ...defaultCheckout(),
+      ...partial.checkout,
+    },
   });
 }
 
@@ -139,6 +160,10 @@ export function defaultSession(
       connectSkipped: false,
       financeStatus: "not_connected",
       ...partial.onboarding,
+    },
+    checkout: {
+      ...defaultCheckout(),
+      ...partial.checkout,
     },
     invite: partial.invite,
   };

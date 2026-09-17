@@ -12,6 +12,9 @@
  */
 
 import type { AuthResult, FinanceConnectStatus, InviteRole, TenantProvisionStatus } from "./types";
+import type { BillingPaymentInput } from "./billingValidation";
+import { isPreviewPaymentDecline, validateBillingPayment } from "./billingValidation";
+import { getPostTrialRedirect } from "./postTrial";
 import { getNextOnboardingHref, isOnboardingComplete } from "./guards";
 import { AUTH_ROUTES } from "./routes";
 import {
@@ -56,6 +59,8 @@ export const AUTH_BACKEND_GAPS = [
   "MFA enrollment + TOTP challenge against real authenticator secrets",
   "Enterprise SSO on login when product enables it (see sso.ts — currently disabled)",
   "Invitation token validation & magic-link activation",
+  "Payment / billing provider (payment method tokenization, subscription create)",
+  "Add-on selection persistence API",
   "Onboarding persistence APIs (company, project, invites, Bank/GL connectors)",
   "Authenticated CMS application entry URL (post-onboarding handoff to tenant app)",
   "Server middleware / RBAC enforcement (client gates are navigation-only)",
@@ -78,7 +83,8 @@ function returningUserRedirect(session: ReturnType<typeof readAuthSession>): str
   if (!session.emailVerified) return AUTH_ROUTES.verifyEmail;
   if (session.tenant.status !== "ready") return AUTH_ROUTES.tenantSetup;
   if (session.trial.status !== "trial") return AUTH_ROUTES.trialStarted;
-  if (!isOnboardingComplete(session)) return getNextOnboardingHref(session);
+  const postTrial = getPostTrialRedirect(session);
+  if (postTrial !== AUTH_ROUTES.appHome) return postTrial;
   return AUTH_ROUTES.appHome;
 }
 
@@ -158,6 +164,7 @@ export const AuthClient = {
     email: string;
     password: string;
     planId?: string;
+    billingPeriod?: "monthly" | "yearly";
     termsAccepted?: boolean;
     botCheckAcknowledged?: boolean;
   }): Promise<AuthResult<{ redirectTo: string }>> {
@@ -184,6 +191,7 @@ export const AuthClient = {
         name: input.name.trim(),
         companyName: input.companyName.trim(),
         planId: input.planId,
+        billingPeriod: input.billingPeriod,
         accountStatus: "created",
         emailVerified: false,
         tenant: { status: "not_started", planAssociated: false },
@@ -539,10 +547,69 @@ export const AuthClient = {
     });
 
     return previewOk({
-      redirectTo: AUTH_ROUTES.onboardingCompany,
+      redirectTo: AUTH_ROUTES.billingSetup,
       status: "trial",
       trial_ends_at,
     });
+  },
+
+  async selectCheckoutPlan(input: {
+    planId: string;
+    billingPeriod?: "monthly" | "yearly";
+  }): Promise<AuthResult<{ planId: string }>> {
+    const session = readAuthSession();
+    if (!session) {
+      return previewFail("Your session expired. Please sign in again.");
+    }
+    await delay(200);
+    writeAuthSession({
+      ...session,
+      planId: input.planId,
+      billingPeriod: input.billingPeriod ?? session.billingPeriod ?? "monthly",
+      tenant: { ...session.tenant, planAssociated: true },
+    });
+    return previewOk({ planId: input.planId });
+  },
+
+  /** Payment + optional add-ons on one billing setup step. */
+  async completeBillingSetup(input: BillingPaymentInput & {
+    planId: string;
+    addonIds: string[];
+  }): Promise<AuthResult<{ completed: true }>> {
+    const session = readAuthSession();
+    if (!session) {
+      return previewFail("Your session expired. Please sign in again.");
+    }
+    if (session.trial.status !== "trial") {
+      return previewFail("Start your trial before setting up billing.");
+    }
+    if (!input.planId?.trim()) {
+      return previewFail("Select a plan to continue.", { plan: "Select a plan to continue." });
+    }
+
+    const fieldErrors = validateBillingPayment(input);
+    if (Object.keys(fieldErrors).length) {
+      return previewFail("Please correct the highlighted fields.", fieldErrors);
+    }
+
+    await delay(900);
+
+    if (isPreviewPaymentDecline(input.cardNumber)) {
+      return previewFail("Payment could not be processed. Check your card details or try another payment method.");
+    }
+
+    writeAuthSession({
+      ...session,
+      planId: input.planId,
+      checkout: {
+        ...session.checkout,
+        billingComplete: true,
+        addonsComplete: true,
+        selectedAddonIds: input.addonIds,
+      },
+    });
+
+    return previewOk({ completed: true });
   },
 
   async activateInvite(input: {

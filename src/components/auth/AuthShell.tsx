@@ -11,6 +11,10 @@ type Props = {
   subtitle?: string;
   panelTitle?: string;
   panelBody?: string;
+  /** Wider right panel for checkout-style flows (billing, add-ons). */
+  layout?: "default" | "checkout";
+  /** Hide preview-mode banner on production-facing checkout steps. */
+  showPreviewNotice?: boolean;
 };
 
 export function AuthShell({
@@ -20,19 +24,28 @@ export function AuthShell({
   subtitle,
   panelTitle = "Construction runs better when everything connects.",
   panelBody = "Vertex CMS brings projects, financials, field operations, and intelligence into one operating system.",
+  layout = "default",
+  showPreviewNotice = true,
 }: Props) {
+  const isCheckout = layout === "checkout";
+  const contentMaxClass = isCheckout ? "max-w-[920px]" : "max-w-[440px]";
+
   return (
     <div className="flex min-h-screen flex-col bg-[#F7F9FC] text-brand-navy lg:flex-row">
-      <aside className="relative hidden w-[42%] flex-col justify-between overflow-hidden bg-brand-navy px-10 py-10 text-white lg:flex xl:px-14">
+      <aside className="relative hidden min-h-screen w-[38%] max-w-[520px] shrink-0 flex-col overflow-hidden bg-brand-navy px-10 py-10 text-white lg:flex xl:w-[42%] xl:px-14">
         <div className="pointer-events-none absolute -right-20 top-20 h-64 w-64 rounded-full bg-brand-blue/20 blur-3xl" aria-hidden="true" />
         <div className="pointer-events-none absolute -left-10 bottom-10 h-48 w-48 rounded-full bg-brand-orange/15 blur-3xl" aria-hidden="true" />
-        <VertexLogo light />
-        <div className="relative max-w-md">
-          <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-brand-orange">Vertex CMS</p>
-          <h1 className="mt-4 font-display text-3xl font-bold leading-tight tracking-tight xl:text-4xl">{panelTitle}</h1>
-          <p className="mt-4 text-[15px] leading-relaxed text-slate-300">{panelBody}</p>
+        <div className="relative shrink-0">
+          <VertexLogo light />
         </div>
-        <p className="relative text-[12px] text-slate-500">© Vertex Software</p>
+        <div className="relative flex flex-1 flex-col justify-center py-10">
+          <div className="max-w-md">
+            <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-brand-orange">Vertex CMS</p>
+            <h1 className="mt-4 font-display text-3xl font-bold leading-tight tracking-tight xl:text-4xl">{panelTitle}</h1>
+            <p className="mt-4 text-[15px] leading-relaxed text-slate-300">{panelBody}</p>
+          </div>
+        </div>
+        <p className="relative shrink-0 text-[12px] text-slate-500">© Vertex Software</p>
       </aside>
 
       <div className="flex flex-1 flex-col">
@@ -43,12 +56,14 @@ export function AuthShell({
           </Link>
         </header>
 
-        <div className="flex flex-1 items-start justify-center px-5 py-10 sm:px-8 sm:py-14">
-          <div className="w-full max-w-[440px]">
-            <div className="mb-4 rounded-lg border border-brand-blue/20 bg-brand-blue/5 px-3 py-2.5 text-[12px] leading-relaxed text-brand-navy/80">
-              {AUTH_PREVIEW_NOTICE}
-            </div>
-            <div className="rounded-2xl border border-brand-line bg-white p-6 shadow-soft sm:p-8">
+        <div className="flex flex-1 items-start justify-center px-5 py-10 sm:px-8 sm:py-14 lg:px-10 xl:px-14">
+          <div className={`w-full min-w-0 ${contentMaxClass}`}>
+            {showPreviewNotice ? (
+              <div className="mb-4 rounded-lg border border-brand-blue/20 bg-brand-blue/5 px-3 py-2.5 text-[12px] leading-relaxed text-brand-navy/80">
+                {AUTH_PREVIEW_NOTICE}
+              </div>
+            ) : null}
+            <div className={`rounded-2xl border border-brand-line bg-white shadow-soft ${isCheckout ? "p-6 sm:p-8 lg:p-10" : "p-6 sm:p-8"}`}>
               <div className="mb-6 hidden lg:block">
                 <Link href={ROUTES.home} className="text-[12px] font-semibold text-brand-muted hover:text-brand-navy">
                   ← Back to website

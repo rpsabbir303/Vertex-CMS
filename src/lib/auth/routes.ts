@@ -24,6 +24,9 @@ export const AUTH_ROUTES = {
   provisioningDemo: "/provisioning-demo",
   /** After successful provisioning — trial ready handoff */
   trialStarted: "/trial-started",
+  /** Post-trial checkout — billing then add-ons before dashboard */
+  billingSetup: "/billing/setup",
+  addonsSelection: "/billing/add-ons",
   /** Trial-ended recovery — preview demo: /trial-expired?mode=demo */
   trialExpired: "/trial-expired",
   onboarding: "/onboarding",

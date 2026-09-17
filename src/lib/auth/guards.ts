@@ -1,3 +1,4 @@
+import { getPostTrialRedirect, isPostTrialCheckoutComplete } from "./postTrial";
 import type { AuthPreviewSession, OnboardingStepId } from "./types";
 import { AUTH_ROUTES } from "./routes";
 
@@ -9,6 +10,8 @@ export type AuthGateReason =
   | "tenant_failed"
   | "trial_incomplete"
   | "trial_expired"
+  | "billing_incomplete"
+  | "addons_incomplete"
   | "onboarding_incomplete"
   | "ready";
 
@@ -46,6 +49,8 @@ export function resolveAuthGate(
     allowUnprovisionedTenant?: boolean;
     allowTrialInactive?: boolean;
     requireOnboardingComplete?: boolean;
+    /** After trial — billing + add-ons before dashboard (company profile is in-app, not here). */
+    requirePostTrialCheckout?: boolean;
   }
 ): AuthGate {
   if (!session) {
@@ -74,6 +79,10 @@ export function resolveAuthGate(
 
   if (session.trial.status !== "trial" && !options?.allowTrialInactive) {
     return { reason: "trial_incomplete", redirectTo: AUTH_ROUTES.trialStarted };
+  }
+
+  if (options?.requirePostTrialCheckout && !isPostTrialCheckoutComplete(session)) {
+    return { reason: "billing_incomplete", redirectTo: getPostTrialRedirect(session) };
   }
 
   if (options?.requireOnboardingComplete) {

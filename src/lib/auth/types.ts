@@ -44,12 +44,23 @@ export type InviteUiStatus = "valid" | "expired" | "invalid" | "activated";
 
 export type FinanceConnectStatus = "not_connected" | "connecting" | "connected" | "failed";
 
+export type BillingPeriod = "monthly" | "yearly";
+
+export type PostTrialCheckout = {
+  billingComplete: boolean;
+  addonsComplete: boolean;
+  /** Selected add-on ids from pricing catalog */
+  selectedAddonIds: string[];
+};
+
 export type AuthPreviewSession = {
   email: string;
   name: string;
   companyName: string;
   /** Selected plan carried from Pricing → Signup */
   planId?: string;
+  /** Billing period from pricing/signup when configured */
+  billingPeriod?: BillingPeriod;
   accountStatus: AccountStatus;
   mfaRequired: boolean;
   mfaVerified: boolean;
@@ -80,6 +91,8 @@ export type AuthPreviewSession = {
     connectSkipped: boolean;
     financeStatus: FinanceConnectStatus;
   };
+  /** After trial activation — billing and add-ons before dashboard entry */
+  checkout: PostTrialCheckout;
   invite?: {
     companyName: string;
     inviterName: string;

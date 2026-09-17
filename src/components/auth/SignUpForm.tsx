@@ -24,6 +24,8 @@ export function SignUpForm() {
   const router = useRouter();
   const params = useSearchParams();
   const planId = params.get("plan") ?? undefined;
+  const periodParam = params.get("period");
+  const billingPeriod = periodParam === "yearly" || periodParam === "monthly" ? periodParam : undefined;
   const plan = useMemo(() => (planId ? getActivePlans().find((p) => p.id === planId) : undefined), [planId]);
 
   const [companyName, setCompanyName] = useState("");
@@ -110,6 +112,7 @@ export function SignUpForm() {
       email,
       password,
       planId,
+      billingPeriod,
       termsAccepted,
       botCheckAcknowledged: captcha.status === "verified",
     });

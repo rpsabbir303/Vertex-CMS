@@ -1,0 +1,85 @@
+/**
+ * Typography scope: /integrations and /integrations/[slug] only.
+ * Uses --font-integrations-* from next/font on .integrations-typography (do not remap global --font-sans).
+ */
+.integrations-typography {
+  font-family: var(--font-integrations-sans), "DM Sans", sans-serif;
+}
+
+.integrations-typography .font-display,
+.integrations-typography .int-display-title {
+  font-family: var(--font-integrations-display), "DM Serif Display", serif;
+  font-weight: 400;
+  font-style: normal;
+  letter-spacing: -0.02em;
+}
+
+.integrations-typography .int-eyebrow {
+  font-family: var(--font-integrations-sans), "DM Sans", sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.integrations-typography .int-ui-label {
+  font-family: var(--font-integrations-sans), "DM Sans", sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.integrations-typography .btn-primary,
+.integrations-typography .btn-secondary,
+.integrations-typography button,
+.integrations-typography input,
+.integrations-typography textarea,
+.integrations-typography select {
+  font-family: var(--font-integrations-sans), "DM Sans", sans-serif;
+}
+
+.integrations-typography nav[aria-label="Breadcrumb"],
+.integrations-typography nav[aria-label="Breadcrumb"] a,
+.integrations-typography nav[aria-label="Breadcrumb"] span {
+  font-family: var(--font-integrations-sans), "DM Sans", sans-serif;
+}
+
+.integrations-typography header,
+.integrations-typography header .font-display,
+.integrations-typography footer,
+.integrations-typography footer * {
+  font-family: var(--font-integrations-sans), "DM Sans", sans-serif;
+}
+
+/* Content must never depend on JS to become visible (fixes fade during remount). */
+.integrations-typography .integrations-section {
+  opacity: 1;
+  transform: none;
+}
+
+.integrations-typography .reveal {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .integrations-typography .integrations-section {
+    animation: integrations-enter 0.55s ease both;
+  }
+}
+
+@keyframes integrations-enter {
+  from {
+    transform: translateY(10px);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .integrations-typography .integrations-section {
+    animation: none;
+  }
+}
