@@ -12,8 +12,7 @@
  */
 
 import type { AuthResult, FinanceConnectStatus, InviteRole, TenantProvisionStatus } from "./types";
-import type { BillingPaymentInput } from "./billingValidation";
-import { isPreviewPaymentDecline, validateBillingPayment } from "./billingValidation";
+import { validateBillingSetup } from "./billingValidation";
 import { getPostTrialRedirect } from "./postTrial";
 import { getNextOnboardingHref, isOnboardingComplete } from "./guards";
 import { AUTH_ROUTES } from "./routes";
@@ -33,6 +32,7 @@ import {
 import { allocateUniqueSubdomain } from "./subdomain";
 import { TRIAL_EXPIRED_DEMO } from "./trialDemo";
 import { resolveTrialEndsAt } from "./trial";
+import { getActiveAddOns } from "@/lib/marketing/pricing";
 import {
   isValidEmail,
   validatePassword,
@@ -571,9 +571,10 @@ export const AuthClient = {
     return previewOk({ planId: input.planId });
   },
 
-  /** Payment + optional add-ons on one billing setup step. */
-  async completeBillingSetup(input: BillingPaymentInput & {
+  /** Plan + cadence + optional add-ons. Payment credentials are not collected here. */
+  async completeBillingSetup(input: {
     planId: string;
+    billingPeriod?: "monthly" | "yearly";
     addonIds: string[];
   }): Promise<AuthResult<{ completed: true }>> {
     const session = readAuthSession();
@@ -587,25 +588,25 @@ export const AuthClient = {
       return previewFail("Select a plan to continue.", { plan: "Select a plan to continue." });
     }
 
-    const fieldErrors = validateBillingPayment(input);
+    const fieldErrors = validateBillingSetup(input);
     if (Object.keys(fieldErrors).length) {
       return previewFail("Please correct the highlighted fields.", fieldErrors);
     }
 
-    await delay(900);
+    const knownAddonIds = new Set(getActiveAddOns().map((addon) => addon.id));
+    const addonIds = input.addonIds.filter((id) => knownAddonIds.has(id));
 
-    if (isPreviewPaymentDecline(input.cardNumber)) {
-      return previewFail("Payment could not be processed. Check your card details or try another payment method.");
-    }
+    await delay(900);
 
     writeAuthSession({
       ...session,
       planId: input.planId,
+      billingPeriod: input.billingPeriod ?? session.billingPeriod ?? "monthly",
       checkout: {
         ...session.checkout,
         billingComplete: true,
         addonsComplete: true,
-        selectedAddonIds: input.addonIds,
+        selectedAddonIds: addonIds,
       },
     });
 

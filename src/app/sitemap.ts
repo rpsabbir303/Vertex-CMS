@@ -1,4 +1,5 @@
 import type { MetadataRoute } from "next";
+import { getAllCatalogSlugs } from "@/lib/marketing/integrations/catalog";
 import { LEGAL_NAV } from "@/lib/marketing/legal/content";
 import { ROUTES } from "@/lib/marketing/navigation";
 
@@ -18,6 +19,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ROUTES.careers,
     ROUTES.demo,
     ROUTES.requestQuote,
+    ROUTES.integrations,
+    ...getAllCatalogSlugs().map((slug) => `${ROUTES.integrations}/${slug}`),
     ...LEGAL_NAV.map((d) => d.href),
   ];
 

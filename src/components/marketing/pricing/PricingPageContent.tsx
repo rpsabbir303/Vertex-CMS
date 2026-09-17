@@ -6,6 +6,7 @@ import { useId, useMemo, useState } from "react";
 import { ArrowRight } from "@/components/Icons";
 import { CTAS, ROUTES } from "@/lib/marketing/navigation";
 import {
+  addonPriceCopy,
   getActivePlans,
   getCatalogYearlySavingsPercent,
   isRecommendedPlan,
@@ -412,7 +413,7 @@ function AddOnsSection({ catalog }: { catalog: PricingCatalog }) {
                   <p className="text-[15px] text-brand-muted">{addon.description}</p>
                 </div>
                 <span className="inline-flex shrink-0 items-center gap-2 text-[13px] font-semibold text-brand-orange transition group-hover:gap-3">
-                  {addon.priceLabel ?? "Available as an add-on"}
+                  {addon.priceLabel ?? addonPriceCopy(addon)}
                   <ArrowRight className="h-4 w-4" />
                 </span>
               </Link>

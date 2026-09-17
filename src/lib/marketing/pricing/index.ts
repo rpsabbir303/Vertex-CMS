@@ -1,7 +1,8 @@
 import { PLACEHOLDER_CATALOG } from "./data";
-import type { Plan, PricingCatalog, PricingPeriod } from "./types";
+import type { AddOn, Plan, PricingCatalog, PricingPeriod } from "./types";
 
 export type { Plan, PricingPeriod, PricingCatalog, FeatureGroup, AddOn, PricingFAQ, EntitlementValue } from "./types";
+export { addonPriceCopy, isAddonIncludedInPlan } from "./addons";
 
 /**
  * Single entry point for pricing data.
@@ -14,6 +15,10 @@ export function getPricingCatalog(): PricingCatalog {
 
 export function getActivePlans(catalog: PricingCatalog = getPricingCatalog()): Plan[] {
   return catalog.plans.filter((p) => p.active).sort((a, b) => a.sort - b.sort);
+}
+
+export function getActiveAddOns(catalog: PricingCatalog = getPricingCatalog()): AddOn[] {
+  return catalog.addOns.filter((addon) => addon.active).sort((a, b) => a.sort - b.sort);
 }
 
 export function getPlanPrice(plan: Plan, period: PricingPeriod): number | null {

@@ -55,11 +55,16 @@ export type AddOn = {
   id: string;
   name: string;
   description: string;
-  category: "ai" | "storage" | "seats" | "website" | "payroll";
+  /** Open category key from catalog/register — not a closed five-item union. */
+  category: string;
   /** null until live add-on pricing is connected */
   priceLabel: string | null;
+  /** Documented billing model (not a dollar amount). */
+  billingModel: string | null;
   active: boolean;
   sort: number;
+  /** Plan ids where this capability is already included and should not be sold again. */
+  includedInPlanIds?: string[];
 };
 
 export type PricingFAQ = {

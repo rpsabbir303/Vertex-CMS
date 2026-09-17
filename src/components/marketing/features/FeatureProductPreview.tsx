@@ -583,6 +583,12 @@ type Props = {
   scale?: "sm" | "md" | "lg";
   /** Premium browser/app chrome around the product mockup */
   framed?: boolean;
+  /**
+   * Fill a parent with a fixed aspect-ratio. Scales the mockup to width
+   * without stretching or leaving a min-height void. Parent should not set min-h.
+   */
+  fit?: boolean;
+  ratio?: "wide" | "board" | "square";
 };
 
 export function FeatureProductPreview({
@@ -591,9 +597,23 @@ export function FeatureProductPreview({
   className = "",
   scale = "lg",
   framed = false,
+  fit = false,
+  ratio = "wide",
 }: Props) {
   const entry = PREVIEWS[preview] ?? PREVIEWS.project;
   const isDark = dark ?? entry.dark;
+
+  if (fit) {
+    return (
+      <div
+        className={"feat-preview-fit " + className}
+        data-ratio={ratio}
+        aria-hidden="true"
+      >
+        <div className={"feat-preview-inner " + (isDark ? "bg-brand-navy" : "bg-[#FAFBFD]")}>{entry.node}</div>
+      </div>
+    );
+  }
   const scaleClass =
     scale === "lg"
       ? "origin-top-left scale-[0.52] sm:scale-[0.58] lg:scale-[0.68]"

@@ -127,39 +127,65 @@ export function BillingSelectedPlanBanner({
   plan,
   billingPeriod,
   onChangePlan,
+  onPeriodChange,
+  disabled,
 }: {
   plan: Plan;
   billingPeriod: BillingPeriod;
   onChangePlan?: () => void;
+  onPeriodChange?: (period: BillingPeriod) => void;
+  disabled?: boolean;
 }) {
   const amount = getPlanPrice(plan, billingPeriod);
   const formatted = formatPlanPrice(amount, plan.currency);
 
   return (
-    <section className="rounded-xl border border-brand-line bg-[#FAFBFD] px-5 py-4 sm:px-6" aria-label="Selected plan">
-      <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-brand-orange">Selected plan</p>
+    <section className="rounded-xl border border-brand-line bg-[#FAFBFD] px-5 py-4 sm:px-6" aria-label="Current plan">
+      <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-brand-orange">Current plan</p>
       <div className="mt-2 flex flex-wrap items-start justify-between gap-3">
         <div>
           <p className="text-[17px] font-semibold text-brand-navy">{plan.name}</p>
-          <p className="mt-1 text-[13px] text-brand-muted">
-            {billingPeriod === "yearly" ? "Yearly billing" : "Monthly billing"}
-          </p>
           {formatted ? (
             <p className="mt-1 text-[13px] font-medium text-brand-navy/90">
               {formatted} / {billingPeriod === "yearly" ? "year" : "month"}
             </p>
-          ) : null}
+          ) : (
+            <p className="mt-1 text-[13px] text-brand-muted">Pricing from plan configuration</p>
+          )}
         </div>
         {onChangePlan ? (
           <button
             type="button"
             onClick={onChangePlan}
-            className="text-[13px] font-semibold text-brand-blue hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-blue"
+            disabled={disabled}
+            className="text-[13px] font-semibold text-brand-blue hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-blue disabled:opacity-60"
           >
             Change plan
           </button>
         ) : null}
       </div>
+      {onPeriodChange ? (
+        <div className="mt-4 flex flex-wrap gap-2" role="group" aria-label="Billing cadence">
+          {(["monthly", "yearly"] as const).map((period) => (
+            <button
+              key={period}
+              type="button"
+              disabled={disabled}
+              onClick={() => onPeriodChange(period)}
+              aria-pressed={billingPeriod === period}
+              className={`rounded-md border px-3 py-2 text-[12px] font-semibold transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-orange disabled:opacity-60 ${
+                billingPeriod === period
+                  ? "border-brand-orange bg-brand-orange/10 text-brand-navy"
+                  : "border-brand-line bg-white text-brand-muted hover:text-brand-navy"
+              }`}
+            >
+              {period === "yearly" ? "Yearly billing" : "Monthly billing"}
+            </button>
+          ))}
+        </div>
+      ) : (
+        <p className="mt-2 text-[13px] text-brand-muted">{billingPeriod === "yearly" ? "Yearly billing" : "Monthly billing"}</p>
+      )}
     </section>
   );
 }

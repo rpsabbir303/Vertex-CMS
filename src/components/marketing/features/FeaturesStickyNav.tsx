@@ -21,7 +21,7 @@ export function FeaturesStickyNav() {
         const id = visible[0]?.target.id;
         if (id) setActive(id);
       },
-      { rootMargin: "-25% 0px -55% 0px", threshold: [0.1, 0.25, 0.45] }
+      { rootMargin: "-22% 0px -58% 0px", threshold: [0.12, 0.28, 0.45] }
     );
 
     els.forEach((el) => observer.observe(el));
@@ -30,12 +30,13 @@ export function FeaturesStickyNav() {
 
   return (
     <nav
-      id="features-explorer"
-      aria-label="Feature categories"
-      className="sticky top-[4.5rem] z-30 scroll-mt-28 border-b border-brand-line/80 bg-[#F7F8FA]/95 backdrop-blur-md"
+      id="feature-categories"
+      aria-label="Platform areas"
+      className="sticky top-[4.5rem] z-30 scroll-mt-28 border-b border-brand-line/80 bg-[#F4F7FA]"
+      data-design-layer="FeatureCategoryNav"
     >
-      <div className="site-shell">
-        <ul className="-mx-1 flex gap-1.5 overflow-x-auto py-3 [scrollbar-width:thin]">
+      <div className="feat-shell">
+        <ul className="flex gap-0 overflow-x-auto [scrollbar-width:thin]">
           {HUB_MODULES.map((mod) => {
             const selected = active === mod.id;
             return (
@@ -45,10 +46,10 @@ export function FeaturesStickyNav() {
                   onClick={() => setActive(mod.id)}
                   aria-current={selected ? "true" : undefined}
                   className={
-                    "inline-flex items-center gap-2 rounded-lg border px-3.5 py-2.5 text-[12px] font-semibold transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-orange/35 " +
+                    "flex items-center gap-2 border-b-2 px-3 py-3.5 font-sans text-[12px] font-semibold transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-brand-orange/40 sm:px-4 " +
                     (selected
-                      ? "border-brand-orange/45 bg-white text-brand-navy shadow-soft"
-                      : "border-transparent text-brand-muted hover:border-brand-line hover:bg-white/80 hover:text-brand-navy")
+                      ? "border-brand-orange text-brand-navy"
+                      : "border-transparent text-brand-muted hover:text-brand-navy")
                   }
                 >
                   <span className={"font-mono text-[10px] font-bold " + (selected ? "text-brand-orange" : "text-brand-muted/70")}>

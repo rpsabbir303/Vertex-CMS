@@ -1,3 +1,4 @@
+import { buildCatalogAddOns } from "./addons";
 import type { AddOn, FeatureGroup, Plan, PricingCatalog, PricingFAQ } from "./types";
 
 /**
@@ -221,53 +222,8 @@ export const PLACEHOLDER_FEATURE_GROUPS: FeatureGroup[] = [
   },
 ];
 
-export const PLACEHOLDER_ADDONS: AddOn[] = [
-  {
-    id: "ai-packs",
-    name: "AI Packs",
-    description: "Add advanced AI capabilities for project Q&A, insights, and document intelligence.",
-    category: "ai",
-    priceLabel: null,
-    active: true,
-    sort: 1,
-  },
-  {
-    id: "storage",
-    name: "Storage",
-    description: "Expand document and media capacity as your project portfolio grows.",
-    category: "storage",
-    priceLabel: null,
-    active: true,
-    sort: 2,
-  },
-  {
-    id: "seats",
-    name: "Seats",
-    description: "Add team members so office, field, and financial roles stay connected.",
-    category: "seats",
-    priceLabel: null,
-    active: true,
-    sort: 3,
-  },
-  {
-    id: "website-builder",
-    name: "Website Builder",
-    description: "Launch your construction company website connected to CRM and lead capture.",
-    category: "website",
-    priceLabel: null,
-    active: true,
-    sort: 4,
-  },
-  {
-    id: "payroll",
-    name: "Payroll",
-    description: "Extend workforce management with payroll-ready workflows.",
-    category: "payroll",
-    priceLabel: null,
-    active: true,
-    sort: 5,
-  },
-];
+/** Complete configured add-on ecosystem — not a hard-coded five-item list. */
+export const PLACEHOLDER_ADDONS: AddOn[] = buildCatalogAddOns();
 
 export const PLACEHOLDER_FAQS: PricingFAQ[] = [
   {

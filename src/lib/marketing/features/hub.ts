@@ -15,6 +15,12 @@ export type HubFeatureArea = {
   tags: string[];
 };
 
+export type HubWorkflowStep = {
+  label: string;
+  /** When set, the step is a real feature detail route. */
+  slug?: string;
+};
+
 export type HubModuleSection = {
   id: string;
   number: string;
@@ -23,6 +29,8 @@ export type HubModuleSection = {
   preview: PreviewKey;
   dark?: boolean;
   layout: "list-left" | "list-right" | "field-split" | "dark-ai" | "growth";
+  workflowLabel: string;
+  workflow: HubWorkflowStep[];
   areas: HubFeatureArea[];
 };
 
@@ -35,6 +43,15 @@ export const HUB_MODULES: HubModuleSection[] = [
       "Bring project information, schedules, documents, RFIs, submittals, and change orders into one connected construction management workflow.",
     preview: "project",
     layout: "list-left",
+    workflowLabel: "Connected project workflow",
+    workflow: [
+      { label: "Projects", slug: "projects" },
+      { label: "Scheduling", slug: "scheduling" },
+      { label: "Documents", slug: "documents" },
+      { label: "RFIs", slug: "rfis" },
+      { label: "Submittals", slug: "submittals" },
+      { label: "Change Orders", slug: "change-orders" },
+    ],
     areas: [
       {
         id: "pm-projects",
@@ -94,6 +111,15 @@ export const HUB_MODULES: HubModuleSection[] = [
     preview: "finance",
     dark: true,
     layout: "list-right",
+    workflowLabel: "Connected financial workflow",
+    workflow: [
+      { label: "Budget & Job Cost", slug: "budget-job-cost" },
+      { label: "AIA Pay Applications", slug: "aia-pay-applications" },
+      { label: "Billing", slug: "billing" },
+      { label: "Native Accounting", slug: "native-accounting" },
+      { label: "WIP", slug: "wip" },
+      { label: "Cash Flow", slug: "cash-flow" },
+    ],
     areas: [
       {
         id: "fm-budget",
@@ -146,6 +172,13 @@ export const HUB_MODULES: HubModuleSection[] = [
     description: "Keep field teams connected with real-time project information, documentation, and daily workflows.",
     preview: "field",
     layout: "field-split",
+    workflowLabel: "Field to office continuity",
+    workflow: [
+      { label: "Field" },
+      { label: "Mobile", slug: "mobile" },
+      { label: "Project", slug: "projects" },
+      { label: "Office" },
+    ],
     areas: [
       {
         id: "fo-daily-logs",
@@ -195,9 +228,16 @@ export const HUB_MODULES: HubModuleSection[] = [
     id: "compliance",
     number: "04",
     title: "Compliance & Workforce",
-    description: "Keep people, subcontractors, time, and compliance workflows organized across every project.",
+    description: "Keep people, subcontractors, and compliance workflows organized across every project.",
     preview: "workforce",
     layout: "list-right",
+    workflowLabel: "Workforce and compliance record",
+    workflow: [
+      { label: "Subcontractors", slug: "subcontractors" },
+      { label: "Compliance", slug: "compliance" },
+      { label: "Workforce", slug: "workforce" },
+      { label: "Payroll Readiness", slug: "payroll-readiness" },
+    ],
     areas: [
       {
         id: "cw-subs",
@@ -220,6 +260,7 @@ export const HUB_MODULES: HubModuleSection[] = [
         description: "Workers, crews, hours, certifications, and timesheets.",
         tags: ["Workers", "Crews", "Timesheets"],
       },
+      /** Kept for /features/time detail seed — not shown in Compliance & Workforce hub UI */
       {
         id: "cw-time",
         slug: "time",
@@ -244,6 +285,14 @@ export const HUB_MODULES: HubModuleSection[] = [
     preview: "ai",
     dark: true,
     layout: "dark-ai",
+    workflowLabel: "Intelligence on live project data",
+    workflow: [
+      { label: "AI Assistant", slug: "ai-assistant" },
+      { label: "Project Intelligence", slug: "project-intelligence" },
+      { label: "Predictive Insights", slug: "predictive-insights" },
+      { label: "Document Intelligence", slug: "document-intelligence" },
+      { label: "Automation", slug: "automation" },
+    ],
     areas: [
       {
         id: "ai-assistant",
@@ -289,6 +338,13 @@ export const HUB_MODULES: HubModuleSection[] = [
     description: "Connect your construction business with the tools you need to win work, engage customers, and grow.",
     preview: "connected",
     layout: "growth",
+    workflowLabel: "Growth workflow",
+    workflow: [
+      { label: "Website Builder", slug: "website-builder" },
+      { label: "Leads", slug: "leads" },
+      { label: "CRM", slug: "crm" },
+      { label: "Customer Portals", slug: "customer-portals" },
+    ],
     areas: [
       {
         id: "bg-crm",

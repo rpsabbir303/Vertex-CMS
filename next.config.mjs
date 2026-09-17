@@ -4,6 +4,20 @@ import path from "node:path";
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
+  async redirects() {
+    return [
+      {
+        source: "/Integrations",
+        destination: "/integrations",
+        permanent: true,
+      },
+      {
+        source: "/Integrations/:slug*",
+        destination: "/integrations/:slug*",
+        permanent: true,
+      },
+    ];
+  },
   images: {
     remotePatterns: [
       {

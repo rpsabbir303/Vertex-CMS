@@ -9,11 +9,11 @@ import { getActivePlans, getPricingCatalog } from "@/lib/marketing/pricing";
 import { CTAS, ROUTES } from "@/lib/marketing/navigation";
 
 export const featuresLandingHero = {
-  eyebrow: "Vertex CMS Features",
-  headline: "Everything your construction business needs, connected in one place.",
+  eyebrow: "Vertex CMS Platform",
+  headline: "One connected construction management platform.",
   supporting:
-    "From project management and field operations to financial control, documents, compliance, and AI-powered intelligence, Vertex CMS brings the workflows that keep construction moving into one connected platform.",
-  primary: { label: "Explore Features", href: "#feature-categories" },
+    "Explore the six operating areas of Vertex CMS. Each area opens the documented features behind it—with product UI, connected workflows, and a path into the full feature detail.",
+  primary: { label: "Explore the platform", href: "#feature-categories" },
   secondary: { label: CTAS.demo.label, href: CTAS.demo.href },
 } as const;
 
@@ -162,9 +162,9 @@ export const featuresLandingMobile = {
 } as const;
 
 export const featuresLandingCta = {
-  headline: "See what Vertex CMS can do for your team.",
+  headline: "See Vertex CMS in your operation.",
   supporting:
-    "Explore the workflows, tools, and intelligence built to help construction teams plan better, work faster, and stay in control.",
-  primary: { label: CTAS.demo.label, href: CTAS.demo.href },
-  secondary: { label: CTAS.trial.label, href: CTAS.trial.href },
+    "Start a free trial or book a demo to walk through the documented platform workflows with your team.",
+  primary: { label: CTAS.trial.label, href: CTAS.trial.href },
+  secondary: { label: CTAS.demo.label, href: CTAS.demo.href },
 } as const;

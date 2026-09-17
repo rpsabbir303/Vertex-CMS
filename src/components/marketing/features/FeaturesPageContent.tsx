@@ -1,30 +1,19 @@
-import { FeaturesAISection } from "./FeaturesAISection";
-import { FeaturesByPlan } from "./FeaturesByPlan";
-import { FeaturesByRole } from "./FeaturesByRole";
-import { FeaturesCategoryShowcase } from "./FeaturesCategoryShowcase";
-import { FeaturesDetailPattern } from "./FeaturesDetailPattern";
+import "@/app/features/features-landing.css";
+import { FeaturesHubSections } from "./FeaturesHubSections";
 import { FeaturesLandingCTA } from "./FeaturesLandingCTA";
 import { FeaturesLandingHero } from "./FeaturesLandingHero";
-import { FeaturesLibrary } from "./FeaturesLibrary";
-import { FeaturesMobileSection } from "./FeaturesMobileSection";
+import { FeaturesStickyNav } from "./FeaturesStickyNav";
 
 /**
- * Features Landing Page — approved CMS feature tasks:
- * Landing → Category Nav/Showcase → Detail Pattern → Role → Plan → AI → Mobile → CTA
- * Feature Library retained as the searchable capability catalog.
+ * Main Features page — hero, six category sections (HUB_MODULES), final CTA.
  */
 export function FeaturesPageContent() {
   return (
-    <>
+    <div className="feat-landing">
       <FeaturesLandingHero />
-      <FeaturesCategoryShowcase />
-      <FeaturesDetailPattern />
-      <FeaturesByRole />
-      <FeaturesByPlan />
-      <FeaturesAISection />
-      <FeaturesMobileSection />
-      <FeaturesLibrary />
+      <FeaturesStickyNav />
+      <FeaturesHubSections />
       <FeaturesLandingCTA />
-    </>
+    </div>
   );
 }
