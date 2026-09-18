@@ -13,6 +13,8 @@ export const ROUTES = {
   pricing: "/pricing",
   productTour: "/product-tour",
   customers: "/customers",
+  /** Base path for case study detail pages only — listing lives at /customers#case-studies */
+  customersCaseStudies: "/customers/case-studies",
   resources: "/resources",
   resourcesBlog: "/resources/blog",
   resourcesGuides: "/resources/guides",
@@ -204,8 +206,10 @@ export const RESOURCES_MEGA_MENU: MegaMenuCategory[] = [
     href: ROUTES.customers,
     links: [
       { label: "Customers", href: ROUTES.customers },
+      { label: "Customer Ecosystem", href: `${ROUTES.customers}#customer-ecosystem` },
       { label: "Case Studies", href: `${ROUTES.customers}#case-studies` },
       { label: "Testimonials", href: `${ROUTES.customers}#testimonials` },
+      { label: "Measurable Results", href: `${ROUTES.customers}#results` },
     ],
   },
   {

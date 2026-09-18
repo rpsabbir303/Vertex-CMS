@@ -51,12 +51,31 @@ export type FeatureGroup = {
   defaultOpen?: boolean;
 };
 
+export type AddOnSource =
+  | "DOCUMENTED_BILLING_ADDON"
+  | "DOCUMENTED_OPTIONAL_CAPABILITY"
+  | "EXISTING_CONFIGURED_ADDON"
+  | "ENTERPRISE_CAPABILITY"
+  | "ROADMAP_CAPABILITY";
+
+export type AddOnListing = "purchasable" | "enterprise" | "roadmap";
+
+export type AddOnUiKind =
+  | "selectable"
+  | "selected"
+  | "included"
+  | "enterprise"
+  | "coming_soon"
+  | "inactive";
+
 export type AddOn = {
   id: string;
   name: string;
   description: string;
   /** Open category key from catalog/register — not a closed five-item union. */
   category: string;
+  /** Human-readable category for filters (derived from catalog data). */
+  categoryLabel?: string;
   /** null until live add-on pricing is connected */
   priceLabel: string | null;
   /** Documented billing model (not a dollar amount). */
@@ -65,6 +84,18 @@ export type AddOn = {
   sort: number;
   /** Plan ids where this capability is already included and should not be sold again. */
   includedInPlanIds?: string[];
+  /** Internal provenance — not shown in UI. */
+  source?: AddOnSource;
+  /** Whether checkout may attach this SKU for the tenant. */
+  selectable?: boolean;
+  /** Billing setup section grouping. */
+  listing?: AddOnListing;
+};
+
+export type BillingSetupCatalog = {
+  purchasable: AddOn[];
+  enterprise: AddOn[];
+  roadmap: AddOn[];
 };
 
 export type PricingFAQ = {

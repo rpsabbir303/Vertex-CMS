@@ -1,8 +1,29 @@
 import { PLACEHOLDER_CATALOG } from "./data";
 import type { AddOn, Plan, PricingCatalog, PricingPeriod } from "./types";
 
-export type { Plan, PricingPeriod, PricingCatalog, FeatureGroup, AddOn, PricingFAQ, EntitlementValue } from "./types";
-export { addonPriceCopy, isAddonIncludedInPlan } from "./addons";
+export type {
+  Plan,
+  PricingPeriod,
+  PricingCatalog,
+  FeatureGroup,
+  AddOn,
+  PricingFAQ,
+  EntitlementValue,
+  AddOnSource,
+  AddOnUiKind,
+  BillingSetupCatalog,
+} from "./types";
+export {
+  addonPriceCopy,
+  isAddonIncludedInPlan,
+  buildCatalogAddOns,
+  getBillingSetupCatalog,
+  getAddOnCategoryLabel,
+  resolveAddOnUiKind,
+  isPurchasableAddonForPlan,
+  filterCheckoutAddonIds,
+  BILLING_CATEGORY_LABELS,
+} from "./billingCatalog";
 
 /**
  * Single entry point for pricing data.

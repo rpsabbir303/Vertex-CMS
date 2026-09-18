@@ -1,0 +1,60 @@
+/* Customers landing — section rhythm + abstract canvas */
+
+.customers-page-canvas {
+  background-color: #ffffff;
+  position: relative;
+}
+
+.cust-section-backdrop {
+  z-index: 0;
+}
+
+/* Grid is inline SVG via CustomerAbstractGrid — not CSS background-image (Figma import). */
+
+.cust-surface-wash {
+  background: linear-gradient(180deg, #f5f8fc 0%, #ffffff 48%, #ffffff 100%);
+}
+
+.cust-surface-muted {
+  background-color: #f4f7fa;
+}
+
+.cust-surface-blue-gray {
+  background-color: #f0f4f8;
+}
+
+.cust-inset-panel {
+  border: 1px solid #e6ecf3;
+  background: #ffffff;
+  box-shadow: 0 2px 16px -6px rgba(8, 35, 63, 0.08);
+}
+
+.cust-glass-line {
+  stroke: #b7c8d8;
+  stroke-width: 1;
+  fill: none;
+}
+
+.cust-node-orange {
+  fill: #ff6a00;
+}
+
+.cust-node-blue {
+  fill: #146ef5;
+}
+
+.cust-node-ring {
+  fill: #ffffff;
+  stroke: #146ef5;
+  stroke-width: 1;
+}
+
+.cust-scroll-target {
+  scroll-margin-top: 7.75rem;
+}
+
+@media (min-width: 640px) {
+  .cust-scroll-target {
+    scroll-margin-top: 8.25rem;
+  }
+}

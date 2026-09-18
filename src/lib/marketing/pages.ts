@@ -35,7 +35,8 @@ export const MARKETING_PAGES: Record<string, MarketingPageConfig> = {
   },
   customers: {
     title: `${base} Customers`,
-    description: "Customer stories, testimonials, and construction team success.",
+    description:
+      "Customer success stories, testimonials, logo wall, and verified outcomes from construction teams using Vertex CMS.",
     breadcrumbs: [{ label: "Home", href: ROUTES.home }, { label: "Customers" }],
   },
   resources: {

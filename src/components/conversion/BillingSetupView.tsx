@@ -18,7 +18,9 @@ import type { BillingPeriod } from "@/lib/auth/types";
 import {
   getActiveAddOns,
   getActivePlans,
+  getBillingSetupCatalog,
   isAddonIncludedInPlan,
+  isPurchasableAddonForPlan,
   planQuoteHref,
 } from "@/lib/marketing/pricing";
 
@@ -31,7 +33,8 @@ export function BillingSetupView() {
   const addOnSectionRef = useRef<HTMLDivElement>(null);
 
   const [catalogReady, setCatalogReady] = useState(false);
-  const addOns = useMemo(() => (catalogReady ? getActiveAddOns() : []), [catalogReady]);
+  const billingCatalog = useMemo(() => (catalogReady ? getBillingSetupCatalog() : { purchasable: [], enterprise: [], roadmap: [] }), [catalogReady]);
+  const addOns = billingCatalog.purchasable;
   const plans = useMemo(() => (catalogReady ? getActivePlans() : []), [catalogReady]);
 
   const [phase, setPhase] = useState<Phase>("loading");
@@ -119,7 +122,7 @@ export function BillingSetupView() {
 
   function toggleAddon(id: string) {
     const addon = addOns.find((item) => item.id === id);
-    if (!addon || isAddonIncludedInPlan(addon, planId)) return;
+    if (!addon || !isPurchasableAddonForPlan(addon, planId)) return;
     setSelectedAddons((prev) => (prev.includes(id) ? prev.filter((x) => x !== id) : [...prev, id]));
   }
 
@@ -279,10 +282,11 @@ export function BillingSetupView() {
         <div className="grid min-w-0 grid-cols-1 gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(280px,320px)] lg:items-start lg:gap-8">
           <div ref={addOnSectionRef} className="min-w-0 rounded-xl border border-brand-line bg-white p-5 sm:p-6">
             <BillingAddOnsPicker
-              addOns={addOns}
+              catalog={billingCatalog}
               selectedIds={selectedAddons}
               planId={planId}
               planName={plan?.name}
+              billingPeriod={billingPeriod}
               disabled={processing || needsPlanSelection}
               onToggle={toggleAddon}
             />

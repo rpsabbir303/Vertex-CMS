@@ -32,7 +32,7 @@ import {
 import { allocateUniqueSubdomain } from "./subdomain";
 import { TRIAL_EXPIRED_DEMO } from "./trialDemo";
 import { resolveTrialEndsAt } from "./trial";
-import { getActiveAddOns } from "@/lib/marketing/pricing";
+import { filterCheckoutAddonIds, getActiveAddOns } from "@/lib/marketing/pricing";
 import {
   isValidEmail,
   validatePassword,
@@ -593,8 +593,7 @@ export const AuthClient = {
       return previewFail("Please correct the highlighted fields.", fieldErrors);
     }
 
-    const knownAddonIds = new Set(getActiveAddOns().map((addon) => addon.id));
-    const addonIds = input.addonIds.filter((id) => knownAddonIds.has(id));
+    const addonIds = filterCheckoutAddonIds(input.addonIds, input.planId, getActiveAddOns());
 
     await delay(900);
 

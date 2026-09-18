@@ -1,0 +1,11 @@
+/* Billing setup — DM Sans (UI) + DM Serif Display (display headings) */
+.billing-font-scope {
+  --font-sans: var(--font-billing-sans), system-ui, sans-serif;
+  --font-display: var(--font-billing-display), Georgia, "Times New Roman", serif;
+  font-family: var(--font-sans);
+}
+
+.billing-font-scope .font-mono {
+  font-family: var(--font-sans);
+  font-variant-numeric: tabular-nums;
+}
