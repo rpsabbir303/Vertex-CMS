@@ -13,6 +13,7 @@
 
 import type { AuthResult, FinanceConnectStatus, InviteRole, TenantProvisionStatus } from "./types";
 import { validateBillingSetup } from "./billingValidation";
+import { isBillingDesignPreviewCaptureEnabled } from "./designPreview";
 import { getPostTrialRedirect } from "./postTrial";
 import { getNextOnboardingHref, isOnboardingComplete } from "./guards";
 import { AUTH_ROUTES } from "./routes";
@@ -577,6 +578,10 @@ export const AuthClient = {
     billingPeriod?: "monthly" | "yearly";
     addonIds: string[];
   }): Promise<AuthResult<{ completed: true }>> {
+    if (isBillingDesignPreviewCaptureEnabled()) {
+      return previewFail("Design preview mode — billing submission is disabled.");
+    }
+
     const session = readAuthSession();
     if (!session) {
       return previewFail("Your session expired. Please sign in again.");

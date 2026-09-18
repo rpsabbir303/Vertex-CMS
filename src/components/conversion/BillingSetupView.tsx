@@ -11,6 +11,7 @@ import { BillingPlanPicker, BillingSelectedPlanBanner } from "@/components/conve
 import { BillingSetupShell } from "@/components/conversion/BillingSetupShell";
 import { PlanCheckoutSummary } from "@/components/conversion/PlanCheckoutSummary";
 import { AuthClient } from "@/lib/auth/client";
+import { ensureBillingDesignPreviewSession } from "@/lib/auth/designPreview";
 import { resolveAuthGate } from "@/lib/auth/guards";
 import { AUTH_ROUTES } from "@/lib/auth/routes";
 import { readAuthSession, updateCheckoutPlan } from "@/lib/auth/session";
@@ -67,6 +68,8 @@ export function BillingSetupView() {
       setPhase("error");
       return;
     }
+
+    ensureBillingDesignPreviewSession();
 
     const session = readAuthSession();
     const gate = resolveAuthGate(session, { allowTrialInactive: false });
