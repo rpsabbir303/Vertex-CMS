@@ -7,6 +7,9 @@ import { resolveTrialEndsAt } from "./trial";
 export const BILLING_DESIGN_PREVIEW_PARAM = "designPreview";
 export const BILLING_DESIGN_PREVIEW_VALUE = "1";
 
+/** Must be set to "true" in Vercel Preview (and local .env) — never on Production. */
+export const BILLING_DESIGN_PREVIEW_ENV = "NEXT_PUBLIC_ENABLE_BILLING_DESIGN_PREVIEW";
+
 const DESIGN_PREVIEW_EMAIL = "design-preview@vertexcms.test";
 const DESIGN_PREVIEW_WORKSPACE = "Design preview workspace";
 
@@ -24,15 +27,37 @@ export function hasBillingDesignPreviewQuery(searchParams?: URLSearchParams | nu
   return params.get(BILLING_DESIGN_PREVIEW_PARAM) === BILLING_DESIGN_PREVIEW_VALUE;
 }
 
+function isBillingDesignPreviewFlagEnabled(): boolean {
+  return process.env.NEXT_PUBLIC_ENABLE_BILLING_DESIGN_PREVIEW === "true";
+}
+
 /**
- * Local HTML-to-Design capture only — never enabled in production builds or off localhost.
+ * Approved deployment targets for billing design capture (html.to.design).
+ * Production Vercel deploys are always rejected, even if the public flag is mis-set.
+ */
+export function isApprovedBillingDesignPreviewDeployment(): boolean {
+  if (process.env.NEXT_PUBLIC_VERCEL_ENV === "production") {
+    return false;
+  }
+
+  if (process.env.NODE_ENV === "development" && isLocalDevelopmentHost()) {
+    return true;
+  }
+
+  if (process.env.NEXT_PUBLIC_VERCEL_ENV === "preview") {
+    return true;
+  }
+
+  return false;
+}
+
+/**
+ * HTML-to-Design billing capture — requires explicit env flag, approved deployment, and ?designPreview=1.
  */
 export function isBillingDesignPreviewCaptureEnabled(searchParams?: URLSearchParams | null): boolean {
-  return (
-    process.env.NODE_ENV === "development" &&
-    isLocalDevelopmentHost() &&
-    hasBillingDesignPreviewQuery(searchParams)
-  );
+  if (!isBillingDesignPreviewFlagEnabled()) return false;
+  if (!isApprovedBillingDesignPreviewDeployment()) return false;
+  return hasBillingDesignPreviewQuery(searchParams);
 }
 
 function pickBillingDesignPreviewPlanId(): string | undefined {
