@@ -51,7 +51,8 @@ export const MARKETING_PAGES: Record<string, MarketingPageConfig> = {
   },
   resourcesGuides: {
     title: `Guides | ${base} Resources`,
-    description: "Guides for construction operations and VertexBuild.",
+    description:
+      "Structured workflow guidance for project, financial, field, and compliance operations in VertexBuild.",
     breadcrumbs: [{ label: "Home", href: ROUTES.home }, { label: "Resources", href: ROUTES.resources }, { label: "Guides" }],
   },
   resourcesTemplates: {

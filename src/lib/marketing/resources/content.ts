@@ -107,7 +107,8 @@ export const RESOURCES_PREVIEW_CATALOG: ResourceRecord[] = [
     topic: "field-operations",
     audience: ["operations", "gc"],
     publishedAt: "2026-01-08",
-    href: ROUTES.resourcesBlog,
+    slug: "connecting-daily-field-logs-to-project-financials",
+    href: ROUTES.resourcesBlogArticle("connecting-daily-field-logs-to-project-financials"),
     catalogStatus: "preview",
     image: {
       src: photos.superintendent,
@@ -123,7 +124,8 @@ export const RESOURCES_PREVIEW_CATALOG: ResourceRecord[] = [
     topic: "financials",
     audience: ["finance", "executive"],
     publishedAt: "2025-11-05",
-    href: ROUTES.resourcesBlog,
+    slug: "wip-reporting-without-disconnected-spreadsheets",
+    href: ROUTES.resourcesBlogArticle("wip-reporting-without-disconnected-spreadsheets"),
     catalogStatus: "preview",
     image: {
       src: photos.planning,
@@ -137,7 +139,8 @@ export const RESOURCES_PREVIEW_CATALOG: ResourceRecord[] = [
     description: "Keeping document review status visible to PMs and supers without duplicate tracking tools.",
     topic: "project-management",
     publishedAt: "2025-10-12",
-    href: ROUTES.resourcesBlog,
+    slug: "submittal-workflows-that-stay-tied-to-the-schedule",
+    href: ROUTES.resourcesBlogArticle("submittal-workflows-that-stay-tied-to-the-schedule"),
     catalogStatus: "preview",
     image: {
       src: photos.documents,
@@ -153,7 +156,8 @@ export const RESOURCES_PREVIEW_CATALOG: ResourceRecord[] = [
     topic: "project-management",
     audience: ["operations", "gc"],
     publishedAt: "2025-09-18",
-    href: ROUTES.resourcesBlog,
+    slug: "turning-rfis-into-faster-decisions",
+    href: ROUTES.resourcesBlogArticle("turning-rfis-into-faster-decisions"),
     catalogStatus: "preview",
     image: {
       src: photos.blueprint,
@@ -169,7 +173,8 @@ export const RESOURCES_PREVIEW_CATALOG: ResourceRecord[] = [
     topic: "financials",
     audience: ["operations", "finance"],
     publishedAt: "2025-08-27",
-    href: ROUTES.resourcesBlog,
+    slug: "controlling-change-orders-without-losing-momentum",
+    href: ROUTES.resourcesBlogArticle("controlling-change-orders-without-losing-momentum"),
     catalogStatus: "preview",
     image: {
       src: photos.collaboration,
@@ -185,7 +190,8 @@ export const RESOURCES_PREVIEW_CATALOG: ResourceRecord[] = [
     topic: "project-management",
     audience: ["operations", "gc"],
     publishedAt: "2025-07-30",
-    href: ROUTES.resourcesBlog,
+    slug: "building-a-connected-closeout-process",
+    href: ROUTES.resourcesBlogArticle("building-a-connected-closeout-process"),
     catalogStatus: "preview",
     image: {
       src: photos.commercialInterior,
@@ -201,7 +207,8 @@ export const RESOURCES_PREVIEW_CATALOG: ResourceRecord[] = [
     topic: "field-operations",
     audience: ["operations", "gc"],
     publishedAt: "2025-07-09",
-    href: ROUTES.resourcesBlog,
+    slug: "keeping-field-and-office-on-the-same-schedule",
+    href: ROUTES.resourcesBlogArticle("keeping-field-and-office-on-the-same-schedule"),
     catalogStatus: "preview",
     image: {
       src: photos.fieldCrew,
@@ -217,7 +224,8 @@ export const RESOURCES_PREVIEW_CATALOG: ResourceRecord[] = [
     topic: "project-management",
     audience: ["operations", "gc"],
     publishedAt: "2025-06-18",
-    href: ROUTES.resourcesBlog,
+    slug: "drawing-control-that-survives-the-jobsite",
+    href: ROUTES.resourcesBlogArticle("drawing-control-that-survives-the-jobsite"),
     catalogStatus: "preview",
     image: {
       src: photos.steelFrame,
@@ -233,7 +241,8 @@ export const RESOURCES_PREVIEW_CATALOG: ResourceRecord[] = [
     topic: "compliance",
     audience: ["operations", "gc"],
     publishedAt: "2025-05-28",
-    href: ROUTES.resourcesBlog,
+    slug: "capturing-safety-observations-without-losing-project-context",
+    href: ROUTES.resourcesBlogArticle("capturing-safety-observations-without-losing-project-context"),
     catalogStatus: "preview",
     image: {
       src: photos.safety,
@@ -249,7 +258,8 @@ export const RESOURCES_PREVIEW_CATALOG: ResourceRecord[] = [
     topic: "platform",
     audience: ["executive", "operations"],
     publishedAt: "2025-05-07",
-    href: ROUTES.resourcesBlog,
+    slug: "owner-status-updates-without-rebuilding-the-report",
+    href: ROUTES.resourcesBlogArticle("owner-status-updates-without-rebuilding-the-report"),
     catalogStatus: "preview",
     image: {
       src: photos.aerial,
@@ -265,7 +275,8 @@ export const RESOURCES_PREVIEW_CATALOG: ResourceRecord[] = [
     topic: "financials",
     audience: ["finance", "operations"],
     publishedAt: "2026-01-14",
-    href: ROUTES.resourcesGuides,
+    slug: "structuring-job-cost-for-multi-project-portfolios",
+    href: ROUTES.resourcesGuideArticle("structuring-job-cost-for-multi-project-portfolios"),
     catalogStatus: "preview",
   },
   {
@@ -277,7 +288,8 @@ export const RESOURCES_PREVIEW_CATALOG: ResourceRecord[] = [
     topic: "compliance",
     audience: ["gc", "specialty"],
     publishedAt: "2025-11-20",
-    href: ROUTES.resourcesGuides,
+    slug: "compliance-documentation-checklist-for-subcontractors",
+    href: ROUTES.resourcesGuideArticle("compliance-documentation-checklist-for-subcontractors"),
     catalogStatus: "preview",
   },
   {
@@ -288,7 +300,8 @@ export const RESOURCES_PREVIEW_CATALOG: ResourceRecord[] = [
     topic: "getting-started",
     audience: ["executive", "operations"],
     publishedAt: "2025-09-30",
-    href: ROUTES.resourcesGuides,
+    slug: "workspace-setup-for-multi-entity-contractors",
+    href: ROUTES.resourcesGuideArticle("workspace-setup-for-multi-entity-contractors"),
     catalogStatus: "preview",
   },
   {

@@ -21,6 +21,10 @@ export const ROUTES = {
   resourcesTemplates: "/resources/templates",
   resourcesWebinars: "/resources/webinars",
   resourcesHelp: "/resources/help",
+  /** Blog article detail — `/resources/blog/[slug]` */
+  resourcesBlogArticle: (slug: string) => `/resources/blog/${slug}` as const,
+  /** Individual guide detail only — `/resources/guides/[slug]`. Guide categories are not routes. */
+  resourcesGuideArticle: (slug: string) => `/resources/guides/${slug}` as const,
   integrations: "/integrations",
   comparisons: "/comparisons",
   comparisonProcore: "/comparisons/procore",

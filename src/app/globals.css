@@ -122,6 +122,19 @@ svg {
 
   }
 
+  /* Resource Detail template — wider SaaS composition (Blog / Guide / Webinar / Template) */
+  .resource-detail-shell {
+    @apply mx-auto w-full max-w-[1320px] px-5 sm:px-6 lg:px-8 xl:px-10;
+  }
+
+  .resource-detail-main-grid {
+    @apply grid gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(17.5rem,19.5rem)] lg:gap-10 xl:gap-12;
+  }
+
+  .resource-detail-article {
+    @apply min-w-0 max-w-[52rem];
+  }
+
   /* Resource Hub blog article stream — desktop rail only */
   .hub-blog-stream {
     scrollbar-width: thin;
