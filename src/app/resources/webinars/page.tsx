@@ -1,15 +1,25 @@
-import { MarketingPageShell, pageHeadingFromMeta } from "@/components/marketing/MarketingPageShell";
-import { MARKETING_PAGES, marketingMetadata } from "@/lib/marketing/pages";
+import type { Metadata } from "next";
 
-export const metadata = marketingMetadata("resourcesWebinars");
+import { CookieConsent } from "@/components/marketing/CookieConsent";
+import { MarketingFooter } from "@/components/marketing/MarketingFooter";
+import { MarketingHeader } from "@/components/marketing/MarketingHeader";
+import { MarketingProviders } from "@/components/marketing/MarketingProviders";
+import { WebinarsListingPage } from "@/components/marketing/resources/webinars-listing/WebinarsListingPage";
+import { marketingMetadata } from "@/lib/marketing/pages";
+
+export const metadata: Metadata = marketingMetadata("resourcesWebinars");
 
 export default function ResourcesWebinarsPage() {
-  const config = MARKETING_PAGES.resourcesWebinars;
   return (
-    <MarketingPageShell
-      title={pageHeadingFromMeta(config.title)}
-      description={config.description}
-      breadcrumbs={config.breadcrumbs}
-    />
+    <MarketingProviders>
+      <div className="flex min-h-screen flex-col overflow-x-hidden bg-white text-brand-navy">
+        <MarketingHeader />
+        <main className="w-full min-w-0 flex-1">
+          <WebinarsListingPage />
+        </main>
+        <MarketingFooter />
+        <CookieConsent />
+      </div>
+    </MarketingProviders>
   );
 }

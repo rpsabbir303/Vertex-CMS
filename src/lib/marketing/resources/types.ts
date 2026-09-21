@@ -68,6 +68,22 @@ export type GuideArticleRecord = ResourceRecord & {
   guideFormat?: string;
 };
 
+/** Template detail — structured worksheet / checklist context. */
+export type TemplateArticleRecord = ResourceRecord & {
+  type: "template";
+  slug: string;
+  body: BlogContentBlock[];
+  templateFormat: string;
+};
+
+/** Webinar detail — session summary; status from catalog only. */
+export type WebinarArticleRecord = ResourceRecord & {
+  type: "webinar";
+  slug: string;
+  body: BlogContentBlock[];
+  webinarStatus: WebinarHubStatus;
+};
+
 export type HelpDocCategoryPreview = {
   id: string;
   title: string;

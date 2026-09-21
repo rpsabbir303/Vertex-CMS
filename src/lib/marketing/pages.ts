@@ -57,12 +57,14 @@ export const MARKETING_PAGES: Record<string, MarketingPageConfig> = {
   },
   resourcesTemplates: {
     title: `Templates | ${base} Resources`,
-    description: "Construction templates and downloadable resources.",
+    description:
+      "Ready-to-use worksheets and checklists for project, field, and operational workflows in VertexBuild.",
     breadcrumbs: [{ label: "Home", href: ROUTES.home }, { label: "Resources", href: ROUTES.resources }, { label: "Templates" }],
   },
   resourcesWebinars: {
     title: `Webinars | ${base} Resources`,
-    description: "VertexBuild webinars and live sessions.",
+    description:
+      "Live and on-demand VertexBuild sessions on project operations, field workflows, financial control, and connected construction technology.",
     breadcrumbs: [{ label: "Home", href: ROUTES.home }, { label: "Resources", href: ROUTES.resources }, { label: "Webinars" }],
   },
   resourcesHelp: {
