@@ -13,9 +13,9 @@ const FIELD = "Field Operations";
 
 export const automationFeatureDetail = {
   meta: {
-    title: "Automation | Vertex CMS Features",
+    title: "Automation | VertexBuild Features",
     description:
-      "Run AI-powered actions across project workflows with clear permissions, activity logging, and confirmation before execution. Vertex CMS automation keeps people in control.",
+      "Run AI-powered actions across project workflows with clear permissions, activity logging, and confirmation before execution. VertexBuild automation keeps people in control.",
     canonical: `${ROUTES.features}/automation`,
   },
   hero: {
@@ -40,7 +40,7 @@ export const automationFeatureDetail = {
   ] as const,
   intro: {
     headline: "Automation without losing project control.",
-    body: "Construction workflows depend on accurate information, clear ownership, and timely action. Vertex CMS automation connects those pieces so teams can move faster without turning important project decisions into black-box processes.",
+    body: "Construction workflows depend on accurate information, clear ownership, and timely action. VertexBuild automation connects those pieces so teams can move faster without turning important project decisions into black-box processes.",
     cards: [
       {
         n: "01",
@@ -78,7 +78,7 @@ export const automationFeatureDetail = {
     preview: "autoHowItWorks" as PreviewKey,
     steps: [
       { n: "01", title: "Detect a project signal", body: "Automation starts from relevant information or an event within the project." },
-      { n: "02", title: "Prepare the action", body: "Vertex CMS determines the appropriate supported action and shows the user what will happen." },
+      { n: "02", title: "Prepare the action", body: "VertexBuild determines the appropriate supported action and shows the user what will happen." },
       { n: "03", title: "Review and confirm", body: "Users can review the proposed action before anything changes." },
       { n: "04", title: "Execute and log", body: "Once approved, the action runs and the activity is recorded for future reference." },
     ],
@@ -102,7 +102,7 @@ export const automationFeatureDetail = {
   },
   approvals: {
     headline: "Keep people in control of every important action.",
-    body: "Automation should accelerate project work—not remove accountability. Vertex CMS keeps approval and execution visible to the people responsible for the project.",
+    body: "Automation should accelerate project work—not remove accountability. VertexBuild keeps approval and execution visible to the people responsible for the project.",
     preview: "autoApproval" as PreviewKey,
     points: [
       { title: "Review before execution", body: "See what the automation intends to do." },
@@ -184,7 +184,7 @@ export const automationFeatureDetail = {
   finalCta: {
     headline: "Automate project work with confidence.",
     supporting:
-      "See how Vertex CMS connects AI-powered automation with the project workflows, permissions, and controls your team relies on.",
+      "See how VertexBuild connects AI-powered automation with the project workflows, permissions, and controls your team relies on.",
     primary: { label: "Explore AI & Intelligence", href: AI },
     secondary: { label: CTAS.demo.label, href: CTAS.demo.href },
   },

@@ -2,6 +2,10 @@
 
 import { useEffect, useRef } from "react";
 
+/**
+ * Structural wrapper kept for layout consistency.
+ * Content is always visible (no opacity:0 entrance) so HTML-to-Figma can capture it.
+ */
 export function Reveal({
   children,
   className = "",
@@ -16,35 +20,14 @@ export function Reveal({
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
-
-    const prefersReduced = window.matchMedia(
-      "(prefers-reduced-motion: reduce)"
-    ).matches;
-
-    if (prefersReduced) {
-      el.classList.add("visible");
-      return;
-    }
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          el.classList.add("visible");
-          observer.unobserve(el);
-        }
-      },
-      { threshold: 0.12, rootMargin: "0px 0px -40px 0px" }
-    );
-
-    observer.observe(el);
-    return () => observer.disconnect();
+    el.classList.add("visible");
   }, []);
 
   return (
     <div
       ref={ref}
-      className={`reveal w-full min-w-0 ${className}`}
-      style={{ transitionDelay: `${delay}ms` }}
+      className={`reveal visible w-full min-w-0 ${className}`}
+      style={delay ? { transitionDelay: `${delay}ms` } : undefined}
     >
       {children}
     </div>

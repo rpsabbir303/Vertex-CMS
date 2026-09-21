@@ -8,9 +8,9 @@ import type { PreviewKey } from "./register";
 export const submittalCategory = {
   id: "submittals",
   meta: {
-    title: "Submittals | Vertex CMS Features",
+    title: "Submittals | VertexBuild Features",
     description:
-      "Create, organize, review, and track construction submittals with status, reviewers, due dates, and project context in Vertex CMS.",
+      "Create, organize, review, and track construction submittals with status, reviewers, due dates, and project context in VertexBuild.",
     canonical: `${ROUTES.features}/submittals`,
   },
   hero: {
@@ -25,7 +25,7 @@ export const submittalCategory = {
   intro: {
     eyebrow: "Submittal coordination",
     headline: "Make Every Submittal Easier to Track.",
-    body: "Submittals move through multiple stages and involve multiple people. Vertex CMS keeps submittals organized and gives project teams clear visibility into what has been submitted, who needs to review it, and where each item stands.",
+    body: "Submittals move through multiple stages and involve multiple people. VertexBuild keeps submittals organized and gives project teams clear visibility into what has been submitted, who needs to review it, and where each item stands.",
     preview: "submittalFlow" as PreviewKey,
   },
   register: {

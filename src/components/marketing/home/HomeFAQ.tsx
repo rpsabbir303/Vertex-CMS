@@ -5,23 +5,23 @@ import { Reveal } from "@/components/Reveal";
 
 const FAQS = [
   {
-    q: "What is Vertex CMS?",
-    a: "Vertex CMS is a unified construction management platform that connects projects, financials, field operations, compliance, workforce, and AI intelligence in one system.",
+    q: "What is VertexBuild?",
+    a: "VertexBuild is a unified construction management platform that connects projects, financials, field operations, compliance, workforce, and AI intelligence in one system.",
   },
   {
-    q: "Who is Vertex CMS for?",
-    a: "Vertex CMS is built for construction operators — including general contractors and subcontractors — across commercial, residential, and civil project types.",
+    q: "Who is VertexBuild for?",
+    a: "VertexBuild is built for construction operators — including general contractors and subcontractors — across commercial, residential, and civil project types.",
   },
   {
-    q: "Does Vertex CMS include financial management?",
+    q: "Does VertexBuild include financial management?",
     a: "Yes. Native financial capabilities include budget and job cost, billing, AIA pay applications, WIP, cash flow, and connected accounting workflows.",
   },
   {
-    q: "Does Vertex CMS support mobile field operations?",
+    q: "Does VertexBuild support mobile field operations?",
     a: "Yes. Field teams can capture daily logs, photos, RFIs, punch, safety, and time from mobile workflows designed for the jobsite.",
   },
   {
-    q: "Does Vertex CMS work offline?",
+    q: "Does VertexBuild work offline?",
     a: "Yes. Field capture can continue offline, queue work, and sync automatically when connectivity returns.",
   },
   {

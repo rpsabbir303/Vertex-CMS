@@ -203,7 +203,7 @@ function Checkpoints({
           fill={NAVY}
           fillOpacity="0.32"
           fontSize="9"
-          fontFamily="ui-monospace, SFMono-Regular, Menlo, monospace"
+          fontFamily="var(--font-sans)"
           letterSpacing="1.5"
         >
           {emphasis.label}

@@ -23,7 +23,7 @@ export function AuthShell({
   title,
   subtitle,
   panelTitle = "Construction runs better when everything connects.",
-  panelBody = "Vertex CMS brings projects, financials, field operations, and intelligence into one operating system.",
+  panelBody = "VertexBuild brings projects, financials, field operations, and intelligence into one operating system.",
   layout = "default",
   showPreviewNotice = true,
 }: Props) {
@@ -40,7 +40,7 @@ export function AuthShell({
         </div>
         <div className="relative flex flex-1 flex-col justify-center py-10">
           <div className="max-w-md">
-            <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-brand-orange">Vertex CMS</p>
+            <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-brand-orange">VertexBuild</p>
             <h1 className="mt-4 font-display text-3xl font-bold leading-tight tracking-tight xl:text-4xl">{panelTitle}</h1>
             <p className="mt-4 text-[15px] leading-relaxed text-slate-300">{panelBody}</p>
           </div>

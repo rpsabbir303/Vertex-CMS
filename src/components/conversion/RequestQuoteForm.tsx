@@ -100,7 +100,7 @@ export function RequestQuoteForm() {
       panelEyebrow="Request a quote"
       panelHeadlineLead="Built for the way"
       panelHeadlineAccent="your business operates."
-      panelBody="Tell us about your organization, users, projects, and requirements. We'll help shape the right Vertex CMS solution for your team."
+      panelBody="Tell us about your organization, users, projects, and requirements. We'll help shape the right VertexBuild solution for your team."
       benefits={[
         "Enterprise-ready capabilities",
         "Tailored implementation planning",

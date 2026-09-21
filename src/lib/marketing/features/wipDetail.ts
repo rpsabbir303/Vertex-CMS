@@ -15,7 +15,7 @@ import type { PreviewKey } from "./register";
 
 export const wipFeatureDetail = {
   meta: {
-    title: "WIP Reporting | Vertex CMS Features",
+    title: "WIP Reporting | VertexBuild Features",
     description:
       "Work-in-progress reporting snapshots connected to GL and budget so construction teams can see project financial position across active work.",
     canonical: `${ROUTES.features}/wip`,

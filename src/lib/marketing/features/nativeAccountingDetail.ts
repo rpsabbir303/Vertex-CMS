@@ -9,9 +9,9 @@ import type { PreviewKey } from "./register";
 
 export const nativeAccountingFeatureDetail = {
   meta: {
-    title: "Native Accounting | Vertex CMS Features",
+    title: "Native Accounting | VertexBuild Features",
     description:
-      "Connect construction project operations with native general ledger, accounts payable, bank reconciliation, and project-aware financial visibility in Vertex CMS.",
+      "Connect construction project operations with native general ledger, accounts payable, bank reconciliation, and project-aware financial visibility in VertexBuild.",
     canonical: `${ROUTES.features}/native-accounting`,
   },
   hero: {
@@ -34,7 +34,7 @@ export const nativeAccountingFeatureDetail = {
   ] as const,
   intro: {
     headline: "Keep project and accounting data connected.",
-    body: "Construction finance depends on information from every part of the project. Vertex CMS connects accounting activity with the projects, contracts, vendors, costs, and billing workflows that drive it.",
+    body: "Construction finance depends on information from every part of the project. VertexBuild connects accounting activity with the projects, contracts, vendors, costs, and billing workflows that drive it.",
     points: [
       {
         title: "Connected Project Accounting",

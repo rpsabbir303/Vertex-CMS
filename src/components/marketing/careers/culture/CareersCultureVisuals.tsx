@@ -47,13 +47,13 @@ export function CultureVisualProblems() {
       />
       <path d="M 366 148 l 8 4 -8 4" stroke="#FF6A00" strokeOpacity="0.55" strokeWidth="1" />
 
-      <text x="48" y="312" fill="#08233F" fillOpacity="0.32" fontSize="10" fontFamily="ui-monospace, monospace" letterSpacing="1.4">
+      <text x="48" y="312" fill="#08233F" fillOpacity="0.32" fontSize="10" fontFamily="var(--font-sans)" letterSpacing="1.4">
         PROBLEM
       </text>
-      <text x="216" y="312" fill="#08233F" fillOpacity="0.32" fontSize="10" fontFamily="ui-monospace, monospace" letterSpacing="1.4">
+      <text x="216" y="312" fill="#08233F" fillOpacity="0.32" fontSize="10" fontFamily="var(--font-sans)" letterSpacing="1.4">
         ANALYSIS
       </text>
-      <text x="390" y="312" fill="#08233F" fillOpacity="0.32" fontSize="10" fontFamily="ui-monospace, monospace" letterSpacing="1.4">
+      <text x="390" y="312" fill="#08233F" fillOpacity="0.32" fontSize="10" fontFamily="var(--font-sans)" letterSpacing="1.4">
         SOLUTION
       </text>
       <line x1="48" y1="322" x2="500" y2="322" stroke="#08233F" strokeOpacity="0.08" strokeWidth="1" />
@@ -94,7 +94,7 @@ export function CultureVisualDisciplines() {
             fill="#08233F"
             fillOpacity="0.55"
             fontSize="10"
-            fontFamily="ui-monospace, monospace"
+            fontFamily="var(--font-sans)"
             letterSpacing="1.6"
           >
             {node.label}
@@ -154,7 +154,7 @@ export function CultureVisualConnectedSystems() {
             fill="#08233F"
             fillOpacity="0.5"
             fontSize="9"
-            fontFamily="ui-monospace, monospace"
+            fontFamily="var(--font-sans)"
             letterSpacing="1.2"
           >
             {node.label}
@@ -212,7 +212,7 @@ export function CultureVisualCustomerProblem() {
             fill="#08233F"
             fillOpacity="0.4"
             fontSize="9"
-            fontFamily="ui-monospace, monospace"
+            fontFamily="var(--font-sans)"
             letterSpacing="1.3"
           >
             {step.label}

@@ -8,9 +8,9 @@ import { PreconstructionCategoryPage } from "@/components/marketing/features/Pre
 import { featureCategoryPath } from "@/lib/marketing/features/categories";
 import { ROUTES } from "@/lib/marketing/navigation";
 
-const title = "Preconstruction | Vertex CMS Features";
+const title = "Preconstruction | VertexBuild Features";
 const description =
-  "Win the right work at the right price with Vertex CMS estimating, bid management, quantity takeoff, and opportunity pipeline workflows.";
+  "Win the right work at the right price with VertexBuild estimating, bid management, quantity takeoff, and opportunity pipeline workflows.";
 const canonical = featureCategoryPath("preconstruction");
 
 export const metadata: Metadata = {

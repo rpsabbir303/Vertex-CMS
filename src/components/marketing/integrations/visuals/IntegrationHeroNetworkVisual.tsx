@@ -1,19 +1,20 @@
 import type { CSSProperties } from "react";
+import { svgGridLines } from "@/components/marketing/shared/svgGridLines";
 
 /** Static architectural hub — cross layout; hover via CSS (.int-arch-node). */
 export function IntegrationHeroNetworkVisual({ className = "" }: { className?: string }) {
-  const labelStyle: CSSProperties = { fontFamily: "var(--font-integrations-sans), sans-serif" };
+  const labelStyle: CSSProperties = { fontFamily: "var(--font-sans)" };
 
   return (
-    <div className={"relative " + className} role="img" aria-label="Vertex CMS connected to accounting, e-sign, API, webhooks, and payments.">
-      <svg viewBox="0 0 440 400" className="h-auto w-full max-w-[440px]" preserveAspectRatio="xMidYMid meet">
-        <defs>
-          <pattern id="int-hero-grid" width="20" height="20" patternUnits="userSpaceOnUse">
-            <path d="M 20 0 L 0 0 0 20" fill="none" stroke="rgba(8,35,63,0.05)" strokeWidth="0.5" />
-          </pattern>
-        </defs>
-        <rect width="440" height="400" fill="url(#int-hero-grid)" />
-        {/* Corner brackets */}
+    <div className={"relative " + className} role="img" aria-label="VertexBuild connected to accounting, e-sign, API, webhooks, and payments.">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 440 400"
+        className="h-auto w-full max-w-[440px]"
+        preserveAspectRatio="xMidYMid meet"
+      >
+        <rect width="440" height="400" fill="#ffffff" />
+        <g aria-hidden="true">{svgGridLines({ width: 440, height: 400, step: 20, stroke: "rgba(8,35,63,0.05)" })}</g>
         <path d="M 32 48 L 32 32 L 48 32" fill="none" stroke="rgba(8,35,63,0.12)" strokeWidth="1" />
         <path d="M 408 48 L 408 32 L 392 32" fill="none" stroke="rgba(8,35,63,0.12)" strokeWidth="1" />
         <path d="M 32 352 L 32 368 L 48 368" fill="none" stroke="rgba(8,35,63,0.12)" strokeWidth="1" />
@@ -27,11 +28,10 @@ export function IntegrationHeroNetworkVisual({ className = "" }: { className?: s
           <line x1="220" y1="328" x2="220" y2="348" strokeDasharray="3 5" />
         </g>
 
-        {/* Center */}
         <rect x="168" y="168" width="104" height="64" fill="#ffffff" stroke="rgba(8,35,63,0.22)" strokeWidth="1.25" />
         <circle cx="220" cy="200" r="4" fill="#ff6a00" className="int-arch-pulse" opacity="0.5" />
         <text x="220" y="194" textAnchor="middle" className="fill-brand-navy text-[11px] font-bold" style={labelStyle}>
-          VERTEX CMS
+          VertexBuild
         </text>
         <text x="220" y="210" textAnchor="middle" className="fill-brand-muted text-[7px] font-medium tracking-[0.14em]" style={labelStyle}>
           SYSTEM CORE

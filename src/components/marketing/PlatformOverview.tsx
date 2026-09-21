@@ -20,7 +20,7 @@ export function PlatformOverview() {
         <Reveal delay={80} className="relative mx-auto mt-16 max-w-4xl">
           <div className="flex flex-col items-center">
             <div className="relative z-10 rounded-2xl border border-brand-blue/20 bg-brand-navy px-10 py-6 text-center shadow-lift">
-              <p className="font-display text-2xl font-bold tracking-tight text-white sm:text-3xl">VERTEX CMS</p>
+              <p className="font-display text-2xl font-bold tracking-tight text-white sm:text-3xl">VertexBuild</p>
               <p className="mt-1 text-[11px] font-semibold uppercase tracking-[0.2em] text-brand-orange">
                 Connected Platform
               </p>

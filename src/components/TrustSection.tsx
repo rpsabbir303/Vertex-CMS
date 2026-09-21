@@ -38,7 +38,7 @@ export function TrustSection() {
             Built for Construction Teams.
           </h2>
           <p className="copy mt-4">
-            Vertex CMS is designed for the roles that run US construction work — from precon through
+            VertexBuild is designed for the roles that run US construction work — from precon through
             field and financial closeout. Customer stories will appear here when approved.
           </p>
           <div className="mt-8 flex flex-wrap gap-2">

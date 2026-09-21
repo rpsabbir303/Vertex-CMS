@@ -25,7 +25,7 @@ import {
 const BRIDGE = [
   { label: "Field", slug: undefined },
   { label: "Mobile", slug: "mobile" },
-  { label: "Vertex CMS", slug: undefined },
+  { label: "VertexBuild", slug: undefined },
   { label: "Office", slug: "projects" },
 ] as const;
 

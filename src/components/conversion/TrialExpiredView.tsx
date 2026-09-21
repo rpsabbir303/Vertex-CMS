@@ -62,9 +62,9 @@ export function TrialExpiredView() {
   return (
     <AuthShell
       eyebrow="Trial status"
-      title="Your Vertex CMS trial has ended."
+      title="Your VertexBuild trial has ended."
       subtitle="Your trial period is no longer active. Choose the next step that works best for your business."
-      panelTitle="Continue with Vertex CMS."
+      panelTitle="Continue with VertexBuild."
       panelBody="Upgrade to a paid plan, request a quote, or speak with our team about the right package for your organization."
     >
       <div className="space-y-5">
@@ -80,7 +80,7 @@ export function TrialExpiredView() {
               ) : null}
             </p>
           ) : (
-            <p>Your trial period has ended. Choose a path below to continue with Vertex CMS.</p>
+            <p>Your trial period has ended. Choose a path below to continue with VertexBuild.</p>
           )}
         </AuthAlert>
 

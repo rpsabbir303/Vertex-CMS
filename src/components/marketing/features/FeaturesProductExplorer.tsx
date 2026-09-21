@@ -331,7 +331,7 @@ export function FeaturesProductExplorer() {
                       (featureModule.id === "ai" ? "text-slate-400" : "text-brand-muted")
                     }
                   >
-                    Vertex CMS · {area?.label}
+                    VertexBuild · {area?.label}
                   </p>
                   <span
                     className={

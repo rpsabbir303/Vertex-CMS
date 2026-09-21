@@ -98,10 +98,10 @@ export function OnboardingHub() {
           <div className="mx-auto max-w-xl rounded-2xl border border-brand-line bg-white p-8 text-center shadow-soft">
             <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-brand-orange">Ready</p>
             <h1 className="mt-3 font-display text-3xl font-bold text-brand-navy">
-              Your Vertex CMS workspace is ready.
+              Your VertexBuild workspace is ready.
             </h1>
             <p className="mt-3 text-[15px] text-brand-muted">
-              Your company, project, and team are set up. Welcome to Vertex CMS
+              Your company, project, and team are set up. Welcome to VertexBuild
               {companyName ? ` — ${companyName}` : ""}.
             </p>
             {subdomain ? (
@@ -117,7 +117,7 @@ export function OnboardingHub() {
             </div>
             <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:justify-center">
               <Link href={AUTH_ROUTES.appHome} className="btn-primary">
-                Enter Vertex CMS
+                Enter VertexBuild
               </Link>
               <Link href={AUTH_ROUTES.signIn} className="btn-secondary">
                 Back to sign in

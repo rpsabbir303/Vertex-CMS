@@ -11,7 +11,7 @@ export function ProjectManagementRelated() {
       <div className="site-shell py-12 sm:py-14">
         <Reveal>
           <p className="eyebrow">Related capabilities</p>
-          <h2 className="display-title mt-2 text-2xl sm:text-3xl">Continue exploring Vertex CMS</h2>
+          <h2 className="display-title mt-2 text-2xl sm:text-3xl">Continue exploring VertexBuild</h2>
           <p className="mt-3 max-w-2xl text-[14px] leading-relaxed text-brand-muted">
             Move to adjacent capability categories in the Features journey.
           </p>

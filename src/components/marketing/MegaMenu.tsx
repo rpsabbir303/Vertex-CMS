@@ -37,7 +37,7 @@ const MENU_HEADERS: Record<Exclude<NavMegaType, false>, { eyebrow: string; subti
   },
   company: {
     eyebrow: "Company",
-    subtitle: "Learn more about Vertex CMS and our team.",
+    subtitle: "Learn more about VertexBuild and our team.",
   },
 };
 
@@ -207,7 +207,7 @@ function FeaturesMegaPanel({ onClose }: { onClose: () => void }) {
             >
               {t.header.exploreAllFeatures}
             </Link>
-            <p className="mt-1 text-[12px] text-brand-muted">View the complete Vertex CMS platform.</p>
+            <p className="mt-1 text-[12px] text-brand-muted">View the complete VertexBuild platform.</p>
           </div>
           <Link href={CTAS.exploreFeatures.href} className="btn-secondary shrink-0 text-[12px]" onClick={onClose}>
             Explore Features

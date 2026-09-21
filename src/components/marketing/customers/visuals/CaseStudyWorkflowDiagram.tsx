@@ -58,7 +58,7 @@ export function CaseStudyWorkflowDiagram({ steps, className = "", size = "standa
                 textAnchor="middle"
                 fill={isCore ? "#FFFFFF" : "#1E3A5F"}
                 fontSize={isCore ? fontCore : fontStep}
-                fontFamily="var(--font-customers-sans), 'DM Sans', sans-serif"
+                fontFamily="var(--font-sans)"
                 fontWeight={600}
               >
                 {label}

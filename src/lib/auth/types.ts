@@ -1,5 +1,5 @@
 /**
- * Auth domain types for Vertex CMS marketing + product auth UI.
+ * Auth domain types for VertexBuild marketing + product auth UI.
  * Backend/session integration is not present in this marketing repo yet.
  * UI flows use AuthClient in "preview" mode until the CMS auth API is wired.
  */
@@ -128,7 +128,7 @@ export const ONBOARDING_STEPS: {
     id: "invite",
     number: "03",
     title: "Invite Team",
-    description: "Invite colleagues into Vertex CMS.",
+    description: "Invite colleagues into VertexBuild.",
   },
   {
     id: "connect",

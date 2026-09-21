@@ -13,16 +13,16 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const job = getJobBySlug(params.slug);
   if (!job) {
-    return { title: "Position not found | Vertex CMS", robots: { index: false, follow: false } };
+    return { title: "Position not found | VertexBuild", robots: { index: false, follow: false } };
   }
 
   const path = careerDetailPath(job.slug);
   return {
-    title: `${job.title} | Careers | Vertex CMS`,
+    title: `${job.title} | Careers | VertexBuild`,
     description: job.description ?? job.title,
     alternates: { canonical: path },
     openGraph: {
-      title: `${job.title} | Careers | Vertex CMS`,
+      title: `${job.title} | Careers | VertexBuild`,
       description: job.description ?? job.title,
       url: path,
       type: "website",

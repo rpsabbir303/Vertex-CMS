@@ -1,5 +1,5 @@
 /**
- * Conversion / lead-capture types for Vertex CMS SaaS website.
+ * Conversion / lead-capture types for VertexBuild SaaS website.
  * APIs are not present in this marketing repo — ConversionClient runs in local UI mode.
  */
 

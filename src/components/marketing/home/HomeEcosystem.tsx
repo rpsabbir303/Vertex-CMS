@@ -85,7 +85,7 @@ export function HomeEcosystem() {
 
             <div className="home-panel relative z-10 flex flex-col items-center justify-center p-6 text-center lg:col-start-2 lg:row-start-2">
               <div className="absolute inset-3 rounded-xl border border-brand-blue/20 bg-brand-blue/5" aria-hidden="true" />
-              <p className="relative font-display text-2xl font-bold text-white sm:text-3xl">Vertex CMS</p>
+              <p className="relative font-display text-2xl font-bold text-white sm:text-3xl">VertexBuild</p>
               <p className="relative mt-2 text-[12px] uppercase tracking-[0.16em] text-slate-400">Operating system</p>
               <div className="relative mt-4 h-1.5 w-24 overflow-hidden rounded-full bg-white/10">
                 <div className="home-sync-bar h-full w-full bg-gradient-to-r from-brand-blue to-brand-orange" />

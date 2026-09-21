@@ -1,25 +1,25 @@
 import { CTAS, ROUTES } from "@/lib/marketing/navigation";
 
 export const integrationsLandingMeta = {
-  title: "Integrations | Vertex CMS",
+  title: "Integrations | VertexBuild",
   description:
-    "Connect Vertex CMS to the systems your business runs on. Explore documented platform capabilities and integrations for accounting, e-signature, and more.",
+    "Connect VertexBuild to the systems your business runs on. Explore documented platform capabilities and integrations for accounting, e-signature, and more.",
   canonical: ROUTES.integrations,
 };
 
 export const INTEGRATIONS_PAGE = {
   hero: {
     eyebrow: "Integrations",
-    headline: "Connect Vertex CMS to the systems your business already runs on.",
+    headline: "Connect VertexBuild to the systems your business already runs on.",
     supporting:
-      "Integrations extend Vertex CMS by allowing connected systems to exchange information with the platform so teams can work from shared project context instead of disconnected tools.",
+      "Integrations extend VertexBuild by allowing connected systems to exchange information with the platform so teams can work from shared project context instead of disconnected tools.",
     primaryCta: { label: "Explore Integrations", href: ROUTES.integrations },
     secondaryCta: { label: "Explore Vertex Platform", href: ROUTES.features },
   },
   ecosystem: {
     eyebrow: "Connected ecosystem",
     headline: "One operating layer for project, financial, field, and growth workflows.",
-    body: "External systems connect through an integration layer into Vertex CMS, where project, financial, field, and growth workflows share a common record. Each connection defines how information moves according to its documented scope.",
+    body: "External systems connect through an integration layer into VertexBuild, where project, financial, field, and growth workflows share a common record. Each connection defines how information moves according to its documented scope.",
   },
   discovery: {
     eyebrow: "Discover",
@@ -37,7 +37,7 @@ export const INTEGRATIONS_PAGE = {
     eyebrow: "Capabilities",
     headline: "Key integration capabilities",
     supporting:
-      "Platform capabilities documented for Vertex CMS—distinct from named third-party integrations in the directory.",
+      "Platform capabilities documented for VertexBuild—distinct from named third-party integrations in the directory.",
   },
   library: {
     eyebrow: "Directory",
@@ -56,12 +56,12 @@ export const INTEGRATIONS_PAGE = {
       {
         step: "02",
         title: "Exchange",
-        body: "Relevant information can move between the connected system and Vertex CMS according to the integration.",
+        body: "Relevant information can move between the connected system and VertexBuild according to the integration.",
       },
       {
         step: "03",
         title: "Extend",
-        body: "Keep your broader business ecosystem connected while extending Vertex CMS.",
+        body: "Keep your broader business ecosystem connected while extending VertexBuild.",
       },
     ] as const,
   },
@@ -77,7 +77,7 @@ export const INTEGRATIONS_PAGE = {
   finalCta: {
     headline: "Build a more connected operation.",
     supporting:
-      "Vertex CMS can become part of the broader technology ecosystem that supports project, financial, field, and growth workflows.",
+      "VertexBuild can become part of the broader technology ecosystem that supports project, financial, field, and growth workflows.",
     primary: { label: "Explore Platform", href: ROUTES.features },
     secondary: { label: "Book a Demo", href: CTAS.demo.href },
     tertiary: { label: "Start Free Trial", href: CTAS.trial.href },

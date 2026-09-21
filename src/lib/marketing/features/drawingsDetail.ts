@@ -15,9 +15,9 @@ const PM = "Project Management";
 
 export const drawingsFeatureDetail = {
   meta: {
-    title: "Drawings | Vertex CMS Features",
+    title: "Drawings | VertexBuild Features",
     description:
-      "Centralize construction drawings, revisions, and markups so field and office teams work from the current drawing set in Vertex CMS.",
+      "Centralize construction drawings, revisions, and markups so field and office teams work from the current drawing set in VertexBuild.",
     canonical: `${ROUTES.features}/drawings`,
   },
   hero: {
@@ -96,7 +96,7 @@ export const drawingsFeatureDetail = {
       },
       {
         title: "Project-connected drawings",
-        body: "Keep drawings connected to the broader Vertex CMS project record and workflows.",
+        body: "Keep drawings connected to the broader VertexBuild project record and workflows.",
       },
     ],
   },
@@ -222,7 +222,7 @@ export const drawingsFeatureDetail = {
   },
   connected: {
     headline: "Drawings Connected to Project Workflows.",
-    body: "Keep drawing information connected to the project records and field workflows teams already use across Vertex CMS.",
+    body: "Keep drawing information connected to the project records and field workflows teams already use across VertexBuild.",
     cards: [
       {
         slug: "projects",
@@ -270,7 +270,7 @@ export const drawingsFeatureDetail = {
   fieldOps: {
     eyebrow: "Field Operations",
     headline: "Everything Your Field Team Needs to Stay Connected.",
-    body: "Explore the connected Field Operations capabilities available across Vertex CMS.",
+    body: "Explore the connected Field Operations capabilities available across VertexBuild.",
     activeSlug: "drawings",
     cards: [
       {

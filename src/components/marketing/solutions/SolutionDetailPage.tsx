@@ -60,7 +60,7 @@ export function SolutionDetailPage({ slug }: { slug: SolutionSlug }) {
                     (d.previewDark ? "text-slate-400" : "text-brand-muted")
                   }
                 >
-                  Vertex CMS · {d.previewLabel}
+                  VertexBuild · {d.previewLabel}
                 </p>
                 <FeatureProductPreview
                   preview={d.preview}
@@ -99,7 +99,7 @@ export function SolutionDetailPage({ slug }: { slug: SolutionSlug }) {
         <div className="site-shell section-spacing">
           <Reveal className="max-w-3xl">
             <h2 className="font-display text-3xl font-bold tracking-tight text-brand-navy sm:text-4xl">
-              Connected Vertex CMS workflows
+              Connected VertexBuild workflows
             </h2>
             <p className="mt-4 text-[15px] leading-relaxed text-brand-muted">
               Relevant platform capabilities that support this solution — without exposing every internal record to
@@ -126,7 +126,7 @@ export function SolutionDetailPage({ slug }: { slug: SolutionSlug }) {
         <div className="site-shell section-spacing">
           <Reveal className="max-w-3xl">
             <h2 className="font-display text-3xl font-bold tracking-tight text-brand-navy sm:text-4xl">
-              Other Vertex CMS solutions
+              Other VertexBuild solutions
             </h2>
           </Reveal>
           <ul className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
@@ -154,7 +154,7 @@ export function SolutionDetailPage({ slug }: { slug: SolutionSlug }) {
           <Reveal className="mx-auto max-w-2xl text-center">
             <h2 className="display-title-light text-3xl sm:text-4xl">See how this solution fits your work.</h2>
             <p className="mx-auto mt-5 max-w-lg text-[15px] leading-relaxed text-slate-300">
-              Explore the connected Vertex CMS platform or book a demo for your team.
+              Explore the connected VertexBuild platform or book a demo for your team.
             </p>
             <div className="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
               <Link href={ROUTES.solutions} className="btn-primary w-full sm:w-auto">

@@ -49,7 +49,7 @@ export function FirstProjectForm() {
     <OnboardingShell
       current="project"
       title="Create your first project"
-      subtitle="Guided setup for type, location, dates, and retainage — fields aligned to Vertex CMS project configuration."
+      subtitle="Guided setup for type, location, dates, and retainage — fields aligned to VertexBuild project configuration."
     >
       <form onSubmit={onSubmit} className="space-y-4" noValidate>
         {error && <AuthAlert>{error}</AuthAlert>}

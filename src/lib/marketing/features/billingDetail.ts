@@ -8,9 +8,9 @@ import type { PreviewKey } from "./register";
 
 export const billingFeatureDetail = {
   meta: {
-    title: "Billing | Vertex CMS Features",
+    title: "Billing | VertexBuild Features",
     description:
-      "Manage construction progress billing, schedule of values, pay applications, invoices, and receivables with project and contract information connected in Vertex CMS.",
+      "Manage construction progress billing, schedule of values, pay applications, invoices, and receivables with project and contract information connected in VertexBuild.",
     canonical: `${ROUTES.features}/billing`,
   },
   hero: {
@@ -33,7 +33,7 @@ export const billingFeatureDetail = {
   ] as const,
   intro: {
     headline: "Turn project progress into clear, trackable billing.",
-    body: "Billing depends on more than an invoice. Vertex CMS connects project progress, contract values, scheduled values, applications, and payments so your team can manage the complete billing workflow.",
+    body: "Billing depends on more than an invoice. VertexBuild connects project progress, contract values, scheduled values, applications, and payments so your team can manage the complete billing workflow.",
     points: [
       {
         title: "Bill From Project Data",

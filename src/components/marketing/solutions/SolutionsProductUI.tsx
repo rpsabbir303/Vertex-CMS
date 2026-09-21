@@ -171,7 +171,7 @@ function MapMini({ id }: { id: string }) {
       return (
         <MiniChrome url="app.vertexcms.com">
           <div className="p-3">
-            <p className="text-[11px] font-semibold text-brand-navy">Vertex CMS</p>
+            <p className="text-[11px] font-semibold text-brand-navy">VertexBuild</p>
             <p className="mt-1 text-[10px] text-brand-muted">Connected project record · Riverside Medical Center</p>
           </div>
         </MiniChrome>
@@ -222,7 +222,7 @@ export function InteractiveSolutionMap() {
             <span className="h-1.5 w-1.5 rounded-full bg-[#FEBC2E]/90" />
             <span className="h-1.5 w-1.5 rounded-full bg-[#28C840]/90" />
           </span>
-          <p className="truncate text-[11px] font-semibold text-brand-navy">Vertex CMS · Solution Map</p>
+          <p className="truncate text-[11px] font-semibold text-brand-navy">VertexBuild · Solution Map</p>
         </div>
         <p className="hidden text-[10px] font-semibold uppercase tracking-[0.14em] text-brand-muted sm:block">
           Hover a node to inspect
@@ -267,7 +267,7 @@ export function InteractiveSolutionMap() {
               }
             >
               <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-brand-orange">Platform</p>
-              <p className="mt-2 font-display text-lg font-bold text-white">Vertex CMS</p>
+              <p className="mt-2 font-display text-lg font-bold text-white">VertexBuild</p>
               <p className="mt-2 text-[11px] leading-snug text-slate-300">
                 One connected operating system
               </p>
@@ -279,7 +279,7 @@ export function InteractiveSolutionMap() {
 
           <div className="lg:hidden rounded-sm border border-brand-navy bg-brand-navy px-4 py-4 text-center">
             <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-brand-orange">Platform</p>
-            <p className="mt-1 font-display text-lg font-bold text-white">Vertex CMS</p>
+            <p className="mt-1 font-display text-lg font-bold text-white">VertexBuild</p>
             <p className="mt-1 text-[11px] text-slate-300">Connected to {active.label}</p>
           </div>
 
@@ -425,7 +425,7 @@ export function ConnectedEcosystemMap() {
   return (
     <div className="overflow-hidden rounded-2xl border border-white/10 bg-[#0A1F35]">
       <div className="border-b border-white/10 px-5 py-4">
-        <p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-brand-orange">Vertex CMS</p>
+        <p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-brand-orange">VertexBuild</p>
         <p className="mt-1 text-[14px] font-semibold text-white">Connected operating platform</p>
       </div>
       <ul className="divide-y divide-white/10">
@@ -477,7 +477,7 @@ export function LivePreviewStage({
           (dark ? "text-slate-400" : "text-brand-muted")
         }
       >
-        Vertex CMS · {label}
+        VertexBuild · {label}
       </p>
       <FeatureProductPreview
         preview={preview}

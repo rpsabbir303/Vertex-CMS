@@ -66,9 +66,9 @@ export function BookDemoForm() {
   return (
     <ConversionShell
       panelEyebrow="Book a demo"
-      panelHeadlineLead="See how Vertex CMS"
+      panelHeadlineLead="See how VertexBuild"
       panelHeadlineAccent="fits your business."
-      panelBody="See how Vertex CMS brings projects, people, finances, and operations together in one connected workspace."
+      panelBody="See how VertexBuild brings projects, people, finances, and operations together in one connected workspace."
       benefits={["Explore the platform", "Find the right capabilities for your team", "Get answers from our team"]}
     >
       {success ? (
@@ -88,7 +88,7 @@ export function BookDemoForm() {
             You’re on your way to a better-connected workflow.
           </h2>
           <p className="mt-3 text-[14px] leading-relaxed text-brand-muted">
-            Thanks for your interest in Vertex CMS. Our team will review your request and follow up with the next
+            Thanks for your interest in VertexBuild. Our team will review your request and follow up with the next
             steps.
           </p>
           <AuthAlert tone="success">Request submitted successfully.</AuthAlert>
@@ -116,7 +116,7 @@ export function BookDemoForm() {
             Let&apos;s find the right fit for your team.
           </h2>
           <p className="mt-2 text-[14px] leading-relaxed text-brand-muted">
-            Tell us a little about your business and what you want to accomplish with Vertex CMS.
+            Tell us a little about your business and what you want to accomplish with VertexBuild.
           </p>
 
           <form onSubmit={onSubmit} className="mt-7 space-y-4" noValidate>
@@ -253,7 +253,7 @@ export function BookDemoForm() {
 
             <AuthButton loading={loading}>Book a Demo</AuthButton>
             <p className="text-center text-[12px] leading-relaxed text-brand-muted">
-              By submitting this form, you agree to be contacted about Vertex CMS.
+              By submitting this form, you agree to be contacted about VertexBuild.
             </p>
           </form>
         </div>

@@ -116,7 +116,7 @@ export const specialtyContractorStory: SolutionStoryModel = {
     headline: scHero.headline,
     supporting: scHero.supporting,
     answer:
-      "Vertex CMS helps a Specialty Contractor keep field activity, labor, and billing aligned with the same project record.",
+      "VertexBuild helps a Specialty Contractor keep field activity, labor, and billing aligned with the same project record.",
     primary: scHero.primary,
     secondary: scHero.secondary,
     preview: scHero.preview,
@@ -226,7 +226,7 @@ export const specialtyContractorStory: SolutionStoryModel = {
   showcase: {
     eyebrow: "Product experience",
     headline: "This is the specialty workspace.",
-    supporting: "Field activity, workforce, billing, and the project record stay in one Vertex CMS product.",
+    supporting: "Field activity, workforce, billing, and the project record stay in one VertexBuild product.",
     preview: "dailyLogDashboard",
     previewLabel: SC.previewLabel,
     satellites: [
@@ -249,7 +249,7 @@ export const ownerClientStory: SolutionStoryModel = {
     headline: ownerHero.headline,
     supporting: ownerHero.supporting,
     answer:
-      "Vertex CMS gives Owners and Clients a controlled view of assigned projects — visibility, financial oversight, and decisions without the internal workspace.",
+      "VertexBuild gives Owners and Clients a controlled view of assigned projects — visibility, financial oversight, and decisions without the internal workspace.",
     primary: ownerHero.primary,
     secondary: ownerHero.secondary,
     preview: ownerHero.preview,
@@ -380,7 +380,7 @@ export const commercialStory: SolutionStoryModel = {
     headline: commercialHero.headline,
     supporting: commercialHero.supporting,
     answer:
-      "Vertex CMS helps commercial teams keep project controls, field activity, financials, and owner collaboration on one record.",
+      "VertexBuild helps commercial teams keep project controls, field activity, financials, and owner collaboration on one record.",
     primary: commercialHero.primary,
     secondary: commercialHero.secondary,
     preview: commercialHero.preview,
@@ -514,7 +514,7 @@ export const residentialStory: SolutionStoryModel = {
     headline: residentialHero.headline,
     supporting: residentialHero.supporting,
     answer:
-      "Vertex CMS helps residential teams keep the work, cost, and client view aligned on one project record.",
+      "VertexBuild helps residential teams keep the work, cost, and client view aligned on one project record.",
     primary: residentialHero.primary,
     secondary: residentialHero.secondary,
     preview: residentialHero.preview,
@@ -600,7 +600,7 @@ export const residentialStory: SolutionStoryModel = {
       linkLabel: "Explore Customer Portals",
       left: {
         label: "Project team",
-        body: "The residential team manages the project record in Vertex CMS.",
+        body: "The residential team manages the project record in VertexBuild.",
         preview: "projectDashboard",
       },
       right: {
@@ -649,7 +649,7 @@ export const civilInfrastructureStory: SolutionStoryModel = {
     headline: civilHero.headline,
     supporting: civilHero.supporting,
     answer:
-      "Vertex CMS helps Civil / Infrastructure teams keep complex project control, field operations, documents, and financials on one connected record — without a separate infrastructure module.",
+      "VertexBuild helps Civil / Infrastructure teams keep complex project control, field operations, documents, and financials on one connected record — without a separate infrastructure module.",
     primary: civilHero.primary,
     secondary: civilHero.secondary,
     preview: civilHero.preview,
@@ -758,7 +758,7 @@ export const civilInfrastructureStory: SolutionStoryModel = {
     eyebrow: "Product experience",
     headline: "This is the Civil / Infrastructure workspace.",
     supporting:
-      "Vertex CMS connects documented platform capabilities around the civil project — not a separate infrastructure product.",
+      "VertexBuild connects documented platform capabilities around the civil project — not a separate infrastructure product.",
     preview: "scheduleLookahead",
     previewLabel: CIVIL.previewLabel,
     satellites: [

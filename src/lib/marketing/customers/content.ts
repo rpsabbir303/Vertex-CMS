@@ -4,11 +4,11 @@ import { CTAS, ROUTES } from "@/lib/marketing/navigation";
 
 export const customersLandingMeta = {
 
-  title: "Customers | Vertex CMS",
+  title: "Customers | VertexBuild",
 
   description:
 
-    "Customer success stories, testimonials, and measurable outcomes from construction teams using Vertex CMS — projects, financials, field, compliance, and intelligence in one platform.",
+    "Customer success stories, testimonials, and measurable outcomes from construction teams using VertexBuild — projects, financials, field, compliance, and intelligence in one platform.",
 
   canonical: ROUTES.customers,
 
@@ -156,7 +156,7 @@ export const CUSTOMERS_PAGE = {
 
     supporting:
 
-      "Customer teams use Vertex CMS to connect project operations, financial workflows, field activity, and business growth.",
+      "Customer teams use VertexBuild to connect project operations, financial workflows, field activity, and business growth.",
 
   },
 
@@ -164,7 +164,7 @@ export const CUSTOMERS_PAGE = {
 
     eyebrow: "Customer story",
 
-    headline: "A closer look at how teams use Vertex CMS",
+    headline: "A closer look at how teams use VertexBuild",
 
     supporting: "Featured customer stories highlight contractor context, workflow challenges, and outcomes.",
 
@@ -176,7 +176,7 @@ export const CUSTOMERS_PAGE = {
 
     eyebrow: "Case studies",
 
-    headline: "Explore how teams run on Vertex CMS",
+    headline: "Explore how teams run on VertexBuild",
 
     supporting: "Browse customer stories by contractor and project context.",
 
@@ -204,7 +204,7 @@ export const CUSTOMERS_PAGE = {
 
   finalCta: {
 
-    headline: "See Vertex CMS in action",
+    headline: "See VertexBuild in action",
 
     supporting: "Explore the platform, talk with our team, or start a trial.",
 

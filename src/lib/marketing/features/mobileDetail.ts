@@ -14,9 +14,9 @@ const FO = "Field Operations";
 
 export const mobileFeatureDetail = {
   meta: {
-    title: "Mobile | Vertex CMS Features",
+    title: "Mobile | VertexBuild Features",
     description:
-      "Access daily logs, drawings, photos, punch, T&M, and safety workflows from mobile devices connected to the Vertex CMS project record.",
+      "Access daily logs, drawings, photos, punch, T&M, and safety workflows from mobile devices connected to the VertexBuild project record.",
     canonical: `${ROUTES.features}/mobile`,
   },
   hero: {
@@ -25,7 +25,7 @@ export const mobileFeatureDetail = {
     supporting:
       "Give field teams access to the project information and workflows they need, wherever the work happens.",
     description:
-      "Vertex CMS brings essential field workflows into a connected mobile experience, helping teams capture updates, review project information, document work, and stay connected with the office from the jobsite.",
+      "VertexBuild brings essential field workflows into a connected mobile experience, helping teams capture updates, review project information, document work, and stay connected with the office from the jobsite.",
     primary: { label: "Explore Field Operations", href: FIELD_OPS },
     secondary: { label: CTAS.demo.label, href: CTAS.demo.href },
     preview: "mobileHome" as PreviewKey,
@@ -52,7 +52,7 @@ export const mobileFeatureDetail = {
       },
       {
         title: "Stay Connected",
-        body: "Keep field activity connected to the broader Vertex CMS project record.",
+        body: "Keep field activity connected to the broader VertexBuild project record.",
       },
     ],
   },
@@ -224,7 +224,7 @@ export const mobileFeatureDetail = {
   fieldOps: {
     eyebrow: "Field Operations",
     headline: "Everything Your Field Team Needs to Stay Connected.",
-    body: "Explore the connected Field Operations capabilities available across Vertex CMS.",
+    body: "Explore the connected Field Operations capabilities available across VertexBuild.",
     activeSlug: "mobile",
     cards: [
       {
@@ -266,7 +266,7 @@ export const mobileFeatureDetail = {
     ],
   },
   finalCta: {
-    headline: "Bring Vertex CMS to the Jobsite.",
+    headline: "Bring VertexBuild to the Jobsite.",
     supporting:
       "Give field teams the connected project information and workflows they need to keep work moving from the field to the office.",
     primary: { label: "Explore Field Operations", href: FIELD_OPS },

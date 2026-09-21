@@ -12,9 +12,9 @@ import { PLATFORM_CATEGORIES, SOLUTION_DETAILS } from "./data";
 const GC = SOLUTION_DETAILS["general-contractors"];
 
 export const gcPageMeta = {
-  title: "General Contractor Software | Vertex CMS Solutions",
+  title: "General Contractor Software | VertexBuild Solutions",
   description:
-    "Vertex CMS connects General Contractor project, financial, subcontractor, and field management around one project record — a connected operating system for the GC operation.",
+    "VertexBuild connects General Contractor project, financial, subcontractor, and field management around one project record — a connected operating system for the GC operation.",
   canonical: ROUTES.solutionsGeneralContractors,
 } as const;
 
@@ -23,7 +23,7 @@ export const gcHero = {
   headline: "Connect the GC operation in one system.",
   supporting: GC.body,
   answer:
-    "Vertex CMS helps a General Contractor manage project, financial, subcontractor, and field work from the same connected record.",
+    "VertexBuild helps a General Contractor manage project, financial, subcontractor, and field work from the same connected record.",
   primary: { label: CTAS.trial.label, href: CTAS.trial.href },
   secondary: { label: CTAS.demo.label, href: CTAS.demo.href },
   preview: GC.preview,
@@ -42,7 +42,7 @@ export const gcOperating = {
   eyebrow: "The GC operating model",
   headline: "Four parts of the operation. One project record.",
   supporting:
-    "Vertex CMS does not run project, cost, trades, and the field as separate products. They stay connected around the job so the GC team works from current information.",
+    "VertexBuild does not run project, cost, trades, and the field as separate products. They stay connected around the job so the GC team works from current information.",
   flow: [
     "one project",
     "connected field activity",
@@ -138,7 +138,7 @@ export const gcSubs = {
     {
       id: "gc",
       label: "GC",
-      body: "The General Contractor runs the operation in Vertex CMS.",
+      body: "The General Contractor runs the operation in VertexBuild.",
       preview: "projectDashboard" as PreviewKey,
     },
     {
@@ -201,7 +201,7 @@ export const gcFieldOffice = {
 
 export const gcWorkflow = {
   eyebrow: "One connected GC workflow",
-  headline: "Follow the operation through Vertex CMS.",
+  headline: "Follow the operation through VertexBuild.",
   supporting:
     "A General Contractor does not hand the job between disconnected tools. Project, field, subcontractors, and financials stay in one product experience.",
   steps: [
@@ -242,7 +242,7 @@ export const gcExperience = {
   eyebrow: "Product experience",
   headline: "This is the GC workspace.",
   supporting:
-    "Vertex CMS brings the operation together around the project record — so the previous sections are one product, not four destinations.",
+    "VertexBuild brings the operation together around the project record — so the previous sections are one product, not four destinations.",
   preview: "projectDashboard" as PreviewKey,
   previewLabel: "General contractor workspace",
   satellites: [
@@ -253,9 +253,9 @@ export const gcExperience = {
 } as const;
 
 export const gcCta = {
-  headline: "Connect the GC operation in Vertex CMS.",
+  headline: "Connect the GC operation in VertexBuild.",
   supporting:
-    "Vertex CMS helps General Contractors connect their projects, field operations, subcontractors, and financial management in one platform.",
+    "VertexBuild helps General Contractors connect their projects, field operations, subcontractors, and financial management in one platform.",
   primary: { label: CTAS.trial.label, href: CTAS.trial.href },
   secondary: { label: CTAS.demo.label, href: CTAS.demo.href },
 } as const;
@@ -265,7 +265,7 @@ export const gcArchitecture = {
   eyebrow: "How the platform works",
   headline: "One project record connects the GC operation.",
   supporting:
-    "Field activity, subcontractor coordination, and project information flow into the same Vertex CMS record — so financial and operational visibility stay current.",
+    "Field activity, subcontractor coordination, and project information flow into the same VertexBuild record — so financial and operational visibility stay current.",
   inputs: [
     { label: "Field activity", preview: "dailyLogDashboard" as PreviewKey },
     { label: "Subcontractors", preview: "subDirectory" as PreviewKey },
@@ -273,7 +273,7 @@ export const gcArchitecture = {
     { label: "Schedule", preview: "scheduleGantt" as PreviewKey },
   ],
   core: {
-    label: "Vertex CMS · Project record",
+    label: "VertexBuild · Project record",
     preview: "projectDashboard" as PreviewKey,
   },
   outputs: [
@@ -308,7 +308,7 @@ export const gcDualColumns = {
     href: `${ROUTES.features}/subcontractors`,
   },
   banner: {
-    text: "Explore how Vertex CMS connects project, field, subcontractor, and financial workflows for General Contractors.",
+    text: "Explore how VertexBuild connects project, field, subcontractor, and financial workflows for General Contractors.",
     cta: { label: CTAS.demo.label, href: CTAS.demo.href },
   },
 } as const;
@@ -354,14 +354,14 @@ export const gcSpotlight = {
 
 export const gcFaq = {
   eyebrow: "FAQ",
-  headline: "Common questions about Vertex CMS for General Contractors.",
+  headline: "Common questions about VertexBuild for General Contractors.",
   items: [
     {
-      q: "Is Vertex CMS a separate product for General Contractors?",
-      a: "No. General Contractors use the same Vertex CMS platform — project management, financial management, field operations, subcontractors, compliance, and intelligence stay connected around the project record.",
+      q: "Is VertexBuild a separate product for General Contractors?",
+      a: "No. General Contractors use the same VertexBuild platform — project management, financial management, field operations, subcontractors, compliance, and intelligence stay connected around the project record.",
     },
     {
-      q: "What does a General Contractor run in Vertex CMS?",
+      q: "What does a General Contractor run in VertexBuild?",
       a: "Connected project, financial, subcontractor, and field management — so office and field teams work from the same record instead of reconstructing the job across tools.",
     },
     {
@@ -369,7 +369,7 @@ export const gcFaq = {
       a: "Yes. Field capture can continue offline, queue work, and sync when connectivity returns — so project teams review current field information on the same project record.",
     },
     {
-      q: "How does AI work in Vertex CMS?",
+      q: "How does AI work in VertexBuild?",
       a: "AI Assistant, Project Intelligence, Predictive Insights, Document Intelligence, and Automation operate on connected project information. Access is permission-aware. Tool calls are logged. Write actions require a plain-English summary and explicit human confirmation.",
     },
   ],
@@ -441,7 +441,7 @@ export const gcWorkspace = {
 
 export const gcOperationalProof = {
   headline: "See how the operation stays connected.",
-  supporting: "Four operational areas. One Vertex CMS project record.",
+  supporting: "Four operational areas. One VertexBuild project record.",
   pillars: gcOperating.areas.map((a) => ({
     label: a.label.replace(" Management", "").replace(" Operations", ""),
     detail: a.story,
@@ -460,14 +460,14 @@ export const gcOperationalProof = {
 
 export const gcProofSection = {
   headline: "Understand the GC solution before you start.",
-  supporting: "Common questions about how Vertex CMS supports General Contractor operations.",
+  supporting: "Common questions about how VertexBuild supports General Contractor operations.",
   preview: "projectDashboard" as PreviewKey,
   faq: gcFaq.items.slice(0, 3),
 } as const;
 
 export const gcPlatformGrid = {
   headline: "Build on the platform.",
-  supporting: "Explore documented Vertex CMS capabilities connected to the GC operation.",
+  supporting: "Explore documented VertexBuild capabilities connected to the GC operation.",
   modules: PLATFORM_CATEGORIES.flatMap((cat) =>
     cat.items.slice(0, 3).map((item) => ({ ...item, category: cat.title })),
   ),

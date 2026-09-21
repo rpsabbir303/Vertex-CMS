@@ -17,9 +17,9 @@ const FIELD = "Field Operations";
 
 export const documentIntelligenceFeatureDetail = {
   meta: {
-    title: "Document Intelligence | Vertex CMS Features",
+    title: "Document Intelligence | VertexBuild Features",
     description:
-      "Use AI to understand project documents faster, surface important information, and keep teams working from connected document context in Vertex CMS.",
+      "Use AI to understand project documents faster, surface important information, and keep teams working from connected document context in VertexBuild.",
     canonical: `${ROUTES.features}/document-intelligence`,
   },
   hero: {
@@ -128,7 +128,7 @@ export const documentIntelligenceFeatureDetail = {
   },
   workflows: {
     headline: "Document Intelligence connected to your project workflows.",
-    body: "Keep document insights connected to the work happening across Vertex CMS.",
+    body: "Keep document insights connected to the work happening across VertexBuild.",
     cards: [
       { slug: "documents", category: PM, title: "Documents", body: "Manage and understand the current project document set." },
       { slug: "drawings", category: PM, title: "Drawings", body: "Connect document information with current drawings and revisions." },

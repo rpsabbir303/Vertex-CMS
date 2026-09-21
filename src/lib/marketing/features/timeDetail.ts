@@ -16,9 +16,9 @@ const FM = "Financial Management";
 
 export const timeFeatureDetail = {
   meta: {
-    title: "Time | Vertex CMS Features",
+    title: "Time | VertexBuild Features",
     description:
-      "Capture project labor time, track regular and overtime hours, review timesheets, and connect approved labor to project cost in Vertex CMS.",
+      "Capture project labor time, track regular and overtime hours, review timesheets, and connect approved labor to project cost in VertexBuild.",
     canonical: `${ROUTES.features}/time`,
   },
   hero: {
@@ -160,7 +160,7 @@ export const timeFeatureDetail = {
     ],
   },
   connected: {
-    headline: "Time Connected Across Vertex CMS.",
+    headline: "Time Connected Across VertexBuild.",
     body: "Time becomes more valuable when it stays connected to the workflows around it.",
     cards: [
       {

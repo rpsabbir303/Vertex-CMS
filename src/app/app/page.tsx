@@ -59,7 +59,7 @@ export default function AppEntryPage() {
       <header className="border-b border-brand-line bg-white">
         <div className="site-shell flex h-16 items-center justify-between">
           <VertexLogo />
-          <span className="text-[12px] font-semibold uppercase tracking-wide text-brand-muted">Vertex CMS</span>
+          <span className="text-[12px] font-semibold uppercase tracking-wide text-brand-muted">VertexBuild</span>
         </div>
       </header>
       <main className="site-shell py-12">
@@ -68,7 +68,7 @@ export default function AppEntryPage() {
         </div>
         <div className="mx-auto max-w-xl rounded-2xl border border-brand-line bg-white p-8 shadow-soft">
           <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-brand-orange">Application</p>
-          <h1 className="mt-3 font-display text-3xl font-bold">Welcome to Vertex CMS</h1>
+          <h1 className="mt-3 font-display text-3xl font-bold">Welcome to VertexBuild</h1>
           <p className="mt-3 text-[15px] text-brand-muted">
             You are inside your provisioned tenant workspace
             {companyName ? (

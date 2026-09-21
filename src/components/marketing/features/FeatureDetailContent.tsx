@@ -25,7 +25,7 @@ function RelatedFeatures({ feature }: { feature: FeatureAreaDetail }) {
           <p className="eyebrow">Connected workflows</p>
           <h2 className="display-title mt-3 text-2xl sm:text-3xl">Works with your project workflows</h2>
           <p className="mt-3 max-w-2xl text-[15px] text-brand-muted">
-            {feature.label} stays connected to related feature areas in Vertex CMS.
+            {feature.label} stays connected to related feature areas in VertexBuild.
           </p>
         </Reveal>
         <ul className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
@@ -158,7 +158,7 @@ export function FeatureDetailContent({ feature }: { feature: FeatureAreaDetail }
             <h2 className="display-title-light text-3xl sm:text-4xl">See {feature.label} in the full platform.</h2>
             <p className="mx-auto mt-4 max-w-lg text-[15px] leading-relaxed text-slate-300">
               Explore the complete Feature Library or book a demo to see how {feature.label} connects across
-              Vertex CMS.
+              VertexBuild.
             </p>
             <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
               <Link href={`${ROUTES.features}#features-library`} className="btn-primary w-full sm:w-auto">

@@ -37,7 +37,7 @@ export function MfaForm() {
       title="Two-factor authentication"
       subtitle="Enter the TOTP code from your authenticator app to continue."
       panelTitle="Protect every workspace."
-      panelBody="Vertex CMS supports TOTP-based 2FA for account security as required by the platform BRD."
+      panelBody="VertexBuild supports TOTP-based 2FA for account security as required by the platform BRD."
     >
       <form onSubmit={onSubmit} className="space-y-5" noValidate>
         {error && <AuthAlert>{error}</AuthAlert>}

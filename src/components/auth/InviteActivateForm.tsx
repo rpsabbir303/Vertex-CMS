@@ -111,7 +111,7 @@ export function InviteActivateForm() {
   return (
     <AuthShell
       title="Activate your invitation"
-      subtitle={`You’ve been invited to join ${companyName} on Vertex CMS.`}
+      subtitle={`You’ve been invited to join ${companyName} on VertexBuild.`}
       panelTitle="Join your team."
       panelBody="Set your password to activate your account and access the shared company workspace."
     >

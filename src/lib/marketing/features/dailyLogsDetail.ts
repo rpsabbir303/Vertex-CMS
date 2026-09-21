@@ -15,9 +15,9 @@ const FO = "Field Operations";
 
 export const dailyLogsFeatureDetail = {
   meta: {
-    title: "Daily Logs | Vertex CMS Features",
+    title: "Daily Logs | VertexBuild Features",
     description:
-      "Capture daily site activity, weather, manpower, notes, photos, and attachments in one connected field log in Vertex CMS.",
+      "Capture daily site activity, weather, manpower, notes, photos, and attachments in one connected field log in VertexBuild.",
     canonical: `${ROUTES.features}/daily-logs`,
   },
   hero: {

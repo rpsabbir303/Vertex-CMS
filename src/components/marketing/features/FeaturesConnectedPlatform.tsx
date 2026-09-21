@@ -10,7 +10,7 @@ export function FeaturesConnectedPlatform() {
           <p className="eyebrow">Connected platform</p>
           <h2 className="display-title mt-3 text-3xl sm:text-4xl">One platform. Connected workflows.</h2>
           <p className="mt-4 text-[15px] leading-relaxed text-brand-muted">
-            Vertex CMS connects projects, financials, field operations, compliance, intelligence, and growth —
+            VertexBuild connects projects, financials, field operations, compliance, intelligence, and growth —
             not as disconnected tools.
           </p>
         </Reveal>

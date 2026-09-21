@@ -132,7 +132,7 @@ export function AboutChallengeVisual({ labels }: { labels: readonly string[] }) 
             fill="#08233F"
             fillOpacity="0.45"
             fontSize="10"
-            fontFamily="ui-monospace, monospace"
+            fontFamily="var(--font-sans)"
             letterSpacing="1.1"
           >
             {node.label.toUpperCase()}
@@ -178,7 +178,7 @@ export function AboutAudienceVisual({ labels }: { labels: readonly string[] }) {
             fill="#08233F"
             fillOpacity="0.5"
             fontSize="8"
-            fontFamily="ui-monospace, monospace"
+            fontFamily="var(--font-sans)"
             letterSpacing="0.5"
           >
             {node.label.toUpperCase()}
@@ -215,7 +215,7 @@ export function AboutPlatformMapVisual({ center, labels }: { center: string; lab
       />
       <circle cx="260" cy="196" r="8" fill="#FF6A00" fillOpacity="0.42" className="careers-pulse" />
       <path d="M 254 196 h 12 M 260 190 v 12" stroke="#FFFFFF" strokeOpacity="0.7" strokeWidth="1" />
-      <text x="260" y="52" textAnchor="middle" fill="#08233F" fillOpacity="0.4" fontSize="10" fontFamily="ui-monospace, monospace" letterSpacing="1.4">
+      <text x="260" y="52" textAnchor="middle" fill="#08233F" fillOpacity="0.4" fontSize="10" fontFamily="var(--font-sans)" letterSpacing="1.4">
         {center.toUpperCase()}
       </text>
       {nodes.map((node, i) => (
@@ -237,7 +237,7 @@ export function AboutPlatformMapVisual({ center, labels }: { center: string; lab
             fill="#08233F"
             fillOpacity="0.5"
             fontSize="8"
-            fontFamily="ui-monospace, monospace"
+            fontFamily="var(--font-sans)"
             letterSpacing="0.4"
           >
             {node.label.toUpperCase()}
@@ -254,8 +254,8 @@ export function AboutLayersVisual({ labels }: { labels: readonly string[] }) {
       <LocalGrid />
       <rect x="160" y="28" width="200" height="36" rx="1" stroke="#146EF5" strokeOpacity="0.28" strokeWidth="1" />
       <circle cx="176" cy="46" r="3" fill="#146EF5" fillOpacity="0.35" className="careers-pulse" />
-      <text x="260" y="51" textAnchor="middle" fill="#08233F" fillOpacity="0.5" fontSize="10" fontFamily="ui-monospace, monospace" letterSpacing="1.4">
-        VERTEX CMS
+      <text x="260" y="51" textAnchor="middle" fill="#08233F" fillOpacity="0.5" fontSize="10" fontFamily="var(--font-sans)" letterSpacing="1.4">
+        VertexBuild
       </text>
       {labels.map((label, i) => {
         const y = 88 + i * 68;
@@ -281,7 +281,7 @@ export function AboutLayersVisual({ labels }: { labels: readonly string[] }) {
               fill="#08233F"
               fillOpacity="0.5"
               fontSize="10"
-              fontFamily="ui-monospace, monospace"
+              fontFamily="var(--font-sans)"
               letterSpacing="0.8"
             >
               {label.toUpperCase()}
@@ -339,7 +339,7 @@ export function AboutIntelligenceVisual({ labels }: { labels: readonly string[] 
               fill="#08233F"
               fillOpacity="0.5"
               fontSize="10"
-              fontFamily="ui-monospace, monospace"
+              fontFamily="var(--font-sans)"
               letterSpacing="1"
             >
               {label.toUpperCase()}
@@ -433,7 +433,7 @@ export function AboutLifecycleVisual({ labels }: { labels: readonly string[] }) 
               fill="#08233F"
               fillOpacity="0.45"
               fontSize="8"
-              fontFamily="ui-monospace, monospace"
+              fontFamily="var(--font-sans)"
               letterSpacing="0.4"
             >
               {label.toUpperCase()}

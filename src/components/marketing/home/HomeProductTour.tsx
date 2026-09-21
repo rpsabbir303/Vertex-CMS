@@ -31,7 +31,7 @@ export function HomeProductTour() {
         <Reveal className="mx-auto max-w-3xl text-center">
           <p className="home-label">Product Tour</p>
           <h2 className="home-display mt-4 text-4xl leading-[1.05] sm:text-5xl lg:text-[3.5rem]">
-            See Vertex CMS in action.
+            See VertexBuild in action.
           </h2>
         </Reveal>
 

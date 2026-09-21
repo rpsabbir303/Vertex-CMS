@@ -93,7 +93,7 @@ export function OnboardingShell({
     description ??
     (workspaceLabel
       ? `Complete the guided checklist for ${workspaceLabel}.`
-      : "Complete the guided checklist to set up your company in Vertex CMS.");
+      : "Complete the guided checklist to set up your company in VertexBuild.");
 
   return (
     <div className="min-h-screen bg-[#F7F9FC] text-brand-navy">

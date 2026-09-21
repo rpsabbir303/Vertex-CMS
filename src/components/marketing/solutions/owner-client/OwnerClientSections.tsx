@@ -113,7 +113,7 @@ export function OwnerHeroSection() {
           <div className="overflow-hidden rounded-2xl border border-brand-line bg-gradient-to-br from-[#E8EEF5] via-[#F0F4F9] to-[#E4EBF4] p-3 sm:p-5">
             <div className="mb-3 flex items-center justify-between gap-3">
               <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-brand-muted">
-                Vertex CMS · {ownerHero.previewLabel}
+                VertexBuild · {ownerHero.previewLabel}
               </p>
               <span className="rounded-full border border-brand-line bg-white px-2.5 py-1 text-[10px] font-semibold text-brand-navy">
                 Assigned project · controlled access
@@ -162,7 +162,7 @@ export function OwnerVisibilitySection() {
         <Reveal delay={70} className="mt-10 overflow-hidden rounded-3xl border border-brand-line/80 bg-[#FAFBFD]">
           <div className="flex items-center justify-between gap-3 border-b border-brand-line/70 px-4 py-3">
             <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-brand-muted">
-              Vertex CMS · Owner Portal
+              VertexBuild · Owner Portal
             </p>
             <span className="hidden text-[11px] text-brand-muted sm:inline">See what matters · without losing control</span>
           </div>
@@ -465,7 +465,7 @@ export function OwnerCollaborationSection() {
         <Reveal delay={70} className="mt-10 overflow-hidden rounded-3xl border border-brand-line/80">
           <div className="flex items-center justify-between gap-3 border-b border-brand-line/70 bg-[#FAFBFD] px-4 py-3">
             <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-brand-muted">
-              Vertex CMS · Project workspace
+              VertexBuild · Project workspace
             </p>
             <span className="hidden text-[11px] text-brand-muted sm:inline">One connected owner view</span>
           </div>

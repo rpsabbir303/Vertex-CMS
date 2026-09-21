@@ -3,8 +3,8 @@ import { Suspense } from "react";
 import { VerifyEmailForm } from "@/components/auth/VerifyEmailForm";
 
 export const metadata: Metadata = {
-  title: "Verify Email | Vertex CMS",
-  description: "Verify your email to continue Vertex CMS onboarding.",
+  title: "Verify Email | VertexBuild",
+  description: "Verify your email to continue VertexBuild onboarding.",
 };
 
 export default function VerifyEmailPage() {

@@ -120,7 +120,7 @@ export function Footer() {
         </div>
 
         <div className="mt-10 flex flex-col gap-3 border-t border-white/10 pt-6 sm:flex-row sm:items-center sm:justify-between">
-          <p className="text-xs">© Vertex Software · Vertex CMS</p>
+          <p className="text-xs">© Vertex Software · VertexBuild</p>
           <div className="flex gap-4 text-xs">
             <a href="#footer" className="hover:text-brand-orange">
               Privacy

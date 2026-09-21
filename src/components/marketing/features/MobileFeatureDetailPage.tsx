@@ -55,7 +55,7 @@ function PhoneStage({
       }
     >
       <p className="mb-4 text-center text-[11px] font-semibold uppercase tracking-[0.14em] text-brand-muted">
-        Vertex CMS · {label}
+        VertexBuild · {label}
       </p>
       <div className="pointer-events-none flex justify-center" aria-hidden="true">
         {MOBILE_PREVIEWS[preview]}

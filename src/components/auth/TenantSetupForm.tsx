@@ -124,8 +124,8 @@ export function TenantSetupForm() {
       </h1>
       <p className="mt-3 text-[15px] leading-relaxed text-brand-muted">
         {phase === "ready"
-          ? "Your Vertex CMS workspace has been provisioned successfully. Continue to start your trial."
-          : "Your Vertex CMS workspace is being prepared."}
+          ? "Your VertexBuild workspace has been provisioned successfully. Continue to start your trial."
+          : "Your VertexBuild workspace is being prepared."}
       </p>
 
       {phase === "ready" && (companyName || planName) ? (

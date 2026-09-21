@@ -84,7 +84,7 @@ export function SignInForm() {
 
   return (
     <AuthShell
-      title="Sign in to Vertex CMS"
+      title="Sign in to VertexBuild"
       subtitle="Access your construction operating system."
       panelTitle="One source of truth for every project."
       panelBody="Sign in to manage projects, financials, field operations, and intelligence in one connected platform."
@@ -169,7 +169,7 @@ export function SignInForm() {
       )}
 
       <p className="mt-6 text-center text-[13px] text-brand-muted">
-        New to Vertex CMS?{" "}
+        New to VertexBuild?{" "}
         <Link href={AUTH_ROUTES.signup} className="font-semibold text-brand-orange hover:underline">
           Start Free Trial
         </Link>

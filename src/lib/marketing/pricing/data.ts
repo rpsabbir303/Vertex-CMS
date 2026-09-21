@@ -228,7 +228,7 @@ export const PLACEHOLDER_ADDONS: AddOn[] = buildCatalogAddOns();
 export const PLACEHOLDER_FAQS: PricingFAQ[] = [
   {
     id: "trial",
-    question: "How does the Vertex CMS free trial work?",
+    question: "How does the VertexBuild free trial work?",
     answer:
       "You can start a free trial from the website. After signup and email verification, your tenant is created and onboarding begins so your team can explore the platform.",
     order: 1,
@@ -246,7 +246,7 @@ export const PLACEHOLDER_FAQS: PricingFAQ[] = [
     id: "billing-options",
     question: "Is there a monthly and yearly billing option?",
     answer:
-      "Vertex CMS supports monthly and yearly billing periods in plan configuration. Displayed amounts on this page will reflect live plan data once synchronized.",
+      "VertexBuild supports monthly and yearly billing periods in plan configuration. Displayed amounts on this page will reflect live plan data once synchronized.",
     order: 3,
     active: true,
   },
@@ -294,7 +294,7 @@ export const PLACEHOLDER_FAQS: PricingFAQ[] = [
     id: "talk",
     question: "Can I talk to someone before choosing a plan?",
     answer:
-      "Absolutely. Book a demo or contact sales and we will help you map Vertex CMS capabilities to your team.",
+      "Absolutely. Book a demo or contact sales and we will help you map VertexBuild capabilities to your team.",
     order: 9,
     active: true,
   },

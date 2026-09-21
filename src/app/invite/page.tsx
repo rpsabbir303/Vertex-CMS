@@ -3,8 +3,8 @@ import { Suspense } from "react";
 import { InviteActivateForm } from "@/components/auth/InviteActivateForm";
 
 export const metadata: Metadata = {
-  title: "Accept Invitation | Vertex CMS",
-  description: "Activate your Vertex CMS invitation and set your password.",
+  title: "Accept Invitation | VertexBuild",
+  description: "Activate your VertexBuild invitation and set your password.",
 };
 
 export default function InvitePage() {

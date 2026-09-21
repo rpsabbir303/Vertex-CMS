@@ -8,9 +8,9 @@ import type { PreviewKey } from "./register";
 export const rfiCategory = {
   id: "rfis",
   meta: {
-    title: "RFIs | Vertex CMS Features",
+    title: "RFIs | VertexBuild Features",
     description:
-      "Create, assign, track, and respond to construction RFIs with status, priority, due dates, and project context in Vertex CMS.",
+      "Create, assign, track, and respond to construction RFIs with status, priority, due dates, and project context in VertexBuild.",
     canonical: `${ROUTES.features}/rfis`,
   },
   hero: {
@@ -25,7 +25,7 @@ export const rfiCategory = {
   problem: {
     eyebrow: "Keep questions from getting lost",
     headline: "Turn Project Questions Into Clear Actions.",
-    body: "RFIs can affect schedules, costs, coordination, and field decisions. Vertex CMS gives teams one place to create, assign, track, and respond to RFIs while keeping the project context connected.",
+    body: "RFIs can affect schedules, costs, coordination, and field decisions. VertexBuild gives teams one place to create, assign, track, and respond to RFIs while keeping the project context connected.",
     preview: "rfiFlow" as PreviewKey,
   },
   register: {

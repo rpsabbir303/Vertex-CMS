@@ -15,9 +15,9 @@ const PM = "Project Management";
 
 export const tmFeatureDetail = {
   meta: {
-    title: "T&M — Time & Materials | Vertex CMS Features",
+    title: "T&M — Time & Materials | VertexBuild Features",
     description:
-      "Capture time & material field tickets with labor, material, and equipment line items connected to the project in Vertex CMS.",
+      "Capture time & material field tickets with labor, material, and equipment line items connected to the project in VertexBuild.",
     canonical: `${ROUTES.features}/t-and-m`,
   },
   hero: {
@@ -189,7 +189,7 @@ export const tmFeatureDetail = {
   },
   connected: {
     headline: "T&M connected to field operations.",
-    body: "Keep time and material records connected to the workflows teams already use across Vertex CMS.",
+    body: "Keep time and material records connected to the workflows teams already use across VertexBuild.",
     cards: [
       {
         slug: "daily-logs",
@@ -276,7 +276,7 @@ export const tmFeatureDetail = {
   fieldOps: {
     eyebrow: "Field Operations",
     headline: "Everything your field team needs to stay connected.",
-    body: "Explore the connected Field Operations capabilities available across Vertex CMS.",
+    body: "Explore the connected Field Operations capabilities available across VertexBuild.",
     activeSlug: "t-and-m",
     cards: [
       {

@@ -97,7 +97,7 @@ export function CapabilitiesSection() {
             <span className="block text-slate-300">Every part of construction.</span>
           </h2>
           <p className="home-body mt-5 max-w-xl">
-            From preconstruction to field operations and financial control, Vertex CMS connects the workflows that keep
+            From preconstruction to field operations and financial control, VertexBuild connects the workflows that keep
             your business moving.
           </p>
         </Reveal>
@@ -155,9 +155,7 @@ export function CapabilitiesSection() {
                 id={`capability-preview-${activeId}`}
                 role="tabpanel"
                 aria-labelledby={`capability-tab-${activeId}`}
-                className={`transition-all duration-500 ease-out ${
-                  visible ? "translate-y-0 opacity-100" : "translate-y-2 opacity-0"
-                }`}
+                className="transition-opacity duration-300 ease-out opacity-100"
               >
                 <div className="relative">
                   <div

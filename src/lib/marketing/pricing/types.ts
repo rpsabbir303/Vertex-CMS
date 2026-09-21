@@ -1,5 +1,5 @@
 /**
- * Pricing domain types for the Vertex CMS marketing site.
+ * Pricing domain types for the VertexBuild marketing site.
  *
  * Live plan configuration (monthly/yearly amounts, currency, sort, active)
  * should eventually be synchronized from the platform plan API.

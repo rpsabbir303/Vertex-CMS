@@ -7,36 +7,36 @@ export type MarketingPageConfig = {
   breadcrumbs?: { label: string; href?: string }[];
 };
 
-const base = "Vertex CMS";
+const base = "VertexBuild";
 
 export const MARKETING_PAGES: Record<string, MarketingPageConfig> = {
   solutions: {
     title: `Construction Software Solutions | ${base}`,
     description:
-      "Find the Vertex CMS solution that fits your construction business, project type, or role — connected project, financial, field, workforce, and intelligence workflows.",
+      "Find the VertexBuild solution that fits your construction business, project type, or role — connected project, financial, field, workforce, and intelligence workflows.",
     breadcrumbs: [{ label: "Home", href: ROUTES.home }, { label: "Solutions" }],
   },
   pricing: {
     title: `Pricing | ${base}`,
     description:
-      "Compare Vertex CMS plans for construction teams. Start a free trial or book a demo to find the right package.",
+      "Compare VertexBuild plans for construction teams. Start a free trial or book a demo to find the right package.",
     breadcrumbs: [{ label: "Home", href: ROUTES.home }, { label: "Pricing" }],
   },
   features: {
     title: `Features | ${base}`,
     description:
-      "Explore Vertex CMS by module, AI capability, and role — the connected construction management platform for projects, financials, field, compliance, and intelligence.",
+      "Explore VertexBuild by module, AI capability, and role — the connected construction management platform for projects, financials, field, compliance, and intelligence.",
     breadcrumbs: [{ label: "Home", href: ROUTES.home }, { label: "Features" }],
   },
   productTour: {
     title: `${base} Product Tour`,
-    description: "Explore the Vertex CMS platform with screenshots and walkthroughs.",
+    description: "Explore the VertexBuild platform with screenshots and walkthroughs.",
     breadcrumbs: [{ label: "Home", href: ROUTES.home }, { label: "Product Tour" }],
   },
   customers: {
     title: `${base} Customers`,
     description:
-      "Customer success stories, testimonials, logo wall, and verified outcomes from construction teams using Vertex CMS.",
+      "Customer success stories, testimonials, logo wall, and verified outcomes from construction teams using VertexBuild.",
     breadcrumbs: [{ label: "Home", href: ROUTES.home }, { label: "Customers" }],
   },
   resources: {
@@ -51,7 +51,7 @@ export const MARKETING_PAGES: Record<string, MarketingPageConfig> = {
   },
   resourcesGuides: {
     title: `Guides | ${base} Resources`,
-    description: "Guides for construction operations and Vertex CMS.",
+    description: "Guides for construction operations and VertexBuild.",
     breadcrumbs: [{ label: "Home", href: ROUTES.home }, { label: "Resources", href: ROUTES.resources }, { label: "Guides" }],
   },
   resourcesTemplates: {
@@ -61,54 +61,54 @@ export const MARKETING_PAGES: Record<string, MarketingPageConfig> = {
   },
   resourcesWebinars: {
     title: `Webinars | ${base} Resources`,
-    description: "Vertex CMS webinars and live sessions.",
+    description: "VertexBuild webinars and live sessions.",
     breadcrumbs: [{ label: "Home", href: ROUTES.home }, { label: "Resources", href: ROUTES.resources }, { label: "Webinars" }],
   },
   resourcesHelp: {
     title: `Help Center | ${base}`,
-    description: "Documentation and help for Vertex CMS.",
+    description: "Documentation and help for VertexBuild.",
     breadcrumbs: [{ label: "Home", href: ROUTES.home }, { label: "Resources", href: ROUTES.resources }, { label: "Help Center" }],
   },
   integrations: {
     title: `${base} Integrations`,
-    description: "Integrations and partner connections for Vertex CMS.",
+    description: "Integrations and partner connections for VertexBuild.",
     breadcrumbs: [{ label: "Home", href: ROUTES.home }, { label: "Integrations" }],
   },
   comparisons: {
     title: `Construction Software Comparisons | ${base}`,
-    description: "Compare Vertex CMS with other construction management platforms.",
+    description: "Compare VertexBuild with other construction management platforms.",
     breadcrumbs: [{ label: "Home", href: ROUTES.home }, { label: "Comparisons" }],
   },
   comparisonProcore: {
-    title: `Vertex CMS vs Procore | ${base}`,
-    description: "Compare Vertex CMS and Procore for construction management.",
+    title: `VertexBuild vs Procore | ${base}`,
+    description: "Compare VertexBuild and Procore for construction management.",
     breadcrumbs: [{ label: "Home", href: ROUTES.home }, { label: "Comparisons", href: ROUTES.comparisons }, { label: "Procore" }],
   },
   comparisonBuildertrend: {
-    title: `Vertex CMS vs Buildertrend | ${base}`,
-    description: "Compare Vertex CMS and Buildertrend.",
+    title: `VertexBuild vs Buildertrend | ${base}`,
+    description: "Compare VertexBuild and Buildertrend.",
     breadcrumbs: [{ label: "Home", href: ROUTES.home }, { label: "Comparisons", href: ROUTES.comparisons }, { label: "Buildertrend" }],
   },
   comparisonCmic: {
-    title: `Vertex CMS vs CMiC | ${base}`,
-    description: "Compare Vertex CMS and CMiC.",
+    title: `VertexBuild vs CMiC | ${base}`,
+    description: "Compare VertexBuild and CMiC.",
     breadcrumbs: [{ label: "Home", href: ROUTES.home }, { label: "Comparisons", href: ROUTES.comparisons }, { label: "CMiC" }],
   },
   security: {
     title: `Security & Trust | ${base}`,
     description:
-      "Security, data protection, controlled access, compliance readiness, and operational reliability for Vertex CMS.",
+      "Security, data protection, controlled access, compliance readiness, and operational reliability for VertexBuild.",
     breadcrumbs: [{ label: "Home", href: ROUTES.home }, { label: "Security & Trust" }],
   },
   company: {
     title: `Company | ${base}`,
-    description: "About Vertex CMS and our team.",
+    description: "About VertexBuild and our team.",
     breadcrumbs: [{ label: "Home", href: ROUTES.home }, { label: "Company" }],
   },
   about: {
     title: `About | ${base}`,
     description:
-      "Vertex CMS is the connected operating platform for construction — project management, financials, field operations, compliance, and intelligence in one system.",
+      "VertexBuild is the connected operating platform for construction — project management, financials, field operations, compliance, and intelligence in one system.",
     breadcrumbs: [
       { label: "Home", href: ROUTES.home },
       { label: "Company", href: ROUTES.company },
@@ -117,7 +117,7 @@ export const MARKETING_PAGES: Record<string, MarketingPageConfig> = {
   },
   team: {
     title: `Team | ${base}`,
-    description: "Leadership, key roles, and careers at Vertex CMS.",
+    description: "Leadership, key roles, and careers at VertexBuild.",
     breadcrumbs: [
       { label: "Home", href: ROUTES.home },
       { label: "Company", href: ROUTES.company },
@@ -127,7 +127,7 @@ export const MARKETING_PAGES: Record<string, MarketingPageConfig> = {
   careers: {
     title: `Careers | ${base}`,
     description:
-      "Join Vertex CMS — build construction management software that connects projects, financials, field operations, and intelligence.",
+      "Join VertexBuild — build construction management software that connects projects, financials, field operations, and intelligence.",
     breadcrumbs: [
       { label: "Home", href: ROUTES.home },
       { label: "Company", href: ROUTES.company },
@@ -136,7 +136,7 @@ export const MARKETING_PAGES: Record<string, MarketingPageConfig> = {
   },
   legalDpa: {
     title: `Data Processing Addendum | ${base}`,
-    description: "Data Processing Addendum for Vertex CMS customer data processing arrangements.",
+    description: "Data Processing Addendum for VertexBuild customer data processing arrangements.",
     breadcrumbs: [
       { label: "Home", href: ROUTES.home },
       { label: "Legal", href: ROUTES.legalTerms },
@@ -145,7 +145,7 @@ export const MARKETING_PAGES: Record<string, MarketingPageConfig> = {
   },
   legalCookies: {
     title: `Cookie Policy | ${base}`,
-    description: "Cookie Policy for the Vertex CMS website, including cookie consent requirements.",
+    description: "Cookie Policy for the VertexBuild website, including cookie consent requirements.",
     breadcrumbs: [
       { label: "Home", href: ROUTES.home },
       { label: "Legal", href: ROUTES.legalTerms },
@@ -154,7 +154,7 @@ export const MARKETING_PAGES: Record<string, MarketingPageConfig> = {
   },
   legalTerms: {
     title: `Terms of Service | ${base}`,
-    description: "Vertex CMS terms of service for use of the platform.",
+    description: "VertexBuild terms of service for use of the platform.",
     breadcrumbs: [
       { label: "Home", href: ROUTES.home },
       { label: "Legal", href: ROUTES.legalTerms },
@@ -163,7 +163,7 @@ export const MARKETING_PAGES: Record<string, MarketingPageConfig> = {
   },
   legalPrivacy: {
     title: `Privacy Policy | ${base}`,
-    description: "Vertex CMS privacy policy describing how personal information is handled.",
+    description: "VertexBuild privacy policy describing how personal information is handled.",
     breadcrumbs: [
       { label: "Home", href: ROUTES.home },
       { label: "Legal", href: ROUTES.legalTerms },
@@ -172,23 +172,23 @@ export const MARKETING_PAGES: Record<string, MarketingPageConfig> = {
   },
   signup: {
     title: `Sign Up | ${base}`,
-    description: "Start your Vertex CMS free trial.",
+    description: "Start your VertexBuild free trial.",
     breadcrumbs: [{ label: "Home", href: ROUTES.home }, { label: "Sign Up" }],
   },
   demo: {
     title: `Book a Demo | ${base}`,
-    description: "See how Vertex CMS fits your business. Request a product demonstration for your team.",
+    description: "See how VertexBuild fits your business. Request a product demonstration for your team.",
     breadcrumbs: [{ label: "Home", href: ROUTES.home }, { label: "Book a Demo" }],
   },
   requestQuote: {
     title: `Request a Quote | ${base}`,
-    description: "Request an enterprise quote for Vertex CMS based on your organization requirements.",
+    description: "Request an enterprise quote for VertexBuild based on your organization requirements.",
     breadcrumbs: [{ label: "Home", href: ROUTES.home }, { label: "Request Quote" }],
   },
   contact: {
     title: `Contact | ${base}`,
     description:
-      "Contact Vertex CMS with general company and product inquiries. Send a message and our team will route your request appropriately.",
+      "Contact VertexBuild with general company and product inquiries. Send a message and our team will route your request appropriately.",
     breadcrumbs: [
       { label: "Home", href: ROUTES.home },
       { label: "Company", href: ROUTES.company },
@@ -198,7 +198,7 @@ export const MARKETING_PAGES: Record<string, MarketingPageConfig> = {
   contactSuccess: {
     title: `Inquiry Received | ${base}`,
     description:
-      "Your Vertex CMS inquiry was submitted successfully and will be routed appropriately.",
+      "Your VertexBuild inquiry was submitted successfully and will be routed appropriately.",
     breadcrumbs: [
       { label: "Home", href: ROUTES.home },
       { label: "Company", href: ROUTES.company },

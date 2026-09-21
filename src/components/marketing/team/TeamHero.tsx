@@ -50,7 +50,7 @@ export function TeamHero() {
             </div>
             <div className="mt-5 flex items-center gap-2 border-t border-brand-line pt-4">
               <span className="h-1.5 w-1.5 rounded-full bg-brand-orange" aria-hidden="true" />
-              <p className="text-[11px] text-brand-muted">Vertex CMS · Software company</p>
+              <p className="text-[11px] text-brand-muted">VertexBuild · Software company</p>
             </div>
           </div>
         </Reveal>

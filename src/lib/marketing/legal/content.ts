@@ -1,5 +1,5 @@
 /**
- * Legal document content for Vertex CMS public marketing site.
+ * Legal document content for VertexBuild public marketing site.
  *
  * RULES:
  * - Do NOT invent legal claims, certifications, dates, vendors, jurisdictions,
@@ -78,10 +78,10 @@ export const LEGAL_DOCS: Record<LegalDocId, LegalDocument> = {
     navLabel: "Terms",
     title: "Terms of Service",
     description:
-      "Terms governing access to and use of the Vertex CMS platform and related services.",
-    metaTitle: "Terms of Service | Vertex CMS",
+      "Terms governing access to and use of the VertexBuild platform and related services.",
+    metaTitle: "Terms of Service | VertexBuild",
     metaDescription:
-      "Read the Vertex CMS Terms of Service document for platform access and use.",
+      "Read the VertexBuild Terms of Service document for platform access and use.",
     demoContent: true,
     lastUpdated: null,
     version: null,
@@ -93,10 +93,10 @@ export const LEGAL_DOCS: Record<LegalDocId, LegalDocument> = {
     navLabel: "Privacy",
     title: "Privacy Policy",
     description:
-      "How Vertex CMS handles personal information in connection with the platform and this website.",
-    metaTitle: "Privacy Policy | Vertex CMS",
+      "How VertexBuild handles personal information in connection with the platform and this website.",
+    metaTitle: "Privacy Policy | VertexBuild",
     metaDescription:
-      "Read the Vertex CMS Privacy Policy document for information about personal data practices.",
+      "Read the VertexBuild Privacy Policy document for information about personal data practices.",
     demoContent: true,
     lastUpdated: null,
     version: null,
@@ -108,10 +108,10 @@ export const LEGAL_DOCS: Record<LegalDocId, LegalDocument> = {
     navLabel: "DPA",
     title: "Data Processing Addendum",
     description:
-      "Data processing terms for Vertex CMS customer arrangements.",
-    metaTitle: "Data Processing Addendum | Vertex CMS",
+      "Data processing terms for VertexBuild customer arrangements.",
+    metaTitle: "Data Processing Addendum | VertexBuild",
     metaDescription:
-      "Read the Vertex CMS Data Processing Addendum (DPA) document for customer data processing arrangements.",
+      "Read the VertexBuild Data Processing Addendum (DPA) document for customer data processing arrangements.",
     demoContent: true,
     lastUpdated: null,
     version: null,
@@ -122,10 +122,10 @@ export const LEGAL_DOCS: Record<LegalDocId, LegalDocument> = {
     slug: "/cookie-policy",
     navLabel: "Cookie Policy",
     title: "Cookie Policy",
-    description: "Cookie and tracking practices for the Vertex CMS website.",
-    metaTitle: "Cookie Policy | Vertex CMS",
+    description: "Cookie and tracking practices for the VertexBuild website.",
+    metaTitle: "Cookie Policy | VertexBuild",
     metaDescription:
-      "Read the Vertex CMS Cookie Policy document for website cookie and tracking practices.",
+      "Read the VertexBuild Cookie Policy document for website cookie and tracking practices.",
     demoContent: true,
     lastUpdated: null,
     version: null,

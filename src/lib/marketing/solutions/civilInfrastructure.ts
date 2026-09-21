@@ -12,9 +12,9 @@ import { PLATFORM_CATEGORIES, SOLUTION_DETAILS } from "./data";
 const CIVIL = SOLUTION_DETAILS.civil;
 
 export const civilPageMeta = {
-  title: "Civil / Infrastructure Software | Vertex CMS Solutions",
+  title: "Civil / Infrastructure Software | VertexBuild Solutions",
   description:
-    "Vertex CMS connects Civil / Infrastructure project control, field operations, documents, financials, workforce, collaboration, and intelligence on one project record — without a separate infrastructure module.",
+    "VertexBuild connects Civil / Infrastructure project control, field operations, documents, financials, workforce, collaboration, and intelligence on one project record — without a separate infrastructure module.",
   canonical: ROUTES.solutionsCivil,
 } as const;
 
@@ -41,7 +41,7 @@ export const civilConnected = {
   eyebrow: "The project, connected",
   headline: "Complex project information stays on one record.",
   supporting:
-    "Vertex CMS does not add a separate infrastructure module. Scheduling, documents, RFIs, submittals, changes, drawings, field activity, and financials stay connected around the project.",
+    "VertexBuild does not add a separate infrastructure module. Scheduling, documents, RFIs, submittals, changes, drawings, field activity, and financials stay connected around the project.",
   nodes: [
     {
       id: "projects",
@@ -330,7 +330,7 @@ export const civilWorkforce = {
   eyebrow: "Workforce + compliance",
   headline: "Crews, time, safety, and readiness stay on the job.",
   supporting:
-    "Keep subcontractors, compliance, workforce, time, payroll readiness, and safety visible for the work — without treating Vertex CMS as legal advice or a guaranteed compliance outcome.",
+    "Keep subcontractors, compliance, workforce, time, payroll readiness, and safety visible for the work — without treating VertexBuild as legal advice or a guaranteed compliance outcome.",
   preview: "safetyOverview" as PreviewKey,
   overlayPreview: "subReadiness" as PreviewKey,
   overlayLabel: "Subcontractor readiness",
@@ -377,7 +377,7 @@ export const civilOwner = {
     {
       id: "team",
       label: "Project team",
-      body: "The project team manages the record in Vertex CMS.",
+      body: "The project team manages the record in VertexBuild.",
       preview: "projectDashboard" as PreviewKey,
     },
     {
@@ -423,7 +423,7 @@ export const civilAi = {
     {
       id: "data",
       label: "Project data",
-      body: "Grounded in schedule, documents, drawings, field activity, and cost already in Vertex CMS.",
+      body: "Grounded in schedule, documents, drawings, field activity, and cost already in VertexBuild.",
       preview: "aiGrounded" as PreviewKey,
     },
     {
@@ -460,7 +460,7 @@ export const civilPlatform = {
   eyebrow: "One connected platform",
   headline: "Five areas. One operating system for the project.",
   supporting:
-    "Project management, financials, field operations, workforce, and intelligence stay in Vertex CMS — not five disconnected products, and not a separate civil module.",
+    "Project management, financials, field operations, workforce, and intelligence stay in VertexBuild — not five disconnected products, and not a separate civil module.",
   areas: [...PLATFORM_CATEGORIES]
     .filter((cat) => (CIVIL_AREA_ORDER as readonly string[]).includes(cat.title))
     .sort(
@@ -477,7 +477,7 @@ export const civilPlatform = {
 } as const;
 
 export const civilCta = {
-  headline: "See Vertex CMS on a Civil / Infrastructure project.",
+  headline: "See VertexBuild on a Civil / Infrastructure project.",
   supporting: "Walk through project control, field, documents, and financial workflows — or start a free trial.",
   primary: { label: CTAS.demo.label, href: CTAS.demo.href },
   secondary: { label: CTAS.trial.label, href: CTAS.trial.href },

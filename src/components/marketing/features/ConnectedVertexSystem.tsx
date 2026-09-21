@@ -116,7 +116,7 @@ function SystemCore() {
     >
       <span className="absolute left-0 top-0 h-1 w-10 bg-brand-orange" aria-hidden="true" />
       <span className="font-sans text-[9px] font-bold uppercase tracking-[0.18em] text-brand-orange">System core</span>
-      <strong className="mt-2 font-sans text-[17px] font-semibold tracking-[-0.02em] text-brand-navy">VERTEX CMS</strong>
+      <strong className="mt-2 font-sans text-[17px] font-semibold tracking-[-0.02em] text-brand-navy">VertexBuild</strong>
       <span className="mt-1 font-sans text-[10px] leading-snug text-brand-muted">Construction Management</span>
       <span className="mt-3 inline-flex items-center gap-1.5 font-sans text-[8px] font-semibold uppercase tracking-[0.12em] text-brand-blue">
         <span className="h-1.5 w-1.5 rounded-full bg-brand-orange" aria-hidden="true" />
@@ -155,7 +155,7 @@ function MobileConnectedSystem() {
       <div className="relative z-10 flex items-center gap-3 border border-brand-navy bg-white p-3">
         <span className="h-3 w-3 shrink-0 rounded-full border-[3px] border-white bg-brand-orange ring-1 ring-brand-orange" />
         <div>
-          <p className="font-sans text-[14px] font-semibold text-brand-navy">VERTEX CMS</p>
+          <p className="font-sans text-[14px] font-semibold text-brand-navy">VertexBuild</p>
           <p className="text-[10px] text-brand-muted">Construction Management · Connected system core</p>
         </div>
       </div>
@@ -185,7 +185,7 @@ function MobileConnectedSystem() {
 
 export function ConnectedSystemDiagram() {
   return (
-    <div className="min-w-0" aria-label="Vertex CMS connected construction management system">
+    <div className="min-w-0" aria-label="VertexBuild connected construction management system">
       <div
         className="relative hidden aspect-[720/570] min-h-[31rem] overflow-hidden border border-brand-line/80 bg-white md:block"
         data-design-layer="ConnectedVertexSystem"

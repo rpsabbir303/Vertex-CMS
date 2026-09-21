@@ -53,7 +53,7 @@ export function MiniProductFragment({ variant, className = "" }: { variant: Vari
       data-design-layer={`MiniProduct-${variant}`}
     >
       <span className="absolute left-0 top-0 h-0.5 w-8 bg-brand-orange" aria-hidden="true" />
-      <p className="text-[9px] font-semibold uppercase tracking-[0.14em] text-brand-muted">Vertex CMS</p>
+      <p className="text-[9px] font-semibold uppercase tracking-[0.14em] text-brand-muted">VertexBuild</p>
       <p className="mt-1 text-[11px] font-semibold text-brand-navy">{data.label}</p>
       <ul className="mt-2 space-y-1 border-t border-brand-line/80 pt-2">
         {data.rows.map((row) => (

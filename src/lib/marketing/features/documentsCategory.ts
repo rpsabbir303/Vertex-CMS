@@ -13,9 +13,9 @@ const FEATURE_LIBRARY = `${ROUTES.features}#features-library`;
 export const documentsCategory = {
   id: "documents-project-information",
   meta: {
-    title: "Documents | Vertex CMS Features",
+    title: "Documents | VertexBuild Features",
     description:
-      "Centralize project documents, drawings, revisions, and transmittals in Vertex CMS. Keep teams working from current information from the office to the field.",
+      "Centralize project documents, drawings, revisions, and transmittals in VertexBuild. Keep teams working from current information from the office to the field.",
     canonical: `${ROUTES.features}/documents`,
   },
   hero: {

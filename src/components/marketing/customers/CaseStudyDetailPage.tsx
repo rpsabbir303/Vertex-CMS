@@ -131,8 +131,8 @@ export function CaseStudyDetailPage({ study }: Props) {
         <DetailSection id="approach" variant="approach" surface="muted">
           <div className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,0.46fr)] lg:items-start lg:gap-10">
             <div>
-              <p className="cust-eyebrow">The Vertex CMS approach</p>
-              <h2 className="cust-display mt-2 max-w-2xl text-xl sm:text-[1.85rem]">Connected workflow on Vertex CMS</h2>
+              <p className="cust-eyebrow">The VertexBuild approach</p>
+              <h2 className="cust-display mt-2 max-w-2xl text-xl sm:text-[1.85rem]">Connected workflow on VertexBuild</h2>
               <p className="mt-3 max-w-3xl text-[15px] leading-relaxed text-brand-muted">{study.approach}</p>
             </div>
             {study.workflowSteps && study.workflowSteps.length > 0 ? (

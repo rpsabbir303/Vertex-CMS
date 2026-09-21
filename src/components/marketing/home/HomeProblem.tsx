@@ -87,7 +87,7 @@ export function HomeProblem() {
             />
             <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-brand-blue">One connected system</p>
             <div className="relative mt-6 rounded-xl border border-brand-blue/25 bg-brand-blue/10 p-4">
-              <p className="font-display text-xl font-bold text-white">Vertex CMS</p>
+              <p className="font-display text-xl font-bold text-white">VertexBuild</p>
               <p className="mt-1 text-[12px] text-slate-300">Projects · Financials · Field · Compliance · AI</p>
               <div className="mt-4 grid grid-cols-2 gap-2">
                 {["Live portfolio", "Shared financials", "Field sync", "AI insights"].map((t) => (

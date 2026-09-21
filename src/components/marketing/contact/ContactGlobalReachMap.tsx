@@ -1,6 +1,7 @@
 "use client";
 
 import { WorldMapSilhouette } from "./WorldMapSilhouette";
+import { svgGridLines } from "@/components/marketing/shared/svgGridLines";
 
 /** Decorative connection nodes — conceptual only, not customer/office locations. */
 const NODES = [
@@ -33,30 +34,20 @@ export function ContactGlobalReachMap({ label }: Props) {
   return (
     <div className="relative w-full overflow-hidden">
       <svg
+        xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 950 620"
         className="h-auto w-full min-h-[200px] sm:min-h-[280px] lg:min-h-[380px]"
         preserveAspectRatio="xMidYMid meet"
         role="img"
         aria-label={label}
       >
-        <defs>
-          <pattern id="contact-map-grid" width="40" height="40" patternUnits="userSpaceOnUse">
-            <path
-              d="M 40 0 L 0 0 0 40"
-              fill="none"
-              stroke="#08233F"
-              strokeOpacity="0.045"
-              strokeWidth="0.75"
-            />
-          </pattern>
-        </defs>
-
         <rect width="950" height="620" fill="#FFFFFF" />
-        <rect width="950" height="620" fill="url(#contact-map-grid)" />
+        <g aria-hidden="true">
+          {svgGridLines({ width: 950, height: 620, step: 40, stroke: "rgba(8,35,63,0.045)", strokeWidth: 0.75 })}
+        </g>
 
         <WorldMapSilhouette />
 
-        {/* Subtle connection arcs */}
         <g fill="none" stroke="#146EF5" strokeOpacity="0.16" strokeWidth="0.85" strokeLinecap="round">
           {CONNECTIONS.map(([from, to]) => {
             const a = NODES[from];
@@ -65,8 +56,7 @@ export function ContactGlobalReachMap({ label }: Props) {
           })}
         </g>
 
-        {/* Connection nodes */}
-        {NODES.map((node, i) => (
+        {NODES.map((node) => (
           <g key={node.id}>
             <circle
               cx={node.cx}
@@ -74,8 +64,6 @@ export function ContactGlobalReachMap({ label }: Props) {
               r="3"
               fill={node.accent ? "#FF6A00" : "#146EF5"}
               fillOpacity={node.accent ? 0.85 : 0.55}
-              className="motion-safe:animate-contact-map-pulse motion-reduce:animate-none"
-              style={{ animationDelay: `${i * 0.7}s` }}
             />
             <circle
               cx={node.cx}

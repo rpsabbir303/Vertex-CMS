@@ -32,7 +32,7 @@ const TILES: Tile[] = [
     size: "lg",
     delay: 80,
     imageSrc: showcaseSlots.mockup01,
-    imageAlt: "Vertex CMS project portfolio dashboard",
+    imageAlt: "VertexBuild project portfolio dashboard",
     mockup: <Mockup01Projects />,
   },
   {
@@ -42,7 +42,7 @@ const TILES: Tile[] = [
     size: "md",
     delay: 160,
     imageSrc: showcaseSlots.mockup02,
-    imageAlt: "Vertex CMS financial dashboard",
+    imageAlt: "VertexBuild financial dashboard",
     mockup: <Mockup02Financials />,
   },
   {
@@ -52,7 +52,7 @@ const TILES: Tile[] = [
     size: "md",
     delay: 240,
     imageSrc: showcaseSlots.mockup03,
-    imageAlt: "Vertex CMS field operations dashboard",
+    imageAlt: "VertexBuild field operations dashboard",
     mockup: <Mockup03Field />,
   },
   {
@@ -62,7 +62,7 @@ const TILES: Tile[] = [
     size: "lg",
     delay: 320,
     imageSrc: showcaseSlots.mockup04,
-    imageAlt: "Vertex CMS AI intelligence dashboard",
+    imageAlt: "VertexBuild AI intelligence dashboard",
     mockup: <Mockup04Intelligence />,
   },
 ];
@@ -115,7 +115,7 @@ export function ConnectedSystemSection() {
             Everything You Need To Run Construction, Connected.
           </h2>
           <p className="body-copy mx-auto mt-5 max-w-xl">
-            A quick look at the connected tools inside Vertex CMS — projects, financials, field
+            A quick look at the connected tools inside VertexBuild — projects, financials, field
             operations, and intelligence working as one construction system.
           </p>
         </Reveal>

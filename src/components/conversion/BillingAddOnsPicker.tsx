@@ -220,7 +220,7 @@ export function BillingAddOnsPicker({
         Extend your workspace
       </h2>
       <p className="mt-1 text-[13px] text-brand-muted">
-        Billing add-ons from your Vertex CMS configuration. Plan-included features are shown as included — you are not
+        Billing add-ons from your VertexBuild configuration. Plan-included features are shown as included — you are not
         charged twice. You can continue without selecting any add-ons.
       </p>
 

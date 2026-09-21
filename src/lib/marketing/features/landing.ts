@@ -9,10 +9,10 @@ import { getActivePlans, getPricingCatalog } from "@/lib/marketing/pricing";
 import { CTAS, ROUTES } from "@/lib/marketing/navigation";
 
 export const featuresLandingHero = {
-  eyebrow: "Vertex CMS Platform",
+  eyebrow: "VertexBuild Platform",
   headline: "One connected construction management platform.",
   supporting:
-    "Explore the six operating areas of Vertex CMS. Each area opens the documented features behind it—with product UI, connected workflows, and a path into the full feature detail.",
+    "Explore the six operating areas of VertexBuild. Each area opens the documented features behind it—with product UI, connected workflows, and a path into the full feature detail.",
   primary: { label: "Explore the platform", href: "#feature-categories" },
   secondary: { label: CTAS.demo.label, href: CTAS.demo.href },
 } as const;
@@ -130,7 +130,7 @@ export const featuresLandingAI = {
   eyebrow: "AI Capabilities",
   headline: "Turn project data into better decisions.",
   supporting:
-    "Vertex CMS brings intelligence into construction workflows so teams can understand project information, surface risks, and work faster—with human confirmation before AI-assisted write actions.",
+    "VertexBuild brings intelligence into construction workflows so teams can understand project information, surface risks, and work faster—with human confirmation before AI-assisted write actions.",
   capabilities: AI_CAPABILITIES,
   cta: { label: "Explore AI Capabilities", href: `${ROUTES.features}/ai-assistant` },
   note: "AI assists users and does not replace human review. Write actions require confirmation. AI cannot delete records.",
@@ -162,7 +162,7 @@ export const featuresLandingMobile = {
 } as const;
 
 export const featuresLandingCta = {
-  headline: "See Vertex CMS in your operation.",
+  headline: "See VertexBuild in your operation.",
   supporting:
     "Start a free trial or book a demo to walk through the documented platform workflows with your team.",
   primary: { label: CTAS.trial.label, href: CTAS.trial.href },

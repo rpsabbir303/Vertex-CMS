@@ -6,7 +6,7 @@ import { CookieConsent } from "@/components/marketing/CookieConsent";
 import { ROUTES } from "@/lib/marketing/navigation";
 
 export const metadata = {
-  title: "Page Not Found | Vertex CMS",
+  title: "Page Not Found | VertexBuild",
   description: "The page you're looking for doesn't exist.",
 };
 

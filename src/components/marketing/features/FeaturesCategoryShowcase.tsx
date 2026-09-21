@@ -204,7 +204,7 @@ export function FeaturesCategoryShowcase() {
                     (category.id === "ai" ? "text-slate-400" : "text-brand-muted")
                   }
                 >
-                  Vertex CMS · {activeArea?.label}
+                  VertexBuild · {activeArea?.label}
                 </p>
               </div>
               <FeatureProductPreview

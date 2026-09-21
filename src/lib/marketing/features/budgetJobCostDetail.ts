@@ -10,9 +10,9 @@ import type { PreviewKey } from "./register";
 
 export const budgetJobCostFeatureDetail = {
   meta: {
-    title: "Budget & Job Cost | Vertex CMS Features",
+    title: "Budget & Job Cost | VertexBuild Features",
     description:
-      "Track original budget, approved changes, revised budget, committed cost, actual cost, projected cost, and variance by cost code in Vertex CMS.",
+      "Track original budget, approved changes, revised budget, committed cost, actual cost, projected cost, and variance by cost code in VertexBuild.",
     canonical: `${ROUTES.features}/budget-job-cost`,
   },
   hero: {
@@ -35,7 +35,7 @@ export const budgetJobCostFeatureDetail = {
   ] as const,
   intro: {
     headline: "Know where every project dollar stands.",
-    body: "Vertex CMS connects project budgets with the costs flowing through your construction operations, giving teams a clearer picture of financial performance from the original budget through projected cost.",
+    body: "VertexBuild connects project budgets with the costs flowing through your construction operations, giving teams a clearer picture of financial performance from the original budget through projected cost.",
     points: [
       {
         title: "Start with a clear budget",

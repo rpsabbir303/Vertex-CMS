@@ -29,7 +29,7 @@ export function FeaturesStoryHero() {
             Everything your construction team needs, connected in one workspace.
           </h1>
           <p className="body-copy mx-auto mt-5 max-w-2xl">
-            Vertex CMS brings projects, schedules, documents, RFIs, submittals, change orders, financial
+            VertexBuild brings projects, schedules, documents, RFIs, submittals, change orders, financial
             visibility, and field workflows together—so office and field stay aligned.
           </p>
           <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
@@ -62,7 +62,7 @@ export function FeaturesStoryHero() {
             />
           </div>
           <p className="mt-3 text-center text-[12px] text-brand-muted">
-            Vertex CMS · Project workspace ·{" "}
+            VertexBuild · Project workspace ·{" "}
             <Link href={ROUTES.features + "#project-management"} className="font-semibold text-brand-orange hover:underline">
               Start with Project Management
             </Link>

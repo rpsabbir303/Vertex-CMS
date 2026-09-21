@@ -34,7 +34,7 @@ export function FeaturesModuleExplorer() {
           <p className="eyebrow">Features by module</p>
           <h2 className="display-title mt-3 text-3xl sm:text-4xl">Explore every product module</h2>
           <p className="mt-4 text-[15px] leading-relaxed text-brand-muted">
-            {TENANT_MODULES.length} tenant modules from the Vertex CMS Master Feature Register — navigate by
+            {TENANT_MODULES.length} tenant modules from the VertexBuild Master Feature Register — navigate by
             group, then inspect capabilities. Platform services are listed separately and are not sellable
             modules.
           </p>

@@ -88,7 +88,7 @@ export function ConnectFinanceStep() {
       current="connect"
       showPreviewNotice={false}
       headline="Connect your financial accounts."
-      description="Connect your bank or general-ledger system to keep your financial data connected with your Vertex CMS workspace."
+      description="Connect your bank or general-ledger system to keep your financial data connected with your VertexBuild workspace."
       title="Financial connections"
       subtitle="Connect your financial accounts when you’re ready. You can also complete this step later from Financial Settings."
     >

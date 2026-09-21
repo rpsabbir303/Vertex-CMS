@@ -142,8 +142,8 @@ export function SignUpForm() {
 
   return (
     <AuthShell
-      title="Create your Vertex CMS account"
-      subtitle="Start your free trial — verify email, provision your workspace, then enter Vertex CMS."
+      title="Create your VertexBuild account"
+      subtitle="Start your free trial — verify email, provision your workspace, then enter VertexBuild."
       panelTitle="From pricing to product — connected."
       panelBody="Selected plans carry from Pricing into signup. After verification we create your tenant and activate trial per plan configuration."
     >

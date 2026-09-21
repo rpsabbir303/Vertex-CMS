@@ -247,7 +247,7 @@ function FeatureComparison({ catalog, plans }: { catalog: PricingCatalog; plans:
           <h2 className="display-title mt-3 text-3xl sm:text-4xl lg:text-[2.75rem]">
             Everything you need, clearly laid out.
           </h2>
-          <p className="body-copy mx-auto mt-4 max-w-2xl">Compare the capabilities included with each Vertex CMS plan.</p>
+          <p className="body-copy mx-auto mt-4 max-w-2xl">Compare the capabilities included with each VertexBuild plan.</p>
         </div>
 
         <div className="mt-12 lg:hidden">

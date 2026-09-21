@@ -40,7 +40,7 @@ export function FeatureGrid() {
       <div className="container-wide relative">
         <Reveal>
           <div className="mx-auto max-w-2xl text-center">
-            <p className="eyebrow">Why Vertex CMS</p>
+            <p className="eyebrow">Why VertexBuild</p>
             <h2 className="headline mt-3">
               Built for the Way
               <br />

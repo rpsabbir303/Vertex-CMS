@@ -8,9 +8,9 @@ import type { PreviewKey } from "./register";
 
 export const projectsFeatureDetail = {
   meta: {
-    title: "Projects | Vertex CMS Features",
+    title: "Projects | VertexBuild Features",
     description:
-      "Create and manage construction projects from one connected workspace—with status lifecycle, financial summary, phases, team members, and project dashboard visibility in Vertex CMS.",
+      "Create and manage construction projects from one connected workspace—with status lifecycle, financial summary, phases, team members, and project dashboard visibility in VertexBuild.",
     canonical: `${ROUTES.features}/projects`,
   },
   hero: {
@@ -18,7 +18,7 @@ export const projectsFeatureDetail = {
     headline: "Every project, connected from start to closeout.",
     supporting:
       "Create and manage construction projects from one connected workspace, with the information, people and project activity your team needs in one place.",
-    primary: { label: "Explore Vertex CMS", href: ROUTES.features },
+    primary: { label: "Explore VertexBuild", href: ROUTES.features },
     secondary: { label: CTAS.demo.label, href: CTAS.demo.href },
     preview: "project" as PreviewKey,
   },
@@ -111,7 +111,7 @@ export const projectsFeatureDetail = {
   finalCta: {
     headline: "Bring every project into one connected workspace.",
     supporting:
-      "Give your team a clearer view of projects, people, phases and performance with Vertex CMS.",
+      "Give your team a clearer view of projects, people, phases and performance with VertexBuild.",
     primary: { label: CTAS.demo.label, href: CTAS.demo.href },
     secondary: { label: "Explore Features", href: ROUTES.features },
   },

@@ -27,8 +27,14 @@ export function IntegrationCategoryNavigation({ selected, onSelect, counts }: Pr
                 onClick={() => onSelect(cat.id)}
                 aria-current={isSelected ? "true" : undefined}
                 data-selected={isSelected ? "true" : "false"}
-                className="int-cat-index-btn min-w-[148px] lg:min-w-0"
+                className="int-cat-index-btn relative min-w-[148px] lg:min-w-0"
               >
+                <span
+                  className={`absolute bottom-1.5 left-0 top-1.5 w-0.5 rounded-[1px] ${
+                    isSelected ? "bg-brand-orange" : "bg-transparent"
+                  }`}
+                  aria-hidden="true"
+                />
                 <span>{cat.label}</span>
                 {typeof count === "number" && count > 0 && (
                   <span className="font-sans text-[10px] tabular-nums text-brand-muted/80">{count}</span>

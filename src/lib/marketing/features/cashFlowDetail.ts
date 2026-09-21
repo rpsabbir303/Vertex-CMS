@@ -14,9 +14,9 @@ import type { PreviewKey } from "./register";
 
 export const cashFlowFeatureDetail = {
   meta: {
-    title: "Cash Flow Forecast | Vertex CMS Features",
+    title: "Cash Flow Forecast | VertexBuild Features",
     description:
-      "Cash flow forecasting connected to invoices and payables so construction teams can see expected inflows, outflows, and upcoming financial movement in Vertex CMS.",
+      "Cash flow forecasting connected to invoices and payables so construction teams can see expected inflows, outflows, and upcoming financial movement in VertexBuild.",
     canonical: `${ROUTES.features}/cash-flow`,
   },
   hero: {
@@ -41,7 +41,7 @@ export const cashFlowFeatureDetail = {
   intro: {
     eyebrow: "Cash Flow Visibility",
     headline: "Know What Is Coming In. Know What Is Going Out.",
-    body: "Construction cash flow depends on timing. Vertex CMS brings receivables, payables, project activity, and upcoming financial obligations into a clearer forecast view so teams can plan with better context.",
+    body: "Construction cash flow depends on timing. VertexBuild brings receivables, payables, project activity, and upcoming financial obligations into a clearer forecast view so teams can plan with better context.",
     points: [
       {
         title: "See Expected Inflows",
@@ -274,7 +274,7 @@ export const cashFlowFeatureDetail = {
     eyebrow: "Financial Management",
     headline: "Every Financial Workflow. Connected.",
     supporting:
-      "From budgeting and job cost to billing, pay applications, WIP, and cash flow, Vertex CMS brings the financial side of construction into one connected platform.",
+      "From budgeting and job cost to billing, pay applications, WIP, and cash flow, VertexBuild brings the financial side of construction into one connected platform.",
     primary: { label: "Explore Financial Management", href: `${ROUTES.features}#financial-management` },
     secondary: { label: CTAS.demo.label, href: CTAS.demo.href },
   },

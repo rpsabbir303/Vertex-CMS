@@ -94,7 +94,7 @@ export function FeaturedCustomerStory() {
 
                 <div className="mt-3">
 
-                  <p className="text-[10px] font-semibold uppercase tracking-[0.12em] text-brand-muted">Vertex CMS approach</p>
+                  <p className="text-[10px] font-semibold uppercase tracking-[0.12em] text-brand-muted">VertexBuild approach</p>
 
                   <p className="mt-1 text-[13px] leading-relaxed text-brand-muted">{story.approach}</p>
 

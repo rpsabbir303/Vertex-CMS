@@ -22,16 +22,16 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const { slug } = await params;
   const item = getIntegrationBySlug(slug);
   if (!item) {
-    return { title: "Integration | Vertex CMS", robots: { index: false, follow: false } };
+    return { title: "Integration | VertexBuild", robots: { index: false, follow: false } };
   }
   const suffix = item.kind === "capability" ? "Capability" : "Integration";
   const canonical = `${ROUTES.integrations}/${slug}`;
   return {
-    title: `${item.name} ${suffix} | Vertex CMS`,
+    title: `${item.name} ${suffix} | VertexBuild`,
     description: item.shortDescription,
     alternates: { canonical },
     openGraph: {
-      title: `${item.name} ${suffix} | Vertex CMS`,
+      title: `${item.name} ${suffix} | VertexBuild`,
       description: item.shortDescription,
       url: canonical,
       type: "website",

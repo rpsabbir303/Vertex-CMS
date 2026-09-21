@@ -115,7 +115,7 @@ function CenterCommand({ module }: { module: ExploreModule }) {
         >
           {module.number}
         </p>
-        <p className="mt-2 text-center text-lg font-bold tracking-tight sm:text-xl">VERTEX CMS</p>
+        <p className="mt-2 text-center text-lg font-bold tracking-tight sm:text-xl">VertexBuild</p>
         <p className={`mt-1 text-center text-[10px] ${isAI || isFinance ? "text-slate-300" : "text-[#5B6B7C]"}`}>
           Construction Management System
         </p>
@@ -178,7 +178,7 @@ export function ExploreSystem() {
         <Reveal>
           <div className="mx-auto max-w-3xl text-center">
             <p className="font-display text-[11px] font-semibold uppercase tracking-[0.22em] text-brand-blue">
-              The Vertex CMS Platform
+              The VertexBuild Platform
             </p>
             <h2 className="font-display mt-3 text-3xl font-bold tracking-tight text-brand-navy sm:text-4xl lg:text-[2.85rem] lg:leading-[1.1]">
               Explore the Construction System.

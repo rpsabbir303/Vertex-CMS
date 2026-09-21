@@ -3,8 +3,8 @@ import { Suspense } from "react";
 import { SignUpForm } from "@/components/auth/SignUpForm";
 
 export const metadata: Metadata = {
-  title: "Sign Up | Vertex CMS",
-  description: "Create your Vertex CMS account and start your free trial.",
+  title: "Sign Up | VertexBuild",
+  description: "Create your VertexBuild account and start your free trial.",
 };
 
 export default function SignupPage() {

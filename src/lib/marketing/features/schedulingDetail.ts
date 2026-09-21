@@ -8,9 +8,9 @@ import type { PreviewKey } from "./register";
 
 export const schedulingFeatureDetail = {
   meta: {
-    title: "Scheduling | Vertex CMS Features",
+    title: "Scheduling | VertexBuild Features",
     description:
-      "Build CPM schedules, track baseline vs current performance, manage dependencies and critical path, generate 3-week look-ahead, and surface schedule risk in Vertex CMS.",
+      "Build CPM schedules, track baseline vs current performance, manage dependencies and critical path, generate 3-week look-ahead, and surface schedule risk in VertexBuild.",
     canonical: `${ROUTES.features}/scheduling`,
   },
   hero: {

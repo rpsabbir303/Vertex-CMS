@@ -30,7 +30,7 @@ export function ConnectedEcosystem() {
                   <HeroPortfolioDashboard />
                 </div>
                 <p className="mt-3 text-center text-[11px] font-semibold uppercase tracking-[0.16em] text-brand-blue">
-                  Vertex CMS · Command Center
+                  VertexBuild · Command Center
                 </p>
               </div>
 

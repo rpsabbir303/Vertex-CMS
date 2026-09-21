@@ -26,13 +26,13 @@ export function generateMetadata({ params }: PageProps): Metadata {
   const study = getCaseStudyBySlug(params.slug);
   if (!study) {
     return {
-      title: "Case Study | Vertex CMS Customers",
+      title: "Case Study | VertexBuild Customers",
       description: "This customer case study is not available for public reference.",
       robots: { index: false, follow: true },
     };
   }
 
-  const title = `${study.customerName} | Case Study | Vertex CMS`;
+  const title = `${study.customerName} | Case Study | VertexBuild`;
   const description = study.summary;
   const canonical = CUSTOMERS_ROUTES.caseStudyDetail(params.slug);
 

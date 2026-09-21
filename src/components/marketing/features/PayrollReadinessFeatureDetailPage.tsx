@@ -31,7 +31,7 @@ function PreviewStage({
         }
       >
         <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.14em] text-brand-muted">
-          Vertex CMS · {label}
+          VertexBuild · {label}
         </p>
         <FeatureProductPreview preview={preview} framed={false} className="min-h-[240px]" />
       </div>
@@ -54,7 +54,7 @@ function PreviewStage({
           (dark ? "text-slate-400" : "text-brand-muted")
         }
       >
-        Vertex CMS · {label}
+        VertexBuild · {label}
       </p>
       <FeatureProductPreview
         preview={preview}

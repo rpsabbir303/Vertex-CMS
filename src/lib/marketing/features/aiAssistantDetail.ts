@@ -13,16 +13,16 @@ const FIELD = "Field Operations";
 
 export const aiAssistantFeatureDetail = {
   meta: {
-    title: "AI Assistant | Vertex CMS Features",
+    title: "AI Assistant | VertexBuild Features",
     description:
-      "Ask project questions in natural language and get answers grounded in connected Vertex CMS project information—with confirmation before data changes.",
+      "Ask project questions in natural language and get answers grounded in connected VertexBuild project information—with confirmation before data changes.",
     canonical: `${ROUTES.features}/ai-assistant`,
   },
   hero: {
     eyebrow: "AI & Intelligence",
     headline: "Ask your project. Get clear answers.",
     supporting:
-      "Ask questions about your projects, documents, costs, schedules, and field activity. Vertex CMS AI Assistant helps teams find answers from connected project information.",
+      "Ask questions about your projects, documents, costs, schedules, and field activity. VertexBuild AI Assistant helps teams find answers from connected project information.",
     primary: { label: "Explore AI & Intelligence", href: AI },
     secondary: { label: CTAS.demo.label, href: CTAS.demo.href },
     preview: "aiHero" as PreviewKey,
@@ -39,7 +39,7 @@ export const aiAssistantFeatureDetail = {
   ] as const,
   intro: {
     headline: "Project intelligence, without the digging.",
-    body: "Vertex CMS AI Assistant helps teams turn connected project information into useful answers and actionable context.",
+    body: "VertexBuild AI Assistant helps teams turn connected project information into useful answers and actionable context.",
     cards: [
       {
         n: "01",
@@ -60,7 +60,7 @@ export const aiAssistantFeatureDetail = {
   },
   howItWorks: {
     headline: "From a question to the records that matter.",
-    body: "AI Assistant connects natural-language questions with the project information your team already maintains in Vertex CMS.",
+    body: "AI Assistant connects natural-language questions with the project information your team already maintains in VertexBuild.",
     preview: "aiHowItWorks" as PreviewKey,
     steps: [
       { n: "01", title: "Ask", body: "Ask a natural-language project question." },
@@ -162,7 +162,7 @@ export const aiAssistantFeatureDetail = {
   },
   useCases: {
     headline: "Connected to the project records your team already uses.",
-    body: "AI Assistant works with information already stored across Vertex CMS — not generic chat responses disconnected from your project.",
+    body: "AI Assistant works with information already stored across VertexBuild — not generic chat responses disconnected from your project.",
     records: [
       { title: "Projects", body: "Status, schedule, and current project activity." },
       { title: "Documents", body: "Specifications, contracts, and project files." },
@@ -200,7 +200,7 @@ export const aiAssistantFeatureDetail = {
   },
   control: {
     headline: "AI helps prepare. Your team stays in control.",
-    body: "Review AI-generated actions before anything is written or changed in Vertex CMS.",
+    body: "Review AI-generated actions before anything is written or changed in VertexBuild.",
     footnote: "Nothing is created or changed until a user confirms the action.",
     preview: "aiDraftConfirm" as PreviewKey,
   },
@@ -260,7 +260,7 @@ export const aiAssistantFeatureDetail = {
   },
   workflows: {
     headline: "AI Assistant works across your project workflows.",
-    body: "Keep project intelligence connected to the work already happening across Vertex CMS.",
+    body: "Keep project intelligence connected to the work already happening across VertexBuild.",
     cards: [
       {
         slug: "projects",

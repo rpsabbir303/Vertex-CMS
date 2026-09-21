@@ -56,18 +56,18 @@ export function generateStaticParams() {
 export function generateMetadata({ params }: PageProps): Metadata {
   const legacy = LEGACY_FEATURE_SLUG_REDIRECTS[params.slug];
   if (legacy) {
-    return { title: "Features | Vertex CMS" };
+    return { title: "Features | VertexBuild" };
   }
 
   const feature = getFeatureAreaBySlug(params.slug);
-  if (!feature) return { title: "Feature | Vertex CMS" };
+  if (!feature) return { title: "Feature | VertexBuild" };
 
   return {
-    title: `${feature.label} | Vertex CMS Features`,
+    title: `${feature.label} | VertexBuild Features`,
     description: feature.description,
     alternates: { canonical: `/features/${feature.slug}` },
     openGraph: {
-      title: `${feature.label} | Vertex CMS Features`,
+      title: `${feature.label} | VertexBuild Features`,
       description: feature.description,
       url: `/features/${feature.slug}`,
       type: "website",

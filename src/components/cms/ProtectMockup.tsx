@@ -5,13 +5,13 @@ function FloorPlanPreview() {
     <svg viewBox="0 0 320 180" className="h-full w-full" aria-hidden="true">
       <rect x="8" y="8" width="304" height="164" fill="#F8FAFC" stroke="#CBD5E1" strokeWidth="1.5" />
       <rect x="20" y="20" width="120" height="70" fill="#EEF4FF" stroke="#146EF5" strokeWidth="1.2" />
-      <text x="40" y="58" fill="#146EF5" fontSize="10" fontFamily="system-ui">Lobby</text>
+      <text x="40" y="58" fill="#146EF5" fontSize="10" fontFamily="var(--font-sans)">Lobby</text>
       <rect x="150" y="20" width="148" height="70" fill="#FFF7ED" stroke="#FF6A00" strokeWidth="1.2" />
-      <text x="185" y="58" fill="#FF6A00" fontSize="10" fontFamily="system-ui">Open Office</text>
+      <text x="185" y="58" fill="#FF6A00" fontSize="10" fontFamily="var(--font-sans)">Open Office</text>
       <rect x="20" y="100" width="90" height="60" fill="#ECFDF5" stroke="#059669" strokeWidth="1.2" />
-      <text x="38" y="134" fill="#059669" fontSize="10" fontFamily="system-ui">Core</text>
+      <text x="38" y="134" fill="#059669" fontSize="10" fontFamily="var(--font-sans)">Core</text>
       <rect x="120" y="100" width="178" height="60" fill="#F1F5F9" stroke="#64748B" strokeWidth="1.2" />
-      <text x="165" y="134" fill="#64748B" fontSize="10" fontFamily="system-ui">Meeting / MEP</text>
+      <text x="165" y="134" fill="#64748B" fontSize="10" fontFamily="var(--font-sans)">Meeting / MEP</text>
       <circle cx="260" cy="45" r="8" fill="none" stroke="#FF6A00" strokeWidth="1.5" />
       <line x1="260" y1="37" x2="260" y2="53" stroke="#FF6A00" strokeWidth="1" />
       <line x1="252" y1="45" x2="268" y2="45" stroke="#FF6A00" strokeWidth="1" />

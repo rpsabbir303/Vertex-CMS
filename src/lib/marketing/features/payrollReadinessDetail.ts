@@ -17,9 +17,9 @@ const FM = "Financial Management";
 
 export const payrollReadinessFeatureDetail = {
   meta: {
-    title: "Payroll Readiness | Vertex CMS Features",
+    title: "Payroll Readiness | VertexBuild Features",
     description:
-      "Organize approved timesheets, worker classifications, and labor hours into payroll-ready summaries in Vertex CMS—connected to project context.",
+      "Organize approved timesheets, worker classifications, and labor hours into payroll-ready summaries in VertexBuild—connected to project context.",
     canonical: `${ROUTES.features}/payroll-readiness`,
   },
   hero: {
@@ -165,7 +165,7 @@ export const payrollReadinessFeatureDetail = {
     ],
   },
   connected: {
-    headline: "Payroll Readiness Connected Across Vertex CMS.",
+    headline: "Payroll Readiness Connected Across VertexBuild.",
     body: "Payroll readiness becomes more useful when approved labor stays connected to the workflows around it.",
     cards: [
       {

@@ -8,9 +8,9 @@ import { ProjectManagementCategoryPage } from "@/components/marketing/features/P
 import { featureCategoryPath } from "@/lib/marketing/features/categories";
 import { ROUTES } from "@/lib/marketing/navigation";
 
-const title = "Project Management | Vertex CMS Features";
+const title = "Project Management | VertexBuild Features";
 const description =
-  "Plan, coordinate, and control construction projects with connected workflows for projects, scheduling, documents, RFIs, submittals, and change orders in Vertex CMS.";
+  "Plan, coordinate, and control construction projects with connected workflows for projects, scheduling, documents, RFIs, submittals, and change orders in VertexBuild.";
 const canonical = featureCategoryPath("project-management");
 
 export const metadata: Metadata = {

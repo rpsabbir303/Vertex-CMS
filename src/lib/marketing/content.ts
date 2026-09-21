@@ -2,9 +2,9 @@ export type MarketingLocale = "en" | "es";
 
 const en = {
   meta: {
-    title: "Vertex CMS | Construction Management Software",
+    title: "VertexBuild | Construction Management Software",
     description:
-      "Connect construction projects, financials, field operations, compliance and intelligence with Vertex CMS.",
+      "Connect construction projects, financials, field operations, compliance and intelligence with VertexBuild.",
   },
   header: {
     productFeatures: "Product / Features",
@@ -18,7 +18,7 @@ const en = {
     exploreAllFeatures: "Explore All Features →",
   },
   hero: {
-    eyebrow: "Vertex CMS · Construction Management SaaS",
+    eyebrow: "VertexBuild · Construction Management SaaS",
     headline: "The Connected Operating Platform for Construction.",
     headlineLine2: "",
     supporting:
@@ -158,7 +158,7 @@ const en = {
   finalCta: {
     headline: "Ready to connect your construction operation?",
     supporting:
-      "See how Vertex CMS can bring projects, financials, field operations and intelligence together.",
+      "See how VertexBuild can bring projects, financials, field operations and intelligence together.",
   },
   footer: {
     rights: "© Vertex Software",
@@ -209,7 +209,7 @@ const en = {
     eyebrow: "Contact",
     headline: "Let's talk.",
     supporting:
-      "Have a general question about Vertex CMS or the company? Tell us what you need and we'll route your inquiry appropriately.",
+      "Have a general question about VertexBuild or the company? Tell us what you need and we'll route your inquiry appropriately.",
     contextTitle: "General inquiries",
     contextBody:
       "Use this form for company and product questions that are not part of a dedicated demo or quote request. Our team will review your message and follow up.",
@@ -228,7 +228,7 @@ const en = {
     successEyebrow: "Contact",
     successTitle: "Inquiry received.",
     successBody:
-      "Thanks for reaching out to Vertex CMS. Your inquiry has been submitted successfully and will be routed appropriately.",
+      "Thanks for reaching out to VertexBuild. Your inquiry has been submitted successfully and will be routed appropriately.",
     successNextSteps:
       "Your message has been submitted successfully. If your inquiry is related to a product evaluation, you can also explore the available product and sales journeys below.",
     successSummaryTitle: "Submission summary",
@@ -293,7 +293,7 @@ const en = {
         "Join a team building software that connects projects, financials, field operations, and intelligence in one platform.",
     },
     employerValue: {
-      eyebrow: "Why Vertex CMS",
+      eyebrow: "Why VertexBuild",
       demoNotice: "Demo content — culture copy for UI review",
       storyHeadline: "Build software that solves real operational problems.",
       storyIntro:
@@ -313,7 +313,7 @@ const en = {
           title: "Work across disciplines",
           lead: "Product, design, engineering, and domain knowledge come together to solve complex problems that no single discipline can address alone.",
           detail:
-            "Collaboration spans from discovery through delivery, with each role contributing perspective on how the platform should work. Building Vertex CMS requires thinking across the full product stack and the workflows it supports.",
+            "Collaboration spans from discovery through delivery, with each role contributing perspective on how the platform should work. Building VertexBuild requires thinking across the full product stack and the workflows it supports.",
         },
         {
           number: "03",
@@ -335,7 +335,7 @@ const en = {
     },
     companyNav: {
       eyebrow: "Company",
-      headline: "Explore Vertex CMS.",
+      headline: "Explore VertexBuild.",
       supporting: "Learn more about the company, the people behind the work, and how to get in touch.",
       navigationAriaLabel: "Company pages",
       currentPageSuffix: "current page",
@@ -408,7 +408,7 @@ const en = {
       eyebrow: "Security & Trust",
       headline: "Security built into the platform.",
       supporting:
-        "Vertex CMS is designed with data protection, controlled access, compliance support, AI governance, and operational reliability in mind — so construction teams and enterprise reviewers can understand how the platform is intended to operate.",
+        "VertexBuild is designed with data protection, controlled access, compliance support, AI governance, and operational reliability in mind — so construction teams and enterprise reviewers can understand how the platform is intended to operate.",
     },
     overview: {
       eyebrow: "Trust overview",
@@ -435,7 +435,7 @@ const en = {
     complianceCta: {
       title: "Need additional compliance information?",
       supporting:
-        "Connect with the Vertex CMS team for compliance-related evaluation questions and follow-up — for prospective customers, enterprise reviewers, and compliance stakeholders.",
+        "Connect with the VertexBuild team for compliance-related evaluation questions and follow-up — for prospective customers, enterprise reviewers, and compliance stakeholders.",
     },
     aiGovernance: { eyebrow: "AI governance" },
     aiGovernanceHero: {
@@ -444,7 +444,7 @@ const en = {
     },
     aiGovernanceCta: {
       title: "Questions about AI governance?",
-      supporting: "Contact the Vertex CMS team for security and governance questions.",
+      supporting: "Contact the VertexBuild team for security and governance questions.",
       primary: "Contact Security",
       secondary: "Request a Demo",
     },
@@ -455,14 +455,14 @@ const en = {
     },
     reliabilityCta: {
       title: "Questions about reliability or recovery?",
-      supporting: "Contact the Vertex CMS team for security, reliability, and recovery questions.",
+      supporting: "Contact the VertexBuild team for security, reliability, and recovery questions.",
       primary: "Contact Security",
       secondary: "Request a Demo",
     },
     cta: {
       title: "Need additional security information?",
       supporting:
-        "Connect with the Vertex CMS team for security-related questions, evaluation support, or follow-up — for prospective customers, enterprise security reviewers, and authorized stakeholders.",
+        "Connect with the VertexBuild team for security-related questions, evaluation support, or follow-up — for prospective customers, enterprise security reviewers, and authorized stakeholders.",
       note: "This contact path is for evaluation and sales inquiries — not for reporting security incidents.",
       primary: "Contact",
       secondary: "Book a Demo",
@@ -481,7 +481,7 @@ const en = {
         nav: "Security & Trust",
         title: "Security built into the platform.",
         description:
-          "Vertex CMS is designed with data protection, controlled access, compliance support, AI governance, and operational reliability in mind — so construction teams and enterprise reviewers can understand how the platform is intended to operate.",
+          "VertexBuild is designed with data protection, controlled access, compliance support, AI governance, and operational reliability in mind — so construction teams and enterprise reviewers can understand how the platform is intended to operate.",
       },
       "data-protection": {
         nav: "Data Protection",
@@ -493,31 +493,31 @@ const en = {
         nav: "Access Security",
         title: "Access security for every team and role.",
         description:
-          "Vertex CMS supports controlled access through identity, authentication, authorization, MFA, role-based access control, and applicable SSO/SCIM capabilities where documented.",
+          "VertexBuild supports controlled access through identity, authentication, authorization, MFA, role-based access control, and applicable SSO/SCIM capabilities where documented.",
       },
       compliance: {
         nav: "Compliance",
         title: "Compliance designed into construction workflows.",
         description:
-          "Vertex CMS supports compliance-related workflows across privacy, accessibility, construction records, and workforce and safety requirements, while distinguishing product support from formal organizational certification.",
+          "VertexBuild supports compliance-related workflows across privacy, accessibility, construction records, and workforce and safety requirements, while distinguishing product support from formal organizational certification.",
       },
       "ai-governance": {
         nav: "AI Governance",
         title: "AI governance built around human control.",
         description:
-          "Vertex CMS is designed so AI can assist with analysis, recommendations, and workflow actions while keeping consequential actions under explicit human control.",
+          "VertexBuild is designed so AI can assist with analysis, recommendations, and workflow actions while keeping consequential actions under explicit human control.",
       },
       reliability: {
         nav: "Reliability / DR",
         title: "Built for continuity, recovery, and resilience.",
         description:
-          "Vertex CMS is designed around resilient infrastructure, recovery planning, and operational continuity so construction teams can keep critical project information available when it matters.",
+          "VertexBuild is designed around resilient infrastructure, recovery planning, and operational continuity so construction teams can keep critical project information available when it matters.",
       },
       contact: {
         nav: "Security Contact",
         title: "Security contact",
         description:
-          "Connect with Vertex CMS for security-related evaluation questions and enterprise review follow-up.",
+          "Connect with VertexBuild for security-related evaluation questions and enterprise review follow-up.",
       },
     },
     related: {
@@ -554,7 +554,7 @@ const en = {
       "Manage your cookie choices using the same controls as the site cookie banner. Approved cookie categories will appear here when documented by legal counsel.",
     demoNoticeTitle: "Demo content — not final legal copy",
     demoNoticeBody:
-      "The text below is sample legal-document content for visual design review only. It does not represent approved Vertex CMS terms, policies, or contractual obligations.",
+      "The text below is sample legal-document content for visual design review only. It does not represent approved VertexBuild terms, policies, or contractual obligations.",
   },
 };
 
@@ -563,9 +563,9 @@ export const marketingContent: Record<MarketingLocale, typeof en> = {
   es: {
     ...en,
     meta: {
-      title: "Vertex CMS | Software de Gestión de Construcción",
+      title: "VertexBuild | Software de Gestión de Construcción",
       description:
-        "Conecte proyectos, finanzas, operaciones de campo, cumplimiento e inteligencia con Vertex CMS.",
+        "Conecte proyectos, finanzas, operaciones de campo, cumplimiento e inteligencia con VertexBuild.",
     },
     header: {
       ...en.header,
@@ -581,7 +581,7 @@ export const marketingContent: Record<MarketingLocale, typeof en> = {
     },
     hero: {
       ...en.hero,
-      eyebrow: "Vertex CMS · SaaS de Gestión de Construcción",
+      eyebrow: "VertexBuild · SaaS de Gestión de Construcción",
       headline: "La Plataforma Operativa Conectada para Construcción.",
       supporting:
         "Una plataforma conectada para gestión de proyectos, finanzas, campo, cumplimiento e inteligencia.",
@@ -650,7 +650,7 @@ export const marketingContent: Record<MarketingLocale, typeof en> = {
       eyebrow: "Contacto",
       headline: "Hablemos.",
       supporting:
-        "¿Tiene una pregunta general sobre Vertex CMS o la empresa? Cuéntenos qué necesita y dirigiremos su consulta.",
+        "¿Tiene una pregunta general sobre VertexBuild o la empresa? Cuéntenos qué necesita y dirigiremos su consulta.",
       contextTitle: "Consultas generales",
       contextBody:
         "Use este formulario para preguntas sobre la empresa o el producto que no formen parte de una demo o cotización dedicada.",
@@ -669,7 +669,7 @@ export const marketingContent: Record<MarketingLocale, typeof en> = {
       successEyebrow: "Contacto",
       successTitle: "Consulta recibida.",
       successBody:
-        "Gracias por contactar a Vertex CMS. Su consulta se envió correctamente y será dirigida adecuadamente.",
+        "Gracias por contactar a VertexBuild. Su consulta se envió correctamente y será dirigida adecuadamente.",
       successNextSteps:
         "Su mensaje se envió correctamente. Si su consulta está relacionada con una evaluación del producto, también puede explorar los recorridos de producto y ventas disponibles a continuación.",
       successSummaryTitle: "Resumen del envío",
@@ -736,7 +736,7 @@ export const marketingContent: Record<MarketingLocale, typeof en> = {
       },
       employerValue: {
         ...en.careers.employerValue,
-        eyebrow: "Por qué Vertex CMS",
+        eyebrow: "Por qué VertexBuild",
         demoNotice: "Contenido demo — copy de cultura para revisión de UI",
         storyHeadline: "Construya software que resuelva problemas operativos reales.",
         storyIntro:
@@ -756,7 +756,7 @@ export const marketingContent: Record<MarketingLocale, typeof en> = {
             title: "Trabajar entre disciplinas",
             lead: "Producto, diseño, ingeniería y conocimiento del dominio se unen para resolver problemas complejos que ninguna disciplina puede abordar sola.",
             detail:
-              "La colaboración abarca desde el descubrimiento hasta la entrega, con cada rol aportando perspectiva sobre cómo debe funcionar la plataforma. Construir Vertex CMS requiere pensar en todo el stack de producto y los flujos de trabajo que soporta.",
+              "La colaboración abarca desde el descubrimiento hasta la entrega, con cada rol aportando perspectiva sobre cómo debe funcionar la plataforma. Construir VertexBuild requiere pensar en todo el stack de producto y los flujos de trabajo que soporta.",
           },
           {
             number: "03",
@@ -779,7 +779,7 @@ export const marketingContent: Record<MarketingLocale, typeof en> = {
       companyNav: {
         ...en.careers.companyNav,
         eyebrow: "Empresa",
-        headline: "Explore Vertex CMS.",
+        headline: "Explore VertexBuild.",
         supporting: "Conozca más sobre la empresa, las personas detrás del trabajo y cómo ponerse en contacto.",
         navigationAriaLabel: "Páginas de la empresa",
         currentPageSuffix: "página actual",
@@ -855,7 +855,7 @@ export const marketingContent: Record<MarketingLocale, typeof en> = {
         eyebrow: "Seguridad y confianza",
         headline: "Seguridad integrada en la plataforma.",
         supporting:
-          "Vertex CMS está diseñado con protección de datos, acceso controlado, soporte de cumplimiento, gobernanza de IA y fiabilidad operativa — para que equipos de construcción y revisores empresariales entiendan cómo se prevé que opere la plataforma.",
+          "VertexBuild está diseñado con protección de datos, acceso controlado, soporte de cumplimiento, gobernanza de IA y fiabilidad operativa — para que equipos de construcción y revisores empresariales entiendan cómo se prevé que opere la plataforma.",
       },
       overview: {
         eyebrow: "Panorama de confianza",
@@ -882,7 +882,7 @@ export const marketingContent: Record<MarketingLocale, typeof en> = {
       complianceCta: {
         title: "¿Necesita información adicional de cumplimiento?",
         supporting:
-          "Conéctese con el equipo de Vertex CMS para preguntas de evaluación relacionadas con cumplimiento — para clientes potenciales, revisores empresariales y partes interesadas en cumplimiento.",
+          "Conéctese con el equipo de VertexBuild para preguntas de evaluación relacionadas con cumplimiento — para clientes potenciales, revisores empresariales y partes interesadas en cumplimiento.",
       },
       aiGovernance: { eyebrow: "Gobernanza de IA" },
       aiGovernanceHero: {
@@ -891,7 +891,7 @@ export const marketingContent: Record<MarketingLocale, typeof en> = {
       },
       aiGovernanceCta: {
         title: "¿Preguntas sobre gobernanza de IA?",
-        supporting: "Contacte al equipo de Vertex CMS para preguntas de seguridad y gobernanza.",
+        supporting: "Contacte al equipo de VertexBuild para preguntas de seguridad y gobernanza.",
         primary: "Contacto de seguridad",
         secondary: "Solicitar demo",
       },
@@ -902,14 +902,14 @@ export const marketingContent: Record<MarketingLocale, typeof en> = {
       },
       reliabilityCta: {
         title: "¿Preguntas sobre fiabilidad o recuperación?",
-        supporting: "Contacte al equipo de Vertex CMS para preguntas de seguridad, fiabilidad y recuperación.",
+        supporting: "Contacte al equipo de VertexBuild para preguntas de seguridad, fiabilidad y recuperación.",
         primary: "Contacto de seguridad",
         secondary: "Solicitar demo",
       },
       cta: {
         title: "¿Necesita información de seguridad adicional?",
         supporting:
-          "Conéctese con el equipo de Vertex CMS para preguntas de seguridad, apoyo en evaluaciones o seguimiento — para clientes potenciales, revisores de seguridad empresarial y partes autorizadas.",
+          "Conéctese con el equipo de VertexBuild para preguntas de seguridad, apoyo en evaluaciones o seguimiento — para clientes potenciales, revisores de seguridad empresarial y partes autorizadas.",
         note: "Esta vía es para evaluación y consultas comerciales — no para reportar incidentes de seguridad.",
         primary: "Contacto",
         secondary: "Reservar demo",
@@ -928,7 +928,7 @@ export const marketingContent: Record<MarketingLocale, typeof en> = {
           nav: "Seguridad y confianza",
           title: "Seguridad integrada en la plataforma.",
           description:
-            "Vertex CMS está diseñado con protección de datos, acceso controlado, soporte de cumplimiento, gobernanza de IA y fiabilidad operativa — para que equipos de construcción y revisores empresariales entiendan cómo se prevé que opere la plataforma.",
+            "VertexBuild está diseñado con protección de datos, acceso controlado, soporte de cumplimiento, gobernanza de IA y fiabilidad operativa — para que equipos de construcción y revisores empresariales entiendan cómo se prevé que opere la plataforma.",
         },
         "data-protection": {
           nav: "Protección de datos",
@@ -940,31 +940,31 @@ export const marketingContent: Record<MarketingLocale, typeof en> = {
           nav: "Seguridad de acceso",
           title: "Seguridad de acceso para cada equipo y rol.",
           description:
-            "Vertex CMS admite acceso controlado mediante identidad, autenticación, autorización, MFA, control de acceso basado en roles y capacidades SSO/SCIM aplicables donde esté documentado.",
+            "VertexBuild admite acceso controlado mediante identidad, autenticación, autorización, MFA, control de acceso basado en roles y capacidades SSO/SCIM aplicables donde esté documentado.",
         },
         compliance: {
           nav: "Cumplimiento",
           title: "Cumplimiento diseñado en los flujos de construcción.",
           description:
-            "Vertex CMS admite flujos relacionados con cumplimiento en privacidad, accesibilidad, registros de construcción y requisitos de fuerza laboral y seguridad, distinguiendo el soporte del producto de la certificación organizacional formal.",
+            "VertexBuild admite flujos relacionados con cumplimiento en privacidad, accesibilidad, registros de construcción y requisitos de fuerza laboral y seguridad, distinguiendo el soporte del producto de la certificación organizacional formal.",
         },
         "ai-governance": {
           nav: "Gobernanza de IA",
           title: "Gobernanza de IA basada en control humano.",
           description:
-            "Vertex CMS está diseñado para que la IA pueda ayudar con análisis, recomendaciones y acciones de flujo de trabajo, manteniendo las acciones consecuentes bajo control humano explícito.",
+            "VertexBuild está diseñado para que la IA pueda ayudar con análisis, recomendaciones y acciones de flujo de trabajo, manteniendo las acciones consecuentes bajo control humano explícito.",
         },
         reliability: {
           nav: "Fiabilidad / DR",
           title: "Diseñado para continuidad, recuperación y resiliencia.",
           description:
-            "Vertex CMS está diseñado en torno a infraestructura resiliente, planificación de recuperación y continuidad operativa para que los equipos de construcción mantengan disponible la información crítica del proyecto cuando importa.",
+            "VertexBuild está diseñado en torno a infraestructura resiliente, planificación de recuperación y continuidad operativa para que los equipos de construcción mantengan disponible la información crítica del proyecto cuando importa.",
         },
         contact: {
           nav: "Contacto de seguridad",
           title: "Contacto de seguridad",
           description:
-            "Conéctese con Vertex CMS para preguntas de evaluación de seguridad y seguimiento de revisiones empresariales.",
+            "Conéctese con VertexBuild para preguntas de evaluación de seguridad y seguimiento de revisiones empresariales.",
         },
       },
       related: {
@@ -1002,7 +1002,7 @@ export const marketingContent: Record<MarketingLocale, typeof en> = {
         "Administre sus opciones de cookies con los mismos controles del banner del sitio. Las categorías aprobadas aparecerán aquí cuando el equipo legal las documente.",
       demoNoticeTitle: "Contenido demo — no es texto legal final",
       demoNoticeBody:
-        "El texto siguiente es contenido de muestra para revisión visual únicamente. No representa términos, políticas u obligaciones contractuales aprobados de Vertex CMS.",
+        "El texto siguiente es contenido de muestra para revisión visual únicamente. No representa términos, políticas u obligaciones contractuales aprobados de VertexBuild.",
     },
   },
 };

@@ -3,7 +3,7 @@ import { demoSection } from "./shared";
 
 export const PRIVACY_DEMO_SECTIONS: LegalSection[] = [
   demoSection("overview", "1. Overview", [
-    "This sample Privacy Policy demonstrates how privacy information may be organized on the Vertex CMS website.",
+    "This sample Privacy Policy demonstrates how privacy information may be organized on the VertexBuild website.",
     "The text is for visual design review only and does not describe actual data practices unless otherwise documented in approved materials.",
   ]),
   demoSection("information-collected", "2. Information We Collect", [
@@ -77,7 +77,7 @@ export const PRIVACY_DEMO_SECTIONS: LegalSection[] = [
     "Final rights and procedures will be defined according to applicable law and counsel guidance.",
   ]),
   demoSection("children", "13. Children's Privacy", [
-    "The Vertex CMS business service is intended for organizations and professionals. This sample section states that the service is not directed to children in a generic way.",
+    "The VertexBuild business service is intended for organizations and professionals. This sample section states that the service is not directed to children in a generic way.",
   ]),
   demoSection("international", "14. International Considerations", [
     "Customers may access services from multiple regions. Final privacy copy will address cross-border processing where applicable.",

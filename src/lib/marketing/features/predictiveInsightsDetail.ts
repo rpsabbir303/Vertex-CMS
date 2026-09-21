@@ -14,9 +14,9 @@ const FIELD = "Field Operations";
 
 export const predictiveInsightsFeatureDetail = {
   meta: {
-    title: "Predictive Insights | Vertex CMS Features",
+    title: "Predictive Insights | VertexBuild Features",
     description:
-      "Identify emerging cost, schedule, and performance risks in Vertex CMS. Predictive Insights analyzes connected project signals to help construction teams act before problems become expensive.",
+      "Identify emerging cost, schedule, and performance risks in VertexBuild. Predictive Insights analyzes connected project signals to help construction teams act before problems become expensive.",
     canonical: `${ROUTES.features}/predictive-insights`,
   },
   hero: {
@@ -66,7 +66,7 @@ export const predictiveInsightsFeatureDetail = {
   },
   howItWorks: {
     headline: "From project signals to clear priorities.",
-    body: "Predictive Insights connects information already maintained across Vertex CMS and turns those signals into prioritized project intelligence.",
+    body: "Predictive Insights connects information already maintained across VertexBuild and turns those signals into prioritized project intelligence.",
     preview: "predShowcase" as PreviewKey,
     steps: [
       {
@@ -152,7 +152,7 @@ export const predictiveInsightsFeatureDetail = {
   },
   connectedData: {
     headline: "Insights built from the work already happening.",
-    body: "Predictive Insights draws on project information your team already maintains in Vertex CMS — not disconnected data sources.",
+    body: "Predictive Insights draws on project information your team already maintains in VertexBuild — not disconnected data sources.",
     cards: [
       { slug: "projects", category: PM, title: "Projects", body: "Schedule position, project status, and overall activity signals." },
       { slug: "daily-logs", category: FIELD, title: "Daily Logs", body: "Recent field updates and on-site activity patterns." },
@@ -315,7 +315,7 @@ export const predictiveInsightsFeatureDetail = {
   finalCta: {
     headline: "Stay ahead of project risk.",
     supporting:
-      "Turn project signals into clearer priorities and earlier action with Vertex CMS.",
+      "Turn project signals into clearer priorities and earlier action with VertexBuild.",
     primary: { label: "Explore AI & Intelligence", href: AI },
     secondary: { label: CTAS.demo.label, href: CTAS.demo.href },
   },

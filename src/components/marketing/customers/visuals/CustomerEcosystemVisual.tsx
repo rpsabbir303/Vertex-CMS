@@ -34,7 +34,7 @@ export function CustomerEcosystemVisual({ variant = "hero" }: Props) {
         Customer ecosystem map
       </p>
       <p id="cust-eco-map-desc" className="sr-only">
-        Construction teams connected through Vertex CMS to project, field, financial, and growth workflows, leading to
+        Construction teams connected through VertexBuild to project, field, financial, and growth workflows, leading to
         connected work and clearer coordination.
       </p>
 
@@ -142,7 +142,7 @@ function VertexCore({ compact }: { compact?: boolean }) {
         aria-hidden="true"
       />
       <p className={`font-bold uppercase tracking-[0.12em] text-white ${compact ? "text-[9px]" : "text-[10px] sm:text-[11px]"}`}>
-        Vertex CMS
+        VertexBuild
       </p>
       <p className={`mt-0.5 font-medium text-white/75 ${compact ? "text-[7px]" : "text-[8px] sm:text-[9px]"}`}>
         Connected construction management platform

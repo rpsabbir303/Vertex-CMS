@@ -1,21 +1,21 @@
 /**
  * Typography scope: /integrations and /integrations/[slug] only.
- * Uses --font-integrations-* from next/font on .integrations-typography (do not remap global --font-sans).
+ * Inherits global DM Sans / DM Serif Display from root layout.
  */
 .integrations-typography {
-  font-family: var(--font-integrations-sans), "DM Sans", sans-serif;
+  font-family: var(--font-sans);
 }
 
 .integrations-typography .font-display,
 .integrations-typography .int-display-title {
-  font-family: var(--font-integrations-display), "DM Serif Display", serif;
+  font-family: var(--font-display);
   font-weight: 400;
   font-style: normal;
   letter-spacing: -0.02em;
 }
 
 .integrations-typography .int-eyebrow {
-  font-family: var(--font-integrations-sans), "DM Sans", sans-serif;
+  font-family: var(--font-sans);
   font-size: 11px;
   font-weight: 600;
   letter-spacing: 0.18em;
@@ -23,7 +23,7 @@
 }
 
 .integrations-typography .int-ui-label {
-  font-family: var(--font-integrations-sans), "DM Sans", sans-serif;
+  font-family: var(--font-sans);
   font-size: 10px;
   font-weight: 600;
   letter-spacing: 0.12em;
@@ -36,20 +36,20 @@
 .integrations-typography input,
 .integrations-typography textarea,
 .integrations-typography select {
-  font-family: var(--font-integrations-sans), "DM Sans", sans-serif;
+  font-family: var(--font-sans);
 }
 
 .integrations-typography nav[aria-label="Breadcrumb"],
 .integrations-typography nav[aria-label="Breadcrumb"] a,
 .integrations-typography nav[aria-label="Breadcrumb"] span {
-  font-family: var(--font-integrations-sans), "DM Sans", sans-serif;
+  font-family: var(--font-sans);
 }
 
 .integrations-typography header,
 .integrations-typography header .font-display,
 .integrations-typography footer,
 .integrations-typography footer * {
-  font-family: var(--font-integrations-sans), "DM Sans", sans-serif;
+  font-family: var(--font-sans);
 }
 
 /* Content must never depend on JS to become visible (fixes fade during remount). */

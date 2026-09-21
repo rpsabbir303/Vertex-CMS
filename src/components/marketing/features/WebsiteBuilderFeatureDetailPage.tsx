@@ -68,7 +68,7 @@ function PreviewStage({
           (dark ? "text-slate-400" : "text-brand-muted")
         }
       >
-        Vertex CMS · {label}
+        VertexBuild · {label}
       </p>
       <FeatureProductPreview
         preview={preview}
@@ -470,7 +470,7 @@ export function WebsiteBuilderFeatureDetailPage() {
               </ul>
             </div>
             <div className="border border-brand-orange/35 bg-brand-orange/[0.04] px-5 py-6">
-              <p className="text-[11px] font-bold uppercase tracking-wide text-brand-orange">Vertex CMS Website Builder</p>
+              <p className="text-[11px] font-bold uppercase tracking-wide text-brand-orange">VertexBuild Website Builder</p>
               <ul className="mt-4 space-y-2">
                 {d.differentiator.vertex.map((item) => (
                   <li key={item} className="flex items-center gap-2 text-[13px] font-medium text-brand-navy">

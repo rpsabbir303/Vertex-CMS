@@ -82,7 +82,7 @@ export function CareerDetailVisual() {
               fill="#08233F"
               fillOpacity="0.38"
               fontSize="10"
-              fontFamily="ui-monospace, monospace"
+              fontFamily="var(--font-sans)"
               letterSpacing="1.6"
             >
               {node.label}
@@ -114,7 +114,7 @@ export function CareerDetailFlowMark() {
           <g key={node.label}>
             {index < 3 ? <line x1="48" y1={node.y + 10} x2="48" y2={node.y + 36} stroke="#146EF5" strokeOpacity="0.2" strokeWidth="1" /> : null}
             <circle cx="48" cy={node.y} r="5" fill={index === 0 || index === 3 ? "#FF6A00" : "#146EF5"} fillOpacity={index === 0 ? 0.5 : 0.28} />
-            <text x="68" y={node.y + 4} fill="#08233F" fillOpacity="0.36" fontSize="10" fontFamily="ui-monospace, monospace" letterSpacing="1.6">
+            <text x="68" y={node.y + 4} fill="#08233F" fillOpacity="0.36" fontSize="10" fontFamily="var(--font-sans)" letterSpacing="1.6">
               {node.label}
             </text>
           </g>

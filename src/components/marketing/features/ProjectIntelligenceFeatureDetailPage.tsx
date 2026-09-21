@@ -43,7 +43,7 @@ function PreviewStage({
           (dark ? "text-slate-400" : "text-brand-muted")
         }
       >
-        Vertex CMS · {label}
+        VertexBuild · {label}
       </p>
       <FeatureProductPreview
         preview={preview}

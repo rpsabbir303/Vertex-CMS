@@ -21,16 +21,16 @@ export function SecuritySystemMark({ className = "" }: Props) {
       <circle cx="210" cy="140" r="4" fill={ORANGE} fillOpacity="0.7" className="security-node-pulse" />
       <circle cx="210" cy="140" r="11" stroke={ORANGE} strokeOpacity="0.28" strokeWidth="1" />
       <circle cx="384" cy="140" r="3.5" fill={BLUE} fillOpacity="0.35" />
-      <text x="36" y="92" fill={NAVY} fillOpacity="0.28" fontSize="8" fontFamily="ui-monospace, monospace" letterSpacing="1.4">
+      <text x="36" y="92" fill={NAVY} fillOpacity="0.28" fontSize="8" fontFamily="var(--font-sans)" letterSpacing="1.4">
         DATA
       </text>
-      <text x="108" y="92" fill={NAVY} fillOpacity="0.28" fontSize="8" fontFamily="ui-monospace, monospace" letterSpacing="1.4">
+      <text x="108" y="92" fill={NAVY} fillOpacity="0.28" fontSize="8" fontFamily="var(--font-sans)" letterSpacing="1.4">
         ACCESS
       </text>
-      <text x="198" y="92" fill={NAVY} fillOpacity="0.28" fontSize="8" fontFamily="ui-monospace, monospace" letterSpacing="1.4">
+      <text x="198" y="92" fill={NAVY} fillOpacity="0.28" fontSize="8" fontFamily="var(--font-sans)" letterSpacing="1.4">
         GOVERN
       </text>
-      <text x="292" y="92" fill={NAVY} fillOpacity="0.28" fontSize="8" fontFamily="ui-monospace, monospace" letterSpacing="1.4">
+      <text x="292" y="92" fill={NAVY} fillOpacity="0.28" fontSize="8" fontFamily="var(--font-sans)" letterSpacing="1.4">
         RECOVER
       </text>
     </svg>

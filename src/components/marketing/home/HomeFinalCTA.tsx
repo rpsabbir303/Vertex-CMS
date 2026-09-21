@@ -30,7 +30,7 @@ export function HomeFinalCTA() {
             <span className="block text-slate-300">Nothing lost.</span>
           </h2>
           <p className="home-body mx-auto mt-5 max-w-xl">
-            Bring projects, people, money and intelligence together with Vertex CMS.
+            Bring projects, people, money and intelligence together with VertexBuild.
           </p>
           <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
             <Link href={CTAS.trial.href} className="btn-home-primary">

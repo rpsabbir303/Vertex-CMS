@@ -41,7 +41,7 @@ export function BeforeAfter() {
 
           <Reveal delay={100}>
             <div className="min-h-[340px] rounded-2xl border border-brand-blue/20 bg-brand-navy p-6 text-white shadow-lift">
-              <p className="text-[11px] font-bold uppercase tracking-[0.16em] text-brand-orange">With Vertex CMS</p>
+              <p className="text-[11px] font-bold uppercase tracking-[0.16em] text-brand-orange">With VertexBuild</p>
               <div className="mt-10 grid grid-cols-2 gap-3 sm:grid-cols-3">
                 {AFTER.map((item) => (
                   <div key={item} className="rounded-xl border border-white/10 bg-white/[0.06] px-3 py-5 text-center text-sm font-semibold">

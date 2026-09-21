@@ -3,12 +3,12 @@ import { demoSection } from "./shared";
 
 export const TERMS_DEMO_SECTIONS: LegalSection[] = [
   demoSection("introduction", "1. Introduction", [
-    "These sample Terms of Service (“Terms”) illustrate how a completed Vertex CMS legal document may be structured on this website.",
+    "These sample Terms of Service (“Terms”) illustrate how a completed VertexBuild legal document may be structured on this website.",
     "The sample text below is provided solely for visual design review. It is not official legal copy and should not be relied upon for any legal purpose.",
   ]),
   demoSection("acceptance", "2. Acceptance of Terms", [
     "By accessing or using the sample service described in this demo document, you acknowledge that you have read and understood these illustrative Terms.",
-    "If you do not agree with this sample language, you should not treat this page as governing any real relationship with Vertex CMS.",
+    "If you do not agree with this sample language, you should not treat this page as governing any real relationship with VertexBuild.",
   ]),
   demoSection("eligibility", "3. Eligibility", [
     "This demo section describes eligibility concepts commonly found in SaaS terms. Actual eligibility requirements will be defined in counsel-approved copy.",
@@ -21,7 +21,7 @@ export const TERMS_DEMO_SECTIONS: LegalSection[] = [
   }),
   demoSection("account-registration", "4. Account Registration", [
     "Sample account registration language may describe how users create credentials, verify email addresses, and maintain account security.",
-    "Final terms will specify the actual registration flow supported by the Vertex CMS product.",
+    "Final terms will specify the actual registration flow supported by the VertexBuild product.",
   ], {
     subsections: [
       { title: "4.1 Account information", body: [

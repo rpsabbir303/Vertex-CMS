@@ -68,7 +68,7 @@ export function ModuleBrowser() {
               One Operating System.
             </h2>
             <p className="copy mt-4">
-              Select a capability to preview how Vertex CMS runs that part of the job — the same
+              Select a capability to preview how VertexBuild runs that part of the job — the same
               product language across planning, money, field and compliance.
             </p>
           </div>

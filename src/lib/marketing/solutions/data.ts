@@ -1,6 +1,6 @@
 /**
  * Solutions landing + detail content.
- * Source: documented Vertex CMS segments, project types, and role-based solutions.
+ * Source: documented VertexBuild segments, project types, and role-based solutions.
  * Does not invent unsupported product functionality.
  */
 
@@ -37,9 +37,9 @@ export type SolutionDetail = {
 };
 
 export const solutionsLandingMeta = {
-  title: "Construction Software Solutions | Vertex CMS",
+  title: "Construction Software Solutions | VertexBuild",
   description:
-    "Find the Vertex CMS solution that fits your construction business, project type, or role. One connected platform for project, financial, field, workforce, and intelligence workflows.",
+    "Find the VertexBuild solution that fits your construction business, project type, or role. One connected platform for project, financial, field, workforce, and intelligence workflows.",
   canonical: ROUTES.solutions,
 };
 
@@ -51,7 +51,7 @@ export const SOLUTION_DETAILS: Record<SolutionSlug, SolutionDetail> = {
     eyebrow: "By Business",
     headline: "Run the whole project from one connected system.",
     supporting: "Connected project, financial, subcontractor, and field management.",
-    body: "General contractor teams coordinate many moving parts at once — schedule, cost, subcontractors, documents, and field activity. Vertex CMS keeps those workflows connected around the project so office and field teams work from the same record.",
+    body: "General contractor teams coordinate many moving parts at once — schedule, cost, subcontractors, documents, and field activity. VertexBuild keeps those workflows connected around the project so office and field teams work from the same record.",
     href: ROUTES.solutionsGeneralContractors,
     preview: "projectDashboard",
     previewLabel: "General contractor workspace",
@@ -80,7 +80,7 @@ export const SOLUTION_DETAILS: Record<SolutionSlug, SolutionDetail> = {
     eyebrow: "By Business",
     headline: "Keep field work, billing, and workforce connected.",
     supporting: "Operational, field, billing, and workforce capabilities connected around specialty work.",
-    body: "Specialty contractors need field activity, labor, and billing to stay aligned with the project record. Vertex CMS connects those operational workflows without requiring teams to recreate information across disconnected tools.",
+    body: "Specialty contractors need field activity, labor, and billing to stay aligned with the project record. VertexBuild connects those operational workflows without requiring teams to recreate information across disconnected tools.",
     href: ROUTES.solutionsSpecialtyContractors,
     preview: "wfOverview",
     previewLabel: "Specialty contractor workspace",
@@ -109,7 +109,7 @@ export const SOLUTION_DETAILS: Record<SolutionSlug, SolutionDetail> = {
     eyebrow: "By Business",
     headline: "See the project without managing the project.",
     supporting: "Project visibility, financial oversight, and collaboration in one connected experience.",
-    body: "Owners and clients need a professional view of progress, documents, and approved financial information — not internal workspace complexity. Customer Portals keep that visibility connected to the project information already managed in Vertex CMS.",
+    body: "Owners and clients need a professional view of progress, documents, and approved financial information — not internal workspace complexity. Customer Portals keep that visibility connected to the project information already managed in VertexBuild.",
     href: ROUTES.solutionsOwners,
     preview: "cpShowcase",
     previewLabel: "Owner / client portal",
@@ -137,7 +137,7 @@ export const SOLUTION_DETAILS: Record<SolutionSlug, SolutionDetail> = {
     headline: "Keep commercial project controls connected.",
     supporting:
       "Coordinate scheduling, financial workflows, field activity, documents, and subcontractor work around commercial construction projects.",
-    body: "Commercial work depends on coordinated project controls — schedule, cost, documents, and field activity. Vertex CMS brings those workflows together so teams can manage commercial projects from one connected system.",
+    body: "Commercial work depends on coordinated project controls — schedule, cost, documents, and field activity. VertexBuild brings those workflows together so teams can manage commercial projects from one connected system.",
     href: ROUTES.solutionsCommercial,
     preview: "scheduleGantt",
     previewLabel: "Commercial project controls",
@@ -166,7 +166,7 @@ export const SOLUTION_DETAILS: Record<SolutionSlug, SolutionDetail> = {
     headline: "Keep residential work, cost, and client visibility aligned.",
     supporting:
       "Connect project management, field activity, cost tracking, documents, and client-facing updates for residential construction.",
-    body: "Residential teams need a clear project record that field activity, cost, documents, and client visibility can all share. Vertex CMS keeps those workflows connected without treating the public client view as an internal dashboard.",
+    body: "Residential teams need a clear project record that field activity, cost, documents, and client visibility can all share. VertexBuild keeps those workflows connected without treating the public client view as an internal dashboard.",
     href: ROUTES.solutionsResidential,
     preview: "projectDashboard",
     previewLabel: "Residential project workspace",
@@ -195,7 +195,7 @@ export const SOLUTION_DETAILS: Record<SolutionSlug, SolutionDetail> = {
     headline: "Coordinate schedule, workforce, safety, and project control.",
     supporting:
       "Bring scheduling, compliance, workforce, field operations, and safety together for civil and infrastructure work.",
-    body: "Civil and infrastructure projects depend on scheduling, workforce, field operations, and compliance staying visible as work moves. Vertex CMS connects those project-control capabilities around the project record — without claiming specialized civil-only systems that are not part of the platform.",
+    body: "Civil and infrastructure projects depend on scheduling, workforce, field operations, and compliance staying visible as work moves. VertexBuild connects those project-control capabilities around the project record — without claiming specialized civil-only systems that are not part of the platform.",
     href: ROUTES.solutionsCivil,
     preview: "scheduleLookahead",
     previewLabel: "Civil / infrastructure controls",
@@ -230,7 +230,7 @@ export const FINDER_TABS: { id: FinderTab; n: string; label: string }[] = [
 
 export const SOLUTION_DISCOVERY_SECTION = {
   eyebrow: "Solutions",
-  headline: "See how Vertex CMS fits the way you work.",
+  headline: "See how VertexBuild fits the way you work.",
   supporting:
     "Explore the platform by business, project type, or role—and discover the workflows connected to your work.",
   contextPrompt: "How you work",
@@ -240,7 +240,7 @@ export const SOLUTION_BUSINESS_SECTION = {
   eyebrow: "01 · By Business",
   headline: "Built for the way your company operates.",
   supporting:
-    "General contractors, specialty contractors, and owners each enter Vertex CMS through a different operational lens — on the same platform.",
+    "General contractors, specialty contractors, and owners each enter VertexBuild through a different operational lens — on the same platform.",
 } as const;
 
 export const SOLUTION_PROJECT_TYPE_SECTION = {
@@ -276,7 +276,7 @@ export const SOLUTIONS_PAGE = {
   heroEyebrow: "Solutions",
   heroHeadline: "One platform. Built around how you work.",
   heroSupporting:
-    "Explore the Vertex CMS platform by business, project type, or role—and see the workflows that connect your work.",
+    "Explore the VertexBuild platform by business, project type, or role—and see the workflows that connect your work.",
   finderHeadline: "Find the Vertex solution that fits your work.",
   finderSupporting:
     "Choose a discovery path. The platform stays the same — the entry point changes with how you operate.",

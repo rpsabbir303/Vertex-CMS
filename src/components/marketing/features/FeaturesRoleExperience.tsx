@@ -15,7 +15,7 @@ export function FeaturesRoleExperience() {
       <div className="site-shell section-spacing">
         <Reveal className="max-w-2xl">
           <p className="eyebrow">Features by role</p>
-          <h2 className="display-title mt-3 text-3xl sm:text-4xl">See Vertex CMS for your role.</h2>
+          <h2 className="display-title mt-3 text-3xl sm:text-4xl">See VertexBuild for your role.</h2>
           <p className="mt-4 text-[15px] leading-relaxed text-brand-muted">
             Role needs from the BRD. Module lists show relevant workflows — not exclusive permissions.
           </p>

@@ -15,9 +15,9 @@ type AccessLevel = "View" | "Restricted" | "Full Access";
 
 export const customerPortalsFeatureDetail = {
   meta: {
-    title: "Customer Portals | Vertex CMS Features",
+    title: "Customer Portals | VertexBuild Features",
     description:
-      "Give clients and project stakeholders secure, controlled access to project updates, documents, RFIs, submittals, and approvals — connected to Vertex CMS project workflows.",
+      "Give clients and project stakeholders secure, controlled access to project updates, documents, RFIs, submittals, and approvals — connected to VertexBuild project workflows.",
     canonical: `${ROUTES.features}/customer-portals`,
   },
   hero: {
@@ -39,7 +39,7 @@ export const customerPortalsFeatureDetail = {
       { title: "RFI visibility", body: "Keep RFIs visible to the roles that need them — with responses updating project records." },
       { title: "Submittal visibility", body: "Route submittal upload and architect review through portal workflows tied to project status." },
       { title: "Approval workflows", body: "Pay applications, change orders, drawing revisions, and other documented approvals stay in the project." },
-      { title: "Connected project activity", body: "Portal actions and updates flow back into the broader Vertex CMS project environment." },
+      { title: "Connected project activity", body: "Portal actions and updates flow back into the broader VertexBuild project environment." },
     ],
   },
   howItWorks: {
@@ -160,7 +160,7 @@ export const customerPortalsFeatureDetail = {
   },
   connectedWorkflows: {
     headline: "Customer Portals connected to your project workflows.",
-    body: "Portal access and actions stay tied to the project modules your team already manages in Vertex CMS.",
+    body: "Portal access and actions stay tied to the project modules your team already manages in VertexBuild.",
     cards: [
       { slug: "projects", category: PM, title: "Projects", body: "Portal workspaces are scoped to assigned projects with role-specific navigation and visibility." },
       { slug: "documents", category: PM, title: "Documents", body: "Shared documents and attachments flow through portal access controls to the right stakeholders." },

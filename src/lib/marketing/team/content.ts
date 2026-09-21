@@ -1,5 +1,5 @@
 /**
- * Vertex CMS SaaS Team page.
+ * VertexBuild SaaS Team page.
  *
  * Documented requirement: display CMS-sourced company/team members.
  * Demo profiles (`demoTeamMembers`, `teamConfig.useDemoMembers`) are for UI review only.
@@ -37,14 +37,14 @@ export type TeamDirectory = {
 };
 
 export const teamPageMeta = {
-  title: "Team | Vertex CMS",
-  description: "Leadership, key roles, and careers at Vertex CMS.",
+  title: "Team | VertexBuild",
+  description: "Leadership, key roles, and careers at VertexBuild.",
   canonical: "/company/team",
 };
 
 export const teamHero = {
   eyebrow: "Meet the team",
-  headline: "The people behind Vertex CMS.",
+  headline: "The people behind VertexBuild.",
   supporting: null as string | null,
 };
 
@@ -81,7 +81,7 @@ export const approvedKeyRoles: KeyRole[] = [];
 /** Demo pillar copy for UI review — replace when Vertex publishes approved building copy. */
 export const buildingSection = {
   eyebrow: "How we build",
-  headline: "How the team builds Vertex CMS",
+  headline: "How the team builds VertexBuild",
   demoContent: true,
   pillars: [
     {
@@ -121,7 +121,7 @@ export const TEAM_PENDING = {
   hero: "An approved team introduction has not been published yet.",
   pillar: "Approved copy has not been published yet.",
   careers: "An approved careers introduction has not been published yet.",
-  leadership: "Leadership profiles will appear here when published from Vertex CMS.",
+  leadership: "Leadership profiles will appear here when published from VertexBuild.",
   keyRoles: "Approved role descriptions will appear here when published. This is not a list of employees.",
   keyRolesNote: "Organizational roles — not employee profiles.",
   loadError: "Team profiles are temporarily unavailable. Please try again.",

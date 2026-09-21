@@ -219,7 +219,7 @@ export function HomeHero() {
             <span className="block">construction business.</span>
           </h1>
           <p className="home-body mt-6 max-w-md">
-            Vertex CMS connects projects, financials, field operations, compliance and AI intelligence in one unified
+            VertexBuild connects projects, financials, field operations, compliance and AI intelligence in one unified
             platform.
           </p>
           <div className="mt-9 flex flex-col gap-3 sm:flex-row sm:items-center">

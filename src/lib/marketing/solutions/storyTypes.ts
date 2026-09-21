@@ -1,7 +1,7 @@
 /**
  * Shared solution-page story model.
  * Visual structure is one RoomMaster-inspired layout; content stays page-specific
- * and must come from documented Vertex CMS capabilities.
+ * and must come from documented VertexBuild capabilities.
  */
 
 import type { PreviewKey } from "@/lib/marketing/features/register";

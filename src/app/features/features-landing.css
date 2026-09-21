@@ -3,10 +3,8 @@
  * Scoped; does not change global .site-shell.
  */
 
-/* Features landing — DM Sans (UI/body) + DM Serif Display (major headings only) */
+/* Features landing — inherits global DM Sans / DM Serif Display */
 .feat-font-scope {
-  --font-sans: var(--font-features-sans), system-ui, sans-serif;
-  --font-display: var(--font-features-display), Georgia, "Times New Roman", serif;
   font-family: var(--font-sans);
 }
 

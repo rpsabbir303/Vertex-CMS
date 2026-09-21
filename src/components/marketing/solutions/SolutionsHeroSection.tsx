@@ -385,7 +385,7 @@ export function SolutionsHeroSection() {
                     <span className="text-[10px] text-brand-muted">app.vertexcms.com · Portfolio</span>
                   </div>
                   <div className="border-b border-brand-line bg-white px-4 py-2.5">
-                    <p className="text-[12px] font-bold text-brand-navy">Vertex CMS</p>
+                    <p className="text-[12px] font-bold text-brand-navy">VertexBuild</p>
                   </div>
                   <ProductPreviewClip preview="projectDashboard" size="lg" scale="lg" />
                 </div>

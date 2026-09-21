@@ -3,8 +3,8 @@ import { Suspense } from "react";
 import { RequestQuoteForm } from "@/components/conversion/RequestQuoteForm";
 
 export const metadata: Metadata = {
-  title: "Request a Quote | Vertex CMS",
-  description: "Request an enterprise quote for Vertex CMS based on your organization requirements.",
+  title: "Request a Quote | VertexBuild",
+  description: "Request an enterprise quote for VertexBuild based on your organization requirements.",
 };
 
 export default function RequestQuotePage() {

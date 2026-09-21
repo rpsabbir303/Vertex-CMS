@@ -3,7 +3,7 @@ import { Suspense } from "react";
 import { ProvisioningFailureForm } from "@/components/auth/ProvisioningFailureForm";
 
 export const metadata: Metadata = {
-  title: "Workspace Setup | Vertex CMS",
+  title: "Workspace Setup | VertexBuild",
   description: "Workspace provisioning could not be completed. Retry or contact support.",
 };
 

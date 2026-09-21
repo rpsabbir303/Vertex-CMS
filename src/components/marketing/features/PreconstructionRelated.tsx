@@ -12,7 +12,7 @@ export function PreconstructionRelated() {
         <Reveal>
           <p className="eyebrow">Related features</p>
           <h2 className="display-title mt-3 text-3xl sm:text-4xl">
-            Explore more Vertex CMS capabilities
+            Explore more VertexBuild capabilities
           </h2>
           <p className="mt-4 max-w-2xl text-[15px] leading-relaxed text-brand-muted">
             Preconstruction connects to project delivery, financials, field operations, and compliance across the

@@ -10,7 +10,7 @@ export const INTEGRATION_CATEGORIES: readonly IntegrationCategory[] = [
   {
     id: "accounting",
     label: "Accounting",
-    description: "Accounting systems and optional sync capabilities documented for Vertex CMS.",
+    description: "Accounting systems and optional sync capabilities documented for VertexBuild.",
   },
   {
     id: "e-signature",
@@ -20,7 +20,7 @@ export const INTEGRATION_CATEGORIES: readonly IntegrationCategory[] = [
   {
     id: "productivity",
     label: "Productivity",
-    description: "Productivity tools used alongside Vertex CMS.",
+    description: "Productivity tools used alongside VertexBuild.",
   },
   {
     id: "platform",

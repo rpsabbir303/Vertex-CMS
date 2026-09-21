@@ -382,7 +382,7 @@ export const featuresHubHero = {
   eyebrow: "Complete Feature Library",
   headline: "Everything your construction business needs to work smarter.",
   supporting:
-    "Explore the connected capabilities behind Vertex CMS—from project management and financial control to field operations, workforce, AI, and business growth.",
+    "Explore the connected capabilities behind VertexBuild—from project management and financial control to field operations, workforce, AI, and business growth.",
   capabilityCount: FEATURE_LIBRARY.length,
   browse: [
     { label: "Search features", href: "#features-library" },
@@ -396,7 +396,7 @@ export const featuresHubHero = {
 export const featuresHubCta = {
   headline: "See the platform in action.",
   supporting:
-    "Explore how Vertex CMS connects projects, people, finances, field operations, and growth in one platform.",
+    "Explore how VertexBuild connects projects, people, finances, field operations, and growth in one platform.",
   primaryLabel: "View Features",
   primaryHref: "#features-library",
   secondaryLabel: "Book a Demo",

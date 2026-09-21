@@ -39,7 +39,7 @@ export function CapabilityAppChrome({ activeId, url, children }: Props) {
 
       <div className="grid min-h-[360px] sm:min-h-[400px] lg:min-h-[440px] lg:grid-cols-[148px_1fr]">
         <aside className="hidden border-r border-white/10 bg-[#050f1c] p-3 lg:block" aria-hidden="true">
-          <p className="px-2 text-[10px] font-semibold uppercase tracking-[0.14em] text-slate-500">Vertex CMS</p>
+          <p className="px-2 text-[10px] font-semibold uppercase tracking-[0.14em] text-slate-500">VertexBuild</p>
           <ul className="mt-3 space-y-1">
             {SIDEBAR.map((item) => {
               const active = item.id === activeId || (item.id === "home" && activeId === "project-management");

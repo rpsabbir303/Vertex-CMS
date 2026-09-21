@@ -1,6 +1,6 @@
 # Summit Construction Group — Public Website
 
-Public-facing marketing website for a **tenant construction company** powered by Vertex CMS.
+Public-facing marketing website for a **tenant construction company** powered by VertexBuild.
 
 This is a construction-company website — not a SaaS product landing page.
 
@@ -15,7 +15,7 @@ Open [http://localhost:3000](http://localhost:3000).
 
 ## Stack
 
-Next.js 14 · TypeScript · Tailwind CSS · Manrope + Space Grotesk
+Next.js 14 · TypeScript · Tailwind CSS · DM Sans + DM Serif Display
 
 ## Home Page Sections
 

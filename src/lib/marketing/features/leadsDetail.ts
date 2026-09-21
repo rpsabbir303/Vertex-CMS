@@ -14,9 +14,9 @@ const FIN = "Financial Management";
 
 export const leadsFeatureDetail = {
   meta: {
-    title: "Leads | Vertex CMS Features",
+    title: "Leads | VertexBuild Features",
     description:
-      "Capture, qualify, and manage construction leads in Vertex CMS — with pipeline stages, go/no-go scoring, follow-ups, win/loss tracking, and a connected path into project delivery.",
+      "Capture, qualify, and manage construction leads in VertexBuild — with pipeline stages, go/no-go scoring, follow-ups, win/loss tracking, and a connected path into project delivery.",
     canonical: `${ROUTES.features}/leads`,
   },
   hero: {
@@ -110,7 +110,7 @@ export const leadsFeatureDetail = {
   },
   handoff: {
     headline: "Turn qualified opportunities into project-ready work.",
-    body: "Leads are not isolated records. Capture, qualify, estimate, record the win, then create the project so awarded work continues inside Vertex CMS.",
+    body: "Leads are not isolated records. Capture, qualify, estimate, record the win, then create the project so awarded work continues inside VertexBuild.",
     preview: "leadsHandoff" as PreviewKey,
     steps: ["Lead", "Qualified opportunity", "Estimate / proposal", "Awarded work", "Project"],
   },
@@ -168,7 +168,7 @@ export const leadsFeatureDetail = {
         slug: "website-builder",
         category: BG_LABEL,
         title: "Website Builder",
-        body: "Website contact submissions can create lead records in Vertex CMS.",
+        body: "Website contact submissions can create lead records in VertexBuild.",
       },
       {
         slug: "customer-portals",

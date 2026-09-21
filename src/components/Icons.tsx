@@ -63,7 +63,7 @@ export function CompanyLogo({ light = false }: { light?: boolean }) {
 
 export function VertexLogo({ compact = false, light = false }: { compact?: boolean; light?: boolean }) {
   return (
-    <a href="/" className="group inline-flex items-center gap-2.5" aria-label="Vertex CMS home">
+    <a href="/" className="group inline-flex items-center gap-2.5" aria-label="VertexBuild home">
       <span className="relative flex h-9 w-9 items-center justify-center rounded-lg bg-brand-blue shadow-sm transition group-hover:bg-[#0f5fd9]">
         <span className="text-[11px] font-bold tracking-tight text-white">VX</span>
         <span className="absolute -right-0.5 -top-0.5 h-2 w-2 rounded-full bg-brand-orange" />
@@ -71,7 +71,7 @@ export function VertexLogo({ compact = false, light = false }: { compact?: boole
       {!compact && (
         <span className="leading-tight">
           <span className={`block text-sm font-bold tracking-tight ${light ? "text-white" : "text-brand-navy"}`}>
-            Vertex CMS
+            VertexBuild
           </span>
           <span className={`block text-[10px] font-medium ${light ? "text-slate-400" : "text-brand-muted"}`}>
             Construction Management

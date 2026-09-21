@@ -13,9 +13,9 @@ import { SOLUTION_DETAILS } from "./data";
 const OWNER = SOLUTION_DETAILS.owners;
 
 export const ownerPageMeta = {
-  title: "Owner & Client Software | Vertex CMS Solutions",
+  title: "Owner & Client Software | VertexBuild Solutions",
   description:
-    "Vertex CMS gives Owners and Clients a controlled view of assigned projects — visibility, financial oversight, collaboration, and approvals without full workspace access.",
+    "VertexBuild gives Owners and Clients a controlled view of assigned projects — visibility, financial oversight, collaboration, and approvals without full workspace access.",
   canonical: ROUTES.solutionsOwners,
 } as const;
 
@@ -113,7 +113,7 @@ export const ownerFinancials = {
   eyebrow: "Financial oversight",
   headline: "See budget, billing, and pay applications in context.",
   supporting:
-    "Owners review read-only budget, invoices, draw requests, and pay applications in the portal — connected to Vertex CMS billing and AIA pay application workflows.",
+    "Owners review read-only budget, invoices, draw requests, and pay applications in the portal — connected to VertexBuild billing and AIA pay application workflows.",
   path: [
     { id: "budget", label: "Budget", preview: "cpOwnerPortal" as PreviewKey },
     { id: "billing", label: "Billing", preview: "cpOwnerPortal" as PreviewKey },
@@ -179,7 +179,7 @@ export const ownerCollaboration = {
   eyebrow: "Project collaboration",
   headline: "One place to understand status and activity.",
   supporting:
-    "Dashboard, schedule, photos, documents, invoices, pay applications, and change orders stay in the same Owner / Client workspace — connected to the project already managed in Vertex CMS.",
+    "Dashboard, schedule, photos, documents, invoices, pay applications, and change orders stay in the same Owner / Client workspace — connected to the project already managed in VertexBuild.",
   views: [
     { id: "dashboard", label: "Dashboard", preview: "cpFullPortal" as PreviewKey },
     { id: "schedule", label: "Schedule", preview: "scheduleGantt" as PreviewKey },
@@ -211,7 +211,7 @@ export const ownerAi = {
     {
       id: "data",
       label: "Data",
-      body: "Grounded in the project, documents, and financial records already in Vertex CMS — scoped to what the user can access.",
+      body: "Grounded in the project, documents, and financial records already in VertexBuild — scoped to what the user can access.",
       preview: "aiGrounded" as PreviewKey,
     },
     {
@@ -277,7 +277,7 @@ export const ownerExperience = {
 } as const;
 
 export const ownerCta = {
-  headline: "See Vertex CMS from the owner and client side.",
+  headline: "See VertexBuild from the owner and client side.",
   supporting: "Walk through the portal, approvals, and project visibility — or start a free trial.",
   primary: { label: CTAS.demo.label, href: CTAS.demo.href },
   secondary: { label: CTAS.trial.label, href: CTAS.trial.href },

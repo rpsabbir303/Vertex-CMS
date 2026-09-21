@@ -80,7 +80,7 @@ export function ScHeroSection() {
           <Reveal className="relative order-2 lg:order-1 lg:pb-16">
             <div className="overflow-hidden rounded-2xl border border-brand-line bg-gradient-to-br from-[#E8EEF5] via-[#F0F4F9] to-[#E4EBF4] p-3 sm:p-5">
               <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.14em] text-brand-muted">
-                Vertex CMS · {scHero.previewLabel}
+                VertexBuild · {scHero.previewLabel}
               </p>
               <FeatureProductPreview
                 preview={scHero.preview}
@@ -221,7 +221,7 @@ export function ScOperatingSection() {
                 <ProductStage
                   preview={node.preview}
                   dark={"previewDark" in node ? node.previewDark : undefined}
-                  label={`Vertex CMS · ${node.label}`}
+                  label={`VertexBuild · ${node.label}`}
                 />
               </div>
               <button
@@ -438,7 +438,7 @@ export function ScProjectSection() {
         <Reveal delay={70} className="mt-10 overflow-hidden rounded-3xl border border-brand-line/80">
           <div className="flex items-center justify-between gap-3 border-b border-brand-line/70 bg-[#FAFBFD] px-4 py-3">
             <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-brand-muted">
-              Vertex CMS · Project workspace
+              VertexBuild · Project workspace
             </p>
             <span className="hidden text-[11px] text-brand-muted sm:inline">One record · connected modules</span>
           </div>

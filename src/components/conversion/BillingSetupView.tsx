@@ -176,7 +176,7 @@ export function BillingSetupView() {
     return (
       <BillingSetupShell
         eyebrow="Payment & billing"
-        title="Set up your Vertex CMS workspace"
+        title="Set up your VertexBuild workspace"
         subtitle="Configure your plan, billing cadence, and optional capabilities."
       >
         <div className="max-w-lg space-y-3" aria-busy="true" aria-live="polite">
@@ -193,7 +193,7 @@ export function BillingSetupView() {
     return (
       <BillingSetupShell
         eyebrow="Payment & billing"
-        title="Set up your Vertex CMS workspace"
+        title="Set up your VertexBuild workspace"
         subtitle="Configure your plan, billing cadence, and optional capabilities."
       >
         <div className="max-w-md rounded-xl border border-brand-line bg-white p-6">
@@ -216,8 +216,8 @@ export function BillingSetupView() {
     return (
       <BillingSetupShell
         eyebrow="Billing complete"
-        title="Your Vertex CMS workspace is ready."
-        subtitle="Billing setup is complete. Payment processing is handled through Vertex CMS billing."
+        title="Your VertexBuild workspace is ready."
+        subtitle="Billing setup is complete. Payment processing is handled through VertexBuild billing."
       >
         <PostTrialProgress current="dashboard" />
         <div className="mt-2 max-w-lg space-y-6">
@@ -244,8 +244,8 @@ export function BillingSetupView() {
   return (
     <BillingSetupShell
       eyebrow="Payment & billing"
-      title="Set up your Vertex CMS workspace"
-      subtitle="Configure your plan, billing cadence, and optional capabilities. Payment processing is handled through Vertex CMS billing."
+      title="Set up your VertexBuild workspace"
+      subtitle="Configure your plan, billing cadence, and optional capabilities. Payment processing is handled through VertexBuild billing."
     >
       <PostTrialProgress current="billing" />
 

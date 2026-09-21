@@ -45,7 +45,7 @@ export function CmsChrome({
             <span className="flex h-7 w-7 items-center justify-center rounded-lg bg-[#146EF5] text-[9px] font-bold text-white">
               VX
             </span>
-            <span className={`text-xs font-semibold ${dark ? "text-white" : "text-[#08233F]"}`}>Vertex CMS</span>
+            <span className={`text-xs font-semibold ${dark ? "text-white" : "text-[#08233F]"}`}>VertexBuild</span>
           </div>
           <ul className="space-y-0.5">
             {nav.map((item, i) => (

@@ -9,9 +9,9 @@ import type { PreviewKey } from "./register";
 
 export const aiaPayApplicationsFeatureDetail = {
   meta: {
-    title: "AIA Pay Applications | Vertex CMS Features",
+    title: "AIA Pay Applications | VertexBuild Features",
     description:
-      "Prepare, review, and certify AIA G702 pay applications connected to Schedule of Values, retainage, and lien workflows in Vertex CMS.",
+      "Prepare, review, and certify AIA G702 pay applications connected to Schedule of Values, retainage, and lien workflows in VertexBuild.",
     canonical: `${ROUTES.features}/aia-pay-applications`,
   },
   hero: {
@@ -36,7 +36,7 @@ export const aiaPayApplicationsFeatureDetail = {
   intro: {
     eyebrow: "Progress Payment Workflow",
     headline: "Turn Project Progress Into a Clear Payment Application.",
-    body: "Pay applications bring project progress, contract values, scheduled work, and payment information together. Vertex CMS keeps these details organized so teams can prepare and review applications with greater clarity.",
+    body: "Pay applications bring project progress, contract values, scheduled work, and payment information together. VertexBuild keeps these details organized so teams can prepare and review applications with greater clarity.",
     points: [
       {
         title: "Connected Project Data",

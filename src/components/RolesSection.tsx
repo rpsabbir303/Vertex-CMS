@@ -40,7 +40,7 @@ export function RolesSection() {
               Shared Project Truth.
             </h2>
             <p className="copy mt-4">
-              Vertex CMS connects the people who run the work — without inventing customer quotes or
+              VertexBuild connects the people who run the work — without inventing customer quotes or
               fake ratings. Real stories will appear here when approved.
             </p>
             <div className="mt-8 grid gap-3 sm:grid-cols-2">

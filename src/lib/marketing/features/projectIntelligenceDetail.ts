@@ -17,9 +17,9 @@ const FIELD = "Field Operations";
 
 export const projectIntelligenceFeatureDetail = {
   meta: {
-    title: "Project Intelligence | Vertex CMS Features",
+    title: "Project Intelligence | VertexBuild Features",
     description:
-      "Ask natural-language questions about project status, costs, RFIs, schedule variance, and connected project information in Vertex CMS—with answers grounded in CMS records.",
+      "Ask natural-language questions about project status, costs, RFIs, schedule variance, and connected project information in VertexBuild—with answers grounded in CMS records.",
     canonical: `${ROUTES.features}/project-intelligence`,
   },
   hero: {
@@ -65,7 +65,7 @@ export const projectIntelligenceFeatureDetail = {
   },
   workspace: {
     headline: "Ask the project, not a dozen systems.",
-    body: "Get answers using the information already maintained across Vertex CMS.",
+    body: "Get answers using the information already maintained across VertexBuild.",
     preview: "piWorkspace" as PreviewKey,
   },
   howItWorks: {
@@ -182,7 +182,7 @@ export const projectIntelligenceFeatureDetail = {
     ],
   },
   workflows: {
-    headline: "Project Intelligence works across Vertex CMS.",
+    headline: "Project Intelligence works across VertexBuild.",
     body: "Keep project questions connected to the workflows where the work actually happens.",
     cards: [
       {

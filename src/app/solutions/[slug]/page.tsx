@@ -111,14 +111,14 @@ export function generateMetadata({ params }: PageProps): Metadata {
   }
 
   const solution = getSolutionBySlug(params.slug);
-  if (!solution) return { title: "Solution | Vertex CMS" };
+  if (!solution) return { title: "Solution | VertexBuild" };
 
   return {
-    title: `${solution.label} | Vertex CMS Solutions`,
+    title: `${solution.label} | VertexBuild Solutions`,
     description: solution.supporting,
     alternates: { canonical: solution.href },
     openGraph: {
-      title: `${solution.label} | Vertex CMS Solutions`,
+      title: `${solution.label} | VertexBuild Solutions`,
       description: solution.supporting,
       url: solution.href,
       type: "website",

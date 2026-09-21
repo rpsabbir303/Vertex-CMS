@@ -1,5 +1,5 @@
 /**
- * Vertex CMS SaaS Careers listing — job data layer.
+ * VertexBuild SaaS Careers listing — job data layer.
  *
  * RULES:
  * - Do NOT invent real vacancies, benefits, offices, or culture claims.
@@ -40,9 +40,9 @@ export const careersConfig = {
 };
 
 export const careersPageMeta = {
-  title: "Careers | Vertex CMS",
+  title: "Careers | VertexBuild",
   description:
-    "Join Vertex CMS — build construction management software that connects projects, financials, field operations, and intelligence.",
+    "Join VertexBuild — build construction management software that connects projects, financials, field operations, and intelligence.",
   canonical: "/company/careers",
 };
 
@@ -62,7 +62,7 @@ export const careersDemoJobs: CareerJob[] = [
     employmentType: "Full-time",
     workArrangement: DEMO_ARRANGEMENT,
     location: DEMO_LOCATION,
-    description: "Shape product experiences across the Vertex CMS platform.",
+    description: "Shape product experiences across the VertexBuild platform.",
     about:
       "This sample role focuses on the product surfaces construction teams use to plan, coordinate, and operate work. You would help turn complex project, financial, and field workflows into clear, usable product experiences — without treating each capability as a separate tool.",
     responsibilities: [
@@ -70,7 +70,7 @@ export const careersDemoJobs: CareerJob[] = [
       "Work with product and engineering to keep the interface aligned with how construction teams actually operate.",
       "Translate operational problems into structured design proposals and product patterns.",
       "Refine flows across office and field use so information stays readable and consistent.",
-      "Contribute to a coherent system language across the Vertex CMS product.",
+      "Contribute to a coherent system language across the VertexBuild product.",
     ],
     qualifications: [
       "Experience designing software used in complex operational workflows.",
@@ -110,7 +110,7 @@ export const careersDemoJobs: CareerJob[] = [
       "Interest in systems that connect multiple operational workflows.",
     ],
     whyThisRole:
-      "This sample role matters because Vertex CMS is designed as one connected operating platform. Platform work is what keeps those workflows sharing the same underlying record.",
+      "This sample role matters because VertexBuild is designed as one connected operating platform. Platform work is what keeps those workflows sharing the same underlying record.",
     status: "open",
     demoContent: true,
   },
@@ -122,7 +122,7 @@ export const careersDemoJobs: CareerJob[] = [
     employmentType: "Full-time",
     workArrangement: DEMO_ARRANGEMENT,
     location: DEMO_LOCATION,
-    description: "Help teams adopt Vertex CMS and stay oriented to the operational problems the product is meant to solve.",
+    description: "Help teams adopt VertexBuild and stay oriented to the operational problems the product is meant to solve.",
     about:
       "This sample role focuses on helping construction teams adopt a connected operating platform. You would stay close to how customers actually work — where friction appears, which workflows matter, and how office, field, and financial teams stay aligned.",
     responsibilities: [
@@ -153,11 +153,11 @@ export const careersDemoJobs: CareerJob[] = [
     workArrangement: DEMO_ARRANGEMENT,
     location: DEMO_LOCATION,
     description:
-      "Help teams successfully adopt and operate Vertex CMS across their construction workflows.",
+      "Help teams successfully adopt and operate VertexBuild across their construction workflows.",
     about:
-      "This sample role focuses on helping customers adopt Vertex CMS across their construction workflows. You would support implementation, understand how teams currently work, and collaborate with product and customer teams so the platform can be used in day-to-day project, financial, and field operations.",
+      "This sample role focuses on helping customers adopt VertexBuild across their construction workflows. You would support implementation, understand how teams currently work, and collaborate with product and customer teams so the platform can be used in day-to-day project, financial, and field operations.",
     responsibilities: [
-      "Guide customers through Vertex CMS implementation and adoption.",
+      "Guide customers through VertexBuild implementation and adoption.",
       "Translate customer workflows into clear implementation requirements.",
       "Collaborate with product and customer teams to resolve workflow challenges.",
       "Help customers understand connected project and operational workflows.",

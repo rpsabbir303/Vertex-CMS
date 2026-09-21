@@ -16,9 +16,9 @@ const PM = "Project Management";
 
 export const subcontractorsFeatureDetail = {
   meta: {
-    title: "Subcontractors | Vertex CMS Features",
+    title: "Subcontractors | VertexBuild Features",
     description:
-      "Manage subcontractor profiles, project relationships, insurance certificates, lien waivers, and compliance readiness in Vertex CMS.",
+      "Manage subcontractor profiles, project relationships, insurance certificates, lien waivers, and compliance readiness in VertexBuild.",
     canonical: `${ROUTES.features}/subcontractors`,
   },
   hero: {

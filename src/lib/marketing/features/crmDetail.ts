@@ -11,9 +11,9 @@ const BG_LABEL = "Business Growth";
 
 export const crmFeatureDetail = {
   meta: {
-    title: "CRM | Vertex CMS Features",
+    title: "CRM | VertexBuild Features",
     description:
-      "Manage construction customer relationships, opportunities, and project-connected business information in Vertex CMS — from first conversation through active work.",
+      "Manage construction customer relationships, opportunities, and project-connected business information in VertexBuild — from first conversation through active work.",
     canonical: `${ROUTES.features}/crm`,
   },
   hero: {
@@ -42,7 +42,7 @@ export const crmFeatureDetail = {
       {
         n: "03",
         title: "Project connection",
-        body: "Connect customer relationships to the projects, teams, and records already managed in Vertex CMS.",
+        body: "Connect customer relationships to the projects, teams, and records already managed in VertexBuild.",
       },
     ],
   },
@@ -78,7 +78,7 @@ export const crmFeatureDetail = {
   },
   darkStory: {
     headline: "Turn relationships into connected business opportunities.",
-    body: "Give teams the context they need to move opportunities forward while keeping customer information connected to the work already happening in Vertex CMS.",
+    body: "Give teams the context they need to move opportunities forward while keeping customer information connected to the work already happening in VertexBuild.",
     preview: "crmOpportunity" as PreviewKey,
   },
   outcomes: {
@@ -102,7 +102,7 @@ export const crmFeatureDetail = {
       {
         n: "04",
         title: "Stronger project continuity",
-        body: "Connect business relationships with the project information already inside Vertex CMS.",
+        body: "Connect business relationships with the project information already inside VertexBuild.",
       },
     ],
   },
@@ -171,7 +171,7 @@ export const crmFeatureDetail = {
   finalCta: {
     headline: "Build stronger customer relationships with connected context.",
     supporting:
-      "Explore how Vertex CMS connects business growth with the projects, people, and information behind every opportunity.",
+      "Explore how VertexBuild connects business growth with the projects, people, and information behind every opportunity.",
     primary: { label: "Explore Business Growth", href: GROWTH },
     secondary: { label: CTAS.demo.label, href: CTAS.demo.href },
   },

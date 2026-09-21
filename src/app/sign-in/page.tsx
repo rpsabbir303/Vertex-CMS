@@ -3,8 +3,8 @@ import { Suspense } from "react";
 import { SignInForm } from "@/components/auth/SignInForm";
 
 export const metadata: Metadata = {
-  title: "Sign In | Vertex CMS",
-  description: "Sign in to your Vertex CMS construction management workspace.",
+  title: "Sign In | VertexBuild",
+  description: "Sign in to your VertexBuild construction management workspace.",
 };
 
 export default function SignInPage() {

@@ -14,9 +14,9 @@ import { PLATFORM_CATEGORIES, SOLUTION_DETAILS } from "./data";
 const COMMERCIAL = SOLUTION_DETAILS.commercial;
 
 export const commercialPageMeta = {
-  title: "Commercial Construction Software | Vertex CMS Solutions",
+  title: "Commercial Construction Software | VertexBuild Solutions",
   description:
-    "Vertex CMS connects commercial construction project management, field operations, documents, financials, compliance, owner collaboration, and intelligence on one project record.",
+    "VertexBuild connects commercial construction project management, field operations, documents, financials, compliance, owner collaboration, and intelligence on one project record.",
   canonical: ROUTES.solutionsCommercial,
 } as const;
 
@@ -247,7 +247,7 @@ export const commercialSubs = {
   eyebrow: "Subcontractors + compliance",
   headline: "Trades, readiness, and labor stay on the commercial job.",
   supporting:
-    "Keep subcontractor relationships, required documents, workforce, time, and payroll readiness visible for the work — without treating Vertex CMS as legal advice or a guaranteed compliance outcome.",
+    "Keep subcontractor relationships, required documents, workforce, time, and payroll readiness visible for the work — without treating VertexBuild as legal advice or a guaranteed compliance outcome.",
   preview: "subReadiness" as PreviewKey,
   overlayPreview: "wfOverview" as PreviewKey,
   overlayLabel: "Workforce on the project",
@@ -308,7 +308,7 @@ export const commercialOwner = {
     {
       id: "team",
       label: "Project team",
-      body: "The commercial team manages the project record in Vertex CMS.",
+      body: "The commercial team manages the project record in VertexBuild.",
       preview: "projectDashboard" as PreviewKey,
     },
     {
@@ -343,7 +343,7 @@ export const commercialAi = {
     {
       id: "data",
       label: "Project data",
-      body: "Grounded in schedule, documents, drawings, cost, and field activity already in Vertex CMS.",
+      body: "Grounded in schedule, documents, drawings, cost, and field activity already in VertexBuild.",
       preview: "aiGrounded" as PreviewKey,
     },
     {
@@ -380,7 +380,7 @@ export const commercialPlatform = {
   eyebrow: "One commercial construction platform",
   headline: "Five areas. One operating system for the job.",
   supporting:
-    "Project management, field operations, financials, workforce, and intelligence stay in Vertex CMS — not five disconnected products.",
+    "Project management, field operations, financials, workforce, and intelligence stay in VertexBuild — not five disconnected products.",
   areas: [...PLATFORM_CATEGORIES]
     .filter((cat) => (COMMERCIAL_AREA_ORDER as readonly string[]).includes(cat.title))
     .sort(
@@ -398,7 +398,7 @@ export const commercialPlatform = {
 } as const;
 
 export const commercialCta = {
-  headline: "See Vertex CMS on a commercial construction project.",
+  headline: "See VertexBuild on a commercial construction project.",
   supporting: "Walk through project controls, field, documents, and financial workflows — or start a free trial.",
   primary: { label: CTAS.demo.label, href: CTAS.demo.href },
   secondary: { label: CTAS.trial.label, href: CTAS.trial.href },

@@ -1,5 +1,5 @@
 /**
- * AuthClient — UI integration boundary for Vertex CMS authentication.
+ * AuthClient — UI integration boundary for VertexBuild authentication.
  *
  * MODE: "preview"
  * - No backend exists in this marketing repository.

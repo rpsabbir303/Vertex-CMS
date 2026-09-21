@@ -14,9 +14,9 @@ import { PLATFORM_CATEGORIES, SOLUTION_DETAILS } from "./data";
 const RESIDENTIAL = SOLUTION_DETAILS.residential;
 
 export const residentialPageMeta = {
-  title: "Residential Construction Software | Vertex CMS Solutions",
+  title: "Residential Construction Software | VertexBuild Solutions",
   description:
-    "Vertex CMS connects residential construction project control, field execution, financial visibility, owner collaboration, and intelligence on one project record.",
+    "VertexBuild connects residential construction project control, field execution, financial visibility, owner collaboration, and intelligence on one project record.",
   canonical: ROUTES.solutionsResidential,
 } as const;
 
@@ -333,7 +333,7 @@ export const residentialOwner = {
     {
       id: "team",
       label: "Project team",
-      body: "The residential team manages the project record in Vertex CMS.",
+      body: "The residential team manages the project record in VertexBuild.",
     },
     {
       id: "information",
@@ -364,7 +364,7 @@ export const residentialAi = {
     {
       id: "data",
       label: "Project data",
-      body: "Grounded in logs, cost, documents, and project records already in Vertex CMS.",
+      body: "Grounded in logs, cost, documents, and project records already in VertexBuild.",
       preview: "aiGrounded" as PreviewKey,
     },
     {
@@ -401,7 +401,7 @@ export const residentialPlatform = {
   eyebrow: "One residential construction platform",
   headline: "Five areas. One operating system for the job.",
   supporting:
-    "Project management, field operations, financials, workforce, and intelligence stay in Vertex CMS — not five disconnected products.",
+    "Project management, field operations, financials, workforce, and intelligence stay in VertexBuild — not five disconnected products.",
   areas: [...PLATFORM_CATEGORIES]
     .filter((cat) => (RESIDENTIAL_AREA_ORDER as readonly string[]).includes(cat.title))
     .sort(
@@ -419,7 +419,7 @@ export const residentialPlatform = {
 } as const;
 
 export const residentialCta = {
-  headline: "See Vertex CMS on residential construction work.",
+  headline: "See VertexBuild on residential construction work.",
   supporting: "Walk through project control, field, cost, and client visibility — or start a free trial.",
   primary: { label: CTAS.demo.label, href: CTAS.demo.href },
   secondary: { label: CTAS.trial.label, href: CTAS.trial.href },

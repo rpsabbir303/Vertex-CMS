@@ -174,7 +174,7 @@ export function AboutConvergeVisual({ labels }: { labels: string[] }) {
               fill="#08233F"
               fillOpacity="0.5"
               fontSize="8"
-              fontFamily="ui-monospace, monospace"
+              fontFamily="var(--font-sans)"
               letterSpacing="0.6"
             >
               {node.label.length <= 13 ? node.label.toUpperCase() : String(i + 1).padStart(2, "0")}
@@ -274,7 +274,7 @@ export function ContactConfirmVisual({ labels }: { labels: [string, string, stri
               fill="#08233F"
               fillOpacity="0.42"
               fontSize="10"
-              fontFamily="ui-monospace, monospace"
+              fontFamily="var(--font-sans)"
               letterSpacing="1.2"
             >
               {step.label.toUpperCase()}
@@ -321,7 +321,7 @@ export function ContactConnectedVisual({ labels }: { labels: string[] }) {
               fill="#08233F"
               fillOpacity="0.5"
               fontSize="9"
-              fontFamily="ui-monospace, monospace"
+              fontFamily="var(--font-sans)"
               letterSpacing="0.6"
             >
               {node.label.toUpperCase()}

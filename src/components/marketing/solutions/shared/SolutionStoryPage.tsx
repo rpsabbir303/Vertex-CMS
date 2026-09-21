@@ -233,7 +233,7 @@ export function SolutionStoryPage({
                 </div>
                 <div className="relative bg-[#0B2238] p-4 sm:p-6 lg:p-8">
                   <p className="mb-3 text-[10px] font-semibold uppercase tracking-[0.16em] text-slate-400">
-                    Vertex CMS · {story.hero.previewLabel}
+                    VertexBuild · {story.hero.previewLabel}
                   </p>
                   <ProductPreviewClip preview={story.hero.preview} size="xl" scale="lg" />
                   {story.hero.overlayPreview ? (
@@ -403,7 +403,7 @@ export function SolutionStoryPage({
           </Reveal>
           <Reveal delay={80} className="mt-10 overflow-hidden rounded-[2rem] bg-[#DCE7F3] p-3 sm:p-5">
             <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.14em] text-brand-muted">
-              Vertex CMS · {story.showcase.previewLabel}
+              VertexBuild · {story.showcase.previewLabel}
             </p>
             <ProductPreviewClip preview={story.showcase.preview} size="xl" scale="lg" />
             <div className="mt-4 flex gap-px overflow-x-auto rounded-2xl border border-white/80 bg-white/80 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">

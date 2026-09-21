@@ -12,9 +12,9 @@ import { PLATFORM_CATEGORIES, SOLUTION_DETAILS } from "./data";
 const SC = SOLUTION_DETAILS["specialty-contractors"];
 
 export const scPageMeta = {
-  title: "Specialty Contractor Software | Vertex CMS Solutions",
+  title: "Specialty Contractor Software | VertexBuild Solutions",
   description:
-    "Vertex CMS connects Specialty Contractor field operations, projects, workforce, billing, compliance, and intelligence on one project record.",
+    "VertexBuild connects Specialty Contractor field operations, projects, workforce, billing, compliance, and intelligence on one project record.",
   canonical: ROUTES.solutionsSpecialtyContractors,
 } as const;
 
@@ -139,7 +139,7 @@ export const scField = {
     {
       id: "connected",
       label: "Connected",
-      body: "Mobile workflows stay tied to the Vertex CMS project record.",
+      body: "Mobile workflows stay tied to the VertexBuild project record.",
       preview: "mobileWorkspace" as PreviewKey,
     },
     {
@@ -236,7 +236,7 @@ export const scSubs = {
   eyebrow: "Subcontractor + compliance",
   headline: "Trades, documents, and readiness stay on the project.",
   supporting:
-    "Keep subcontractor relationships, required documents, and workforce context visible for the work you perform — without treating Vertex CMS as legal advice or a guaranteed compliance outcome.",
+    "Keep subcontractor relationships, required documents, and workforce context visible for the work you perform — without treating VertexBuild as legal advice or a guaranteed compliance outcome.",
   preview: "subProfile" as PreviewKey,
   overlayPreview: "compOverview" as PreviewKey,
   overlayLabel: "Compliance readiness",
@@ -269,7 +269,7 @@ export const scAi = {
     {
       id: "data",
       label: "Data",
-      body: "Grounded in logs, time, T&M, drawings, and project records already in Vertex CMS.",
+      body: "Grounded in logs, time, T&M, drawings, and project records already in VertexBuild.",
       preview: "aiGrounded" as PreviewKey,
     },
     {
@@ -306,7 +306,7 @@ export const scPlatform = {
   eyebrow: "One connected workflow",
   headline: "Five areas. One specialty operating system.",
   supporting:
-    "Field operations, project management, workforce, financials, and intelligence stay in Vertex CMS — not five disconnected products.",
+    "Field operations, project management, workforce, financials, and intelligence stay in VertexBuild — not five disconnected products.",
   areas: [...PLATFORM_CATEGORIES]
     .filter((cat) => (SC_AREA_ORDER as readonly string[]).includes(cat.title))
     .sort(
@@ -323,7 +323,7 @@ export const scPlatform = {
 } as const;
 
 export const scCta = {
-  headline: "See Vertex CMS on specialty contractor work.",
+  headline: "See VertexBuild on specialty contractor work.",
   supporting: "Walk through field, workforce, billing, and project workflows — or start a free trial.",
   primary: { label: CTAS.demo.label, href: CTAS.demo.href },
   secondary: { label: CTAS.trial.label, href: CTAS.trial.href },

@@ -1,19 +1,24 @@
 import type { Viewport } from "next";
-import { Manrope, Space_Grotesk } from "next/font/google";
+import { DM_Sans, DM_Serif_Display } from "next/font/google";
 import { Providers } from "@/components/website/Providers";
 import { marketingContent } from "@/lib/marketing/content";
 import "./globals.css";
 
-const display = Space_Grotesk({
+const display = DM_Serif_Display({
   subsets: ["latin"],
+  weight: "400",
   variable: "--font-display",
-  display: "swap",
+  display: "block",
+  preload: true,
+  adjustFontFallback: true,
 });
 
-const body = Manrope({
+const sans = DM_Sans({
   subsets: ["latin"],
   variable: "--font-sans",
-  display: "swap",
+  display: "block",
+  preload: true,
+  adjustFontFallback: true,
 });
 
 export const viewport: Viewport = {
@@ -32,7 +37,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${display.variable} ${body.variable}`}>
+    <html lang="en" className={`${display.variable} ${sans.variable}`}>
       <body className="font-sans antialiased">
         <Providers>{children}</Providers>
       </body>

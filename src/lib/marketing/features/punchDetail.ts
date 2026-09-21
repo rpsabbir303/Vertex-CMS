@@ -15,9 +15,9 @@ const PM = "Project Management";
 
 export const punchFeatureDetail = {
   meta: {
-    title: "Punch | Vertex CMS Features",
+    title: "Punch | VertexBuild Features",
     description:
-      "Create, assign, and track punch list items from identification to completion with status visibility in Vertex CMS.",
+      "Create, assign, and track punch list items from identification to completion with status visibility in VertexBuild.",
     canonical: `${ROUTES.features}/punch`,
   },
   hero: {
@@ -161,7 +161,7 @@ export const punchFeatureDetail = {
   ] as const,
   connected: {
     headline: "Punch connected to field operations.",
-    body: "Keep punch activity connected to the workflows teams already use across Vertex CMS.",
+    body: "Keep punch activity connected to the workflows teams already use across VertexBuild.",
     cards: [
       {
         slug: "daily-logs",
@@ -235,7 +235,7 @@ export const punchFeatureDetail = {
   fieldOps: {
     eyebrow: "Field Operations",
     headline: "Everything your field team needs to stay connected.",
-    body: "Explore the connected Field Operations capabilities available across Vertex CMS.",
+    body: "Explore the connected Field Operations capabilities available across VertexBuild.",
     activeSlug: "punch",
     cards: [
       {

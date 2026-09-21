@@ -26,6 +26,8 @@ body {
 
   margin: 0;
 
+  font-family: var(--font-sans);
+
   color: #0b1220;
 
   background: #ffffff;
@@ -118,6 +120,29 @@ svg {
 
     @apply mx-auto w-full max-w-[1280px] px-5 sm:px-6 lg:px-10 xl:px-12;
 
+  }
+
+  /* Resource Hub blog article stream — desktop rail only */
+  .hub-blog-stream {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(8, 35, 63, 0.22) transparent;
+  }
+
+  .hub-blog-stream::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  .hub-blog-stream::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .hub-blog-stream::-webkit-scrollbar-thumb {
+    background-color: rgba(8, 35, 63, 0.18);
+    border-radius: 999px;
+  }
+
+  .hub-blog-stream::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(8, 35, 63, 0.28);
   }
 
 
@@ -309,23 +334,14 @@ svg {
 
 
 .reveal {
-
-  opacity: 0;
-
-  transform: translateY(22px);
-
-  transition: opacity 0.75s ease, transform 0.75s ease;
-
+  /* Always visible for HTML-to-Figma / design capture — do not hide behind IntersectionObserver. */
+  opacity: 1;
+  transform: none;
 }
 
-
-
 .reveal.visible {
-
   opacity: 1;
-
-  transform: translateY(0);
-
+  transform: none;
 }
 
 
@@ -412,7 +428,7 @@ svg {
 
 
 
-/* —— Vertex CMS homepage OS language —— */
+/* —— VertexBuild homepage OS language —— */
 
 .home-os {
 
@@ -680,10 +696,8 @@ svg {
   background-color: #ffffff;
 }
 
-/* Security & Trust — DM Sans (body) + DM Serif Display (headings) */
+/* Security & Trust — inherits global DM Sans / DM Serif Display */
 .security-font-scope {
-  --font-sans: var(--font-security-sans), system-ui, sans-serif;
-  --font-display: var(--font-security-display), Georgia, "Times New Roman", serif;
   font-family: var(--font-sans);
 }
 

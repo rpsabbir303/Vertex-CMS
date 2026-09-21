@@ -189,13 +189,13 @@ export const projectManagementCategory = {
   },
   plan: {
     headline: "See what's included in your plan",
-    supporting: "Explore feature availability across Vertex CMS plans.",
+    supporting: "Explore feature availability across VertexBuild plans.",
     cta: { label: "Compare Plans", href: ROUTES.pricing },
   },
   finalCta: {
     headline: "See Project Management in action.",
     supporting:
-      "Explore how Vertex CMS connects the workflows your construction teams rely on every day.",
+      "Explore how VertexBuild connects the workflows your construction teams rely on every day.",
     primary: { label: "Book a Demo", href: "/book-demo" },
     secondary: { label: "Explore All Features", href: ROUTES.features },
   },

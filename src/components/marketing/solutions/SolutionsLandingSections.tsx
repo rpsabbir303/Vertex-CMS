@@ -680,7 +680,7 @@ function EcosystemOrbitCanvas({
       </svg>
 
       <div className="absolute left-1/2 top-1/2 z-20 w-[42%] max-w-[200px] -translate-x-1/2 -translate-y-1/2 rounded-2xl border border-brand-line bg-white px-4 py-5 text-center shadow-[0_24px_60px_-24px_rgba(8,37,66,0.28)]">
-        <p className="text-[9px] font-semibold uppercase tracking-[0.16em] text-brand-orange">Vertex CMS</p>
+        <p className="text-[9px] font-semibold uppercase tracking-[0.16em] text-brand-orange">VertexBuild</p>
         <p className="mt-2 font-display text-lg font-bold leading-tight text-brand-navy">Project record</p>
         <p className="mt-2 text-[10px] leading-snug text-brand-muted">One source for every workflow</p>
         <span className="mt-3 inline-flex items-center gap-1.5 rounded-full border border-emerald-400/30 bg-emerald-50 px-2.5 py-1 text-[9px] font-semibold text-emerald-700">

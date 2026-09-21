@@ -78,7 +78,7 @@ export function BillingSetupDesignView() {
     return (
       <BillingSetupShell
         eyebrow="Payment & billing"
-        title="Set up your Vertex CMS workspace"
+        title="Set up your VertexBuild workspace"
         subtitle="Configure your plan, billing cadence, and optional capabilities."
       >
         <p className="text-[14px] text-brand-muted">Plan configuration is unavailable for this design preview.</p>
@@ -93,8 +93,8 @@ export function BillingSetupDesignView() {
   return (
     <BillingSetupShell
       eyebrow="Payment & billing"
-      title="Set up your Vertex CMS workspace"
-      subtitle="Configure your plan, billing cadence, and optional capabilities. Payment processing is handled through Vertex CMS billing."
+      title="Set up your VertexBuild workspace"
+      subtitle="Configure your plan, billing cadence, and optional capabilities. Payment processing is handled through VertexBuild billing."
     >
       <PostTrialProgress current="billing" />
 

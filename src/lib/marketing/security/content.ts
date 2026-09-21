@@ -36,43 +36,43 @@ export const SECURITY_ROUTES = {
 } as const;
 
 export const securityPageMeta = {
-  title: "Security & Trust | Vertex CMS",
+  title: "Security & Trust | VertexBuild",
   description:
-    "How Vertex CMS approaches data protection, access control, compliance support, AI governance, and operational reliability for construction teams and enterprise reviewers.",
+    "How VertexBuild approaches data protection, access control, compliance support, AI governance, and operational reliability for construction teams and enterprise reviewers.",
   canonical: SECURITY_ROUTES.home,
 };
 
 export const securitySubpageMeta = {
   dataProtection: {
-    title: "Data Protection | Security & Trust | Vertex CMS",
-    description: "Encryption, tenant-aware data architecture, and data-rights concepts for Vertex CMS.",
+    title: "Data Protection | Security & Trust | VertexBuild",
+    description: "Encryption, tenant-aware data architecture, and data-rights concepts for VertexBuild.",
     canonical: SECURITY_ROUTES.dataProtection,
   },
   accessSecurity: {
-    title: "Access Security | Security & Trust | Vertex CMS",
-    description: "Identity, authentication, authorization, and administrative access controls for Vertex CMS.",
+    title: "Access Security | Security & Trust | VertexBuild",
+    description: "Identity, authentication, authorization, and administrative access controls for VertexBuild.",
     canonical: SECURITY_ROUTES.accessSecurity,
   },
   compliance: {
-    title: "Compliance | Security & Trust | Vertex CMS",
-    description: "Documented compliance workflows and product support areas for Vertex CMS.",
+    title: "Compliance | Security & Trust | VertexBuild",
+    description: "Documented compliance workflows and product support areas for VertexBuild.",
     canonical: SECURITY_ROUTES.compliance,
   },
   aiGovernance: {
-    title: "AI Governance | Vertex CMS",
+    title: "AI Governance | VertexBuild",
     description:
-      "Learn how Vertex CMS governs AI-assisted actions through human confirmation, activity visibility, and controlled platform usage.",
+      "Learn how VertexBuild governs AI-assisted actions through human confirmation, activity visibility, and controlled platform usage.",
     canonical: SECURITY_ROUTES.aiGovernance,
   },
   reliability: {
-    title: "Reliability & Disaster Recovery | Vertex CMS",
+    title: "Reliability & Disaster Recovery | VertexBuild",
     description:
-      "Learn how Vertex CMS approaches reliability, recovery objectives, redundancy, backup, and disaster recovery for construction workflows.",
+      "Learn how VertexBuild approaches reliability, recovery objectives, redundancy, backup, and disaster recovery for construction workflows.",
     canonical: SECURITY_ROUTES.reliability,
   },
   contact: {
-    title: "Security Contact | Security & Trust | Vertex CMS",
-    description: "Contact Vertex CMS for security-related evaluation questions and enterprise review follow-up.",
+    title: "Security Contact | Security & Trust | VertexBuild",
+    description: "Contact VertexBuild for security-related evaluation questions and enterprise review follow-up.",
     canonical: SECURITY_ROUTES.contact,
   },
 } as const;
@@ -88,7 +88,7 @@ export const securityHero = {
   eyebrow: "Security & Trust",
   headline: "Security built into the platform.",
   supporting:
-    "Vertex CMS is designed with data protection, controlled access, compliance support, AI governance, and operational reliability in mind — so construction teams and enterprise reviewers can understand how the platform is intended to operate.",
+    "VertexBuild is designed with data protection, controlled access, compliance support, AI governance, and operational reliability in mind — so construction teams and enterprise reviewers can understand how the platform is intended to operate.",
 };
 
 export const trustOverview = {
@@ -410,9 +410,9 @@ export const complianceSection = {
   id: "compliance",
   title: "Compliance",
   supporting:
-    "Vertex CMS supports documented compliance workflows where applicable. Product support is not the same as formal organizational certification, and support does not imply legal compliance in every jurisdiction.",
+    "VertexBuild supports documented compliance workflows where applicable. Product support is not the same as formal organizational certification, and support does not imply legal compliance in every jurisdiction.",
   distinction:
-    "Controls below describe product support or documented requirements — not claims that Vertex CMS is certified for every standard listed.",
+    "Controls below describe product support or documented requirements — not claims that VertexBuild is certified for every standard listed.",
   exploreHref: SECURITY_ROUTES.compliance,
 };
 
@@ -431,7 +431,7 @@ export const complianceKeyInfo = [
 export const complianceEditorial = {
   mainHeadline: "Compliance support across the platform.",
   productSupportNote:
-    "Vertex CMS provides product capabilities and workflows that support applicable compliance requirements. Product support should not be interpreted as a certification of the customer's organization.",
+    "VertexBuild provides product capabilities and workflows that support applicable compliance requirements. Product support should not be interpreted as a certification of the customer's organization.",
   capabilityRows: [
     {
       title: "Privacy & data rights",
@@ -480,7 +480,7 @@ export const complianceEditorial = {
     },
     {
       title: "Workforce & safety",
-      body: "Product-domain workflow support for construction safety forms — not a SaaS certification of Vertex CMS.",
+      body: "Product-domain workflow support for construction safety forms — not a SaaS certification of VertexBuild.",
       status: "product" as SecurityStatus,
     },
     {
@@ -545,7 +545,7 @@ export const complianceMatrix: {
   },
   {
     control: "OSHA forms (current)",
-    context: "Product-domain workflow support for construction safety forms — not a SaaS certification of Vertex CMS.",
+    context: "Product-domain workflow support for construction safety forms — not a SaaS certification of VertexBuild.",
     status: "product",
   },
   {
@@ -700,7 +700,7 @@ export const aiGovernanceEditorial = {
   ],
   trustMessage: {
     title: "AI with accountable control.",
-    body: "Vertex CMS is designed to keep people in control of consequential AI-assisted actions while providing visibility into AI activity and governed platform usage.",
+    body: "VertexBuild is designed to keep people in control of consequential AI-assisted actions while providing visibility into AI activity and governed platform usage.",
   },
   heroFlow: [
     "AI INPUT",
@@ -824,7 +824,7 @@ export const reliabilityEditorial = {
 export const securityCta = {
   title: "Need additional security information?",
   supporting:
-    "Connect with the Vertex CMS team for security-related questions, evaluation support, or follow-up — for prospective customers, enterprise security reviewers, and authorized stakeholders.",
+    "Connect with the VertexBuild team for security-related questions, evaluation support, or follow-up — for prospective customers, enterprise security reviewers, and authorized stakeholders.",
   note: "This contact path is for evaluation and sales inquiries — not for reporting security incidents.",
   primaryLabel: "Contact",
   primaryHref: ROUTES.contact,

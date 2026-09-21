@@ -126,7 +126,7 @@ export function CivilHeroSection() {
                 </div>
                 <div className="relative bg-[#0B2238] p-3 sm:p-4 lg:p-5">
                   <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.14em] text-slate-400">
-                    Vertex CMS · {civilHero.previewLabel}
+                    VertexBuild · {civilHero.previewLabel}
                   </p>
                   <ProductPreviewClip preview={civilHero.preview} size="xl" scale="lg" />
                   <div className="mt-3 overflow-hidden rounded-2xl border border-white/15 bg-[#061525] shadow-lg lg:absolute lg:bottom-5 lg:right-5 lg:mt-0 lg:w-[42%]">
@@ -194,7 +194,7 @@ export function CivilConnectedSection() {
             <ProductStage
               preview={node.preview}
               dark={"previewDark" in node ? node.previewDark : undefined}
-              label={`Vertex CMS · ${node.label}`}
+              label={`VertexBuild · ${node.label}`}
               size="lg"
             />
             <div className="flex min-w-0 flex-col justify-between gap-4">

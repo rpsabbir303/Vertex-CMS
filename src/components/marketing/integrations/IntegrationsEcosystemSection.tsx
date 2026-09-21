@@ -22,7 +22,7 @@ export function IntegrationsEcosystemSection() {
               {[
                 { label: "External Systems", detail: "Accounting, e-signature, productivity, and payment systems your business already uses." },
                 { label: "Integration Layer", detail: "Public API, webhooks, and approved connections that define how data moves." },
-                { label: "Vertex CMS", detail: "Project, financial, field, and growth workflows on a shared operating record." },
+                { label: "VertexBuild", detail: "Project, financial, field, and growth workflows on a shared operating record." },
                 { label: "Business Workflows", detail: "Teams work from shared project context instead of disconnected tools." },
               ].map((row, i) => (
                 <li key={row.label} className="list-none border-b border-brand-line/70 px-5 py-4 last:border-b-0">

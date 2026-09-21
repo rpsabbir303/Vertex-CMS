@@ -3,7 +3,7 @@ import { demoSection } from "./shared";
 
 export const COOKIES_DEMO_SECTIONS: LegalSection[] = [
   demoSection("overview", "1. Overview", [
-    "This sample Cookie Policy demonstrates how cookie and tracking information may be presented on the Vertex CMS website.",
+    "This sample Cookie Policy demonstrates how cookie and tracking information may be presented on the VertexBuild website.",
     "It is for visual design review only and does not describe the actual cookies or technologies currently deployed unless documented elsewhere in approved materials.",
   ]),
   demoSection("what-are-cookies", "2. What Cookies Are", [

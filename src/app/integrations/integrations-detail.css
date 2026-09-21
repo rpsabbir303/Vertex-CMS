@@ -18,16 +18,10 @@
   margin-right: auto;
 }
 
-/* Detail hero: keep abstract grid on mobile (lower density via shared hero masks) */
+/* Detail hero: SVG grid lives in IntegrationsSectionBackdrop (no CSS ::before grid) */
 @media (max-width: 639px) {
-  .integrations-typography .int-detail-page .int-bg-hero .int-section-bg::before {
-    mask-image: linear-gradient(to left, #000 0%, #000 55%, transparent 92%);
-    -webkit-mask-image: linear-gradient(to left, #000 0%, #000 55%, transparent 92%);
-    opacity: 0.85;
-  }
-
   .integrations-typography .int-detail-page .int-bg-hero .int-section-bg svg {
-    opacity: 0.22;
+    opacity: 0.35;
   }
 }
 

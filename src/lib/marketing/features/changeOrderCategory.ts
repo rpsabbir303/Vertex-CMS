@@ -10,9 +10,9 @@ import type { PreviewKey } from "./register";
 export const changeOrderCategory = {
   id: "change-orders",
   meta: {
-    title: "Change Orders | Vertex CMS Features",
+    title: "Change Orders | VertexBuild Features",
     description:
-      "Manage change order requests and change orders tied to contracts, with visibility into cost impact and contract revision impact in Vertex CMS.",
+      "Manage change order requests and change orders tied to contracts, with visibility into cost impact and contract revision impact in VertexBuild.",
     canonical: `${ROUTES.features}/change-orders`,
   },
   hero: {
@@ -27,7 +27,7 @@ export const changeOrderCategory = {
   intro: {
     eyebrow: "Project Changes",
     headline: "Keep Changes Visible From Start to Finish.",
-    body: "Project changes can affect work, cost, and coordination. Vertex CMS helps teams capture change order requests, convert approved changes into change orders, and keep contract revision impact connected to the project.",
+    body: "Project changes can affect work, cost, and coordination. VertexBuild helps teams capture change order requests, convert approved changes into change orders, and keep contract revision impact connected to the project.",
     preview: "changeOrderFlow" as PreviewKey,
   },
   register: {

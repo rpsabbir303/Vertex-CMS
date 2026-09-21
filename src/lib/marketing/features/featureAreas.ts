@@ -751,7 +751,7 @@ const AREA_SEEDS: AreaSeed[] = [
     outcomes: [
       "Public web presence stays tied to the business platform.",
       "Domain and page management stay centralized.",
-      "Growth channels connect back to Vertex CMS data.",
+      "Growth channels connect back to VertexBuild data.",
     ],
     relatedSlugs: ["crm", "leads", "customer-portals"],
   },

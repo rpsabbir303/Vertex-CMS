@@ -132,7 +132,7 @@ export function TrialStartedView() {
     <AuthShell
       eyebrow="Trial ready"
       title="Your trial is ready"
-      subtitle="Your workspace is active. Enter Vertex CMS to continue setup."
+      subtitle="Your workspace is active. Enter VertexBuild to continue setup."
       panelTitle="Trial started."
       panelBody="Tenant and subdomain are provisioned. Your trial is active per your selected plan configuration."
     >
@@ -164,7 +164,7 @@ export function TrialStartedView() {
 
         <p className="text-[14px] leading-relaxed text-brand-muted">
           Next, set up billing and optional add-ons, then continue to your dashboard. Company profile setup happens inside
-          Vertex CMS.
+          VertexBuild.
         </p>
 
         <AuthButton type="button" onClick={() => router.push(AUTH_ROUTES.billingSetup)}>

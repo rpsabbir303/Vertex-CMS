@@ -26,8 +26,9 @@ module.exports = {
         },
       },
       fontFamily: {
-        sans: ["var(--font-sans)", "system-ui", "sans-serif"],
-        display: ["var(--font-display)", "var(--font-sans)", "system-ui", "sans-serif"],
+        sans: ["var(--font-sans)", "DM Sans"],
+        display: ["var(--font-display)", "DM Serif Display"],
+        mono: ["var(--font-sans)", "DM Sans"],
       },
       maxWidth: {
         wide: "1200px",

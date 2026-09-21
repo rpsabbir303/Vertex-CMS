@@ -17,19 +17,19 @@ export const INTEGRATION_DETAIL_COPY = {
   availabilityHeadline: "Availability",
   relatedHeadline: "Explore more integrations",
   backLabel: "Back to Integrations",
-  connectionContextHeadline: "Connection with Vertex CMS",
+  connectionContextHeadline: "Connection with VertexBuild",
   comingSoonStatus:
-    "This entry is documented for Vertex CMS but is not yet available for activation. Contact our team for current availability.",
+    "This entry is documented for VertexBuild but is not yet available for activation. Contact our team for current availability.",
   availableStatus:
-    "This integration or capability is documented as available for Vertex CMS according to the current catalog.",
+    "This integration or capability is documented as available for VertexBuild according to the current catalog.",
   typeCapability: "Platform capability",
   typeIntegration: "Third-party integration",
-  closingHeadlineAvailable: "Take the next step with Vertex CMS",
+  closingHeadlineAvailable: "Take the next step with VertexBuild",
   closingHeadlineComingSoon: "Discuss documented integrations",
   closingBodyAvailable: "Explore the platform and speak with our team about documented connections.",
   closingBodyComingSoon: "Book a demo or request information about documented capabilities and integrations.",
   notFoundTitle: "Integration not found",
-  notFoundBody: "This integration is not listed in the current Vertex CMS catalog.",
+  notFoundBody: "This integration is not listed in the current VertexBuild catalog.",
 } as const;
 
 export function detailConnectionLabels(item: IntegrationRecord) {
@@ -40,7 +40,7 @@ export function detailConnectionLabels(item: IntegrationRecord) {
       connection: item.name.toUpperCase(),
       connectionDisplay: item.name,
       connectionSub: "Platform capability",
-      destination: "VERTEX CMS",
+      destination: "VertexBuild",
       destinationSub: "Shared operating record",
     };
   }
@@ -50,7 +50,7 @@ export function detailConnectionLabels(item: IntegrationRecord) {
     connection: item.name.toUpperCase(),
     connectionDisplay: item.name,
     connectionSub: "Integration connection",
-    destination: "VERTEX CMS",
+    destination: "VertexBuild",
     destinationSub: "Shared operating record",
   };
 }

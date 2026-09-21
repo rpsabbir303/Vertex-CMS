@@ -102,7 +102,7 @@ export function GcHeroSection() {
 
         <Reveal delay={60} className="mt-10 border-t border-brand-line/70 pt-8">
           <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-brand-muted">
-            What Vertex CMS helps a General Contractor manage
+            What VertexBuild helps a General Contractor manage
           </p>
           <div className="mt-4 flex flex-wrap gap-x-6 gap-y-2">
             {gcHero.manages.map((item) => (
@@ -169,7 +169,7 @@ export function GcOperatingModelSection() {
 
             <div className="mx-auto min-w-0 max-w-[400px] overflow-hidden rounded-[1.75rem] border border-brand-line/70 bg-[#EAF0F6] p-3 sm:p-4 lg:mx-0 lg:max-w-none">
               <p className="mb-3 text-center text-[10px] font-semibold uppercase tracking-[0.16em] text-brand-muted">
-                Vertex CMS · Project record
+                VertexBuild · Project record
               </p>
               <ProductPreviewClip preview={area.preview} size="md" scale="sm" maxWidth="w-full" />
             </div>
@@ -363,7 +363,7 @@ export function GcSubsSection() {
             </div>
             <ProductPreviewClip
               preview={stage.preview}
-              label={`Vertex CMS · ${stage.label}`}
+              label={`VertexBuild · ${stage.label}`}
               size="lg"
               scale="md"
               maxWidth="mx-auto max-w-[520px] lg:mx-0 lg:max-w-none"
@@ -490,7 +490,7 @@ export function GcWorkflowSection() {
             <div className="p-3 sm:p-5">
               <ProductPreviewClip
                 preview={step.preview}
-                label={`Vertex CMS · ${step.label}`}
+                label={`VertexBuild · ${step.label}`}
                 size="lg"
                 scale="md"
                 maxWidth="mx-auto max-w-3xl"
@@ -520,7 +520,7 @@ export function GcExperienceSection() {
         <Reveal delay={70} className="mt-10 overflow-hidden rounded-[2rem] bg-[#DCE7F3] p-4 sm:p-5">
           <ProductPreviewClip
             preview={gcExperience.preview}
-            label={`Vertex CMS · ${gcExperience.previewLabel}`}
+            label={`VertexBuild · ${gcExperience.previewLabel}`}
             size="lg"
             scale="md"
             maxWidth="mx-auto max-w-3xl"

@@ -32,7 +32,7 @@ export function Ecosystem() {
               Every Part of the Job.
             </h2>
             <p className="mx-auto mt-4 max-w-xl text-base text-slate-300">
-              Vertex CMS sits at the center — connecting modules around a shared company and project
+              VertexBuild sits at the center — connecting modules around a shared company and project
               record.
             </p>
           </div>
@@ -62,7 +62,7 @@ export function Ecosystem() {
 
             <div className="relative z-10 mx-auto max-w-3xl">
               <BrowserFrame url="app.vertexcms.com / platform" dark={false} className="shadow-lift">
-                <AppTopBar project="Vertex CMS Platform" />
+                <AppTopBar project="VertexBuild Platform" />
                 <div className="grid grid-cols-3 gap-2 bg-brand-soft/40 p-4 sm:grid-cols-4">
                   {MODULES.map((m) => (
                     <div key={m} className="rounded-xl border border-slate-200 bg-white px-2 py-3 text-center text-[10px] font-semibold text-brand-navy sm:text-[11px]">

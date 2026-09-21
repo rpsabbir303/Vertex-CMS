@@ -3,7 +3,7 @@
  * Source: Register (Compliance Suite, Insurance/COI, Lien Waivers)
  * + featureAreas howItWorks / outcomes under Compliance & Workforce.
  *
- * Positions Vertex CMS as organizing, tracking, and connecting compliance
+ * Positions VertexBuild as organizing, tracking, and connecting compliance
  * information—not legal advice or guaranteed legal/OSHA/state compliance.
  * WH-347 / certified payroll referenced only as connected payroll readiness.
  */
@@ -17,9 +17,9 @@ const PM = "Project Management";
 
 export const complianceFeatureDetail = {
   meta: {
-    title: "Compliance | Vertex CMS Features",
+    title: "Compliance | VertexBuild Features",
     description:
-      "Track compliance requirements, insurance certificates, lien waivers, and project readiness in Vertex CMS—so teams see what is complete and what needs attention.",
+      "Track compliance requirements, insurance certificates, lien waivers, and project readiness in VertexBuild—so teams see what is complete and what needs attention.",
     canonical: `${ROUTES.features}/compliance`,
   },
   hero: {
@@ -151,7 +151,7 @@ export const complianceFeatureDetail = {
   },
   connected: {
     eyebrow: "Connected Workflows",
-    headline: "Compliance Connected to the Rest of Vertex CMS.",
+    headline: "Compliance Connected to the Rest of VertexBuild.",
     body: "Compliance does not happen in isolation. Keep the information connected to the workflows that depend on it—including workforce, OSHA-related project records, and payroll readiness such as certified payroll / WH-347 preparation where enabled.",
     cards: [
       {

@@ -16,25 +16,25 @@ export const INTEGRATIONS_CATALOG: readonly IntegrationRecord[] = [
     monogram: "API",
     featured: true,
     detailSummary:
-      "Documented public REST API access supports enterprise integrations with Vertex CMS. Specific endpoints and scopes are defined in product documentation.",
+      "Documented public REST API access supports enterprise integrations with VertexBuild. Specific endpoints and scopes are defined in product documentation.",
     detail: {
       overview:
-        "Documented public REST API access supports enterprise integrations with Vertex CMS. Specific endpoints and scopes are defined in product documentation.",
+        "Documented public REST API access supports enterprise integrations with VertexBuild. Specific endpoints and scopes are defined in product documentation.",
       overviewPoints: [
-        "Documented public REST API access supports enterprise integrations with Vertex CMS.",
+        "Documented public REST API access supports enterprise integrations with VertexBuild.",
         "Specific endpoints and scopes are defined in product documentation.",
       ],
       howItWorks: {
-        directionLabel: "Documented API access between connected systems and Vertex CMS",
+        directionLabel: "Documented API access between connected systems and VertexBuild",
         layers: [
           { label: "Connected systems", detail: "Enterprise integrations" },
           { label: "Public REST API", detail: "Documented endpoints and scopes" },
-          { label: "Vertex CMS", detail: "Platform operating record" },
+          { label: "VertexBuild", detail: "Platform operating record" },
         ],
         steps: [
           {
             title: "Connect",
-            body: "Enterprise integrations use documented public REST API access with Vertex CMS.",
+            body: "Enterprise integrations use documented public REST API access with VertexBuild.",
           },
           {
             title: "Exchange",
@@ -42,7 +42,7 @@ export const INTEGRATIONS_CATALOG: readonly IntegrationRecord[] = [
           },
           {
             title: "Extend",
-            body: "Connected systems participate in the documented enterprise integration scope for Vertex CMS.",
+            body: "Connected systems participate in the documented enterprise integration scope for VertexBuild.",
           },
         ],
       },
@@ -60,14 +60,14 @@ export const INTEGRATIONS_CATALOG: readonly IntegrationRecord[] = [
         {
           title: "Documented enterprise access",
           description:
-            "Public REST API access is documented to support enterprise integrations with Vertex CMS.",
+            "Public REST API access is documented to support enterprise integrations with VertexBuild.",
         },
         {
           title: "Defined endpoints and scopes",
           description: "Specific endpoints and scopes are defined in product documentation rather than ad hoc access.",
         },
       ],
-      capabilities: ["Public REST API access", "Enterprise integrations with Vertex CMS"],
+      capabilities: ["Public REST API access", "Enterprise integrations with VertexBuild"],
       technicalNotes: ["Specific endpoints and scopes are defined in product documentation."],
     },
   },
@@ -82,29 +82,29 @@ export const INTEGRATIONS_CATALOG: readonly IntegrationRecord[] = [
     monogram: "WH",
     featured: true,
     detailSummary:
-      "Outbound webhooks allow external systems to receive events from Vertex CMS according to supported integration configuration.",
+      "Outbound webhooks allow external systems to receive events from VertexBuild according to supported integration configuration.",
     detail: {
       overview:
-        "Outbound webhooks allow external systems to receive events from Vertex CMS according to supported integration configuration.",
+        "Outbound webhooks allow external systems to receive events from VertexBuild according to supported integration configuration.",
       overviewPoints: [
         "Outbound webhooks support event-driven connections to external systems.",
-        "External systems receive events from Vertex CMS according to supported integration configuration.",
+        "External systems receive events from VertexBuild according to supported integration configuration.",
       ],
       howItWorks: {
-        directionLabel: "Vertex CMS → Connected system",
+        directionLabel: "VertexBuild → Connected system",
         layers: [
-          { label: "Vertex CMS", detail: "Event source" },
+          { label: "VertexBuild", detail: "Event source" },
           { label: "Outbound Webhooks", detail: "Documented integration capability" },
           { label: "External systems", detail: "Receiving systems" },
         ],
         steps: [
           {
             title: "Connect",
-            body: "Supported integration configuration defines how outbound webhooks are used with Vertex CMS.",
+            body: "Supported integration configuration defines how outbound webhooks are used with VertexBuild.",
           },
           {
             title: "Exchange",
-            body: "External systems receive events from Vertex CMS according to that supported configuration.",
+            body: "External systems receive events from VertexBuild according to that supported configuration.",
           },
           {
             title: "Extend",
@@ -113,12 +113,12 @@ export const INTEGRATIONS_CATALOG: readonly IntegrationRecord[] = [
         ],
       },
       dataExchangeSummary:
-        "External systems may receive events from Vertex CMS according to supported integration configuration.",
+        "External systems may receive events from VertexBuild according to supported integration configuration.",
       dataExchangedGroups: [
         {
           label: "Events",
           direction: "vertex-out",
-          items: ["Events from Vertex CMS according to supported integration configuration."],
+          items: ["Events from VertexBuild according to supported integration configuration."],
         },
       ],
       benefits: [
@@ -129,7 +129,7 @@ export const INTEGRATIONS_CATALOG: readonly IntegrationRecord[] = [
         {
           title: "Configuration-defined delivery",
           description:
-            "Event delivery follows supported integration configuration documented for Vertex CMS.",
+            "Event delivery follows supported integration configuration documented for VertexBuild.",
         },
       ],
       capabilities: ["Outbound webhooks", "Event-driven connections to external systems"],
@@ -147,13 +147,13 @@ export const INTEGRATIONS_CATALOG: readonly IntegrationRecord[] = [
     monogram: "MP",
     featured: true,
     detailSummary:
-      "The integration marketplace is documented as part of the Vertex CMS integration program for discovering approved connections.",
+      "The integration marketplace is documented as part of the VertexBuild integration program for discovering approved connections.",
     detail: {
       overview:
-        "The integration marketplace is documented as part of the Vertex CMS integration program for discovering approved connections.",
+        "The integration marketplace is documented as part of the VertexBuild integration program for discovering approved connections.",
       overviewPoints: [
-        "Documented program surface for discovering approved connections within Vertex CMS.",
-        "Part of the broader Vertex CMS integration program—not a separate product area.",
+        "Documented program surface for discovering approved connections within VertexBuild.",
+        "Part of the broader VertexBuild integration program—not a separate product area.",
       ],
     },
   },
@@ -163,13 +163,13 @@ export const INTEGRATIONS_CATALOG: readonly IntegrationRecord[] = [
     name: "Accounting Integrations",
     kind: "capability",
     categoryId: "accounting",
-    shortDescription: "Accounting integration support documented for connecting financial systems with Vertex CMS.",
+    shortDescription: "Accounting integration support documented for connecting financial systems with VertexBuild.",
     availability: "COMING_SOON",
     monogram: "AC",
     detail: {
-      overview: "Accounting integration support documented for connecting financial systems with Vertex CMS.",
+      overview: "Accounting integration support documented for connecting financial systems with VertexBuild.",
       overviewPoints: [
-        "Documents accounting integration support for connecting financial systems with Vertex CMS.",
+        "Documents accounting integration support for connecting financial systems with VertexBuild.",
         "Represents a capability area—not a single named accounting product.",
       ],
     },
@@ -180,12 +180,12 @@ export const INTEGRATIONS_CATALOG: readonly IntegrationRecord[] = [
     name: "QuickBooks",
     kind: "integration",
     categoryId: "accounting",
-    shortDescription: "Optional accounting sync with QuickBooks, as documented for Vertex CMS.",
+    shortDescription: "Optional accounting sync with QuickBooks, as documented for VertexBuild.",
     availability: "COMING_SOON",
     monogram: "QB",
     detail: {
-      overview: "Optional accounting sync with QuickBooks, as documented for Vertex CMS.",
-      overviewPoints: ["Optional accounting sync with QuickBooks, as documented for Vertex CMS."],
+      overview: "Optional accounting sync with QuickBooks, as documented for VertexBuild.",
+      overviewPoints: ["Optional accounting sync with QuickBooks, as documented for VertexBuild."],
     },
   },
   {
@@ -194,12 +194,12 @@ export const INTEGRATIONS_CATALOG: readonly IntegrationRecord[] = [
     name: "Sage",
     kind: "integration",
     categoryId: "accounting",
-    shortDescription: "Optional accounting sync with Sage, as documented for Vertex CMS.",
+    shortDescription: "Optional accounting sync with Sage, as documented for VertexBuild.",
     availability: "COMING_SOON",
     monogram: "SG",
     detail: {
-      overview: "Optional accounting sync with Sage, as documented for Vertex CMS.",
-      overviewPoints: ["Optional accounting sync with Sage, as documented for Vertex CMS."],
+      overview: "Optional accounting sync with Sage, as documented for VertexBuild.",
+      overviewPoints: ["Optional accounting sync with Sage, as documented for VertexBuild."],
     },
   },
   {
@@ -208,12 +208,12 @@ export const INTEGRATIONS_CATALOG: readonly IntegrationRecord[] = [
     name: "DocuSign",
     kind: "integration",
     categoryId: "e-signature",
-    shortDescription: "E-signature integration documented for DocuSign with Vertex CMS.",
+    shortDescription: "E-signature integration documented for DocuSign with VertexBuild.",
     availability: "COMING_SOON",
     monogram: "DS",
     detail: {
-      overview: "E-signature integration documented for DocuSign with Vertex CMS.",
-      overviewPoints: ["E-signature integration documented for DocuSign with Vertex CMS."],
+      overview: "E-signature integration documented for DocuSign with VertexBuild.",
+      overviewPoints: ["E-signature integration documented for DocuSign with VertexBuild."],
     },
   },
   {
@@ -222,12 +222,12 @@ export const INTEGRATIONS_CATALOG: readonly IntegrationRecord[] = [
     name: "Payment Rails",
     kind: "capability",
     categoryId: "other",
-    shortDescription: "Payment rails integration capability documented for Vertex CMS.",
+    shortDescription: "Payment rails integration capability documented for VertexBuild.",
     availability: "COMING_SOON",
     monogram: "PR",
     detail: {
-      overview: "Payment rails integration capability documented for Vertex CMS.",
-      overviewPoints: ["Payment rails integration capability documented for Vertex CMS."],
+      overview: "Payment rails integration capability documented for VertexBuild.",
+      overviewPoints: ["Payment rails integration capability documented for VertexBuild."],
     },
   },
 ];

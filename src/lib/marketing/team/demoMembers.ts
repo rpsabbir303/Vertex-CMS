@@ -1,6 +1,6 @@
 /**
  * Demo team profiles for UI / design review only.
- * Not real Vertex CMS employees. Replace via `approvedTeamMembers` or CMS
+ * Not real VertexBuild employees. Replace via `approvedTeamMembers` or CMS
  * by setting `teamConfig.useDemoMembers = false`.
  */
 

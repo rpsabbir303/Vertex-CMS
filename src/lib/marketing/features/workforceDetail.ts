@@ -17,9 +17,9 @@ const FM = "Financial Management";
 
 export const workforceFeatureDetail = {
   meta: {
-    title: "Workforce | Vertex CMS Features",
+    title: "Workforce | VertexBuild Features",
     description:
-      "Manage workers, crews, project assignments, hours, certifications, and timesheets in Vertex CMS—connected to project operations and payroll readiness.",
+      "Manage workers, crews, project assignments, hours, certifications, and timesheets in VertexBuild—connected to project operations and payroll readiness.",
     canonical: `${ROUTES.features}/workforce`,
   },
   hero: {
@@ -213,7 +213,7 @@ export const workforceFeatureDetail = {
   },
   connected: {
     eyebrow: "Connected Workflows",
-    headline: "Workforce Connected Across Vertex CMS.",
+    headline: "Workforce Connected Across VertexBuild.",
     body: "Keep workforce information connected to the project, compliance, and financial workflows your team already uses.",
     cards: [
       {

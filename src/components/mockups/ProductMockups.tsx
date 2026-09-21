@@ -2948,7 +2948,7 @@ export function MobileHomeUI() {
     <div className="flex justify-center py-2">
       <MobilePhoneFrame tab={0}>
         <div className="mb-2 flex items-center justify-between">
-          <p className="text-[10px] font-semibold text-brand-navy">Vertex CMS</p>
+          <p className="text-[10px] font-semibold text-brand-navy">VertexBuild</p>
           <span className="rounded bg-brand-soft px-1.5 py-0.5 text-[8px] font-semibold text-brand-muted">
             Field
           </span>
@@ -3296,7 +3296,7 @@ export function MobileWorkspaceUI() {
 export function MobileFlowUI() {
   const steps = [
     { t: "Mobile Field", d: "Capture" },
-    { t: "Vertex CMS", d: "Organize" },
+    { t: "VertexBuild", d: "Organize" },
     { t: "Project Team", d: "Review" },
     { t: "Project Record", d: "Stay Current" },
   ];
@@ -6574,7 +6574,7 @@ export function PiHeroUI() {
     <BrowserFrame url="app.vertexcms.com / project-intelligence" dark>
       <div className="border-b border-white/10 px-4 py-2">
         <div className="flex flex-wrap items-center justify-between gap-2">
-          <span className="text-[9px] font-bold tracking-[0.12em] text-slate-400">VERTEX CMS</span>
+          <span className="text-[9px] font-bold tracking-[0.12em] text-slate-400">VertexBuild</span>
           <span className="text-[10px] text-slate-400">Riverside Medical Center</span>
         </div>
         <p className="mt-1 text-[13px] font-semibold text-white">Project Intelligence</p>
@@ -8515,7 +8515,7 @@ export function BillingSovUI() {
           </tbody>
         </table>
         <p className="mt-2 text-[9px] text-slate-500">
-          Modern Vertex CMS interpretation of SOV / progress billing — not a copyrighted form reproduction
+          Modern VertexBuild interpretation of SOV / progress billing — not a copyrighted form reproduction
         </p>
       </div>
     </BrowserFrame>
@@ -8811,7 +8811,7 @@ export function PayAppG702UI() {
           ))}
         </ul>
         <p className="mt-3 text-[9px] text-slate-500">
-          Modern Vertex CMS interpretation of G702 payment summary — not an official AIA form reproduction
+          Modern VertexBuild interpretation of G702 payment summary — not an official AIA form reproduction
         </p>
       </div>
     </BrowserFrame>
@@ -11757,7 +11757,7 @@ export function WbCmsImportUI() {
     <BrowserFrame url="app.vertexcms.com / website-builder / import" dark>
       <div className="grid gap-3 p-4 sm:grid-cols-2">
         <div>
-          <p className="text-[9px] font-bold uppercase tracking-wide text-brand-orange">Vertex CMS</p>
+          <p className="text-[9px] font-bold uppercase tracking-wide text-brand-orange">VertexBuild</p>
           {[
             ["Projects", "Portfolio"],
             ["Team", "About / Team"],
@@ -12030,7 +12030,7 @@ export function WbContactLeadUI() {
           </span>
         </div>
         <div className="rounded-lg border border-brand-orange/30 bg-brand-orange/[0.06] p-3">
-          <p className="text-[9px] font-bold uppercase text-brand-orange">Vertex CMS CRM</p>
+          <p className="text-[9px] font-bold uppercase text-brand-orange">VertexBuild CRM</p>
           <p className="mt-1 text-[11px] font-semibold text-white">New Lead</p>
           <div className="mt-2 space-y-1 text-[9px] text-slate-300">
             {fields.map((f) => (
@@ -12043,7 +12043,7 @@ export function WbContactLeadUI() {
       <div className="mx-3 mb-3 flex items-center justify-center gap-2 text-[9px] text-slate-400 sm:mx-4">
         <span>Website inquiry</span>
         <span>↓</span>
-        <span>Vertex CMS</span>
+        <span>VertexBuild</span>
         <span>↓</span>
         <span className="text-brand-orange">CRM Lead</span>
       </div>
@@ -12964,7 +12964,7 @@ function CpPortalShell({
             VC
           </div>
           <div>
-            <p className="text-[11px] font-semibold text-brand-navy">Vertex CMS</p>
+            <p className="text-[11px] font-semibold text-brand-navy">VertexBuild</p>
             <p className="text-[9px] font-semibold uppercase tracking-[0.12em] text-brand-orange">{roleLabel}</p>
           </div>
         </div>

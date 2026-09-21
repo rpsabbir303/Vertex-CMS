@@ -16,12 +16,12 @@ export function Hero() {
     <section className="relative overflow-hidden border-b border-brand-line bg-brand-soft">
       <div className="site-shell grid items-center gap-12 py-16 sm:py-20 lg:grid-cols-12 lg:gap-10 lg:py-24">
         <Reveal className="lg:col-span-5">
-          <p className="eyebrow">Vertex CMS · Construction Management</p>
+          <p className="eyebrow">VertexBuild · Construction Management</p>
           <h1 className="display-title mt-5 text-4xl sm:text-5xl lg:text-[3.35rem] lg:leading-[1.05]">
             Run construction with complete control.
           </h1>
           <p className="body-copy mt-6 max-w-md">
-            Vertex CMS connects planning, financials, field operations, safety, documents, teams, and
+            VertexBuild connects planning, financials, field operations, safety, documents, teams, and
             AI intelligence in one construction system built for modern contractors.
           </p>
 

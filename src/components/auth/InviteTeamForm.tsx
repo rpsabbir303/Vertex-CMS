@@ -54,7 +54,7 @@ export function InviteTeamForm() {
   return (
     <OnboardingShell
       current="invite"
-      title="Bring your team into Vertex CMS"
+      title="Bring your team into VertexBuild"
       subtitle="Send email invitations so colleagues can join your workspace. Granular permissions remain controlled by the CMS RBAC layer."
     >
       <form onSubmit={onSubmit} className="space-y-4" noValidate>

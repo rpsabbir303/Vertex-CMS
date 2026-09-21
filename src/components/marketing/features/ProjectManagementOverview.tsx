@@ -89,7 +89,7 @@ export function ProjectManagementOverview() {
 
           <div className="relative mt-5 overflow-hidden rounded-2xl border border-brand-line bg-gradient-to-br from-[#E8EEF5] via-[#F0F4F9] to-[#E4EBF4] p-3 sm:p-4">
             <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.14em] text-brand-muted">
-              Vertex CMS · {active.label}
+              VertexBuild · {active.label}
             </p>
             <FeatureProductPreview
               preview={active.preview}
@@ -158,7 +158,7 @@ export function ProjectManagementOverview() {
           <div className="lg:sticky lg:top-36">
             <div className="relative overflow-hidden rounded-2xl border border-brand-line bg-gradient-to-br from-[#E8EEF5] via-[#F0F4F9] to-[#E4EBF4] p-4 sm:p-5">
               <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.14em] text-brand-muted">
-                Vertex CMS · {active.label}
+                VertexBuild · {active.label}
               </p>
               <FeatureProductPreview
                 key={active.areaId}

@@ -1,5 +1,5 @@
 /**
- * Curated Unsplash construction photography for Vertex CMS marketing.
+ * Curated Unsplash construction photography for VertexBuild marketing.
  * Documentary / editorial style — US construction environments.
  */
 export const photos = {

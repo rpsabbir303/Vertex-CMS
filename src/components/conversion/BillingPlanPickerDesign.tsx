@@ -49,7 +49,7 @@ export function BillingPlanPickerDesign({
         <div>
           <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-brand-orange">Select your plan</p>
           <h2 id="choose-plan-heading" className="mt-1 text-[17px] font-semibold text-brand-navy">
-            Choose a Vertex CMS plan
+            Choose a VertexBuild plan
           </h2>
           <p className="mt-1 text-[13px] text-brand-muted">Starter, Pro, Premium, and Enterprise — loaded from your plan configuration.</p>
         </div>

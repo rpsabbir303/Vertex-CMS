@@ -49,7 +49,7 @@ export function CustomerLogoWallEcosystem() {
 
         {bottomRow.length > 0 ? <LogoRow logos={bottomRow} /> : null}
 
-        <p className="text-center text-[10px] font-semibold uppercase tracking-[0.14em] text-brand-navy">Vertex CMS</p>
+        <p className="text-center text-[10px] font-semibold uppercase tracking-[0.14em] text-brand-navy">VertexBuild</p>
 
       </div>
 

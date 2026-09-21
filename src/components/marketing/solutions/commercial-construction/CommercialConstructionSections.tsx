@@ -124,7 +124,7 @@ export function CommercialHeroSection() {
         <Reveal delay={90} className="relative mt-12 lg:pb-12">
           <div className="overflow-hidden rounded-2xl border border-brand-line bg-gradient-to-br from-[#E8EEF5] via-[#F0F4F9] to-[#E4EBF4] p-3 sm:p-5">
             <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.14em] text-brand-muted">
-              Vertex CMS · {commercialHero.previewLabel}
+              VertexBuild · {commercialHero.previewLabel}
             </p>
             <FeatureProductPreview
               preview={commercialHero.preview}
@@ -197,7 +197,7 @@ export function CommercialConnectedSection() {
               <ProductStage
                 preview={node.preview}
                 dark={"previewDark" in node ? node.previewDark : undefined}
-                label={`Vertex CMS · ${node.label}`}
+                label={`VertexBuild · ${node.label}`}
               />
             </div>
             <button
@@ -580,7 +580,7 @@ export function CommercialDocumentsSection() {
         <Reveal delay={70} className="mt-10 overflow-hidden rounded-3xl border border-brand-line/80 bg-white">
           <div className="flex items-center justify-between gap-3 border-b border-brand-line/70 bg-brand-navy px-4 py-3">
             <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-slate-300">
-              Vertex CMS · Project information
+              VertexBuild · Project information
             </p>
             <span className="hidden text-[11px] text-slate-400 sm:inline">Current revision · connected records</span>
           </div>

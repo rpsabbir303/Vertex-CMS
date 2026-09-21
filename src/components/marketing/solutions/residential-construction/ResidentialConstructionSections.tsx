@@ -88,7 +88,7 @@ export function ResidentialHeroSection() {
           <Reveal className="relative order-2 lg:order-1 lg:pb-16">
             <div className="overflow-hidden rounded-2xl border border-brand-line bg-gradient-to-br from-[#E8EEF5] via-[#F0F4F9] to-[#E4EBF4] p-3 sm:p-5">
               <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.14em] text-brand-muted">
-                Vertex CMS · {residentialHero.previewLabel}
+                VertexBuild · {residentialHero.previewLabel}
               </p>
               <FeatureProductPreview
                 preview={residentialHero.preview}
@@ -174,7 +174,7 @@ export function ResidentialConnectedSection() {
               <ProductStage
                 preview={node.preview}
                 dark={"previewDark" in node ? node.previewDark : undefined}
-                label={`Vertex CMS · ${node.label}`}
+                label={`VertexBuild · ${node.label}`}
               />
             </div>
             <div className="flex gap-1 overflow-x-auto border-t border-brand-line/70 bg-white p-3 [scrollbar-width:none] lg:flex-col lg:overflow-visible lg:border-l lg:border-t-0 [&::-webkit-scrollbar]:hidden">

@@ -25,9 +25,9 @@ export {
 } from "./register";
 
 export const featuresPageMeta = {
-  title: "Features | Vertex CMS",
+  title: "Features | VertexBuild",
   description:
-    "Explore Vertex CMS through six platform areas—project management, financial management, field operations, compliance and workforce, AI and intelligence, and business growth.",
+    "Explore VertexBuild through six platform areas—project management, financial management, field operations, compliance and workforce, AI and intelligence, and business growth.",
   canonical: "/features",
 };
 
@@ -45,9 +45,9 @@ export const featuresPerspectives = [
 ] as const;
 
 export const featuresCta = {
-  eyebrow: "Ready to explore Vertex CMS?",
+  eyebrow: "Ready to explore VertexBuild?",
   headline: "See the platform in action.",
-  supporting: "Start a free trial or book a demo to explore how Vertex CMS fits your team.",
+  supporting: "Start a free trial or book a demo to explore how VertexBuild fits your team.",
 };
 
 export const heroEcosystemNodes = [

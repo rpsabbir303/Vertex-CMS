@@ -6,7 +6,7 @@ const COPY: Record<Variant, { title: string; description: string }> = {
   loading: { title: "Loading", description: "Please wait while content loads." },
   "404": { title: "Page Not Found", description: "The page you're looking for doesn't exist." },
   "500": { title: "Something Went Wrong", description: "We're working to fix the issue. Please try again." },
-  maintenance: { title: "Under Maintenance", description: "Vertex CMS is temporarily unavailable." },
+  maintenance: { title: "Under Maintenance", description: "VertexBuild is temporarily unavailable." },
   unavailable: { title: "Content Unavailable", description: "This content is not available right now." },
 };
 

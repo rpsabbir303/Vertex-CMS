@@ -3,8 +3,8 @@ import { Suspense } from "react";
 import { OnboardingHub } from "@/components/auth/OnboardingHub";
 
 export const metadata: Metadata = {
-  title: "Onboarding | Vertex CMS",
-  description: "Complete Vertex CMS company onboarding.",
+  title: "Onboarding | VertexBuild",
+  description: "Complete VertexBuild company onboarding.",
 };
 
 export default function OnboardingPage() {

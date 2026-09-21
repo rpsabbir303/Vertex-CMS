@@ -17,7 +17,7 @@ export function IntegrationDetailConnectionVisual({
       data-design-layer="ConnectionDiagram"
     >
       <figcaption className="sr-only">
-        Connection path from external system through integration into Vertex CMS.
+        Connection path from external system through integration into VertexBuild.
       </figcaption>
       <svg viewBox="0 0 280 320" className="mx-auto h-auto w-full max-w-[280px]" role="presentation">
         <rect x="70" y="24" width="140" height="44" fill="#fff" stroke="rgba(8,35,63,0.18)" strokeWidth="1" />
@@ -43,7 +43,7 @@ export function IntegrationDetailConnectionVisual({
         <rect x="58" y="192" width="164" height="52" fill="#f7f9fc" stroke="rgba(8,35,63,0.22)" strokeWidth="1.25" />
         <foreignObject x="58" y="192" width="164" height="52">
           <div className="flex h-full flex-col items-center justify-center px-2">
-            <p className="font-sans text-[10px] font-bold uppercase tracking-[0.04em] text-brand-navy">VERTEX CMS</p>
+            <p className="font-sans text-[10px] font-bold uppercase tracking-[0.04em] text-brand-navy">VertexBuild</p>
             <p className="mt-0.5 font-sans text-[7px] font-medium uppercase tracking-[0.06em] text-brand-muted">
               Shared project context
             </p>

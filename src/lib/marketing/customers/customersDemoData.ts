@@ -2,7 +2,7 @@
 
  * PROTOTYPE / DEMO customer proof — fictional companies only.
 
- * Not verified Vertex CMS customers. Set CUSTOMERS_PROOF_STATE to `published` for production.
+ * Not verified VertexBuild customers. Set CUSTOMERS_PROOF_STATE to `published` for production.
 
  */
 
@@ -20,7 +20,7 @@ import type {
 function demoNarrative(challenge: string, approach: string, outcome: string): CaseStudyNarrativeStage[] {
   return [
     { step: "01", title: "Challenge", description: challenge },
-    { step: "02", title: "Connect", description: "Workflows connected on Vertex CMS across teams and systems of record." },
+    { step: "02", title: "Connect", description: "Workflows connected on VertexBuild across teams and systems of record." },
     { step: "03", title: "Operate", description: approach },
     { step: "04", title: "Measure", description: outcome },
   ];
@@ -150,7 +150,7 @@ export const CUSTOMERS_DEMO_DATA = {
 
         "Project information, field updates, and financial visibility were managed across disconnected workflows.",
 
-      approach: "Connected project, field, and financial workflows in one operating environment on Vertex CMS.",
+      approach: "Connected project, field, and financial workflows in one operating environment on VertexBuild.",
 
       outcome: "Improved visibility across project operations (illustrative demo outcome).",
 
@@ -167,7 +167,7 @@ export const CUSTOMERS_DEMO_DATA = {
 
       workflowSteps: [
         { label: "Project teams" },
-        { label: "Vertex CMS" },
+        { label: "VertexBuild" },
         { label: "Field & financial workflows" },
         { label: "Operational visibility" },
       ],
@@ -202,7 +202,7 @@ export const CUSTOMERS_DEMO_DATA = {
 
       narrativeStages: demoNarrative(
         "Project information, field updates, and financial visibility were managed across disconnected workflows.",
-        "Connected project, field, and financial workflows in one operating environment on Vertex CMS.",
+        "Connected project, field, and financial workflows in one operating environment on VertexBuild.",
         "Improved visibility across project operations (illustrative demo outcome).",
       ),
 
@@ -224,7 +224,7 @@ export const CUSTOMERS_DEMO_DATA = {
 
       challenge: "Field updates and project documentation lived in separate tools with delayed reconciliation.",
 
-      approach: "Connected field logs, documents, and project schedules on Vertex CMS.",
+      approach: "Connected field logs, documents, and project schedules on VertexBuild.",
 
       outcome: "More consistent project activity visibility across teams (illustrative demo outcome).",
 
@@ -239,7 +239,7 @@ export const CUSTOMERS_DEMO_DATA = {
 
       workflowSteps: [
         { label: "Field activity" },
-        { label: "Vertex CMS" },
+        { label: "VertexBuild" },
         { label: "Project controls" },
         { label: "Financial visibility" },
       ],
@@ -269,7 +269,7 @@ export const CUSTOMERS_DEMO_DATA = {
 
       narrativeStages: demoNarrative(
         "Field updates and project documentation lived in separate tools with delayed reconciliation.",
-        "Connected field logs, documents, and project schedules on Vertex CMS.",
+        "Connected field logs, documents, and project schedules on VertexBuild.",
         "More consistent project activity visibility across teams (illustrative demo outcome).",
       ),
 
@@ -291,7 +291,7 @@ export const CUSTOMERS_DEMO_DATA = {
 
       challenge: "Scheduling, selections, and job-cost visibility were difficult to compare across projects.",
 
-      approach: "Unified project and financial workflows with shared templates on Vertex CMS.",
+      approach: "Unified project and financial workflows with shared templates on VertexBuild.",
 
       outcome: "Stronger cross-project operational consistency (illustrative demo outcome).",
 
@@ -306,7 +306,7 @@ export const CUSTOMERS_DEMO_DATA = {
 
       workflowSteps: [
         { label: "Community projects" },
-        { label: "Vertex CMS" },
+        { label: "VertexBuild" },
         { label: "Shared templates" },
         { label: "Cross-project consistency" },
       ],
@@ -336,7 +336,7 @@ export const CUSTOMERS_DEMO_DATA = {
 
       narrativeStages: demoNarrative(
         "Scheduling, selections, and job-cost visibility were difficult to compare across projects.",
-        "Unified project and financial workflows with shared templates on Vertex CMS.",
+        "Unified project and financial workflows with shared templates on VertexBuild.",
         "Stronger cross-project operational consistency (illustrative demo outcome).",
       ),
 
@@ -358,7 +358,7 @@ export const CUSTOMERS_DEMO_DATA = {
 
       challenge: "Production reporting and financial controls were updated on different cycles.",
 
-      approach: "Linked field production, job cost, and billing workflows in Vertex CMS.",
+      approach: "Linked field production, job cost, and billing workflows in VertexBuild.",
 
       outcome: "Tighter alignment between field activity and financial status (illustrative demo outcome).",
 
@@ -373,7 +373,7 @@ export const CUSTOMERS_DEMO_DATA = {
 
       workflowSteps: [
         { label: "Field production" },
-        { label: "Vertex CMS" },
+        { label: "VertexBuild" },
         { label: "Job cost & billing" },
         { label: "Financial alignment" },
       ],
@@ -403,7 +403,7 @@ export const CUSTOMERS_DEMO_DATA = {
 
       narrativeStages: demoNarrative(
         "Production reporting and financial controls were updated on different cycles.",
-        "Linked field production, job cost, and billing workflows in Vertex CMS.",
+        "Linked field production, job cost, and billing workflows in VertexBuild.",
         "Tighter alignment between field activity and financial status (illustrative demo outcome).",
       ),
 
@@ -421,7 +421,7 @@ export const CUSTOMERS_DEMO_DATA = {
 
       quote:
 
-        "Vertex CMS gives our teams one connected place to manage the work that used to live across multiple systems.",
+        "VertexBuild gives our teams one connected place to manage the work that used to live across multiple systems.",
 
       name: "Jordan Reed",
 

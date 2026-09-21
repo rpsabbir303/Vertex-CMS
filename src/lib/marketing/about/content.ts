@@ -97,7 +97,7 @@ export const aboutPlatformMap = {
   eyebrow: "One connected platform",
   headline: "These areas operate as one system — not separate products.",
   supporting: "Connect the information, people and workflows that keep every project moving.",
-  center: "Vertex CMS",
+  center: "VertexBuild",
   groups: HUB_MODULES.map((mod) => ({
     number: mod.number,
     id: mod.id,

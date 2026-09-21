@@ -8,10 +8,10 @@ export function IntegrationExpandingNetworkVisual() {
       <circle cx="100" cy="100" r="88" fill="none" stroke="currentColor" strokeWidth="1" strokeDasharray="2 4" />
       <circle cx="100" cy="100" r="58" fill="none" stroke="currentColor" strokeWidth="1" />
       <circle cx="100" cy="100" r="28" fill="#FAFBFD" stroke="currentColor" strokeWidth="1.5" className="text-brand-navy/20" />
-      <text x="100" y="96" textAnchor="middle" className="fill-brand-navy text-[8px] font-bold" style={{ fontFamily: "var(--font-integrations-sans), sans-serif" }}>
+      <text x="100" y="96" textAnchor="middle" className="fill-brand-navy text-[8px] font-bold" style={{ fontFamily: "var(--font-sans)" }}>
         VERTEX
       </text>
-      <text x="100" y="108" textAnchor="middle" className="fill-brand-muted text-[6px]" style={{ fontFamily: "var(--font-integrations-sans), sans-serif" }}>
+      <text x="100" y="108" textAnchor="middle" className="fill-brand-muted text-[6px]" style={{ fontFamily: "var(--font-sans)" }}>
         CMS
       </text>
       {[0, 45, 90, 135, 180, 225, 270, 315].map((deg) => {

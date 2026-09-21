@@ -41,7 +41,7 @@ export function ProductPromise() {
             From Preconstruction to Closeout.
           </h2>
           <p className="copy mt-4">
-            Vertex CMS is the operating system for modern construction — connecting the full
+            VertexBuild is the operating system for modern construction — connecting the full
             lifecycle so teams plan, control, build and improve from one source of truth.
           </p>
 

@@ -9,9 +9,9 @@ const DIRECTION_LABELS = {
 } as const;
 
 const FLOW_LABELS = {
-  "vertex-out": "Vertex CMS → Connected system",
-  "vertex-in": "Connected system → Vertex CMS",
-  both: "Vertex CMS ↔ Connected system",
+  "vertex-out": "VertexBuild → Connected system",
+  "vertex-in": "Connected system → VertexBuild",
+  both: "VertexBuild ↔ Connected system",
 } as const;
 
 type Props = {

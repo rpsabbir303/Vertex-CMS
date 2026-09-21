@@ -16,9 +16,9 @@ const PM = "Project Management";
 
 export const safetyFeatureDetail = {
   meta: {
-    title: "Safety | Vertex CMS Features",
+    title: "Safety | VertexBuild Features",
     description:
-      "Document safety observations, inspections, incidents, and corrective actions connected to the project record in Vertex CMS.",
+      "Document safety observations, inspections, incidents, and corrective actions connected to the project record in VertexBuild.",
     canonical: `${ROUTES.features}/safety`,
   },
   hero: {
@@ -189,7 +189,7 @@ export const safetyFeatureDetail = {
   },
   connected: {
     headline: "Safety connected to field operations.",
-    body: "Keep safety activity connected to the workflows teams already use across Vertex CMS.",
+    body: "Keep safety activity connected to the workflows teams already use across VertexBuild.",
     cards: [
       {
         slug: "daily-logs",
@@ -272,7 +272,7 @@ export const safetyFeatureDetail = {
   fieldOps: {
     eyebrow: "Field Operations",
     headline: "Everything your field team needs to stay connected.",
-    body: "Explore the connected Field Operations capabilities available across Vertex CMS.",
+    body: "Explore the connected Field Operations capabilities available across VertexBuild.",
     activeSlug: "safety",
     cards: [
       {

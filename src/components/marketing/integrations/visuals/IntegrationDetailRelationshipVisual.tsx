@@ -14,7 +14,7 @@ export function IntegrationDetailRelationshipVisual({ item, showDataList = true 
       className="border border-brand-line/80 bg-white p-4 sm:p-5"
       data-design-layer="RelationshipDiagram"
       role="img"
-      aria-label="Relationship from source system through connection to Vertex CMS."
+      aria-label="Relationship from source system through connection to VertexBuild."
     >
       <div className="hidden gap-4 md:grid md:grid-cols-[1fr_auto_1fr_auto_1fr] md:items-center">
         <RelationshipNode title="Source" heading={labels.source} sub={labels.sourceSub} />

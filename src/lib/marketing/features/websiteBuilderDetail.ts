@@ -1,6 +1,6 @@
 /**
  * Website Builder feature detail — Business Growth module.
- * Construction-focused website platform connected to Vertex CMS data.
+ * Construction-focused website platform connected to VertexBuild data.
  */
 
 import { CTAS, ROUTES } from "@/lib/marketing/navigation";
@@ -11,9 +11,9 @@ const BG_LABEL = "Business Growth";
 
 export const websiteBuilderFeatureDetail = {
   meta: {
-    title: "Website Builder | Vertex CMS Features",
+    title: "Website Builder | VertexBuild Features",
     description:
-      "Launch a construction company website from predefined templates, connected CMS content, branding controls, SEO, custom domains, and CRM lead capture — all inside Vertex CMS.",
+      "Launch a construction company website from predefined templates, connected CMS content, branding controls, SEO, custom domains, and CRM lead capture — all inside VertexBuild.",
     canonical: `${ROUTES.features}/website-builder`,
   },
   hero: {
@@ -63,7 +63,7 @@ export const websiteBuilderFeatureDetail = {
     sections: ["Hero", "Services", "Portfolio", "About", "Team", "Testimonials", "Certifications", "Contact"],
   },
   cmsImport: {
-    headline: "Your website starts with the information already inside Vertex CMS.",
+    headline: "Your website starts with the information already inside VertexBuild.",
     body: "Reuse company information and project data instead of recreating everything manually.",
     preview: "wbCmsImport" as PreviewKey,
     flows: [
@@ -75,7 +75,7 @@ export const websiteBuilderFeatureDetail = {
   },
   portfolio: {
     headline: "Turn completed work into your public portfolio.",
-    body: "Select projects from Vertex CMS and publish them as portfolio content on the company website.",
+    body: "Select projects from VertexBuild and publish them as portfolio content on the company website.",
     preview: "wbPortfolio" as PreviewKey,
   },
   branding: {
@@ -118,7 +118,7 @@ export const websiteBuilderFeatureDetail = {
   },
   contactLead: {
     headline: "Turn website inquiries into CRM leads.",
-    body: "Website contact form submissions create lead records in Vertex CMS CRM — connected to your business growth workflow.",
+    body: "Website contact form submissions create lead records in VertexBuild CRM — connected to your business growth workflow.",
     preview: "wbContactLead" as PreviewKey,
   },
   workflow: {
@@ -136,7 +136,7 @@ export const websiteBuilderFeatureDetail = {
     headline: "A better website without starting from zero.",
     cards: [
       { n: "01", title: "Faster website launch", body: "Start from a complete construction-focused template." },
-      { n: "02", title: "Less duplicated work", body: "Reuse information already managed inside Vertex CMS." },
+      { n: "02", title: "Less duplicated work", body: "Reuse information already managed inside VertexBuild." },
       { n: "03", title: "Consistent company presentation", body: "Keep branding and project information organized across the public website." },
       { n: "04", title: "Connected lead capture", body: "Turn website inquiries into CRM leads." },
     ],
@@ -160,7 +160,7 @@ export const websiteBuilderFeatureDetail = {
   },
   connectedWorkflows: {
     headline: "Website Builder connected to your business growth workflow.",
-    body: "Keep your public website connected to CRM, lead capture, and customer portals across Vertex CMS.",
+    body: "Keep your public website connected to CRM, lead capture, and customer portals across VertexBuild.",
     cards: [
       { slug: "crm", category: BG_LABEL, title: "CRM", body: "Manage customer relationships connected to website inquiries." },
       { slug: "leads", category: BG_LABEL, title: "Leads", body: "Capture website inquiries as organized lead records." },
@@ -183,7 +183,7 @@ export const websiteBuilderFeatureDetail = {
   finalCta: {
     headline: "Put your construction business online without rebuilding everything from scratch.",
     supporting:
-      "Choose a proven website system, connect the information already inside Vertex CMS, and publish a professional company website with a connected path to new leads.",
+      "Choose a proven website system, connect the information already inside VertexBuild, and publish a professional company website with a connected path to new leads.",
     primary: { label: "Explore Business Growth", href: GROWTH },
     secondary: { label: CTAS.demo.label, href: CTAS.demo.href },
   },
