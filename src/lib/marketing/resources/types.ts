@@ -90,3 +90,22 @@ export type HelpDocCategoryPreview = {
   description: string;
   href: string;
 };
+
+export type HelpDocCategoryId =
+  | "getting-started"
+  | "projects"
+  | "financials"
+  | "field-operations"
+  | "account";
+
+/** Help Center documentation entry — product knowledge preview (marketing site). */
+export type HelpDocArticleRecord = {
+  id: string;
+  slug: string;
+  title: string;
+  description: string;
+  categoryId: HelpDocCategoryId;
+  categoryTitle: string;
+  href: string;
+  body: BlogContentBlock[];
+};

@@ -1,5 +1,5 @@
-import { AxisLine, ArrowDown, Eyebrow, Node, UiBlock } from "../blog-detail/abstracts/primitives";
-import type { WebinarHeroVisual } from "@/lib/marketing/resources/webinar";
+import { AxisLine, ArrowDown, AxisPath, Eyebrow, Node, UiBlock } from "../blog-detail/abstracts/primitives";
+import type { WebinarHeroVisual, WebinarSessionDetailField } from "@/lib/marketing/resources/webinar";
 
 type Props = { className?: string };
 
@@ -152,6 +152,94 @@ export function WebinarRegistrationFlowAbstract({ className = "" }: Props) {
         <UiBlock x={56} y={96} w={128} h={22} label="VERTEXBUILD" emphasis />
       </svg>
     </div>
+  );
+}
+
+export function WebinarSessionDetailsStrip({
+  fields,
+  dateIso,
+}: {
+  fields: WebinarSessionDetailField[];
+  dateIso?: string;
+}) {
+  if (!fields.length) return null;
+
+  return (
+    <div
+      className="grid grid-cols-2 gap-px border border-brand-line/80 bg-brand-line/80 sm:grid-cols-4"
+      data-design-layer="WebinarSessionDetailsStrip"
+      role="list"
+    >
+      {fields.map((field) => (
+        <div key={field.id} className="bg-white px-4 py-4 sm:px-5 sm:py-5" role="listitem">
+          <p className="text-[10px] font-semibold uppercase tracking-[0.12em] text-brand-muted">{field.label}</p>
+          <p className="mt-2 font-display text-[1.05rem] font-bold leading-snug text-brand-navy sm:text-[1.1rem]">
+            {field.id === "date" && dateIso ? <time dateTime={dateIso}>{field.value}</time> : field.value}
+          </p>
+        </div>
+      ))}
+    </div>
+  );
+}
+
+export function WebinarTakeawaysAbstract({ className = "" }: Props) {
+  return (
+    <div
+      className={`pointer-events-none select-none ${className}`}
+      data-design-layer="WebinarTakeawaysAbstract"
+      data-abstract="takeaways"
+      aria-hidden="true"
+    >
+      <svg className="block h-auto w-full max-w-[220px]" viewBox="0 0 220 132" xmlns="http://www.w3.org/2000/svg" fill="none">
+        <UiBlock x={8} y={12} w={72} h={20} label="PROJECT" />
+        <AxisPath d="M80 22 H108" ambient quiet />
+        <UiBlock x={112} y={12} w={56} h={20} label="FIELD" />
+        <AxisPath d="M168 22 H196" ambient quiet />
+        <Node cx={204} cy={22} active />
+        <AxisLine x1={110} y1={32} x2={110} y2={108} ambient />
+        <Node cx={110} cy={48} active />
+        <UiBlock x={64} y={52} w={92} h={18} label="Takeaways" emphasis />
+        <ArrowDown x={110} y={68} />
+        <Node cx={110} cy={88} />
+        <UiBlock x={52} y={92} w={116} h={20} label="OPERATING RECORD" />
+      </svg>
+    </div>
+  );
+}
+
+export function WebinarHeroMetadataRow({
+  dateIso,
+  dateLabel,
+  availability,
+  formatKind,
+}: {
+  dateIso?: string;
+  dateLabel: string | null;
+  availability: string;
+  formatKind: string;
+}) {
+  return (
+    <dl
+      className="mt-5 grid grid-cols-2 gap-x-6 gap-y-4 border-t border-brand-line/70 pt-5 sm:grid-cols-3"
+      data-design-layer="WebinarHeroMetadataRow"
+    >
+      {dateLabel ? (
+        <div>
+          <dt className="text-[10px] font-semibold uppercase tracking-[0.12em] text-brand-muted">Date</dt>
+          <dd className="mt-1.5 text-[13px] font-semibold text-brand-navy">
+            <time dateTime={dateIso}>{dateLabel}</time>
+          </dd>
+        </div>
+      ) : null}
+      <div>
+        <dt className="text-[10px] font-semibold uppercase tracking-[0.12em] text-brand-muted">Availability</dt>
+        <dd className="mt-1.5 text-[13px] font-semibold text-brand-navy">{availability}</dd>
+      </div>
+      <div className={dateLabel ? "col-span-2 sm:col-span-1" : "col-span-2 sm:col-span-1"}>
+        <dt className="text-[10px] font-semibold uppercase tracking-[0.12em] text-brand-muted">Format</dt>
+        <dd className="mt-1.5 text-[13px] font-semibold text-brand-navy">{formatKind}</dd>
+      </div>
+    </dl>
   );
 }
 

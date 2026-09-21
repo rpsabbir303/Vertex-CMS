@@ -380,36 +380,45 @@ export const RESOURCES_PREVIEW_CATALOG: ResourceRecord[] = [
   },
 ];
 
+/** In-page section IDs on `/resources/help` — not separate routes. */
+export const HELP_CENTER_SECTION_ANCHORS = {
+  "getting-started": "help-getting-started",
+  projects: "help-projects",
+  financials: "help-financials",
+  "field-operations": "help-field",
+  account: "help-account",
+} as const;
+
 export const HELP_DOC_CATEGORY_PREVIEWS: HelpDocCategoryPreview[] = [
   {
     id: "getting-started",
     title: "Getting started",
     description: "Account setup, workspace basics, and first-project checklist.",
-    href: ROUTES.resourcesHelp,
+    href: `${ROUTES.resourcesHelp}#${HELP_CENTER_SECTION_ANCHORS["getting-started"]}`,
   },
   {
     id: "projects",
     title: "Projects",
     description: "Project setup, documents, scheduling, and core workflows.",
-    href: ROUTES.resourcesHelp,
+    href: `${ROUTES.resourcesHelp}#${HELP_CENTER_SECTION_ANCHORS.projects}`,
   },
   {
     id: "financials",
     title: "Financials",
     description: "Job cost, billing workflows, and reporting fundamentals.",
-    href: ROUTES.resourcesHelp,
+    href: `${ROUTES.resourcesHelp}#${HELP_CENTER_SECTION_ANCHORS.financials}`,
   },
   {
     id: "field-operations",
     title: "Field operations",
     description: "Daily logs, field capture, and superintendent handoffs.",
-    href: ROUTES.resourcesHelp,
+    href: `${ROUTES.resourcesHelp}#${HELP_CENTER_SECTION_ANCHORS["field-operations"]}`,
   },
   {
     id: "account",
     title: "Account & security",
     description: "Users, roles, authentication, and tenant administration.",
-    href: ROUTES.resourcesHelp,
+    href: `${ROUTES.resourcesHelp}#${HELP_CENTER_SECTION_ANCHORS.account}`,
   },
 ];
 

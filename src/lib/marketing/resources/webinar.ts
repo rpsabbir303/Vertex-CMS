@@ -207,6 +207,15 @@ export type WebinarDetailMeta = {
   coverFlowLabels: string[];
   formatSummary: string;
   formatKind: string;
+  /** Derived from session coverage bullets — not separate marketing claims. */
+  keyTakeaways: string[];
+  registrationAvailability: string;
+};
+
+export type WebinarSessionDetailField = {
+  id: "date" | "availability" | "format" | "registration";
+  label: string;
+  value: string;
 };
 
 const WEBINAR_HERO_VISUAL: Record<string, WebinarHeroVisual> = {
@@ -265,6 +274,15 @@ function formatKindFromCopy(formatParagraph: string, status: WebinarHubStatus): 
   return webinarStatusLabel(status);
 }
 
+/** Registration row copy from catalog status + format paragraph only. */
+function registrationAvailabilityFromSource(formatSummary: string, status: WebinarHubStatus): string {
+  const lower = formatSummary.toLowerCase();
+  if (status === "upcoming") return "Open";
+  if (status === "on-demand") return "Available";
+  if (lower.includes("not available")) return "Not available";
+  return webinarStatusLabel(status);
+}
+
 function buildWebinarDetailMeta(webinar: WebinarArticleRecord): WebinarDetailMeta | null {
   const heroVisual = WEBINAR_HERO_VISUAL[webinar.id];
   const coverFlowLabels = WEBINAR_COVER_FLOW[webinar.id];
@@ -281,6 +299,8 @@ function buildWebinarDetailMeta(webinar: WebinarArticleRecord): WebinarDetailMet
     description,
   }));
 
+  const formatKind = formatKindFromCopy(formatSummary, webinar.webinarStatus);
+
   return {
     heroVisual,
     overviewLead,
@@ -288,12 +308,39 @@ function buildWebinarDetailMeta(webinar: WebinarArticleRecord): WebinarDetailMet
     coverItems,
     coverFlowLabels: coverFlowLabels.slice(0, coverItems.length),
     formatSummary,
-    formatKind: formatKindFromCopy(formatSummary, webinar.webinarStatus),
+    formatKind,
+    keyTakeaways: topicItems,
+    registrationAvailability: registrationAvailabilityFromSource(formatSummary, webinar.webinarStatus),
   };
 }
 
 export function getWebinarDetailMeta(webinar: WebinarArticleRecord): WebinarDetailMeta | null {
   return buildWebinarDetailMeta(webinar);
+}
+
+export function getWebinarSessionDetailFields(
+  webinar: WebinarArticleRecord,
+  meta: WebinarDetailMeta,
+): WebinarSessionDetailField[] {
+  const date = formatWebinarDate(webinar.publishedAt);
+  const fields: WebinarSessionDetailField[] = [];
+
+  if (date) {
+    fields.push({ id: "date", label: "Date", value: date });
+  }
+  fields.push({
+    id: "availability",
+    label: "Availability",
+    value: webinarStatusLabel(webinar.webinarStatus),
+  });
+  fields.push({ id: "format", label: "Format", value: meta.formatKind });
+  fields.push({
+    id: "registration",
+    label: "Registration",
+    value: meta.registrationAvailability,
+  });
+
+  return fields;
 }
 
 export function webinarAudienceLabels(audience: ResourceAudience[] | undefined): string[] {

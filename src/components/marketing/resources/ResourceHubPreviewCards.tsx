@@ -536,20 +536,22 @@ function KnowledgeMapNode({
   index,
   title,
   description,
+  href,
   featured = false,
   align = "center",
 }: {
   index: number;
   title: string;
   description: string;
+  href?: string;
   featured?: boolean;
   align?: "center" | "left" | "right";
 }) {
   const alignClass = align === "left" ? "items-start text-left" : align === "right" ? "items-end text-right" : "items-center text-center";
   const num = String(index).padStart(2, "0");
 
-  return (
-    <div className={`relative z-[1] flex max-w-[11.5rem] flex-col ${alignClass} sm:max-w-[13rem]`}>
+  const inner = (
+    <>
       <span
         className={`flex h-3 w-3 items-center justify-center rounded-full border sm:h-3.5 sm:w-3.5 ${
           featured ? "border-brand-blue bg-brand-blue" : "border-brand-blue/55 bg-white"
@@ -567,8 +569,22 @@ function KnowledgeMapNode({
         {title}
       </p>
       <p className="mt-1.5 text-[11px] leading-snug text-brand-muted sm:text-[12px] sm:leading-relaxed">{description}</p>
-    </div>
+    </>
   );
+
+  const className = `relative z-[1] flex max-w-[11.5rem] flex-col ${alignClass} sm:max-w-[13rem] ${
+    href ? "transition hover:opacity-90" : ""
+  }`;
+
+  if (href) {
+    return (
+      <Link href={href} className={`group ${className}`}>
+        {inner}
+      </Link>
+    );
+  }
+
+  return <div className={className}>{inner}</div>;
 }
 
 function MapConnectorVertical({ height = 28 }: { height?: number }) {
@@ -618,7 +634,7 @@ export function HelpDocumentationNav({
     <div className="overflow-hidden border border-brand-line bg-white shadow-[0_1px_0_rgba(15,23,42,0.03)]">
       <div className="flex items-baseline justify-between gap-4 border-b border-brand-line px-5 py-3.5 sm:px-6">
         <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-brand-navy">Product knowledge</p>
-        <p className="font-mono text-[10px] tracking-wide text-brand-muted">05 knowledge areas</p>
+        <p className="text-[10px] font-semibold tabular-nums tracking-wide text-brand-muted">05 knowledge areas</p>
       </div>
 
       <div className="relative bg-[#FAFBFD]/px-4 py-8 sm:px-8 sm:py-10">
@@ -633,6 +649,7 @@ export function HelpDocumentationNav({
               index={1}
               title={gettingStarted.title}
               description={gettingStarted.description}
+              href={gettingStarted.href}
               featured
             />
           ) : null}
@@ -647,6 +664,7 @@ export function HelpDocumentationNav({
                   index={2}
                   title={projects.title}
                   description={projects.description}
+                  href={projects.href}
                   align="left"
                 />
               </div>
@@ -657,6 +675,7 @@ export function HelpDocumentationNav({
                   index={3}
                   title={financials.title}
                   description={financials.description}
+                  href={financials.href}
                   align="right"
                 />
               </div>
@@ -666,13 +685,13 @@ export function HelpDocumentationNav({
           <MapConnectorMerge />
 
           {fieldOps ? (
-            <KnowledgeMapNode index={4} title={fieldOps.title} description={fieldOps.description} />
+            <KnowledgeMapNode index={4} title={fieldOps.title} description={fieldOps.description} href={fieldOps.href} />
           ) : null}
 
           <MapConnectorVertical height={28} />
 
           {account ? (
-            <KnowledgeMapNode index={5} title={account.title} description={account.description} />
+            <KnowledgeMapNode index={5} title={account.title} description={account.description} href={account.href} />
           ) : null}
         </div>
       </div>

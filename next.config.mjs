@@ -20,6 +20,16 @@ const nextConfig = {
         destination: "/integrations/:slug*",
         permanent: true,
       },
+      {
+        source: "/resources/help-center",
+        destination: "/resources/help",
+        permanent: true,
+      },
+      {
+        source: "/resources/help-center/:slug*",
+        destination: "/resources/help/:slug*",
+        permanent: true,
+      },
     ];
   },
   images: {

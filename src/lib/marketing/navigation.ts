@@ -20,7 +20,18 @@ export const ROUTES = {
   resourcesGuides: "/resources/guides",
   resourcesTemplates: "/resources/templates",
   resourcesWebinars: "/resources/webinars",
+  /** Help Center listing — `/resources/help` */
   resourcesHelp: "/resources/help",
+  /** Help Center documentation category slugs — `/resources/help/[slug]` when slug is a category. */
+  resourcesHelpCategorySlug: {
+    "getting-started": "getting-started",
+    projects: "projects",
+    financials: "financials",
+    "field-operations": "field-operations",
+    account: "account-security",
+  },
+  /** Documentation detail — `/resources/help/[slug]` */
+  resourcesHelpArticle: (slug: string) => `/resources/help/${slug}` as const,
   /** Blog article detail — `/resources/blog/[slug]` */
   resourcesBlogArticle: (slug: string) => `/resources/blog/${slug}` as const,
   /** Individual guide detail only — `/resources/guides/[slug]`. Guide categories are not routes. */
@@ -63,6 +74,26 @@ export const ROUTES = {
   demo: "/book-demo",
   requestQuote: "/request-quote",
 } as const;
+
+export type HelpDocCategoryRouteId = keyof typeof ROUTES.resourcesHelpCategorySlug;
+
+export type HelpDocCategoryRouteSlug = (typeof ROUTES.resourcesHelpCategorySlug)[HelpDocCategoryRouteId];
+
+/** Help Center documentation category — `/resources/help/{category-slug}`. */
+export function resourcesHelpCategory(categoryId: HelpDocCategoryRouteId) {
+  return `/resources/help/${ROUTES.resourcesHelpCategorySlug[categoryId]}` as const;
+}
+
+export function resourcesHelpCategoryRouteSlug(categoryId: HelpDocCategoryRouteId): HelpDocCategoryRouteSlug {
+  return ROUTES.resourcesHelpCategorySlug[categoryId];
+}
+
+export function getHelpDocCategoryRouteIdFromSlug(slug: string): HelpDocCategoryRouteId | null {
+  const match = (
+    Object.entries(ROUTES.resourcesHelpCategorySlug) as [HelpDocCategoryRouteId, HelpDocCategoryRouteSlug][]
+  ).find(([, routeSlug]) => routeSlug === slug);
+  return match?.[0] ?? null;
+}
 
 export const CTAS = {
   demo: { label: "Book a Demo", href: ROUTES.demo },
