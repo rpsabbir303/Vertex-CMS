@@ -29,8 +29,9 @@ export const MARKETING_PAGES: Record<string, MarketingPageConfig> = {
     breadcrumbs: [{ label: "Home", href: ROUTES.home }, { label: "Features" }],
   },
   productTour: {
-    title: `${base} Product Tour`,
-    description: "Explore the VertexBuild platform with screenshots and walkthroughs.",
+    title: `Product Tour | ${base}`,
+    description:
+      "Explore how VertexBuild connects project, field, financial, and intelligence workflows — interactive platform, financial, field, and AI tour experiences.",
     breadcrumbs: [{ label: "Home", href: ROUTES.home }, { label: "Product Tour" }],
   },
   customers: {

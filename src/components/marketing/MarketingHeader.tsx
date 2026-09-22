@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useId, useRef, useState } from "react";
+import { Suspense, useEffect, useId, useRef, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { CloseIcon, MenuIcon, VertexLogo } from "@/components/Icons";
@@ -19,6 +19,7 @@ import { LanguageSelector } from "./LanguageSelector";
 import { MegaMenu } from "./MegaMenu";
 import { MobileNavAccordion } from "./MobileNavAccordion";
 import { useMarketing } from "./MarketingProviders";
+import { ProductTourFeatureReturnBar } from "./product-tour/ProductTourFeatureReturnBar";
 
 type Props = {
   variant?: "light" | "dark";
@@ -84,6 +85,7 @@ export function MarketingHeader({ variant = "light" }: Props) {
       : "border-b border-transparent bg-white/90 backdrop-blur-sm";
 
   return (
+    <>
     <header className={`sticky top-0 z-50 w-full transition-all duration-300 ${headerSurface}`}>
       <div ref={headerRef} className="relative" onMouseLeave={() => setMegaOpen(false)}>
         <div
@@ -253,5 +255,9 @@ export function MarketingHeader({ variant = "light" }: Props) {
         </div>
       )}
     </header>
+    <Suspense fallback={null}>
+      <ProductTourFeatureReturnBar />
+    </Suspense>
+    </>
   );
 }
