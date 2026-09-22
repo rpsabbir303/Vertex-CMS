@@ -7,12 +7,14 @@ import { MarketingProviders } from "@/components/marketing/MarketingProviders";
 import { WebinarsListingPage } from "@/components/marketing/resources/webinars-listing/WebinarsListingPage";
 import { marketingMetadata } from "@/lib/marketing/pages";
 
+import "./webinars-page.css";
+
 export const metadata: Metadata = marketingMetadata("resourcesWebinars");
 
 export default function ResourcesWebinarsPage() {
   return (
     <MarketingProviders>
-      <div className="flex min-h-screen flex-col overflow-x-hidden bg-white text-brand-navy">
+      <div className="webinars-page-scope flex min-h-screen flex-col overflow-x-hidden bg-white text-[#000000]">
         <MarketingHeader />
         <main className="w-full min-w-0 flex-1">
           <WebinarsListingPage />

@@ -2,6 +2,7 @@ import type { ReactNode } from "react";
 import Link from "next/link";
 import { ArrowRight } from "@/components/Icons";
 import { RESOURCE_TOPIC_LABELS } from "@/lib/marketing/resources/content";
+import { resolveWebinarStatus } from "@/lib/marketing/resources/webinar";
 import type { ResourceRecord, WebinarHubStatus } from "@/lib/marketing/resources/types";
 import { BlogEditorialVisual } from "./BlogEditorialVisual";
 
@@ -493,7 +494,7 @@ function webinarStatusHeading(status: WebinarHubStatus) {
 
 export function WebinarTimelineItem({ resource, isLast }: { resource: ResourceRecord; isLast?: boolean }) {
   const date = formatDate(resource.publishedAt);
-  const status = resource.webinarStatus ?? "on-demand";
+  const status = resource.type === "webinar" ? resolveWebinarStatus(resource) : "on-demand";
   const actionLabel = status === "upcoming" ? "Register" : "Watch";
 
   return (

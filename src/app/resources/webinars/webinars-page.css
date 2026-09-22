@@ -1,0 +1,27 @@
+/* /resources/webinars — map text-brand-navy (#08233F) to #000000 within this page only. */
+.webinars-page-scope .text-brand-navy {
+  --tw-text-opacity: 1;
+  color: rgb(0 0 0 / var(--tw-text-opacity));
+}
+
+.webinars-page-scope .hover\:text-brand-navy:hover {
+  --tw-text-opacity: 1;
+  color: rgb(0 0 0 / var(--tw-text-opacity));
+}
+
+.webinars-page-scope .group:hover .group-hover\:text-brand-navy {
+  --tw-text-opacity: 1;
+  color: rgb(0 0 0 / var(--tw-text-opacity));
+}
+
+.webinars-page-scope .text-brand-navy\/92 {
+  color: rgb(0 0 0 / 0.92);
+}
+
+.webinars-page-scope .text-brand-navy\/90 {
+  color: rgb(0 0 0 / 0.9);
+}
+
+.webinars-page-scope .btn-secondary {
+  color: #000000;
+}

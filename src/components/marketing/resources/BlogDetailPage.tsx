@@ -5,10 +5,12 @@ import { Breadcrumbs } from "@/components/marketing/Breadcrumbs";
 import {
   blogTopicLabel,
   formatBlogDate,
+  getBlogReadingMinutes,
   getBlogToc,
   getRelatedBlogArticles,
   getRelatedHubResources,
 } from "@/lib/marketing/resources/blog";
+import { BlogCard } from "./blog-listing/BlogCard";
 import { RESOURCE_TYPE_LABELS, RESOURCES_HUB } from "@/lib/marketing/resources/content";
 import type { BlogArticleRecord, ResourceRecord } from "@/lib/marketing/resources/types";
 import { ROUTES } from "@/lib/marketing/navigation";
@@ -49,8 +51,9 @@ export function BlogDetailPage({ article }: Props) {
   const toc = getBlogToc(article);
   const showRail = toc.length >= TOC_MIN_ITEMS;
   const relatedBlogs = getRelatedBlogArticles(article, 3);
-  const relatedHub = getRelatedHubResources(article, 1);
-  const related: ResourceRecord[] = [...relatedBlogs, ...relatedHub].slice(0, 4);
+  const relatedHub = getRelatedHubResources(article, 4);
+  const related: ResourceRecord[] = relatedHub;
+  const readingMinutes = getBlogReadingMinutes(article);
   const relatedTopics = relatedTopicsForArticle(article.topic);
 
   return (
@@ -60,6 +63,7 @@ export function BlogDetailPage({ article }: Props) {
       <div className="relative z-[1]">
         <Breadcrumbs
           items={[
+            { label: "Home", href: ROUTES.home },
             { label: "Resources", href: ROUTES.resources },
             { label: "Blog", href: ROUTES.resourcesBlog },
             { label: article.title },
@@ -100,14 +104,14 @@ export function BlogDetailPage({ article }: Props) {
                       <span>By {article.author}</span>
                     </>
                   ) : null}
-                  {typeof article.readingMinutes === "number" ? (
+                  {readingMinutes ? (
                     <>
                       {dateLabel || article.author ? (
                         <span aria-hidden="true" className="text-brand-line">
                           ·
                         </span>
                       ) : null}
-                      <span>{article.readingMinutes} min read</span>
+                      <span>{readingMinutes} min read</span>
                     </>
                   ) : null}
                 </div>
@@ -213,6 +217,27 @@ export function BlogDetailPage({ article }: Props) {
             </div>
           </div>
         </section>
+
+        {relatedBlogs.length > 0 ? (
+          <section className="border-b border-brand-line/60 bg-[#F5F8FC]" aria-labelledby="blog-related-articles-heading">
+            <div className="resource-detail-shell py-8 sm:py-9 lg:py-10">
+              <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-brand-orange">Related articles</p>
+              <h2
+                id="blog-related-articles-heading"
+                className="mt-1.5 font-display text-[1.4rem] font-bold tracking-tight text-brand-navy sm:text-[1.55rem]"
+              >
+                Continue reading
+              </h2>
+              <ul className="mt-8 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3 lg:gap-6" role="list">
+                {relatedBlogs.map((item) => (
+                  <li key={item.id} className="min-w-0">
+                    <BlogCard article={item} />
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </section>
+        ) : null}
 
         {/* RELATED RESOURCES */}
         {related.length > 0 ? (

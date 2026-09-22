@@ -8,6 +8,7 @@ import type {
   BlogContentBlock,
   ResourceAudience,
   ResourceRecord,
+  ResourceTopic,
   WebinarArticleRecord,
   WebinarHubStatus,
 } from "./types";
@@ -75,11 +76,36 @@ const WEBINAR_SLUGS: Record<string, string> = {
   "webinar-job-cost-close": "month-end-job-cost-close-with-connected-field-data",
 };
 
+/** Session day (UTC) from ISO date string YYYY-MM-DD. */
+function sessionDayUtc(iso: string) {
+  const [y, m, d] = iso.split("-").map(Number);
+  return Date.UTC(y, m - 1, d);
+}
+
+function todayDayUtc(now: Date = new Date()) {
+  return Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate());
+}
+
+/**
+ * Derive listing/detail status from session date and recording URL — not hardcoded catalog flags.
+ * Future session → upcoming; past + videoUrl → on-demand; past without recording → completed.
+ */
+export function resolveWebinarStatus(record: ResourceRecord, now: Date = new Date()): WebinarHubStatus {
+  const iso = record.publishedAt;
+  if (!iso) {
+    if (record.videoUrl) return "on-demand";
+    return "completed";
+  }
+  if (sessionDayUtc(iso) > todayDayUtc(now)) return "upcoming";
+  if (record.videoUrl) return "on-demand";
+  return "completed";
+}
+
 function enrichWebinar(record: ResourceRecord): WebinarArticleRecord | null {
   if (record.type !== "webinar") return null;
   const slug = record.slug ?? WEBINAR_SLUGS[record.id];
   const body = record.body ?? WEBINAR_BODIES[record.id];
-  const webinarStatus = record.webinarStatus ?? "on-demand";
+  const webinarStatus = resolveWebinarStatus(record);
   if (!slug || !body?.length) return null;
   return {
     ...record,
@@ -128,6 +154,15 @@ export function webinarActionLabel(status: WebinarHubStatus): string {
   if (status === "on-demand") return "Watch webinar";
   return "View webinar";
 }
+
+/** Listing card / featured link labels — routes to detail; no fake playback. */
+export function webinarListingLinkLabel(status: WebinarHubStatus): string {
+  if (status === "upcoming") return "Register for webinar";
+  if (status === "on-demand") return "Watch webinar";
+  return "View session details";
+}
+
+export const WEBINAR_LIBRARY_PAGE_SIZE = 6;
 
 export function formatWebinarDate(iso?: string) {
   if (!iso) return null;
@@ -368,4 +403,79 @@ export function getRelatedResourcesForWebinar(
   const sameTopic = others.filter((item) => item.topic === webinar.topic);
   const rest = others.filter((item) => item.topic !== webinar.topic);
   return [...sameTopic, ...rest].slice(0, limit);
+}
+
+export function getRelatedWebinars(
+  webinar: WebinarArticleRecord,
+  limit = 3,
+  catalog: ResourceRecord[] = RESOURCES_PREVIEW_CATALOG,
+): WebinarArticleRecord[] {
+  const others = getWebinarArticles(catalog).filter((w) => w.id !== webinar.id);
+  const sameTopic = others.filter((w) => w.topic === webinar.topic);
+  const rest = others.filter((w) => w.topic !== webinar.topic);
+  return [...sameTopic, ...rest].slice(0, limit);
+}
+
+export type WebinarTopicFilterId = "all" | ResourceTopic;
+export type WebinarStatusFilterId = "all" | WebinarHubStatus;
+
+export function getWebinarTopicFilters(catalog: ResourceRecord[] = RESOURCES_PREVIEW_CATALOG) {
+  const topics = new Set(getWebinarArticles(catalog).map((w) => w.topic));
+  return [
+    { id: "all" as const, label: "All" },
+    ...Array.from(topics).map((topic) => ({
+      id: topic,
+      label: RESOURCE_TOPIC_LABELS[topic],
+    })),
+  ];
+}
+
+export function getWebinarStatusFilters() {
+  return [
+    { id: "all" as const, label: "All statuses" },
+    { id: "upcoming" as const, label: WEBINAR_STATUS_LABELS.upcoming },
+    { id: "on-demand" as const, label: WEBINAR_STATUS_LABELS["on-demand"] },
+    { id: "completed" as const, label: WEBINAR_STATUS_LABELS.completed },
+  ] as const;
+}
+
+function normalizeSearch(s: string) {
+  return s.trim().toLowerCase();
+}
+
+/** Client-side search over catalog fields — no fake results. */
+export function filterWebinarArticles(
+  webinars: WebinarArticleRecord[],
+  options: {
+    query?: string;
+    topic?: WebinarTopicFilterId;
+    status?: WebinarStatusFilterId;
+  },
+): WebinarArticleRecord[] {
+  let result = webinars;
+  const q = normalizeSearch(options.query ?? "");
+  if (options.topic && options.topic !== "all") {
+    result = result.filter((w) => w.topic === options.topic);
+  }
+  if (options.status && options.status !== "all") {
+    result = result.filter((w) => w.webinarStatus === options.status);
+  }
+  if (!q) return result;
+  return result.filter((w) => {
+    const topic = webinarTopicLabel(w.topic).toLowerCase();
+    const status = webinarStatusLabel(w.webinarStatus).toLowerCase();
+    const author = (w.author ?? "").toLowerCase();
+    return (
+      w.title.toLowerCase().includes(q) ||
+      w.description.toLowerCase().includes(q) ||
+      topic.includes(q) ||
+      status.includes(q) ||
+      author.includes(q)
+    );
+  });
+}
+
+export function excludeWebinarById(webinars: WebinarArticleRecord[], id?: string) {
+  if (!id) return webinars;
+  return webinars.filter((w) => w.id !== id);
 }

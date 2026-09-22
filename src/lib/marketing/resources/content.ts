@@ -27,8 +27,8 @@ export const RESOURCES_HUB = {
     eyebrow: "Blog",
     headline: "Construction operations insights",
     supporting:
-      "Articles on project delivery, financial alignment, field coordination, and platform updates — written for construction teams, not generic SaaS fluff.",
-    cta: "Explore Blogs",
+      "Practical articles on project delivery, financial alignment, field coordination, AI-assisted workflows, and VertexBuild product knowledge — for teams running active jobs.",
+    cta: "View all articles →",
     href: ROUTES.resourcesBlog,
   },
   guides: {
@@ -52,7 +52,7 @@ export const RESOURCES_HUB = {
     headline: "Live and on-demand sessions",
     supporting:
       "Sessions on platform capabilities, implementation topics, and operational best practices for construction teams.",
-    cta: "Explore Webinars",
+    cta: "View all webinars →",
     href: ROUTES.resourcesWebinars,
   },
   help: {
@@ -348,11 +348,10 @@ export const RESOURCES_PREVIEW_CATALOG: ResourceRecord[] = [
       "A structured tour of project, financial, field, compliance, and intelligence modules on one platform.",
     topic: "platform",
     audience: ["executive", "operations"],
-    publishedAt: "2026-02-18",
+    publishedAt: "2026-11-18",
     slug: "vertexbuild-platform-overview-for-operations-leaders",
     href: ROUTES.resourcesWebinarArticle("vertexbuild-platform-overview-for-operations-leaders"),
     catalogStatus: "preview",
-    webinarStatus: "upcoming",
   },
   {
     id: "webinar-ai-assistant",
@@ -364,7 +363,6 @@ export const RESOURCES_PREVIEW_CATALOG: ResourceRecord[] = [
     slug: "using-the-ai-assistant-on-active-projects",
     href: ROUTES.resourcesWebinarArticle("using-the-ai-assistant-on-active-projects"),
     catalogStatus: "preview",
-    webinarStatus: "on-demand",
   },
   {
     id: "webinar-job-cost-close",
@@ -376,7 +374,6 @@ export const RESOURCES_PREVIEW_CATALOG: ResourceRecord[] = [
     slug: "month-end-job-cost-close-with-connected-field-data",
     href: ROUTES.resourcesWebinarArticle("month-end-job-cost-close-with-connected-field-data"),
     catalogStatus: "preview",
-    webinarStatus: "completed",
   },
 ];
 

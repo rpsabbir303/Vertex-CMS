@@ -2,14 +2,15 @@
 
 import Link from "next/link";
 import { ArrowRight } from "@/components/Icons";
+import { excludeBlogById, getBlogArticles, getFeaturedBlog } from "@/lib/marketing/resources/blog";
 import {
   getHubResourcesByType,
   HELP_DOC_CATEGORY_PREVIEWS,
+  RESOURCE_TOPIC_LABELS,
   RESOURCES_HUB,
 } from "@/lib/marketing/resources/content";
 import { ResourceHubHeroVisual } from "./ResourceHubHeroVisual";
 import {
-  BlogMagazineAsideItem,
   BlogMagazineFeatured,
   GuideDocumentCover,
   GuideLibraryDetail,
@@ -57,7 +58,8 @@ export function ResourcesHubHero({ query, onQueryChange }: SearchProps) {
 
 export function ResourcesBlogPreviewSection() {
   const copy = RESOURCES_HUB.blog;
-  const [featured, ...rest] = getHubResourcesByType("blog");
+  const featured = getFeaturedBlog();
+  const rest = featured ? excludeBlogById(getBlogArticles(), featured.id).slice(0, 2) : getBlogArticles().slice(0, 2);
 
   return (
     <section className="border-b border-brand-line bg-white" aria-labelledby="hub-blog-heading">
@@ -67,31 +69,35 @@ export function ResourcesBlogPreviewSection() {
           <h2 id="hub-blog-heading" className="mt-2 font-display text-3xl font-bold text-brand-navy sm:text-[2rem]">
             {copy.headline}
           </h2>
-          <p className="mt-3 max-w-2xl text-[14px] leading-relaxed text-brand-muted sm:text-[15px]">{copy.supporting}</p>
+          <p className="mt-3 max-w-2xl text-[14px] leading-relaxed text-[#111827] sm:text-[15px]">{copy.supporting}</p>
         </header>
 
         {featured ? (
-          <div className="mt-10 grid min-w-0 gap-8 lg:mt-12 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)] lg:items-stretch lg:gap-10 xl:gap-12">
-            <div className="min-w-0">
-              <BlogMagazineFeatured resource={featured} />
-            </div>
-
-            <div className="relative min-h-0 min-w-0 lg:h-full">
-              <div
-                tabIndex={0}
-                role="region"
-                aria-label="More construction operations articles"
-                className="hub-blog-stream outline-none focus-visible:ring-2 focus-visible:ring-brand-orange/40 focus-visible:ring-offset-2 lg:absolute lg:inset-0 lg:overflow-y-auto lg:overscroll-contain lg:pr-1.5"
-              >
-                {rest.map((item, i) => (
-                  <BlogMagazineAsideItem key={item.id} resource={item} index={i} />
+          <div className="mt-10 min-w-0 lg:mt-12">
+            <BlogMagazineFeatured resource={featured} />
+            {rest.length > 0 ? (
+              <ul className="mt-8 divide-y divide-brand-line border border-brand-line bg-[#FAFBFD]" role="list">
+                {rest.map((item) => (
+                  <li key={item.id}>
+                    <Link
+                      href={item.href}
+                      className="group flex flex-col gap-1 px-4 py-4 transition hover:bg-white sm:px-5 sm:py-4"
+                    >
+                      <p className="text-[10px] font-semibold uppercase tracking-[0.12em] text-brand-orange">
+                        {RESOURCE_TOPIC_LABELS[item.topic]}
+                      </p>
+                      <p className="font-display text-[1.05rem] font-bold leading-snug text-brand-navy group-hover:text-brand-navy">
+                        {item.title}
+                      </p>
+                      <p className="line-clamp-2 text-[13px] leading-relaxed text-[#111827]">{item.description}</p>
+                    </Link>
+                  </li>
                 ))}
-              </div>
-              <div
-                className="pointer-events-none absolute inset-x-0 bottom-0 z-[1] hidden h-12 bg-gradient-to-t from-white via-white/80 to-transparent lg:block"
-                aria-hidden="true"
-              />
-            </div>
+              </ul>
+            ) : null}
+            <p className="mt-6 border-t border-brand-line/60 pt-6">
+              <HubTextLink href={copy.href}>{copy.cta}</HubTextLink>
+            </p>
           </div>
         ) : null}
       </div>

@@ -40,8 +40,19 @@ export function ResourceSearchField({ value, onChange, placeholder, label, id: i
         onChange={(e) => onChange(e.target.value)}
         placeholder={placeholder}
         autoComplete="off"
-        className="w-full rounded-sm border border-brand-line bg-white py-3.5 pl-11 pr-4 text-[15px] text-brand-navy shadow-[0_2px_12px_-4px_rgba(8,35,63,0.08)] placeholder:text-brand-muted/70 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-orange/45"
+        className={`w-full rounded-sm border border-brand-line bg-white py-3.5 pl-11 text-[15px] text-brand-navy shadow-[0_2px_12px_-4px_rgba(8,35,63,0.08)] placeholder:text-brand-muted/70 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-orange/45 ${
+          value ? "pr-20" : "pr-4"
+        }`}
       />
+      {value ? (
+        <button
+          type="button"
+          onClick={() => onChange("")}
+          className="absolute right-3 top-1/2 -translate-y-1/2 rounded-sm px-2 py-1 text-[12px] font-semibold text-[#111827]/75 transition hover:text-brand-navy focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-orange/45"
+        >
+          Clear
+        </button>
+      ) : null}
     </form>
   );
 }

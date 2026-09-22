@@ -7,6 +7,7 @@ import { RESOURCE_TYPE_LABELS } from "@/lib/marketing/resources/content";
 import {
   formatWebinarDate,
   getRelatedResourcesForWebinar,
+  getRelatedWebinars,
   getWebinarDetailMeta,
   getWebinarRegistrationCta,
   getWebinarSessionDetailFields,
@@ -14,6 +15,9 @@ import {
   webinarStatusLabel,
   webinarTopicLabel,
 } from "@/lib/marketing/resources/webinar";
+import { WebinarCard } from "./webinars-listing/WebinarCard";
+import { WebinarSessionPlayer } from "./webinar-detail/WebinarSessionPlayer";
+import { WebinarSpeaker } from "./webinar-detail/WebinarSpeaker";
 import type { WebinarArticleRecord } from "@/lib/marketing/resources/types";
 
 import { BlogDetailCtaSection } from "./blog-detail/BlogDetailCtaSection";
@@ -51,9 +55,14 @@ export function WebinarDetailPage({ webinar }: Props) {
   const status = webinarStatusLabel(webinar.webinarStatus);
   const sessionCta = getWebinarRegistrationCta(webinar.webinarStatus);
   const audience = webinarAudienceLabels(webinar.audience);
-  const related = getRelatedResourcesForWebinar(webinar, 4);
+  const relatedWebinars = getRelatedWebinars(webinar, 3);
+  const related = getRelatedResourcesForWebinar(webinar, 4).filter((item) => item.type !== "webinar");
   const detailFields = meta ? getWebinarSessionDetailFields(webinar, meta) : [];
   const showTakeaways = Boolean(meta && meta.keyTakeaways.length >= 2);
+  const registrationCta =
+    webinar.registrationUrl && webinar.webinarStatus === "upcoming"
+      ? { label: "Register for the webinar", href: webinar.registrationUrl }
+      : sessionCta;
 
   return (
     <div className="relative overflow-x-hidden bg-[#F5F8FC] font-sans text-brand-navy">
@@ -86,7 +95,7 @@ export function WebinarDetailPage({ webinar }: Props) {
                 <h1 className="mt-3 max-w-2xl font-display text-[1.85rem] font-bold leading-[1.08] tracking-tight text-brand-navy sm:text-[2.35rem] lg:text-[2.55rem]">
                   {webinar.title}
                 </h1>
-                <p className="mt-4 max-w-xl text-[15px] leading-[1.65] text-brand-muted sm:text-[15.5px]">
+                <p className="mt-4 max-w-xl text-[15px] leading-[1.65] text-[#111827] sm:text-[15.5px]">
                   {webinar.description}
                 </p>
                 {meta ? (
@@ -98,8 +107,8 @@ export function WebinarDetailPage({ webinar }: Props) {
                   />
                 ) : null}
                 <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-                  <Link href={sessionCta.href} className="btn-primary inline-flex w-full sm:w-auto">
-                    {heroPrimaryCtaLabel(webinar.webinarStatus, sessionCta.label)}
+                  <Link href={registrationCta.href} className="btn-primary inline-flex w-full sm:w-auto">
+                    {heroPrimaryCtaLabel(webinar.webinarStatus, registrationCta.label)}
                     <ArrowRight className="h-4 w-4" />
                   </Link>
                   <a href="#session-registration" className="btn-secondary inline-flex w-full sm:w-auto">
@@ -116,6 +125,26 @@ export function WebinarDetailPage({ webinar }: Props) {
 
         {meta ? (
           <>
+            <section className="border-b border-brand-line/60 bg-white" aria-labelledby="webinar-session-media-heading">
+              <div className="resource-detail-shell py-8 sm:py-9 lg:py-10">
+                <h2 id="webinar-session-media-heading" className="sr-only">
+                  Session recording
+                </h2>
+                <WebinarSessionPlayer status={webinar.webinarStatus} videoUrl={webinar.videoUrl} title={webinar.title} />
+              </div>
+            </section>
+
+            {webinar.author ? (
+              <section className="border-b border-brand-line/60 bg-[#F5F8FC]" aria-labelledby="webinar-speaker-heading">
+                <div className="resource-detail-shell py-8 sm:py-9">
+                  <h2 id="webinar-speaker-heading" className="sr-only">
+                    Speaker
+                  </h2>
+                  <WebinarSpeaker name={webinar.author} role={null} bio={null} />
+                </div>
+              </section>
+            ) : null}
+
             {/* SESSION OVERVIEW */}
             <section
               className="relative border-b border-brand-line/60 bg-white"
@@ -284,8 +313,8 @@ export function WebinarDetailPage({ webinar }: Props) {
                           : "Explore more sessions"}
                     </h2>
                     <p className="mt-3 max-w-xl text-[15px] leading-relaxed text-brand-muted">{meta.formatSummary}</p>
-                    <Link href={sessionCta.href} className="btn-primary mt-6 inline-flex w-full sm:w-auto">
-                      {heroPrimaryCtaLabel(webinar.webinarStatus, sessionCta.label)}
+                    <Link href={registrationCta.href} className="btn-primary mt-6 inline-flex w-full sm:w-auto">
+                      {heroPrimaryCtaLabel(webinar.webinarStatus, registrationCta.label)}
                       <ArrowRight className="h-4 w-4" />
                     </Link>
                     <Link
@@ -300,6 +329,24 @@ export function WebinarDetailPage({ webinar }: Props) {
               </div>
             </section>
           </>
+        ) : null}
+
+        {relatedWebinars.length > 0 ? (
+          <section className="border-b border-brand-line/60 bg-[#F5F8FC]" aria-labelledby="webinar-related-webinars-heading">
+            <div className="resource-detail-shell py-8 sm:py-9 lg:py-10">
+              <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-brand-orange">Related webinars</p>
+              <h2 id="webinar-related-webinars-heading" className="mt-1.5 font-display text-[1.4rem] font-bold tracking-tight text-brand-navy sm:text-[1.55rem]">
+                Continue with another session
+              </h2>
+              <ul className="mt-8 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3 lg:gap-6" role="list">
+                {relatedWebinars.map((item) => (
+                  <li key={item.id} className="min-w-0">
+                    <WebinarCard webinar={item} />
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </section>
         ) : null}
 
         {/* RELATED */}

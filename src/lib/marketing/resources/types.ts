@@ -40,6 +40,12 @@ export type ResourceRecord = {
   catalogStatus: "preview";
   /** Hub webinar previews — supports upcoming / on-demand / completed states. */
   webinarStatus?: WebinarHubStatus;
+  /** Hosted recording when published — omit until CMS provides a URL. */
+  videoUrl?: string;
+  /** Registration destination when published — omit until CMS provides a URL. */
+  registrationUrl?: string;
+  /** Session length label e.g. "45 min" when known. */
+  durationLabel?: string;
   /** Template preview — format label (worksheet, checklist, etc.). */
   templateFormat?: string;
   /** Editorial article image — curated construction photography when available. */

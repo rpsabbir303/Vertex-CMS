@@ -12,7 +12,7 @@ export const metadata: Metadata = marketingMetadata("resourcesBlog");
 export default function ResourcesBlogPage() {
   return (
     <MarketingProviders>
-      <div className="flex min-h-screen flex-col overflow-x-hidden bg-white text-brand-navy">
+      <div className="flex min-h-screen flex-col overflow-x-hidden bg-[#F5F8FC] text-brand-navy">
         <MarketingHeader />
         <main className="w-full min-w-0 flex-1">
           <BlogListingPage />

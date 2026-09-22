@@ -368,6 +368,104 @@ export function blogTopicLabel(topic: ResourceTopic) {
   return RESOURCE_TOPIC_LABELS[topic];
 }
 
+export const FEATURED_BLOG_ID = "blog-field-to-financial";
+
+export const BLOG_LISTING_PAGE_ANCHORS = {
+  featured: "blog-featured",
+  library: "blog-library",
+  connectedResources: "blog-connected-resources",
+} as const;
+
+const BLOG_PAGE_SIZE = 6;
+
+export { BLOG_PAGE_SIZE };
+
+function sortBlogArticlesByDate(articles: BlogArticleRecord[]) {
+  return [...articles].sort((a, b) => (b.publishedAt ?? "").localeCompare(a.publishedAt ?? ""));
+}
+
+export function getFeaturedBlog(catalog: ResourceRecord[] = RESOURCES_PREVIEW_CATALOG): BlogArticleRecord | null {
+  return (
+    getBlogArticles(catalog).find((a) => a.id === FEATURED_BLOG_ID) ?? getBlogArticles(catalog)[0] ?? null
+  );
+}
+
+export function excludeBlogById(articles: BlogArticleRecord[], id?: string) {
+  if (!id) return sortBlogArticlesByDate(articles);
+  return sortBlogArticlesByDate(articles.filter((a) => a.id !== id));
+}
+
+export type BlogTopicFilterId = "all" | ResourceTopic;
+
+export function getBlogTopicFilters(catalog: ResourceRecord[] = RESOURCES_PREVIEW_CATALOG) {
+  const topics = new Set(getBlogArticles(catalog).map((a) => a.topic));
+  return [
+    { id: "all" as const, label: "All" },
+    ...Array.from(topics).map((topic) => ({
+      id: topic,
+      label: RESOURCE_TOPIC_LABELS[topic],
+    })),
+  ];
+}
+
+function normalizeSearch(s: string) {
+  return s.trim().toLowerCase();
+}
+
+function blockPlainText(block: BlogContentBlock): string {
+  switch (block.type) {
+    case "paragraph":
+    case "quote":
+      return block.text;
+    case "heading":
+      return block.text;
+    case "ul":
+    case "ol":
+      return block.items.join(" ");
+    case "callout":
+      return `${block.title ?? ""} ${block.text}`;
+    case "image":
+      return block.caption ?? "";
+    default:
+      return "";
+  }
+}
+
+/** Derived from catalog field or article body length — not a marketing claim. */
+export function getBlogReadingMinutes(article: BlogArticleRecord): number | null {
+  if (typeof article.readingMinutes === "number") return article.readingMinutes;
+  const text = article.body.map(blockPlainText).join(" ");
+  const words = text.split(/\s+/).filter(Boolean).length;
+  if (words === 0) return null;
+  return Math.max(1, Math.round(words / 200));
+}
+
+/** Client-side search over catalog fields — no fake results. */
+export function filterBlogArticles(
+  articles: BlogArticleRecord[],
+  options: {
+    query?: string;
+    topic?: BlogTopicFilterId;
+  },
+): BlogArticleRecord[] {
+  let result = articles;
+  const q = normalizeSearch(options.query ?? "");
+  if (options.topic && options.topic !== "all") {
+    result = result.filter((a) => a.topic === options.topic);
+  }
+  if (!q) return result;
+  return result.filter((a) => {
+    const topic = blogTopicLabel(a.topic).toLowerCase();
+    const author = (a.author ?? "").toLowerCase();
+    return (
+      a.title.toLowerCase().includes(q) ||
+      a.description.toLowerCase().includes(q) ||
+      topic.includes(q) ||
+      author.includes(q)
+    );
+  });
+}
+
 /** Optional body image for the featured field article — reuses approved photo assets. */
 export const BLOG_INLINE_IMAGES = {
   fieldContext: {
