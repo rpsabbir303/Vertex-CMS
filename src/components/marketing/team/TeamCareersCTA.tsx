@@ -13,7 +13,9 @@ export function TeamCareersCTA({ hidePendingIntro = false }: { hidePendingIntro?
             <h2 id="team-careers-heading" className="display-title mt-4 text-[1.85rem] leading-[1.1] sm:text-[2.2rem] lg:text-[2.5rem]">
               {careersCta.headline}
             </h2>
-            {hidePendingIntro ? null : (
+            {hidePendingIntro ? (
+              <p className="mt-5 max-w-lg text-[15px] leading-[1.75] text-[#111827]">{careersCta.supporting}</p>
+            ) : (
               <div className="mt-5 max-w-lg">
                 <TeamPendingState compact body={TEAM_PENDING.careers} />
               </div>

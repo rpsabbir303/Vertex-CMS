@@ -15,7 +15,7 @@ export function TeamHero() {
       />
       <div className="site-shell relative grid items-end gap-12 py-16 lg:grid-cols-[1.15fr_0.85fr] lg:gap-16 lg:py-24">
         <Reveal>
-          <p className="eyebrow">{teamHero.eyebrow}</p>
+          <p className="eyebrow">{teamHero.label}</p>
           <h1 className="display-title mt-4 max-w-xl text-4xl leading-[1.08] sm:text-5xl lg:text-[3.35rem]">
             {teamHero.headline}
           </h1>
