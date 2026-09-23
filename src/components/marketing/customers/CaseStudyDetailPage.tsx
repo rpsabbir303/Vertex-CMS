@@ -8,12 +8,7 @@ import {
   getRelatedCaseStudies,
   getTestimonialForCustomer,
 } from "@/lib/marketing/customers/catalog";
-import {
-  CASE_STUDY_LIMITED_NOTES,
-  CUSTOMERS_IN_PAGE_LINKS,
-  CUSTOMERS_SECTIONS,
-  customersSectionHref,
-} from "@/lib/marketing/customers/content";
+import { CASE_STUDY_LIMITED_NOTES, CUSTOMERS_IN_PAGE_LINKS, CUSTOMERS_ROUTES } from "@/lib/marketing/customers/content";
 import type { CaseStudyRecord } from "@/lib/marketing/customers/types";
 import { CTAS, ROUTES } from "@/lib/marketing/navigation";
 
@@ -38,7 +33,7 @@ export function CaseStudyDetailPage({ study }: Props) {
   const quote = getTestimonialForCustomer(study.customerName);
   const metrics = getMetricsForCustomer(study.customerName);
   const related = getRelatedCaseStudies(study.slug, 3);
-  const backHref = `${ROUTES.customers}${customersSectionHref(CUSTOMERS_SECTIONS.caseStudies)}`;
+  const backHref = CUSTOMERS_ROUTES.caseStudiesListing;
 
   return (
     <div className="customers-page-canvas">
@@ -55,7 +50,7 @@ export function CaseStudyDetailPage({ study }: Props) {
         href={backHref}
         className="cust-shell relative z-[1] mt-2 inline-flex text-[13px] font-semibold text-brand-blue hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-orange"
       >
-        ← Back to Case Studies
+        ← All case studies
       </Link>
 
       {/* Hero */}
@@ -241,7 +236,7 @@ export function CaseStudyDetailPage({ study }: Props) {
           href={backHref}
           className="inline-flex items-center gap-2 text-[13px] font-semibold text-brand-blue hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-orange"
         >
-          ← Back to Case Studies
+          ← All case studies
         </Link>
         <Link
           href={CUSTOMERS_IN_PAGE_LINKS.exploreCaseStudies.href}

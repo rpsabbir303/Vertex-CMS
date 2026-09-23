@@ -49,6 +49,120 @@
   stroke-width: 1;
 }
 
+/* Case Studies library — cards are direct grid children (<article> from CaseStudyCard). */
+.cust-case-studies-library-grid {
+  display: grid;
+  width: 100%;
+  min-width: 0;
+  max-width: none;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 1.25rem;
+  padding: 0;
+  margin: 0;
+}
+
+.cust-case-studies-library-grid > article {
+  width: 100%;
+  min-width: 0;
+  max-width: none;
+  grid-column: auto;
+  flex: none;
+}
+
+@media (min-width: 768px) {
+  .cust-case-studies-library-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.5rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .cust-case-studies-library-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.75rem;
+  }
+}
+
+.cust-featured-testimonial-carousel {
+  width: 100%;
+  min-width: 0;
+}
+
+.cust-featured-testimonial-nav {
+  position: absolute;
+  top: 50%;
+  z-index: 2;
+  display: flex;
+  height: 2.25rem;
+  width: 2.25rem;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  border: 1px solid #dce5ef;
+  background: #fff;
+  color: #08233f;
+  box-shadow: 0 2px 8px rgba(8, 35, 63, 0.08);
+  transform: translateY(-50%);
+  transition: box-shadow 0.15s ease, border-color 0.15s ease;
+}
+
+.cust-featured-testimonial-nav:hover {
+  border-color: #c5d2df;
+  box-shadow: 0 3px 10px rgba(8, 35, 63, 0.1);
+}
+
+.cust-featured-testimonial-nav--prev {
+  left: 0;
+  transform: translate(-35%, -50%);
+}
+
+.cust-featured-testimonial-nav--next {
+  right: 0;
+  transform: translate(35%, -50%);
+}
+
+@media (max-width: 639px) {
+  .cust-featured-testimonial-nav--prev {
+    transform: translate(0, -50%);
+    left: 0.5rem;
+  }
+
+  .cust-featured-testimonial-nav--next {
+    transform: translate(0, -50%);
+    right: 0.5rem;
+  }
+}
+
+.cust-testimonials-library-grid {
+  display: grid;
+  width: 100%;
+  min-width: 0;
+  max-width: none;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 1.25rem;
+}
+
+.cust-testimonials-library-grid > article {
+  width: 100%;
+  min-width: 0;
+  max-width: none;
+  grid-column: auto;
+}
+
+@media (min-width: 768px) {
+  .cust-testimonials-library-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.5rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .cust-testimonials-library-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.75rem;
+  }
+}
+
 .cust-scroll-target {
   scroll-margin-top: 7.75rem;
 }

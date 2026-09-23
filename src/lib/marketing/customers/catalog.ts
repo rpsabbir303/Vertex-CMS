@@ -188,6 +188,70 @@ export function getCaseStudyBySlug(slug: string): CaseStudyRecord | undefined {
 
 }
 
+export function getCaseStudyByCustomerName(customerName: string): CaseStudyRecord | undefined {
+  return resolveCaseStudies().find((s) => s.customerName === customerName);
+}
+
+export type CaseStudyLibraryFilters = {
+  contractorType?: string;
+  projectType?: string;
+  capability?: string;
+  query?: string;
+};
+
+export function getCaseStudyCapabilityFilters(): string[] {
+  const names = new Set<string>();
+  for (const study of resolveCaseStudies()) {
+    study.capabilities?.forEach((cap) => names.add(cap.name));
+  }
+  return Array.from(names).sort();
+}
+
+function matchesCaseStudyQuery(study: CaseStudyRecord, rawQuery: string): boolean {
+  const q = rawQuery.trim().toLowerCase();
+  if (!q) return true;
+  const haystack = [
+    study.customerName,
+    study.contractorType,
+    study.projectType ?? "",
+    study.headline,
+    study.summary,
+    study.outcome ?? "",
+    ...(study.capabilities?.map((c) => c.name) ?? []),
+  ]
+    .join(" ")
+    .toLowerCase();
+  return haystack.includes(q);
+}
+
+export function filterCaseStudies(
+  studies: CaseStudyRecord[],
+  filters: CaseStudyLibraryFilters,
+): CaseStudyRecord[] {
+  return studies.filter((study) => {
+    if (filters.contractorType && filters.contractorType !== "all" && study.contractorType !== filters.contractorType) {
+      return false;
+    }
+    if (filters.projectType && filters.projectType !== "all" && study.projectType !== filters.projectType) {
+      return false;
+    }
+    if (filters.capability && filters.capability !== "all") {
+      const hasCap = study.capabilities?.some((c) => c.name === filters.capability);
+      if (!hasCap) return false;
+    }
+    if (!matchesCaseStudyQuery(study, filters.query ?? "")) {
+      return false;
+    }
+    return true;
+  });
+}
+
+/** Non-featured stories for grids (featured story has its own editorial block). */
+export function getCaseStudiesListingGrid(): CaseStudyRecord[] {
+  const featured = getFeaturedCaseStudy();
+  return resolveCaseStudies().filter((s) => s.slug !== featured?.slug);
+}
+
 
 
 export function getRelatedCaseStudies(slug: string, limit = 3): CaseStudyRecord[] {
@@ -218,6 +282,53 @@ export function getFeaturedTestimonial(): CustomerTestimonialRecord | undefined 
 
   return resolveTestimonials()[0];
 
+}
+
+const DEMO_TESTIMONIAL_AVATARS = [
+  "/marketing/team/demo/team-demo-nathan-brooks.png",
+  "/marketing/team/demo/team-demo-priya-raman.png",
+  "/marketing/team/demo/team-demo-amara-bennett.png",
+];
+
+/** Hero image for featured testimonial — record override, then linked case study. */
+export function getTestimonialHeroImage(
+  testimonial: CustomerTestimonialRecord,
+): { src: string; alt: string } | null {
+  const direct = testimonial.imageSrc?.trim();
+  if (direct) {
+    return {
+      src: direct,
+      alt: testimonial.imageAlt?.trim() || `${testimonial.company} project`,
+    };
+  }
+  const study = getCaseStudyByCustomerName(testimonial.company);
+  const studySrc = study?.imageSrc?.trim();
+  if (study && studySrc) {
+    return {
+      src: studySrc,
+      alt: study.imageAlt?.trim() || `${testimonial.company} project context`,
+    };
+  }
+  return null;
+}
+
+/** Demo portrait pool when no approved avatar is configured on the record. */
+export function getTestimonialAvatarSrc(testimonial: CustomerTestimonialRecord, index: number): string {
+  const configured = testimonial.avatarSrc?.trim();
+  if (configured) return configured;
+  return DEMO_TESTIMONIAL_AVATARS[index % DEMO_TESTIMONIAL_AVATARS.length];
+}
+
+/** Optional context from an existing case study record — never invented. */
+export function getTestimonialContextMetadata(
+  testimonial: CustomerTestimonialRecord,
+): { contractorType?: string; projectType?: string } {
+  const study = getCaseStudyByCustomerName(testimonial.company);
+  if (!study) return {};
+  return {
+    contractorType: study.contractorType,
+    projectType: study.projectType,
+  };
 }
 
 

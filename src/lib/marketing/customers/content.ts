@@ -14,6 +14,20 @@ export const customersLandingMeta = {
 
 };
 
+export const caseStudiesListingMeta = {
+  title: "Case Studies | VertexBuild",
+  description:
+    "Documented customer stories on VertexBuild — project operations, field workflows, financial management, compliance, and connected construction workflows.",
+  canonical: ROUTES.customersCaseStudies,
+} as const;
+
+export const testimonialsListingMeta = {
+  title: "Customer Testimonials | VertexBuild",
+  description:
+    "Read customer perspectives on how VertexBuild supports construction teams, connected workflows, project operations, and financial visibility.",
+  canonical: ROUTES.customersTestimonials,
+} as const;
+
 
 
 export const CUSTOMERS_SECTIONS = {
@@ -58,14 +72,20 @@ export const CUSTOMERS_ROUTES = {
 
   landing: ROUTES.customers,
 
+  caseStudiesListing: ROUTES.customersCaseStudies,
+
+  testimonialsListing: ROUTES.customersTestimonials,
+
   caseStudyDetail: (slug: string) => `${ROUTES.customersCaseStudies}/${slug}`,
 
   ecosystem: customersSectionHref(CUSTOMERS_SECTIONS.ecosystem),
 
   featuredStory: customersSectionHref(CUSTOMERS_SECTIONS.featuredStory),
 
+  /** In-page anchor on the Customers landing page */
   caseStudies: customersSectionHref(CUSTOMERS_SECTIONS.caseStudies),
 
+  /** In-page anchor on the Customers landing page */
   testimonials: customersSectionHref(CUSTOMERS_SECTIONS.testimonials),
 
   results: customersSectionHref(CUSTOMERS_SECTIONS.results),
@@ -80,7 +100,23 @@ export const CUSTOMERS_IN_PAGE_LINKS = {
 
     label: "View Case Studies",
 
-    href: customersSectionHref(CUSTOMERS_SECTIONS.caseStudies),
+    href: ROUTES.customersCaseStudies,
+
+  },
+
+  viewAllCaseStudies: {
+
+    label: "View all case studies",
+
+    href: ROUTES.customersCaseStudies,
+
+  },
+
+  viewAllTestimonials: {
+
+    label: "View all testimonials",
+
+    href: ROUTES.customersTestimonials,
 
   },
 
@@ -216,6 +252,45 @@ export const CUSTOMERS_PAGE = {
 
   },
 
+} as const;
+
+export const CUSTOMERS_CASE_STUDIES_LISTING_PAGE = {
+  hero: {
+    eyebrow: "Case studies",
+    headline: "See how construction teams put VertexBuild to work.",
+    supporting:
+      "These stories document how teams use VertexBuild across project operations, field workflows, financial management, compliance, and connected workflows — as approved for public reference.",
+  },
+  featured: {
+    eyebrow: "Featured case study",
+  },
+  library: {
+    headline: "All case studies",
+    supporting:
+      "Explore customer stories organized around documented workflows, capabilities, and outcomes.",
+  },
+} as const;
+
+export const CUSTOMERS_TESTIMONIALS_LISTING_PAGE = {
+  hero: {
+    eyebrow: "Testimonials",
+    headline: "What construction teams say about VertexBuild.",
+    supporting:
+      "Explore customer perspectives on how VertexBuild supports project operations, connected workflows, financial visibility, field execution, and day-to-day construction management.",
+  },
+  featured: {
+    eyebrow: "Featured perspective",
+  },
+  library: {
+    headline: "Customer perspectives",
+    supporting:
+      "Browse perspectives from construction teams across roles, workflows, and operating contexts.",
+  },
+  context: {
+    headline: "Perspectives from the work.",
+    supporting:
+      "See how construction teams describe the workflows, coordination, visibility, and operational needs that matter in their day-to-day work.",
+  },
 } as const;
 
 

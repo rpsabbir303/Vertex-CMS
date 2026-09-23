@@ -13,8 +13,9 @@ export const ROUTES = {
   pricing: "/pricing",
   productTour: "/product-tour",
   customers: "/customers",
-  /** Base path for case study detail pages only — listing lives at /customers#case-studies */
+  /** Case studies listing and detail base — `/customers/case-studies` and `/customers/case-studies/[slug]` */
   customersCaseStudies: "/customers/case-studies",
+  customersTestimonials: "/customers/testimonials",
   resources: "/resources",
   resourcesBlog: "/resources/blog",
   resourcesGuides: "/resources/guides",

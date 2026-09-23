@@ -96,6 +96,14 @@ export type CustomerTestimonialRecord = {
 
   relatedMetricId?: string;
 
+  /** Optional hero image — otherwise resolved from matching case study when available. */
+  imageSrc?: string;
+
+  imageAlt?: string;
+
+  /** Optional avatar — otherwise demo placeholder portraits for design review. */
+  avatarSrc?: string;
+
 };
 
 

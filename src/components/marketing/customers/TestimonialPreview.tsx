@@ -1,5 +1,12 @@
 import { getFeaturedTestimonial, getTestimonialsCatalog, hasTestimonials } from "@/lib/marketing/customers/catalog";
-import { CUSTOMERS_LIMITED_NOTES, CUSTOMERS_PAGE, CUSTOMERS_SECTIONS } from "@/lib/marketing/customers/content";
+import {
+  CUSTOMERS_IN_PAGE_LINKS,
+  CUSTOMERS_LIMITED_NOTES,
+  CUSTOMERS_PAGE,
+  CUSTOMERS_SECTIONS,
+} from "@/lib/marketing/customers/content";
+
+import { CustomersSectionViewAllLink } from "./CustomersSectionViewAllLink";
 
 import { CustomerTestimonialQuote } from "./CustomerTestimonialQuote";
 import { CustomersProofCompactNote } from "./CustomersProofCompactNote";
@@ -25,6 +32,13 @@ export function TestimonialPreview() {
           <p className="cust-eyebrow">{copy.eyebrow}</p>
           <h2 className="cust-display mt-2 text-xl sm:text-[1.75rem]">{copy.headline}</h2>
           <p className="mt-2 text-[14px] leading-relaxed text-brand-muted">{copy.supporting}</p>
+          {items.length > 0 ? (
+            <CustomersSectionViewAllLink
+              href={CUSTOMERS_IN_PAGE_LINKS.viewAllTestimonials.href}
+              label={CUSTOMERS_IN_PAGE_LINKS.viewAllTestimonials.label}
+              className="mt-4"
+            />
+          ) : null}
         </div>
 
         {items.length > 0 ? (

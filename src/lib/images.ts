@@ -30,11 +30,11 @@ export const photos = {
   nightSite:
     "https://images.unsplash.com/photo-1513828583688-c5266144c7f5?auto=format&fit=crop&w=2000&q=80",
   commercialInterior:
-    "https://images.unsplash.com/photo-1497366216548-af20fadb0c30?auto=format&fit=crop&w=1600&q=80",
+    "https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&w=1600&q=80",
   residentialDevelopment:
     "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1600&q=80",
   civilInfrastructure:
-    "https://images.unsplash.com/photo-1545558014-63f960599352?auto=format&fit=crop&w=1600&q=80",
+    "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=2000&q=80",
   commercialConstruction:
     "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=2000&q=80",
 } as const;

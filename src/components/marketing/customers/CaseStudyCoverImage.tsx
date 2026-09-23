@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 
 import type { CaseStudyRecord } from "@/lib/marketing/customers/types";
@@ -23,7 +25,9 @@ export function CaseStudyCoverImage({
   aspectClassName = "aspect-video",
   sizes = "(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw",
 }: Props) {
-  if (!study.imageSrc) {
+  const src = study.imageSrc?.trim();
+
+  if (!src) {
     return (
       <CaseStudyAbstractVisual
         variant={visualIndex}
@@ -32,15 +36,18 @@ export function CaseStudyCoverImage({
     );
   }
 
+  const isRemote = src.startsWith("http://") || src.startsWith("https://");
+
   return (
     <div className={`relative w-full overflow-hidden ${aspectClassName} ${className}`}>
       <Image
-        src={study.imageSrc}
+        src={src}
         alt={study.imageAlt ?? "Construction project"}
         fill
         className="object-cover object-center"
         sizes={sizes}
         priority={priority}
+        unoptimized={isRemote}
       />
     </div>
   );

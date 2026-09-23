@@ -1,6 +1,13 @@
 import { getCaseStudyPreviews, hasCaseStudies } from "@/lib/marketing/customers/catalog";
 
-import { CUSTOMERS_LIMITED_NOTES, CUSTOMERS_PAGE, CUSTOMERS_SECTIONS } from "@/lib/marketing/customers/content";
+import {
+  CUSTOMERS_IN_PAGE_LINKS,
+  CUSTOMERS_LIMITED_NOTES,
+  CUSTOMERS_PAGE,
+  CUSTOMERS_SECTIONS,
+} from "@/lib/marketing/customers/content";
+
+import { CustomersSectionViewAllLink } from "./CustomersSectionViewAllLink";
 
 import { CaseStudyCard } from "./CaseStudyCard";
 
@@ -14,7 +21,7 @@ export function CaseStudyLibraryPreview() {
 
   const { caseStudies: copy } = CUSTOMERS_PAGE;
 
-  const previews = hasCaseStudies() ? getCaseStudyPreviews(8) : [];
+  const previews = hasCaseStudies() ? getCaseStudyPreviews(3) : [];
 
 
 
@@ -42,13 +49,21 @@ export function CaseStudyLibraryPreview() {
 
           <p className="mt-2 text-[14px] leading-relaxed text-brand-muted">{copy.supporting}</p>
 
+          {previews.length > 0 ? (
+            <CustomersSectionViewAllLink
+              href={CUSTOMERS_IN_PAGE_LINKS.viewAllCaseStudies.href}
+              label={CUSTOMERS_IN_PAGE_LINKS.viewAllCaseStudies.label}
+              className="mt-4"
+            />
+          ) : null}
+
         </div>
 
 
 
         {previews.length > 0 ? (
 
-          <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="cust-case-studies-library-grid mt-6 min-w-0" role="list">
 
             {previews.map((study, index) => (
 
@@ -58,11 +73,13 @@ export function CaseStudyLibraryPreview() {
 
                 study={study}
 
-                variant={index === 0 ? "row" : "tile"}
+                variant="tile"
 
                 visualIndex={index + 1}
 
-                className={index === 0 ? "sm:col-span-2 lg:col-span-3 lg:rounded-lg lg:border lg:border-brand-line lg:bg-white lg:p-1" : ""}
+                libraryLayout
+
+                className="min-w-0 max-w-none"
 
               />
 

@@ -1,4 +1,5 @@
 import "@/app/customers/customers-typography.css";
+import "@/app/customers/customers-visual.css";
 
 export function CustomersTypographyRoot({ children }: { children: React.ReactNode }) {
   return (
