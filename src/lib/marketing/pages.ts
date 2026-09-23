@@ -80,7 +80,8 @@ export const MARKETING_PAGES: Record<string, MarketingPageConfig> = {
   },
   comparisons: {
     title: `Construction Software Comparisons | ${base}`,
-    description: "Compare VertexBuild with other construction management platforms.",
+    description:
+      "Navigate structured, evidence-based comparisons of construction management platforms from VertexBuild.",
     breadcrumbs: [{ label: "Home", href: ROUTES.home }, { label: "Comparisons" }],
   },
   comparisonProcore: {

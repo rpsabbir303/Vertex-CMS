@@ -1,0 +1,25 @@
+/**
+ * Background-only: let the existing ResourceAbstractSystem read through section
+ * bands (same approach as Help Center / Guides listing). Does not change layout.
+ */
+/* Match /resources/help band opacities so ResourceAbstractSystem reads through. */
+.comparisons-landing .comparisons-landing-content > section:nth-child(1 of section) {
+  background-color: rgb(238 244 250 / 0.5) !important;
+}
+
+.comparisons-landing .comparisons-landing-content > section:nth-child(2 of section),
+.comparisons-landing .comparisons-landing-content > section:nth-child(4 of section),
+.comparisons-landing .comparisons-landing-content > section:nth-child(6 of section),
+.comparisons-landing .comparisons-landing-content > section:nth-child(8 of section) {
+  background-color: rgb(255 255 255 / 0.58) !important;
+}
+
+.comparisons-landing .comparisons-landing-content > section:nth-child(3 of section),
+.comparisons-landing .comparisons-landing-content > section:nth-child(5 of section),
+.comparisons-landing .comparisons-landing-content > section:nth-child(7 of section) {
+  background-color: rgb(238 244 250 / 0.38) !important;
+}
+
+.comparisons-landing .comparisons-landing-content > section:last-child {
+  background-color: var(--color-brand-navy, #08233f) !important;
+}
