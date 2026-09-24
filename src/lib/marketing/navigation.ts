@@ -57,6 +57,9 @@ export const ROUTES = {
   about: "/company/about",
   team: "/company/team",
   careers: "/company/careers",
+  /** Job application — `/company/careers/[slug]/apply` */
+  careersJobApply: (slug: string) => `/company/careers/${slug}/apply` as const,
+  careersJobApplyConfirmation: (slug: string) => `/company/careers/${slug}/apply/confirmation` as const,
   contact: "/contact",
   contactSuccess: "/contact/success",
   legalTerms: "/terms",

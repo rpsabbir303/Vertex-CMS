@@ -15,6 +15,7 @@ type Props = {
   valid?: boolean;
   touched?: boolean;
   required?: boolean;
+  inputClassName?: string;
 };
 
 export function TextAreaField({
@@ -32,11 +33,12 @@ export function TextAreaField({
   valid,
   touched,
   required,
+  inputClassName,
 }: Props) {
   return (
     <FormField
       id={id}
-      label={optional ? `${label} (optional)` : label}
+      label={label}
       error={error}
       hint={hint}
       valid={valid}
@@ -52,7 +54,7 @@ export function TextAreaField({
         disabled={disabled}
         required={required}
         placeholder={placeholder}
-        className={`${authInputClass({ error, valid, touched })} min-h-[96px] resize-y`}
+        className={inputClassName ?? `${authInputClass({ error, valid, touched })} min-h-[96px] resize-y`}
         aria-invalid={!!error}
         aria-describedby={error ? `${id}-error` : undefined}
       />

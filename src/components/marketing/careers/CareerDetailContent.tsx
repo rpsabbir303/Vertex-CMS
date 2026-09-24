@@ -1,6 +1,5 @@
 "use client";
 
-import { useState } from "react";
 import Link from "next/link";
 import { Reveal } from "@/components/Reveal";
 import { CompanyCanvas, CompanyNav } from "@/components/marketing/company/CompanyCanvas";
@@ -8,7 +7,7 @@ import { useMarketing } from "@/components/marketing/MarketingProviders";
 import type { CareerJob } from "@/lib/marketing/careers/content";
 import { careerDetailPath, getAdjacentJobs } from "@/lib/marketing/careers/content";
 import { ROUTES } from "@/lib/marketing/navigation";
-import { CareerDetailApply, type CareerApplyState } from "./CareerDetailApply";
+import { CareerDetailApply } from "./CareerDetailApply";
 import { CareerDetailFlowMark, CareerDetailVisual } from "./CareerDetailVisual";
 
 type Props = {
@@ -46,29 +45,11 @@ export function CareerDetailContent({ job }: Props) {
   const { t } = useMarketing();
   const d = t.careers.detail;
   const applyLabel = t.careers.openPositions.applyNow;
-  const [applyState, setApplyState] = useState<CareerApplyState>("idle");
-
-  async function runDemoApply() {
-    if (applyState === "applying" || applyState === "success") return;
-    setApplyState("applying");
-    try {
-      await new Promise((resolve) => setTimeout(resolve, 700));
-      setApplyState("success");
-    } catch {
-      setApplyState("error");
-    }
-  }
 
   const applyProps = {
     label: applyLabel,
-    applyingLabel: d.applying,
-    demoSuccessLabel: d.applyDemoSuccess,
-    errorLabel: d.applyError,
     pendingLabel: d.applyPending,
     demoSupporting: d.applyDemoSupporting,
-    state: applyState,
-    onApply: () => void runDemoApply(),
-    onRetry: () => setApplyState("idle"),
   };
 
   if (!job) {

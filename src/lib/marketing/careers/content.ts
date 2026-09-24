@@ -49,8 +49,8 @@ export const careersPageMeta = {
 /** Approved open roles — empty until Vertex publishes real listings. */
 export const careersJobs: CareerJob[] = [];
 
-const DEMO_ARRANGEMENT = "Remote / Hybrid — Demo";
-const DEMO_LOCATION = "Demo Location";
+const DEMO_ARRANGEMENT = "Remote / Hybrid";
+const DEMO_LOCATION = "San Francisco, CA";
 
 /** Demo listings for UI review only — not real hiring opportunities. */
 export const careersDemoJobs: CareerJob[] = [
@@ -191,6 +191,23 @@ export function getJobBySlug(slug: string, jobs: CareerJob[] = getPublishedJobs(
 
 export function careerDetailPath(slug: string): string {
   return `/company/careers/${slug}`;
+}
+
+export function careerApplicationPath(slug: string): string {
+  return `/company/careers/${slug}/apply`;
+}
+
+export function careerApplicationConfirmationPath(slug: string): string {
+  return `/company/careers/${slug}/apply/confirmation`;
+}
+
+/** Resolve a published vacancy by slug regardless of open/closed status (apply guardrails). */
+export function getPublishedJobBySlug(slug: string, jobs: CareerJob[] = getPublishedJobs()): CareerJob | undefined {
+  return jobs.find((job) => job.slug === slug);
+}
+
+export function isJobOpenForApplications(job: CareerJob): boolean {
+  return job.status === "open";
 }
 
 export function getAdjacentJobs(slug: string, jobs: CareerJob[] = getOpenJobs()) {

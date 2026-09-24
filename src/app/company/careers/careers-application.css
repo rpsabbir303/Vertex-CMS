@@ -1,0 +1,37 @@
+.careers-application-shell {
+  width: 100%;
+  min-width: 0;
+  max-width: 72rem;
+}
+
+.careers-application-form .careers-application-field label {
+  font-size: 0.875rem;
+  line-height: 1.35;
+}
+
+.careers-application-form .careers-application-field .careers-application-input {
+  min-height: 3.125rem;
+  padding-top: 0.875rem;
+  padding-bottom: 0.875rem;
+  font-size: 0.9375rem;
+  line-height: 1.45;
+}
+
+.careers-application-form .careers-application-textarea {
+  min-height: 9.5rem;
+  padding-top: 0.875rem;
+  padding-bottom: 0.875rem;
+  font-size: 0.9375rem;
+  line-height: 1.65;
+}
+
+.careers-application-form .careers-application-consent {
+  font-size: 0.875rem;
+  line-height: 1.65;
+}
+
+.careers-application-form .careers-application-consent input[type="checkbox"] {
+  width: 1.125rem;
+  height: 1.125rem;
+  margin-top: 0.2rem;
+}
