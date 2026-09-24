@@ -1,8 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { useRouter } from "next/navigation";
-import { FormEvent, useEffect, useMemo, useState, type ReactNode } from "react";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import { FormEvent, Suspense, useEffect, useMemo, useState, type ReactNode } from "react";
 
 import "@/app/company/careers/careers-application.css";
 
@@ -11,22 +11,23 @@ import { authInputAria } from "@/components/auth/FormField";
 import { TextAreaField } from "@/components/conversion/TextAreaField";
 import { CompanyCanvas, CompanyNav } from "@/components/marketing/company/CompanyCanvas";
 import { useMarketing } from "@/components/marketing/MarketingProviders";
+import { saveApplicationDraft } from "@/lib/marketing/careers/application/applicationSession";
 import {
-  loadApplicationDraft,
-  saveApplicationDraft,
-} from "@/lib/marketing/careers/application/applicationSession";
+  applicationStepParamToView,
+  applicationStepQuery,
+  parseApplicationStepParam,
+  type ApplicationStepParam,
+} from "@/lib/marketing/careers/application/applyStepRouting";
 import { careersApplicationConfig } from "@/lib/marketing/careers/application/config";
 import { careerApplyInputClass, careerApplyTextareaClass } from "@/lib/marketing/careers/application/formStyles";
+import {
+  emptyValues,
+  resolveInitialApplicationState,
+} from "@/lib/marketing/careers/application/initialApplicationState";
 import {
   emptyProfessionalExperience,
   type ProfessionalExperienceFormValues,
 } from "@/lib/marketing/careers/application/professionalExperienceTypes";
-import {
-  hasMeaningfulDraftValues,
-  presentationalApplicationValues,
-  presentationalProfessionalExperience,
-  presentationalResumeFile,
-} from "@/lib/marketing/careers/application/presentationalDefaults";
 import { submitJobApplication } from "@/lib/marketing/careers/application/submitApplication";
 import type { JobApplicationFormValues } from "@/lib/marketing/careers/application/types";
 import { validateJobApplication } from "@/lib/marketing/careers/application/validation";
@@ -47,18 +48,8 @@ type Step = "application" | "review";
 
 type Props = {
   job: CareerJob;
-};
-
-const emptyValues: JobApplicationFormValues = {
-  fullName: "",
-  email: "",
-  phone: "",
-  location: "",
-  linkedInUrl: "",
-  portfolioUrl: "",
-  coverLetter: "",
-  privacyConsent: false,
-  vacancyTermsAck: false,
+  /** From server `searchParams` — matches first paint for direct URL loads and HTML-to-Figma. */
+  initialApplicationStep: ApplicationStepParam;
 };
 
 function JobApplicationProgress({ step, copy }: { step: Step; copy: { aria: string; a: string; b: string } }) {
@@ -95,19 +86,43 @@ function JobApplicationProgress({ step, copy }: { step: Step; copy: { aria: stri
   );
 }
 
-export function JobApplicationView({ job }: Props) {
+export function JobApplicationView(props: Props) {
+  return (
+    <Suspense fallback={<JobApplicationViewContent {...props} />}>
+      <JobApplicationViewWithSearchParams {...props} />
+    </Suspense>
+  );
+}
+
+function JobApplicationViewWithSearchParams(props: Props) {
+  const searchParams = useSearchParams();
+  return <JobApplicationViewContent {...props} urlStepParam={searchParams.get("step")} />;
+}
+
+function JobApplicationViewContent({
+  job,
+  initialApplicationStep,
+  urlStepParam,
+}: Props & { urlStepParam?: string | null }) {
   const router = useRouter();
+  const pathname = usePathname();
   const { t } = useMarketing();
   const a = t.careers.application;
   const d = t.careers.detail;
 
-  const [step, setStep] = useState<Step>("application");
-  const [values, setValues] = useState<JobApplicationFormValues>(emptyValues);
+  const stepParam = parseApplicationStepParam(urlStepParam ?? initialApplicationStep);
+  const step: Step = applicationStepParamToView(stepParam);
+
+  const readBrowserDraft = typeof window !== "undefined";
+  const [values, setValues] = useState(() => resolveInitialApplicationState(job, readBrowserDraft).values);
   const [touched, setTouched] = useState<Partial<Record<keyof JobApplicationFormValues, boolean>>>({});
   const [fieldErrors, setFieldErrors] = useState<Partial<Record<keyof JobApplicationFormValues | "resume", string>>>({});
-  const [professionalExperience, setProfessionalExperience] =
-    useState<ProfessionalExperienceFormValues>(emptyProfessionalExperience);
-  const [resume, setResume] = useState<ResumeUploadState>({ status: "empty", progress: 0, file: null });
+  const [professionalExperience, setProfessionalExperience] = useState(
+    () => resolveInitialApplicationState(job, readBrowserDraft).professionalExperience,
+  );
+  const [resume, setResume] = useState<ResumeUploadState>(
+    () => resolveInitialApplicationState(job, readBrowserDraft).resume,
+  );
   const [submitting, setSubmitting] = useState(false);
   const [bannerError, setBannerError] = useState<string | null>(null);
   const [bannerCode, setBannerCode] = useState<string | null>(null);
@@ -115,24 +130,16 @@ export function JobApplicationView({ job }: Props) {
   const open = isJobOpenForApplications(job);
 
   useEffect(() => {
-    const draft = loadApplicationDraft(job.slug);
-    if (hasMeaningfulDraftValues(draft?.values)) {
-      setValues({ ...emptyValues, ...draft!.values });
-      if (draft?.professionalExperience) {
-        setProfessionalExperience({ ...emptyProfessionalExperience, ...draft.professionalExperience });
-      }
-      if (draft?.resume) {
-        setResume({ status: "valid", progress: 100, file: draft.resume });
-      }
-      return;
-    }
-
-    if (job.demoContent) {
-      setValues({ ...emptyValues, ...presentationalApplicationValues });
-      setProfessionalExperience({ ...emptyProfessionalExperience, ...presentationalProfessionalExperience });
-      setResume({ status: "valid", progress: 100, file: presentationalResumeFile });
-    }
+    const bundle = resolveInitialApplicationState(job, true);
+    setValues(bundle.values);
+    setProfessionalExperience(bundle.professionalExperience);
+    setResume(bundle.resume);
   }, [job.slug, job.demoContent]);
+
+  function navigateToApplicationStep(target: ApplicationStepParam) {
+    router.push(`${pathname}?${applicationStepQuery(target)}`, { scroll: false });
+    window.scrollTo({ top: 0, behavior: target === "review" ? "smooth" : "auto" });
+  }
 
   useEffect(() => {
     saveApplicationDraft(job.slug, {
@@ -197,8 +204,7 @@ export function JobApplicationView({ job }: Props) {
       vacancyTermsAck: true,
     });
     if (!validateStepApplication()) return;
-    setStep("review");
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    navigateToApplicationStep("review");
   }
 
   async function onSubmit(e: FormEvent) {
@@ -210,7 +216,7 @@ export function JobApplicationView({ job }: Props) {
       return;
     }
     if (!validateStepApplication()) {
-      setStep("application");
+      navigateToApplicationStep("information");
       return;
     }
 
@@ -236,7 +242,7 @@ export function JobApplicationView({ job }: Props) {
         setBannerCode("vacancy_unavailable");
       } else if (result.errorCode === "validation") {
         setFieldErrors(result.fieldErrors ?? {});
-        setStep("application");
+        navigateToApplicationStep("information");
         setBannerError(result.message);
       } else {
         setBannerError(a.errorGeneric);
@@ -551,19 +557,31 @@ export function JobApplicationView({ job }: Props) {
                   <p className="mt-2 text-[15px] leading-relaxed text-brand-muted">{a.reviewIntro}</p>
                 </div>
 
-                <ReviewBlock title={a.reviewVacancy} onEdit={() => setStep("application")} editLabel={a.editSection}>
+                <ReviewBlock
+                  title={a.reviewVacancy}
+                  onEdit={() => navigateToApplicationStep("information")}
+                  editLabel={a.editSection}
+                >
                   <p className="font-medium text-brand-navy">{job.title}</p>
                   {job.location ? <p className="mt-1 text-[14px] text-brand-muted">{job.location}</p> : null}
                 </ReviewBlock>
 
-                <ReviewBlock title={a.reviewCandidate} onEdit={() => setStep("application")} editLabel={a.editSection}>
+                <ReviewBlock
+                  title={a.reviewCandidate}
+                  onEdit={() => navigateToApplicationStep("information")}
+                  editLabel={a.editSection}
+                >
                   <p>{values.fullName}</p>
                   <p className="mt-1 text-[14px] text-brand-muted">{values.email}</p>
                   <p className="mt-1 text-[14px] text-brand-muted">{values.phone}</p>
                   <p className="mt-1 text-[14px] text-brand-muted">{values.location}</p>
                 </ReviewBlock>
 
-                <ReviewBlock title={a.reviewProfile} onEdit={() => setStep("application")} editLabel={a.editSection}>
+                <ReviewBlock
+                  title={a.reviewProfile}
+                  onEdit={() => navigateToApplicationStep("information")}
+                  editLabel={a.editSection}
+                >
                   <p className="text-[14px] text-brand-muted">
                     {a.fieldLinkedIn}: {values.linkedInUrl.trim() || a.reviewNotProvided}
                   </p>
@@ -573,7 +591,11 @@ export function JobApplicationView({ job }: Props) {
                 </ReviewBlock>
 
                 {careersApplicationConfig.enableProfessionalExperienceFields ? (
-                  <ReviewBlock title={a.reviewExperience} onEdit={() => setStep("application")} editLabel={a.editSection}>
+                  <ReviewBlock
+                    title={a.reviewExperience}
+                    onEdit={() => navigateToApplicationStep("information")}
+                    editLabel={a.editSection}
+                  >
                     <p className="text-[14px] text-brand-navy">
                       {professionalExperience.currentRole}
                       {professionalExperience.currentCompany
@@ -594,17 +616,29 @@ export function JobApplicationView({ job }: Props) {
                   </ReviewBlock>
                 ) : null}
 
-                <ReviewBlock title={a.reviewCoverLetter} onEdit={() => setStep("application")} editLabel={a.editSection}>
+                <ReviewBlock
+                  title={a.reviewCoverLetter}
+                  onEdit={() => navigateToApplicationStep("information")}
+                  editLabel={a.editSection}
+                >
                   <p className="whitespace-pre-wrap text-[14px] leading-relaxed text-brand-navy/90">
                     {values.coverLetter.trim() || a.reviewNotProvided}
                   </p>
                 </ReviewBlock>
 
-                <ReviewBlock title={a.reviewResume} onEdit={() => setStep("application")} editLabel={a.editSection}>
+                <ReviewBlock
+                  title={a.reviewResume}
+                  onEdit={() => navigateToApplicationStep("information")}
+                  editLabel={a.editSection}
+                >
                   <p className="text-[14px] font-medium text-brand-navy">{resume.file?.name ?? a.reviewNotProvided}</p>
                 </ReviewBlock>
 
-                <ReviewBlock title={a.reviewConsent} onEdit={() => setStep("application")} editLabel={a.editSection}>
+                <ReviewBlock
+                  title={a.reviewConsent}
+                  onEdit={() => navigateToApplicationStep("information")}
+                  editLabel={a.editSection}
+                >
                   <ul className="list-disc space-y-1 pl-5 text-[14px] text-brand-muted">
                     <li>{values.privacyConsent ? a.privacyConsentLabel : a.reviewNotProvided}</li>
                     <li>{values.vacancyTermsAck ? a.vacancyTermsLabel : a.reviewNotProvided}</li>
@@ -616,7 +650,7 @@ export function JobApplicationView({ job }: Props) {
                     type="button"
                     className="text-[14px] font-semibold text-brand-muted hover:text-brand-navy"
                     disabled={submitting}
-                    onClick={() => setStep("application")}
+                    onClick={() => navigateToApplicationStep("information")}
                   >
                     {a.editSection}
                   </button>

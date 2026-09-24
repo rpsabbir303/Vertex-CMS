@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 
 import { Breadcrumbs } from "@/components/marketing/Breadcrumbs";
 import { JobApplicationView } from "@/components/marketing/careers/application/JobApplicationView";
+import { parseApplicationStepParam } from "@/lib/marketing/careers/application/applyStepRouting";
 import {
   careerApplicationPath,
   careerDetailPath,
@@ -11,7 +12,10 @@ import {
 } from "@/lib/marketing/careers/content";
 import { ROUTES } from "@/lib/marketing/navigation";
 
-type PageProps = { params: { slug: string } };
+type PageProps = {
+  params: { slug: string };
+  searchParams?: { step?: string | string[] };
+};
 
 export function generateStaticParams() {
   return getOpenJobs().map((job) => ({ slug: job.slug }));
@@ -31,9 +35,17 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   };
 }
 
-export default function CareerApplyPage({ params }: PageProps) {
+function readStepSearchParam(raw: string | string[] | undefined): string | undefined {
+  if (typeof raw === "string") return raw;
+  if (Array.isArray(raw)) return raw[0];
+  return undefined;
+}
+
+export default function CareerApplyPage({ params, searchParams }: PageProps) {
   const job = getPublishedJobBySlug(params.slug);
   if (!job) notFound();
+
+  const initialApplicationStep = parseApplicationStepParam(readStepSearchParam(searchParams?.step));
 
   return (
     <>
@@ -46,7 +58,7 @@ export default function CareerApplyPage({ params }: PageProps) {
           { label: "Apply" },
         ]}
       />
-      <JobApplicationView job={job} />
+      <JobApplicationView job={job} initialApplicationStep={initialApplicationStep} />
     </>
   );
 }
