@@ -79,8 +79,30 @@
 @media (min-width: 1200px) {
   .cust-case-studies-library-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 1.75rem;
+    gap: 2rem;
   }
+}
+
+.cust-section-rule {
+  height: 1px;
+  background: linear-gradient(90deg, #dce5ef 0%, #dce5ef 42%, transparent 100%);
+}
+
+.cust-case-study-image::after,
+.cust-case-study-image--featured::after {
+  content: "";
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 55%, rgba(8, 35, 63, 0.04) 100%);
+}
+
+.cust-case-study-image--featured::after {
+  background: linear-gradient(135deg, transparent 50%, rgba(8, 35, 63, 0.06) 100%);
+}
+
+.cust-featured-case-study {
+  min-width: 0;
 }
 
 .cust-featured-testimonial-carousel {

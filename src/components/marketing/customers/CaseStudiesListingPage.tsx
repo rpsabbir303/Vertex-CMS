@@ -38,7 +38,8 @@ export function CaseStudiesListingPage() {
         eyebrow={copy.hero.eyebrow}
         headline={copy.hero.headline}
         supporting={copy.hero.supporting}
-        backdropVariant="hero"
+        backdropVariant="caseStudiesHero"
+        layout="split"
       />
 
       <CaseStudiesLibrarySection
@@ -49,7 +50,7 @@ export function CaseStudiesListingPage() {
         supporting={copy.library.supporting}
       />
 
-      <CustomersFinalCta />
+      <CustomersFinalCta showTertiary={false} />
     </div>
   );
 }

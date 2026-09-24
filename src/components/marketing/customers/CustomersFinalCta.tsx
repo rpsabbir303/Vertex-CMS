@@ -8,15 +8,16 @@ import { CustomersSectionBackdrop } from "./visuals/CustomersSectionBackdrop";
 
 
 
-export function CustomersFinalCta() {
+type Props = {
+  /** Hide non-conversion tertiary link (e.g. case studies listing). */
+  showTertiary?: boolean;
+};
 
+export function CustomersFinalCta({ showTertiary = true }: Props) {
   const { finalCta } = CUSTOMERS_PAGE;
 
-
-
   return (
-
-    <section className="relative overflow-hidden bg-brand-navy py-12 sm:py-14" data-design-layer="CustomersFinalCTA">
+    <section className="relative overflow-hidden bg-brand-navy py-11 sm:py-14" data-design-layer="CustomersFinalCTA">
 
       <CustomersSectionBackdrop variant="finalCta" />
 
@@ -50,11 +51,11 @@ export function CustomersFinalCta() {
 
         </div>
 
-        <Link href={finalCta.tertiary.href} className="mt-5 inline-flex text-[13px] font-semibold text-brand-orange hover:underline">
-
-          {finalCta.tertiary.label}
-
-        </Link>
+        {showTertiary ? (
+          <Link href={finalCta.tertiary.href} className="mt-5 inline-flex text-[13px] font-semibold text-brand-orange hover:underline">
+            {finalCta.tertiary.label}
+          </Link>
+        ) : null}
 
       </div>
 

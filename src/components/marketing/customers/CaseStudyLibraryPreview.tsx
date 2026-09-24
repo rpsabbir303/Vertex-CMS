@@ -21,7 +21,7 @@ export function CaseStudyLibraryPreview() {
 
   const { caseStudies: copy } = CUSTOMERS_PAGE;
 
-  const previews = hasCaseStudies() ? getCaseStudyPreviews(3) : [];
+  const previews = hasCaseStudies() ? getCaseStudyPreviews() : [];
 
 
 

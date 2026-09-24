@@ -246,10 +246,9 @@ export function filterCaseStudies(
   });
 }
 
-/** Non-featured stories for grids (featured story has its own editorial block). */
+/** Full catalog in default order — listing UI filters client-side and may badge the featured slug in-grid. */
 export function getCaseStudiesListingGrid(): CaseStudyRecord[] {
-  const featured = getFeaturedCaseStudy();
-  return resolveCaseStudies().filter((s) => s.slug !== featured?.slug);
+  return resolveCaseStudies();
 }
 
 

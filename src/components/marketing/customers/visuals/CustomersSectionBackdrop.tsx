@@ -2,6 +2,7 @@ import { CustomerAbstractGrid } from "./CustomerAbstractGrid";
 
 export type CustomersBackdropVariant =
   | "hero"
+  | "caseStudiesHero"
   | "logoWall"
   | "featured"
   | "caseStudies"
@@ -31,6 +32,7 @@ export function CustomersSectionBackdrop({ variant }: Props) {
     >
       <PageSpine />
       {variant === "hero" ? <HeroLayer /> : null}
+      {variant === "caseStudiesHero" ? <CaseStudiesHeroLayer /> : null}
       {variant === "logoWall" ? <LogoWallLayer /> : null}
       {variant === "featured" ? <FeaturedStoryLayer /> : null}
       {variant === "caseStudies" ? <CaseStudiesLayer /> : null}
@@ -65,6 +67,26 @@ function HeroLayer() {
         <rect x={960} y={80} width={120} height={72} fill="none" stroke="#E8EEF5" strokeWidth={1} rx={4} />
         <line x1={1020} y1={152} x2={1020} y2={220} stroke="#DCE5EF" strokeWidth={1} />
         <circle cx={1020} cy={228} r={3} fill="#FF6A00" opacity={0.5} />
+      </svg>
+    </>
+  );
+}
+
+function CaseStudiesHeroLayer() {
+  return (
+    <>
+      <CustomerAbstractGrid cellSize={28} strength={0.45} heightRatio={0.88} />
+      <svg className="absolute inset-0 h-full w-full" viewBox="0 0 1320 480" {...SVG_COMMON}>
+        <line x1={0} y1={420} x2={1320} y2={420} stroke="#E8EEF5" strokeWidth={1} opacity={0.85} />
+        <line x1={120} y1={80} x2={120} y2={400} stroke="#DCE5EF" strokeWidth={1} strokeDasharray="5 8" opacity={0.5} />
+        <line x1={120} y1={80} x2={360} y2={80} stroke="#E8EEF5" strokeWidth={1} />
+        <circle cx={120} cy={80} r={2.5} fill="#146EF5" opacity={0.35} />
+        <circle cx={360} cy={80} r={2} fill="#FF6A00" opacity={0.45} />
+        <line x1={900} y1={120} x2={1180} y2={120} stroke="#DCE5EF" strokeWidth={1} opacity={0.65} />
+        <line x1={1180} y1={120} x2={1180} y2={240} stroke="#E8EEF5" strokeWidth={1} />
+        <circle cx={1180} cy={240} r={3} fill="#146EF5" opacity={0.3} />
+        <polyline points="1020,320 1100,320 1100,380" fill="none" stroke="#E8EEF5" strokeWidth={1} />
+        <circle cx={1100} cy={380} r={2.5} fill="#FF6A00" opacity={0.4} />
       </svg>
     </>
   );
@@ -124,7 +146,7 @@ function FeaturedStoryLayer() {
 function CaseStudiesLayer() {
   return (
     <>
-      <CustomerAbstractGrid cellSize={28} strength={0.55} heightRatio={0.92} />
+      <CustomerAbstractGrid cellSize={28} strength={0.38} heightRatio={0.88} />
       <svg className="absolute inset-0 h-full w-full" viewBox="0 0 1320 640" {...SVG_COMMON}>
         <line x1={40} y1={180} x2={1280} y2={180} stroke="#DCE5EF" strokeWidth={1} opacity={0.7} />
         <line x1={40} y1={420} x2={1280} y2={420} stroke="#E8EEF5" strokeWidth={1} />
